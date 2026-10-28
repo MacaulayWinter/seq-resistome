@@ -9,12 +9,12 @@
 
 include { CAT_FASTQ          } from '../modules/nf-core/cat/fastq/main'
 include { FASTP              } from '../modules/nf-core/fastp/main'
-include { HOSTILE_FETCH      } from '../modules/nf-core/hostile/fetch/main'
 include { HOSTILE_CLEAN      } from '../modules/nf-core/hostile/clean/main'
 include { UNTAR as UNTAR_CARD } from '../modules/nf-core/untar/main'
 include { RGI_CARDANNOTATION } from '../modules/nf-core/rgi/cardannotation/main'
 include { RGI_BWT            } from '../modules/nf-core/rgi/bwt/main'
 include { HOST_INDEX         } from '../modules/local/host_index/main'
+include { HOST_FETCH         } from '../modules/local/host_fetch/main'
 include { SORTMERNA_INDEX    } from '../modules/local/sortmerna_index/main'
 include { COUNT_16S          } from '../modules/local/count_16s/main'
 include { RESISTOME_TABLES   } from '../modules/local/resistome_tables/main'
@@ -72,8 +72,8 @@ workflow SEQ_RESISTOME {
             HOST_INDEX(file(params.host_fasta, checkIfExists: true))
             ch_index = HOST_INDEX.out.index
         } else {
-            HOSTILE_FETCH(params.host_index)
-            ch_index = HOSTILE_FETCH.out.reference
+            HOST_FETCH(params.host_index)
+            ch_index = HOST_FETCH.out.reference.map { dir -> [ params.host_index, dir ] }
         }
         HOSTILE_CLEAN(FASTP.out.reads, ch_index)
         ch_clean       = HOSTILE_CLEAN.out.fastq

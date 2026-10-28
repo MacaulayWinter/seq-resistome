@@ -20,11 +20,6 @@
             "git_sha": "7f44b7c0164e9e389ffa37fed78dd25d580b21c2",
             "installed_by": ["modules"]
           },
-          "hostile/fetch": {
-            "branch": "master",
-            "git_sha": "7f44b7c0164e9e389ffa37fed78dd25d580b21c2",
-            "installed_by": ["modules"]
-          },
           "rgi/bwt": {
             "branch": "master",
             "git_sha": "7f44b7c0164e9e389ffa37fed78dd25d580b21c2",
