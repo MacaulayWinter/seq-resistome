@@ -1,0 +1,5 @@
+sample	status	has_16s	min_detected	must_detect	must_not_detect
+minigut	analysed	TRUE	5	tet(Q);acrB	rmtH
+mock_community	analysed	TRUE	20	adeB;sul2;APH(6)-Id	
+host_only	no reads left after host removal	NA	0		
+virus_only	analysed	FALSE	0		

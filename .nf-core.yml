@@ -1,0 +1,4 @@
+repository_type: pipeline
+nf_core_version: 4.1.0
+template:
+  version: 0.1.0dev
