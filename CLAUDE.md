@@ -330,18 +330,25 @@ samplesheet (+ seq-triage results) ─► main.nf: header check (D4), which samp
 | D15 | **V1 round 2 (fresh data, after the 16S fix): FAILED as re-registered; stopped for the user** (2026-10-29; `validation/V1/outcomes_round2/`). Mark 1 detection **FAIL** (348 of 352; all 4 misses are CMY-181 in AH21H052); mark 2 specificity **FAIL** (9 unexplained families in 24 samples); mark 3 accuracy **FAIL** (pure genomes 37 of 51 units within 1.5x; 8x mixtures 33 of 38 within 2x); mark 4 edge cases E1-E4 **PASS**; mark 5 CARD cache **PASS**. 16S estimates 1.13-1.15x of truth (round 1: 1.25-1.34x). **Protein-only hits excluded, 15** (listed in full in `protein_only_hits.tsv`): AH21H052 vanG, KpnF, KpnE, ArnT, rsmA; CPO413 KpnF, KpnE, vanG, leuO, ArnT, rsmA; KPE040 leuO, qacG, rsmA, vanG. (Round-1 genomes, development: 17.) **Diagnosis:** (1) Most failures are still CARD labels, not counts. AH21H052's chromosomal ampC is labelled CMY-181 by RGI `main` (76% protein identity, Strict) while reads map, correctly, to EC-5 (E. coli's own ampC, 98.7% covered): one gene gives the 4 "misses", 4 "unexplained" EC families and an accuracy 0. Aminoglycoside bifunctional proteins (AAC(3)-Ib/AAC(6')-Ib3) carry a family label sharing no term with AAC(6'). Efflux pumps and porins carry overlapping multi-term labels, and assigning each detected gene to one label splits one true total between neighbours: E. coli 20.7x on one label and 0 on its neighbours (round-1 genomes: summed over the three labels, observed 2.49 vs truth 2.43). (2) **Genuine pipeline weaknesses:** a 2-read call on a long housekeeping homolog (Bifidobacterium rpoB, 2 reads covering 5% of 3.5 kb) passes the detection rule; ABC transporters are undercounted (0.37-0.47x); CAT and porins overcounted (1.6-2.3x). No further fix was made (the user's condition: one fix cycle). | Negative results reported as they are; the next step is the user's. |
 | D16 | **V1 round 3 re-registered, scored by location** (user, 2026-10-29: "Round 3 by location"; `validation/V1/PREREGISTRATION_round3.md`, committed before any round-3 data was chosen, fetched or looked at). A detected gene is matched to a truth gene by where its CARD reference DNA lies in the assembly (>= 80% identity overlapping >= 50% of the locus), not by CARD's label wording; loci linked by a shared gene are scored as one group, so one true total is never split between neighbours. Specificity: a detected gene is explained if its reference is present in the spike genome (>= 80% over >= 50% of the reference) or it is detected in the background alone. Pipeline unchanged; its weak spots are written into the README's limitations first. Fresh data: three RefSeq complete genomes of PRJNA1287288 outside layer D (seeded draw, `set.seed(20261030)`), backgrounds' backup 2 (gut SRR26421003, wastewater SRR31394446), ART seed 20261030, HG002 pairs 400,001-600,000. Mark numbers unchanged. Any mark failing: stop and ask. | The round-1/2 failures were mostly CARD label disagreements; location tests what reads actually measure. |
 | D17 | **V1 round 3 (by location, fresh E. coli genomes AH21C062, ECE218, ECAMP047; backgrounds SRR26421003, SRR31394446): marks 1-3 FAIL narrowly, 4-5 PASS; stopped for the user** (2026-10-29; `validation/V1/outcomes_round3/`). Mark 1: 543 of 544 truth loci (miss: EC-5 at 2x in wastewater). Mark 2: 22 unexplained of 2,337 detected genes (0.9%): LptD (17), MdtK (3), eptB (2), all in E. coli mixtures; E. coli's own copies of these genes are only partly similar to CARD's references (none present at >= 80% over >= 50% of the reference), and reads covering 8-59% of the reference pass the detection rule. Mark 3: pure genomes 132 of 136 groups within 1.5x (outside: H-NS 1.61, QnrS1 1.51, CMY-181 0.66, mdtE 0.54); 8x mixtures 222 of 222 within 2x. Mark 4 (E1-E4) and mark 5 PASS. 16S 1.05-1.10x of truth. 15 protein-only hits excluded, listed in full (KpnE, KpnF, vanG, rsmA, ArnT in each genome; `protein_only_hits.tsv`). **No threshold fixes mark 2**: the unexplained calls' breadth ratios (0.55-1.16) overlap the genuine calls' (5% below 0.58); a 0.8 cut would keep 11 of the 22 and lose 491 genuine calls. Development rescoring of round 1 by location (not validation): detection 486/500, 27 unexplained, accuracy 101/118 pure and 182/195 mixtures. | The pass marks are applied as written; the next step is the user's. |
+| D18 | **v0.1 recorded as unvalidated; no v0.1.0 tag** (user, 2026-10-29: "Record unvalidated"). V1 failed marks 1-3 in all three pre-registered rounds (D12, D15, D17), and the user's rule stands: a failed mark blocks a release. The counts are kept usable and the weakness documented: the README shows every round's result, and its limitations name the partial-homolog calls (E. coli LptD, MdtK, eptB), the protein-only genes reads cannot see, and the per-family biases. Work moves to v0.2, which builds on v0.1's tables; a later validation (a V2 with a different design, e.g. a caller that reports read identity) can still earn a tag. | User's choice of option B; the failed-mark rule is kept intact. |
 
 ## Status
 
-**2026-10-29 (evening).** Built locally on branch `v0.1-build`;
-milestones 1-5 pass every local test. GitHub repository not created yet
-(the user creates it). **V1: three rounds, marks 1-3 failed each time**
-(D12, D15, D17), the last narrowly (detection 99.8%, specificity 99.1%,
-accuracy 354 of 358 units); edge cases and the CARD cache pass every time.
-What remains is a property of read mapping, not a bug: reads from a host
-bacterium's own genes that only partly resemble a CARD gene (E. coli LptD)
-are called detected, and no read-count or coverage rule separates them.
-Stopped for the user (a failed mark blocks, D1 section 5).
+**2026-10-29 (evening).** v0.1 is built (milestones 1-5) and **recorded as
+unvalidated, no tag** (D18): V1 failed marks 1-3 in three pre-registered
+rounds (D12, D15, D17); edge cases and the CARD cache always passed. All
+work is local on branch `v0.1-build`.
+
+**Next:**
+1. The user creates the empty public repository `MacaulayWinter/seq-resistome`
+   on GitHub (Claude Code's permission check refuses `gh repo create`).
+   Then: push, protect `main`, PRs (milestones 1-5, then V1 records), CI,
+   merge when green after review. No tag.
+2. v0.2, the compendium, on the compendium engine (its design approved
+   2026-10-29); its final name is still the user's choice.
+3. Follow-ups: smaller resource labels for one-off tasks (SORTMERNA_INDEX,
+   RGI_CARDANNOTATION; D14); a pipeline-level way to flag partial-homolog
+   calls (D17), tested by a future V2.
 
 ## Open questions
 

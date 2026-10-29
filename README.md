@@ -6,8 +6,9 @@ cleaned, host reads removed, and reads from ARGs counted against
 reads, RPM, RPKM, copies per 16S rRNA gene copy) with every denominator
 shown.
 
-**Status:** v0.1 under construction. Validation V1 has run three
-pre-registered rounds and **not passed** (see Validation below). The plan and every decision are in
+**Status:** v0.1, **unvalidated** (no release tag). Validation V1 ran three
+pre-registered rounds and did not pass them (see Validation below); the
+counts are usable with the limitations listed. The plan and every decision are in
 [CLAUDE.md](CLAUDE.md).
 
 It is the first domain pipeline after
