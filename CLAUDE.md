@@ -404,3 +404,19 @@ changed, how it was verified. Fixes are never applied silently.
 - *How verified:* the CARD cache tests (14) and the test profile pass
   locally after the move; the lint job re-runs on this push (it cannot run
   on the Mac, D2). Any lint findings it then reports get their own entry.
+
+**3. 2026-10-29, PR #1, job "End-to-end (-profile test), CARD cache, input
+checks"** (first run, commit e81d97f).
+- *What failed:* the samplesheet tests: the three sheets that should be
+  accepted (study metadata columns, seq-triage's own columns, a UTF-8
+  byte-order mark) did exit cleanly, yet were reported as failures.
+- *Why:* the test looked for the word "SUCCESS" in Nextflow's console
+  output. In quiet mode (`-q`) Nextflow prints that line on the Mac but not
+  on GitHub's runner, so the test was checking a display detail, not the
+  pipeline.
+- *What changed:* `tests/input/test_input.sh` now also reads the run's log
+  file and, for a sheet that should pass, looks for the pipeline's own
+  "CARD 4.0.2 (" line, written only after every input check has passed.
+- *How verified:* 15 of 15 locally; the job re-runs on this push. The
+  end-to-end runs themselves (plain and seq-triage handoff) had passed in
+  the failing job.

@@ -19,8 +19,14 @@ touch "$t/a_1.fastq.gz" "$t/a_2.fastq.gz" "$t/b_1.fastq.gz"
 expect() {
     local name=$1 want=$2 text=$3; shift 3
     printf '%s\n' "$@" > "$t/sheet.csv"
-    out=$(nextflow -q run "$root/main.nf" -preview -profile docker --input "$t/sheet.csv" --outdir "$t/out" \
+    # The run log, not the console: under -q the console's "SUCCESS" line
+    # appears on some machines and not others (CI fix 3). The log always
+    # holds the pipeline's own messages, e.g. the CARD line written only
+    # once every input check has passed.
+    rm -f "$t/nf.log"
+    out=$(nextflow -log "$t/nf.log" -q run "$root/main.nf" -preview -profile docker --input "$t/sheet.csv" --outdir "$t/out" \
           -work-dir "$t/work" ${EXTRA:-} 2>&1); rc=$?
+    out="$out"$'\n'"$(cat "$t/nf.log" 2>/dev/null)"
     if { [ "$want" = stop ] && [ $rc -ne 0 ]; } || { [ "$want" = pass ] && [ $rc -eq 0 ]; } && [[ $out == *"$text"* ]]; then
         pass=$((pass + 1)); echo "  ok:   $name"
     else
@@ -39,9 +45,9 @@ expect "an empty sample name stops"         stop "no sample name"               
 expect "a missing file stops"               stop "No such file or directory"                         "sample,fastq_1" "s1,$t/nope.fastq.gz"
 expect "paired and single lanes of one sample are left out" stop "some files of this sample are paired and some single-end" \
                                             "sample,fastq_1,fastq_2" "s1,$A,$B" "s1,$t/b_1.fastq.gz,"
-expect "study metadata columns pass"        pass "SUCCESS"                                          "sample,fastq_1,fastq_2,site,day,treatment_group" "s1,$A,$B,gut,1,ctrl"
-expect "seq-triage's own columns pass"      pass "SUCCESS"                                          "sample,fastq_1,fastq_2,platform,sample_type,target_taxid" "s1,$A,$B,illumina,metagenome,"
-expect "a UTF-8 byte-order mark passes"     pass "SUCCESS"                                          $'\xEF\xBB\xBFsample,fastq_1' "s1,$A"
+expect "study metadata columns pass"        pass "CARD 4.0.2 ("                                      "sample,fastq_1,fastq_2,site,day,treatment_group" "s1,$A,$B,gut,1,ctrl"
+expect "seq-triage's own columns pass"      pass "CARD 4.0.2 ("                                      "sample,fastq_1,fastq_2,platform,sample_type,target_taxid" "s1,$A,$B,illumina,metagenome,"
+expect "a UTF-8 byte-order mark passes"     pass "CARD 4.0.2 ("                                      $'\xEF\xBB\xBFsample,fastq_1' "s1,$A"
 
 mkdir -p "$t/triage"
 printf 'sample\tverdict\tverdict_reason\tdetected_type\ttype_reason\tdetected_platform\ns1\tPASS\t\tmetagenome\t\tillumina\ns2\tPASS\t\tmetagenome\t\tillumina\n' > "$t/triage/triage_summary.tsv"
