@@ -1,0 +1,120 @@
+genome	aro_accession	aro_term	family	copies
+GCF_051560495.1	3002660	APH(6)-Id	APH(6)	1
+GCF_051560495.1	3005059	LptD	ATP-binding cassette (ABC) antibiotic efflux pump	1
+GCF_051560495.1	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	1
+GCF_051560495.1	3004656	catII from Escherichia coli K-12	chloramphenicol acetyltransferase (CAT)	1
+GCF_051560495.1	3004111	FosA6	fosfomycin thiol transferase	1
+GCF_051560495.1	3004122	Klebsiella pneumoniae OmpK37	General Bacterial Porin with reduced permeability to beta-lactams	1
+GCF_051560495.1	3005044	OmpA	General Bacterial Porin with reduced permeability to peptide antibiotics	1
+GCF_051560495.1	3004588	Klebsiella pneumoniae KpnG	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051560495.1	3004597	Klebsiella pneumoniae KpnH	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051560495.1	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051560495.1	3004684	MCR-9.1	MCR phosphoethanolamine transferase	1
+GCF_051560495.1	3007682	MdtQ	Outer Membrane Porin (Opr)	1
+GCF_051560495.1	3005053	ArnT	pmr phosphoethanolamine transferase	1
+GCF_051560495.1	3005047	eptB	pmr phosphoethanolamine transferase	1
+GCF_051560495.1	3002707	QnrA1	quinolone resistance protein (qnr)	1
+GCF_051560495.1	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051560495.1	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051560495.1	3007509	Shigella flexneri acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051560495.1	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051560495.1	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	1
+GCF_051560495.1	3001070	SHV-11	SHV beta-lactamase	1
+GCF_051560495.1	3001071	SHV-12	SHV beta-lactamase	1
+GCF_051560495.1	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	1
+GCF_051560495.1	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	1
+GCF_051560495.1	3000410	sul1	sulfonamide resistant sul	1
+GCF_051560495.1	3003015	dfrA19	trimethoprim resistant dihydrofolate reductase dfr	1
+GCF_051560505.1	3004623	AAC(3)-IId	AAC(3)	1
+GCF_051560505.1	3002581	AAC(6')-Ib10	AAC(6')	1
+GCF_051560505.1	3001838	ACT-17	ACT beta-lactamase	1
+GCF_051560505.1	3002660	APH(6)-Id	APH(6)	1
+GCF_051560505.1	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	1
+GCF_051560505.1	3002676	catB3	chloramphenicol acetyltransferase (CAT)	2
+GCF_051560505.1	3002804	FosA2	fosfomycin thiol transferase	1
+GCF_051560505.1	3002195	IMP-4	IMP beta-lactamase	1
+GCF_051560505.1	3000316	mphA	macrolide phosphotransferase (MPH)	1
+GCF_051560505.1	3003839	Mrx	macrolide phosphotransferase (MPH)	1
+GCF_051560505.1	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051560505.1	3005010	qacEdelta1	major facilitator superfamily (MFS) antibiotic efflux pump	2
+GCF_051560505.1	3000168	tet(D)	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051560505.1	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051560505.1	3004684	MCR-9.1	MCR phosphoethanolamine transferase	1
+GCF_051560505.1	3001396	OXA-1	OXA-1-like beta-lactamase	1
+GCF_051560505.1	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051560505.1	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051560505.1	3007509	Shigella flexneri acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051560505.1	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051560505.1	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	1
+GCF_051560505.1	3002848	arr-3	rifampin ADP-ribosyltransferase (Arr)	1
+GCF_051560505.1	3001071	SHV-12	SHV beta-lactamase	1
+GCF_051560505.1	3000410	sul1	sulfonamide resistant sul	3
+GCF_051560505.1	3000873	TEM-1	TEM beta-lactamase	2
+GCF_051560505.1	3003015	dfrA19	trimethoprim resistant dihydrofolate reductase dfr	1
+GCF_051618705.1	3002639	APH(3'')-Ib	APH(3'')	1
+GCF_051618705.1	3002660	APH(6)-Id	APH(6)	1
+GCF_051618705.1	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	1
+GCF_051618705.1	3003952	YojI	ATP-binding cassette (ABC) antibiotic efflux pump	1
+GCF_051618705.1	3001878	CTX-M-15	CTX-M beta-lactamase	1
+GCF_051618705.1	3006878	EC-18	EC beta-lactamase	1
+GCF_051618705.1	3003841	kdpE	kdpDE; antibiotic efflux regulatory protein	1
+GCF_051618705.1	3000027	emrA	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051618705.1	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051618705.1	3000206	emrK	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051618705.1	3000254	emrY	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051618705.1	3001328	Escherichia coli mdfA	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051618705.1	3001329	mdtG	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051618705.1	3001216	mdtH	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051618705.1	3001214	mdtM	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051618705.1	3003548	mdtN	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051618705.1	3003549	mdtO	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051618705.1	3003550	mdtP	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051618705.1	3000165	tet(A)	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051618705.1	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051618705.1	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051618705.1	3000832	evgA	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051618705.1	3000833	evgS	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051618705.1	3000676	H-NS	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051618705.1	3003576	eptA	pmr phosphoethanolamine transferase	1
+GCF_051618705.1	3003578	PmrF	pmr phosphoethanolamine transferase	1
+GCF_051618705.1	3002790	QnrS1	quinolone resistance protein (qnr)	1
+GCF_051618705.1	3000216	acrB	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051618705.1	3000491	acrD	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051618705.1	3000499	AcrE	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051618705.1	3000502	AcrF	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051618705.1	3004043	Escherichia coli acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051618705.1	3000792	mdtA	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051618705.1	3000793	mdtB	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051618705.1	3000794	mdtC	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051618705.1	3000795	mdtE	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051618705.1	3000796	mdtF	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051618705.1	3000656	AcrS	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051618705.1	3000830	cpxA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051618705.1	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051618705.1	3000508	gadX	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051618705.1	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	1
+GCF_051618705.1	3004039	Escherichia coli emrE	small multidrug resistance (SMR) antibiotic efflux pump	1
+GCF_051618705.1	3000412	sul2	sulfonamide resistant sul	1
+GCF_051618705.1	3000873	TEM-1	TEM beta-lactamase	1
+GCF_051618705.1	3002859	dfrA14	trimethoprim resistant dihydrofolate reductase dfr	1
+GCF_051618705.1	3002986	bacA	undecaprenyl pyrophosphate related proteins	1
+GCF_051620725.1	3005059	LptD	ATP-binding cassette (ABC) antibiotic efflux pump	1
+GCF_051620725.1	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	1
+GCF_051620725.1	3004111	FosA6	fosfomycin thiol transferase	1
+GCF_051620725.1	3004122	Klebsiella pneumoniae OmpK37	General Bacterial Porin with reduced permeability to beta-lactams	1
+GCF_051620725.1	3005044	OmpA	General Bacterial Porin with reduced permeability to peptide antibiotics	1
+GCF_051620725.1	3004588	Klebsiella pneumoniae KpnG	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051620725.1	3004597	Klebsiella pneumoniae KpnH	major facilitator superfamily (MFS) antibiotic efflux pump	1
+GCF_051620725.1	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051620725.1	3007682	MdtQ	Outer Membrane Porin (Opr)	1
+GCF_051620725.1	3005053	ArnT	pmr phosphoethanolamine transferase	1
+GCF_051620725.1	3005047	eptB	pmr phosphoethanolamine transferase	1
+GCF_051620725.1	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051620725.1	3003923	oqxB	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051620725.1	3007509	Shigella flexneri acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	1
+GCF_051620725.1	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	1
+GCF_051620725.1	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	1
+GCF_051620725.1	3001070	SHV-11	SHV beta-lactamase	2
+GCF_051620725.1	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	1
+GCF_051620725.1	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	1
+GCF_051620725.1	3002859	dfrA14	trimethoprim resistant dihydrofolate reductase dfr	1

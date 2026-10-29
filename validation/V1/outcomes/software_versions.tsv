@@ -1,0 +1,13 @@
+process	tool	version
+COUNT_16S	sortmerna	4.3.7
+FASTP	fastp	1.3.6
+HOSTILE_CLEAN	hostile	2.0.2
+RESISTOME_TABLES	R	4.5.2
+RGI_BWT	kma	1.6.11
+RGI_BWT	rgi	6.0.8
+RGI_BWT	rgi-database	4.0.2
+RGI_CARDANNOTATION	kma	1.6.11
+RGI_CARDANNOTATION	rgi	6.0.8
+RGI_CARDANNOTATION	rgi-database	4.0.2
+SORTMERNA_INDEX	sortmerna	4.3.7
+UNTAR_CARD	untar	1.34

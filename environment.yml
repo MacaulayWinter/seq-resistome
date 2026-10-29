@@ -1,0 +1,23 @@
+# Launch environment for seq-resistome (the same pinned packages as seq-triage).
+#
+# This environment runs Nextflow and the nf-core tooling. It does NOT contain
+# the analysis tools (fastp, hostile, RGI, SortMeRNA, R): those run
+# inside version-pinned containers declared by each module (README:
+# Reproducibility).
+#
+# Install (any OS with conda/mamba):
+#   conda env create -f environment.yml
+#   conda activate seq-resistome-dev
+#
+# Every package is pinned to an exact version. For a byte-identical rebuild
+# on Apple Silicon, use the explicit lockfile instead:
+#   conda create -n seq-resistome-dev --file envs/seq-resistome-dev.osx-arm64.lock.txt
+name: seq-resistome-dev
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - openjdk=17.0.18
+  - nextflow=26.10.2
+  - nf-core=4.1.0
+  - nf-test=0.9.5

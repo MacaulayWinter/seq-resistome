@@ -1,0 +1,721 @@
+sample	family	explained_by	aros
+mix_gut_GCF_051563005.1_0.5x	Erm-like 23S rRNA methyltransferase	background alone	ErmX;ErmT
+mix_gut_GCF_051563005.1_0.5x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin
+mix_gut_GCF_051563005.1_0.5x	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	background alone	Bifidobacterium bifidum ileS conferring resistance to mupirocin
+mix_gut_GCF_051563005.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(A);mdtP;emrY;emrB;emrK;mdtO;mdtN;Escherichia coli mdfA;mdtM;mdtG;mdtH;emrA;efmA;tet(38);tet(40);tet(L)
+mix_gut_GCF_051563005.1_0.5x	sulfonamide resistant sul	background alone	sul2
+mix_gut_GCF_051563005.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	mdtB;acrB;mdtC;AcrF;acrD;mdtF;AcrE;mdtE;Escherichia coli acrA;mdtA;smeE;MuxC;Klebsiella pneumoniae acrA;oqxB;oqxA
+mix_gut_GCF_051563005.1_0.5x	APH(6)	background alone	APH(6)-Id
+mix_gut_GCF_051563005.1_0.5x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_gut_GCF_051563005.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;evgA;H-NS
+mix_gut_GCF_051563005.1_0.5x	APH(3'')	background alone	APH(3'')-Ib
+mix_gut_GCF_051563005.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP;gadX;gadW;AcrS
+mix_gut_GCF_051563005.1_0.5x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	msbA;LptD;YojI;patB;tetA(46);tetB(60)
+mix_gut_GCF_051563005.1_0.5x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_gut_GCF_051563005.1_0.5x	trimethoprim resistant dihydrofolate reductase dfr	background alone	dfrA14
+mix_gut_GCF_051563005.1_0.5x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptA;eptB;PmrF;ugd;ArnT;arnA
+mix_gut_GCF_051563005.1_0.5x	undecaprenyl pyrophosphate related proteins	spike truth or protein-only hit	bacA
+mix_gut_GCF_051563005.1_0.5x	tetracycline-resistant ribosomal protection protein	background alone	tet(M);tet(Q)
+mix_gut_GCF_051563005.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR;leuO
+mix_gut_GCF_051563005.1_0.5x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_gut_GCF_051563005.1_0.5x	EC beta-lactamase	background alone	EC-8;EC-5
+mix_gut_GCF_051563005.1_0.5x	msr-type ABC-F protein	background alone	mel
+mix_gut_GCF_051563005.1_0.5x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Klebsiella pneumoniae KpnF;Escherichia coli emrE;Klebsiella pneumoniae KpnE
+mix_gut_GCF_051563005.1_0.5x	CTX-M beta-lactamase	background alone	CTX-M-254
+mix_gut_GCF_051563005.1_0.5x	multidrug and toxic compound extrusion (MATE) transporter	spike Loose homolog (>= 80%)	MdtK
+mix_gut_GCF_051563005.1_0.5x	Outer Membrane Porin (Opr)	background alone	MdtQ
+mix_gut_GCF_051563005.1_0.5x	fosfomycin thiol transferase	background alone	FosA6
+mix_gut_GCF_051563005.1_0.5x	nitroimidazole reductase	background alone	nimE
+mix_gut_GCF_051563005.1_0.5x	CMH beta-lactamase	background alone	CMH-24
+mix_gut_GCF_051563005.1_0.5x	ampC-type beta-lactamase	background alone	Escherichia coli ampC beta-lactamase
+mix_gut_GCF_051563005.1_0.5x	lsa-type ABC-F protein	background alone	lsaA
+mix_gut_GCF_051563005.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	spike truth or protein-only hit	marA
+mix_gut_GCF_051563005.1_0.5x	macrolide phosphotransferase (MPH)	background alone	Mrx
+mix_gut_GCF_051563005.1_2x	Erm-like 23S rRNA methyltransferase	background alone	ErmX;ErmT
+mix_gut_GCF_051563005.1_2x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin
+mix_gut_GCF_051563005.1_2x	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	background alone	Bifidobacterium bifidum ileS conferring resistance to mupirocin
+mix_gut_GCF_051563005.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	mdtB;acrD;acrB;AcrF;mdtC;mdtF;AcrE;mdtE;mdtA;Escherichia coli acrA;smeE;MuxC;Klebsiella pneumoniae acrA;oqxB;oqxA
+mix_gut_GCF_051563005.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(A);emrY;mdtP;emrB;mdtO;Escherichia coli mdfA;mdtN;mdtM;emrK;mdtG;mdtH;emrA;efmA;tet(38);tet(40);tet(L)
+mix_gut_GCF_051563005.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;evgA;H-NS
+mix_gut_GCF_051563005.1_2x	sulfonamide resistant sul	background alone	sul2
+mix_gut_GCF_051563005.1_2x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_gut_GCF_051563005.1_2x	APH(6)	background alone	APH(6)-Id
+mix_gut_GCF_051563005.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP;gadW;gadX;AcrS
+mix_gut_GCF_051563005.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	msbA;YojI;LptD;patB;tetA(46);tetB(60)
+mix_gut_GCF_051563005.1_2x	APH(3'')	background alone	APH(3'')-Ib
+mix_gut_GCF_051563005.1_2x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptA;ugd;PmrF;eptB;ArnT;arnA
+mix_gut_GCF_051563005.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_gut_GCF_051563005.1_2x	undecaprenyl pyrophosphate related proteins	spike truth or protein-only hit	bacA
+mix_gut_GCF_051563005.1_2x	trimethoprim resistant dihydrofolate reductase dfr	background alone	dfrA14
+mix_gut_GCF_051563005.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR;leuO
+mix_gut_GCF_051563005.1_2x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_gut_GCF_051563005.1_2x	tetracycline-resistant ribosomal protection protein	background alone	tet(M);tet(Q)
+mix_gut_GCF_051563005.1_2x	EC beta-lactamase	background alone	EC-8;EC-5
+mix_gut_GCF_051563005.1_2x	msr-type ABC-F protein	background alone	mel
+mix_gut_GCF_051563005.1_2x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Klebsiella pneumoniae KpnF;Escherichia coli emrE;Klebsiella pneumoniae KpnE
+mix_gut_GCF_051563005.1_2x	CTX-M beta-lactamase	background alone	CTX-M-254
+mix_gut_GCF_051563005.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	spike truth or protein-only hit	marA
+mix_gut_GCF_051563005.1_2x	Outer Membrane Porin (Opr)	background alone	MdtQ
+mix_gut_GCF_051563005.1_2x	fosfomycin thiol transferase	background alone	FosA6
+mix_gut_GCF_051563005.1_2x	nitroimidazole reductase	background alone	nimE
+mix_gut_GCF_051563005.1_2x	CMH beta-lactamase	background alone	CMH-24
+mix_gut_GCF_051563005.1_2x	ampC-type beta-lactamase	background alone	Escherichia coli ampC beta-lactamase
+mix_gut_GCF_051563005.1_2x	lsa-type ABC-F protein	background alone	lsaA
+mix_gut_GCF_051563005.1_2x	macrolide phosphotransferase (MPH)	background alone	Mrx
+mix_gut_GCF_051563005.1_8x	Erm-like 23S rRNA methyltransferase	background alone	ErmX;ErmT
+mix_gut_GCF_051563005.1_8x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin
+mix_gut_GCF_051563005.1_8x	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	background alone	Bifidobacterium bifidum ileS conferring resistance to mupirocin
+mix_gut_GCF_051563005.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;evgA;H-NS
+mix_gut_GCF_051563005.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	acrD;mdtB;acrB;AcrF;mdtC;mdtF;AcrE;mdtE;mdtA;Escherichia coli acrA;MuxC;Klebsiella pneumoniae acrA;oqxB;oqxA
+mix_gut_GCF_051563005.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	mdtO;emrY;mdtP;tet(A);emrB;mdtG;Escherichia coli mdfA;mdtM;emrA;mdtN;mdtH;emrK;efmA;tet(38);tet(40);tet(L)
+mix_gut_GCF_051563005.1_8x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	YojI;msbA;LptD;patB;tetA(46);tetB(60)
+mix_gut_GCF_051563005.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP;gadX;gadW;AcrS
+mix_gut_GCF_051563005.1_8x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_gut_GCF_051563005.1_8x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_gut_GCF_051563005.1_8x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptA;ugd;PmrF;eptB;ArnT;arnA
+mix_gut_GCF_051563005.1_8x	sulfonamide resistant sul	background alone	sul2
+mix_gut_GCF_051563005.1_8x	undecaprenyl pyrophosphate related proteins	spike truth or protein-only hit	bacA
+mix_gut_GCF_051563005.1_8x	APH(6)	background alone	APH(6)-Id
+mix_gut_GCF_051563005.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	leuO;emrR
+mix_gut_GCF_051563005.1_8x	APH(3'')	background alone	APH(3'')-Ib
+mix_gut_GCF_051563005.1_8x	EC beta-lactamase	background alone	EC-5;EC-8
+mix_gut_GCF_051563005.1_8x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_gut_GCF_051563005.1_8x	trimethoprim resistant dihydrofolate reductase dfr	background alone	dfrA14
+mix_gut_GCF_051563005.1_8x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Escherichia coli emrE;Klebsiella pneumoniae KpnF
+mix_gut_GCF_051563005.1_8x	tetracycline-resistant ribosomal protection protein	background alone	tet(M);tet(Q)
+mix_gut_GCF_051563005.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	spike truth or protein-only hit	marA
+mix_gut_GCF_051563005.1_8x	msr-type ABC-F protein	background alone	mel
+mix_gut_GCF_051563005.1_8x	CTX-M beta-lactamase	background alone	CTX-M-254
+mix_gut_GCF_051563005.1_8x	Outer Membrane Porin (Opr)	background alone	MdtQ
+mix_gut_GCF_051563005.1_8x	fosfomycin thiol transferase	background alone	FosA6
+mix_gut_GCF_051563005.1_8x	nitroimidazole reductase	background alone	nimE
+mix_gut_GCF_051563005.1_8x	CMH beta-lactamase	background alone	CMH-24
+mix_gut_GCF_051563005.1_8x	ampC-type beta-lactamase	background alone	Escherichia coli ampC beta-lactamase
+mix_gut_GCF_051563005.1_8x	lsa-type ABC-F protein	background alone	lsaA
+mix_gut_GCF_051563005.1_8x	macrolide phosphotransferase (MPH)	background alone	Mrx
+mix_gut_GCF_051617875.1_0.5x	Erm-like 23S rRNA methyltransferase	background alone	ErmX;ErmT
+mix_gut_GCF_051617875.1_0.5x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin
+mix_gut_GCF_051617875.1_0.5x	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	background alone	Bifidobacterium bifidum ileS conferring resistance to mupirocin
+mix_gut_GCF_051617875.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(A);mdtP;emrY;mdtO;mdtN;Escherichia coli mdfA;emrB;mdtM;emrK;mdtG;mdtH;emrA;tet(D);efmA;tet(38);tet(40);tet(L)
+mix_gut_GCF_051617875.1_0.5x	sulfonamide resistant sul	spike truth or protein-only hit	sul2;sul1
+mix_gut_GCF_051617875.1_0.5x	APH(6)	spike truth or protein-only hit	APH(6)-Id
+mix_gut_GCF_051617875.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	acrB;mdtB;mdtC;acrD;AcrF;mdtF;mdtE;AcrE;Escherichia coli acrA;mdtA;oqxB;smeE;Enterobacter cloacae acrA;MuxC;Klebsiella pneumoniae acrA;oqxA;MexB
+mix_gut_GCF_051617875.1_0.5x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_gut_GCF_051617875.1_0.5x	APH(3'')	spike Loose homolog (>= 80%)	APH(3'')-Ib
+mix_gut_GCF_051617875.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP;gadX;gadW;AcrS
+mix_gut_GCF_051617875.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;H-NS;evgA
+mix_gut_GCF_051617875.1_0.5x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	msbA;LptD;YojI;patB;tetA(46);tetB(60)
+mix_gut_GCF_051617875.1_0.5x	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA14
+mix_gut_GCF_051617875.1_0.5x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptA;ugd;eptB;PmrF;ArnT;arnA
+mix_gut_GCF_051617875.1_0.5x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_gut_GCF_051617875.1_0.5x	tetracycline-resistant ribosomal protection protein	background alone	tet(M);tet(Q)
+mix_gut_GCF_051617875.1_0.5x	undecaprenyl pyrophosphate related proteins	spike Loose homolog (>= 80%)	bacA
+mix_gut_GCF_051617875.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR;leuO
+mix_gut_GCF_051617875.1_0.5x	EC beta-lactamase	background alone	EC-8
+mix_gut_GCF_051617875.1_0.5x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_gut_GCF_051617875.1_0.5x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Klebsiella pneumoniae KpnF;Klebsiella pneumoniae KpnE
+mix_gut_GCF_051617875.1_0.5x	msr-type ABC-F protein	background alone	mel
+mix_gut_GCF_051617875.1_0.5x	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-1
+mix_gut_GCF_051617875.1_0.5x	CTX-M beta-lactamase	background alone	CTX-M-254
+mix_gut_GCF_051617875.1_0.5x	MCR phosphoethanolamine transferase	spike truth or protein-only hit	MCR-9.1
+mix_gut_GCF_051617875.1_0.5x	ACT beta-lactamase	spike truth or protein-only hit	ACT-GC1
+mix_gut_GCF_051617875.1_0.5x	chloramphenicol acetyltransferase (CAT)	spike truth or protein-only hit	catII from Escherichia coli K-12;catB3
+mix_gut_GCF_051617875.1_0.5x	multidrug and toxic compound extrusion (MATE) transporter	spike Loose homolog (>= 80%)	MdtK
+mix_gut_GCF_051617875.1_0.5x	Outer Membrane Porin (Opr)	background alone	MdtQ
+mix_gut_GCF_051617875.1_0.5x	fosfomycin thiol transferase	spike truth or protein-only hit	FosA6;FosA2
+mix_gut_GCF_051617875.1_0.5x	nitroimidazole reductase	background alone	nimE
+mix_gut_GCF_051617875.1_0.5x	TEM beta-lactamase	spike truth or protein-only hit	TEM-207
+mix_gut_GCF_051617875.1_0.5x	aminoglycoside bifunctional resistance protein	UNEXPLAINED	AAC(3)-Ib/AAC(6')-Ib3 bifunctional protein
+mix_gut_GCF_051617875.1_0.5x	CMH beta-lactamase	background alone	CMH-24
+mix_gut_GCF_051617875.1_0.5x	ampC-type beta-lactamase	background alone	Escherichia coli ampC beta-lactamase
+mix_gut_GCF_051617875.1_0.5x	lsa-type ABC-F protein	background alone	lsaA
+mix_gut_GCF_051617875.1_0.5x	macrolide phosphotransferase (MPH)	background alone	Mrx
+mix_gut_GCF_051617875.1_2x	Erm-like 23S rRNA methyltransferase	background alone	ErmX;ErmT
+mix_gut_GCF_051617875.1_2x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin
+mix_gut_GCF_051617875.1_2x	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	background alone	Bifidobacterium bifidum ileS conferring resistance to mupirocin
+mix_gut_GCF_051617875.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(A);mdtP;emrB;emrY;mdtO;tet(D);mdtN;Escherichia coli mdfA;mdtM;emrK;mdtG;Klebsiella pneumoniae KpnG;emrA;qacEdelta1;efmA;tet(38);tet(40);tet(L)
+mix_gut_GCF_051617875.1_2x	APH(6)	spike truth or protein-only hit	APH(6)-Id
+mix_gut_GCF_051617875.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	acrB;mdtB;mdtC;acrD;AcrF;mdtF;oqxB;mdtE;AcrE;Enterobacter cloacae acrA;Escherichia coli acrA;oqxA;mdtA;MuxC;smeE;MexB;Klebsiella pneumoniae acrA
+mix_gut_GCF_051617875.1_2x	sulfonamide resistant sul	spike truth or protein-only hit	sul2;sul1
+mix_gut_GCF_051617875.1_2x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_gut_GCF_051617875.1_2x	APH(3'')	spike Loose homolog (>= 80%)	APH(3'')-Ib
+mix_gut_GCF_051617875.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP;gadX;gadW;AcrS
+mix_gut_GCF_051617875.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	msbA;LptD;YojI;patB;tetA(46);tetB(60)
+mix_gut_GCF_051617875.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;H-NS;evgA
+mix_gut_GCF_051617875.1_2x	General Bacterial Porin with reduced permeability to beta-lactams	spike truth or protein-only hit	Klebsiella pneumoniae OmpK37
+mix_gut_GCF_051617875.1_2x	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA14;dfrA19
+mix_gut_GCF_051617875.1_2x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptA;eptB;ugd;PmrF;ArnT;arnA
+mix_gut_GCF_051617875.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_gut_GCF_051617875.1_2x	undecaprenyl pyrophosphate related proteins	spike Loose homolog (>= 80%)	bacA
+mix_gut_GCF_051617875.1_2x	tetracycline-resistant ribosomal protection protein	background alone	tet(M);tet(Q)
+mix_gut_GCF_051617875.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR;leuO
+mix_gut_GCF_051617875.1_2x	EC beta-lactamase	background alone	EC-8
+mix_gut_GCF_051617875.1_2x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_gut_GCF_051617875.1_2x	ACT beta-lactamase	spike truth or protein-only hit	ACT-GC1
+mix_gut_GCF_051617875.1_2x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Klebsiella pneumoniae KpnF
+mix_gut_GCF_051617875.1_2x	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-320
+mix_gut_GCF_051617875.1_2x	MCR phosphoethanolamine transferase	spike truth or protein-only hit	MCR-9.1
+mix_gut_GCF_051617875.1_2x	msr-type ABC-F protein	background alone	mel
+mix_gut_GCF_051617875.1_2x	chloramphenicol acetyltransferase (CAT)	spike truth or protein-only hit	catII from Escherichia coli K-12;catB3
+mix_gut_GCF_051617875.1_2x	CTX-M beta-lactamase	background alone	CTX-M-254
+mix_gut_GCF_051617875.1_2x	fosfomycin thiol transferase	spike truth or protein-only hit	FosA2;FosA6
+mix_gut_GCF_051617875.1_2x	SHV beta-lactamase	spike truth or protein-only hit	SHV-134;SHV-66
+mix_gut_GCF_051617875.1_2x	AAC(6'); AAC(6')-Ib-cr	spike truth or protein-only hit	AAC(6')-Ib-cr5
+mix_gut_GCF_051617875.1_2x	rifampin ADP-ribosyltransferase (Arr)	spike truth or protein-only hit	arr-3
+mix_gut_GCF_051617875.1_2x	multidrug and toxic compound extrusion (MATE) transporter	spike Loose homolog (>= 80%)	MdtK
+mix_gut_GCF_051617875.1_2x	Outer Membrane Porin (Opr)	background alone	MdtQ
+mix_gut_GCF_051617875.1_2x	TEM beta-lactamase	spike truth or protein-only hit	TEM-233;TEM-195
+mix_gut_GCF_051617875.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	spike truth or protein-only hit	ramA
+mix_gut_GCF_051617875.1_2x	nitroimidazole reductase	background alone	nimE
+mix_gut_GCF_051617875.1_2x	CMH beta-lactamase	background alone	CMH-24
+mix_gut_GCF_051617875.1_2x	ampC-type beta-lactamase	background alone	Escherichia coli ampC beta-lactamase
+mix_gut_GCF_051617875.1_2x	lsa-type ABC-F protein	background alone	lsaA
+mix_gut_GCF_051617875.1_2x	macrolide phosphotransferase (MPH)	background alone	Mrx
+mix_gut_GCF_051617875.1_8x	Erm-like 23S rRNA methyltransferase	background alone	ErmX;ErmT
+mix_gut_GCF_051617875.1_8x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin
+mix_gut_GCF_051617875.1_8x	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	background alone	Bifidobacterium bifidum ileS conferring resistance to mupirocin
+mix_gut_GCF_051617875.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	acrB;mdtC;mdtB;oqxB;acrD;AcrF;Enterobacter cloacae acrA;mdtF;oqxA;mdtA;mdtE;AcrE;Escherichia coli acrA;Klebsiella pneumoniae acrA;Shigella flexneri acrA
+mix_gut_GCF_051617875.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(A);emrB;tet(D);Klebsiella pneumoniae KpnG;mdtP;Escherichia coli mdfA;emrY;mdtO;mdtN;qacEdelta1;mdtM;emrK;mdtG;emrA;efmA;tet(38);tet(40);tet(L)
+mix_gut_GCF_051617875.1_8x	APH(6)	spike truth or protein-only hit	APH(6)-Id
+mix_gut_GCF_051617875.1_8x	MCR phosphoethanolamine transferase	spike truth or protein-only hit	MCR-9.1
+mix_gut_GCF_051617875.1_8x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_gut_GCF_051617875.1_8x	APH(3'')	spike Loose homolog (>= 80%)	APH(3'')-Ib
+mix_gut_GCF_051617875.1_8x	sulfonamide resistant sul	spike truth or protein-only hit	sul2;sul1
+mix_gut_GCF_051617875.1_8x	General Bacterial Porin with reduced permeability to beta-lactams	spike truth or protein-only hit	Klebsiella pneumoniae OmpK37
+mix_gut_GCF_051617875.1_8x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	msbA;LptD;YojI;patB;tetA(46);tetB(60)
+mix_gut_GCF_051617875.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP;gadX;gadW;AcrS
+mix_gut_GCF_051617875.1_8x	ACT beta-lactamase	spike truth or protein-only hit	ACT-GC1;ACT-73
+mix_gut_GCF_051617875.1_8x	chloramphenicol acetyltransferase (CAT)	spike truth or protein-only hit	catII from Escherichia coli K-12;catB3
+mix_gut_GCF_051617875.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR;leuO
+mix_gut_GCF_051617875.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;H-NS;evgA
+mix_gut_GCF_051617875.1_8x	SHV beta-lactamase	spike truth or protein-only hit	SHV-134;SHV-12
+mix_gut_GCF_051617875.1_8x	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-1
+mix_gut_GCF_051617875.1_8x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_gut_GCF_051617875.1_8x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptA;eptB;ugd;PmrF;ArnT
+mix_gut_GCF_051617875.1_8x	undecaprenyl pyrophosphate related proteins	spike Loose homolog (>= 80%)	bacA
+mix_gut_GCF_051617875.1_8x	TEM beta-lactamase	spike truth or protein-only hit	TEM-198;TEM-166
+mix_gut_GCF_051617875.1_8x	fosfomycin thiol transferase	spike truth or protein-only hit	FosA2;FosA6
+mix_gut_GCF_051617875.1_8x	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA14;dfrA19
+mix_gut_GCF_051617875.1_8x	AAC(6'); AAC(6')-Ib-cr	spike truth or protein-only hit	AAC(6')-Ib-cr5
+mix_gut_GCF_051617875.1_8x	rifampin ADP-ribosyltransferase (Arr)	spike truth or protein-only hit	arr-3
+mix_gut_GCF_051617875.1_8x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_gut_GCF_051617875.1_8x	tetracycline-resistant ribosomal protection protein	background alone	tet(M);tet(Q)
+mix_gut_GCF_051617875.1_8x	EC beta-lactamase	background alone	EC-8
+mix_gut_GCF_051617875.1_8x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Klebsiella pneumoniae KpnF;Klebsiella pneumoniae KpnE
+mix_gut_GCF_051617875.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	spike truth or protein-only hit	marA;ramA
+mix_gut_GCF_051617875.1_8x	msr-type ABC-F protein	background alone	mel
+mix_gut_GCF_051617875.1_8x	multidrug and toxic compound extrusion (MATE) transporter	spike Loose homolog (>= 80%)	MdtK
+mix_gut_GCF_051617875.1_8x	CTX-M beta-lactamase	background alone	CTX-M-254
+mix_gut_GCF_051617875.1_8x	Outer Membrane Porin (Opr)	background alone	MdtQ
+mix_gut_GCF_051617875.1_8x	nitroimidazole reductase	background alone	nimE
+mix_gut_GCF_051617875.1_8x	CMH beta-lactamase	background alone	CMH-24
+mix_gut_GCF_051617875.1_8x	ampC-type beta-lactamase	background alone	Escherichia coli ampC beta-lactamase
+mix_gut_GCF_051617875.1_8x	lsa-type ABC-F protein	background alone	lsaA
+mix_gut_GCF_051617875.1_8x	macrolide phosphotransferase (MPH)	background alone	Mrx
+mix_gut_GCF_051619525.1_0.5x	Erm-like 23S rRNA methyltransferase	background alone	ErmX;ErmT
+mix_gut_GCF_051619525.1_0.5x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin
+mix_gut_GCF_051619525.1_0.5x	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	background alone	Bifidobacterium bifidum ileS conferring resistance to mupirocin
+mix_gut_GCF_051619525.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(A);mdtP;emrY;mdtO;mdtN;Escherichia coli mdfA;emrB;mdtM;emrK;mdtG;mdtH;emrA;efmA;tet(38);tet(40);tet(L)
+mix_gut_GCF_051619525.1_0.5x	sulfonamide resistant sul	spike truth or protein-only hit	sul2
+mix_gut_GCF_051619525.1_0.5x	APH(6)	spike truth or protein-only hit	APH(6)-Id
+mix_gut_GCF_051619525.1_0.5x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_gut_GCF_051619525.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	mdtB;acrB;acrD;mdtC;AcrF;mdtF;mdtE;AcrE;Escherichia coli acrA;mdtA;Klebsiella pneumoniae acrA;smeE;oqxA;oqxB
+mix_gut_GCF_051619525.1_0.5x	APH(3'')	spike truth or protein-only hit	APH(3'')-Ib
+mix_gut_GCF_051619525.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP;gadX;gadW;AcrS
+mix_gut_GCF_051619525.1_0.5x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	LptD;msbA;YojI;patB;tetA(46);tetB(60)
+mix_gut_GCF_051619525.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;evgA;H-NS
+mix_gut_GCF_051619525.1_0.5x	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA14
+mix_gut_GCF_051619525.1_0.5x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptA;eptB;ugd;ArnT;PmrF;arnA
+mix_gut_GCF_051619525.1_0.5x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_gut_GCF_051619525.1_0.5x	tetracycline-resistant ribosomal protection protein	background alone	tet(M);tet(Q)
+mix_gut_GCF_051619525.1_0.5x	undecaprenyl pyrophosphate related proteins	spike Loose homolog (>= 80%)	bacA
+mix_gut_GCF_051619525.1_0.5x	General Bacterial Porin with reduced permeability to beta-lactams	spike truth or protein-only hit	Klebsiella pneumoniae OmpK37
+mix_gut_GCF_051619525.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR;leuO
+mix_gut_GCF_051619525.1_0.5x	EC beta-lactamase	background alone	EC-8
+mix_gut_GCF_051619525.1_0.5x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_gut_GCF_051619525.1_0.5x	msr-type ABC-F protein	background alone	mel
+mix_gut_GCF_051619525.1_0.5x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Klebsiella pneumoniae KpnF;Klebsiella pneumoniae KpnE
+mix_gut_GCF_051619525.1_0.5x	CTX-M beta-lactamase	spike truth or protein-only hit	CTX-M-254
+mix_gut_GCF_051619525.1_0.5x	Outer Membrane Porin (Opr)	spike Loose homolog (>= 80%)	MdtQ
+mix_gut_GCF_051619525.1_0.5x	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-1
+mix_gut_GCF_051619525.1_0.5x	fosfomycin thiol transferase	spike truth or protein-only hit	FosA6;fosA5
+mix_gut_GCF_051619525.1_0.5x	multidrug and toxic compound extrusion (MATE) transporter	spike Loose homolog (>= 80%)	MdtK
+mix_gut_GCF_051619525.1_0.5x	aminoglycoside bifunctional resistance protein	UNEXPLAINED	ANT(3'')-II-AAC(6')-IId bifunctional protein
+mix_gut_GCF_051619525.1_0.5x	AAC(6')	spike truth or protein-only hit	AAC(6')-Ib7
+mix_gut_GCF_051619525.1_0.5x	nitroimidazole reductase	background alone	nimE
+mix_gut_GCF_051619525.1_0.5x	quinolone resistance protein (qnr)	spike truth or protein-only hit	QnrB17
+mix_gut_GCF_051619525.1_0.5x	CMH beta-lactamase	background alone	CMH-24
+mix_gut_GCF_051619525.1_0.5x	ampC-type beta-lactamase	background alone	Escherichia coli ampC beta-lactamase
+mix_gut_GCF_051619525.1_0.5x	LEN beta-lactamase	spike truth or protein-only hit	LEN-26
+mix_gut_GCF_051619525.1_0.5x	lsa-type ABC-F protein	background alone	lsaA
+mix_gut_GCF_051619525.1_0.5x	macrolide phosphotransferase (MPH)	background alone	Mrx
+mix_gut_GCF_051619525.1_0.5x	TEM beta-lactamase	spike truth or protein-only hit	TEM-138;TEM-181
+mix_gut_GCF_051619525.1_2x	Erm-like 23S rRNA methyltransferase	background alone	ErmX;ErmT
+mix_gut_GCF_051619525.1_2x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin
+mix_gut_GCF_051619525.1_2x	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	background alone	Bifidobacterium bifidum ileS conferring resistance to mupirocin
+mix_gut_GCF_051619525.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(A);mdtP;emrY;emrB;mdtO;mdtN;Escherichia coli mdfA;Klebsiella pneumoniae KpnG;mdtM;emrK;mdtG;mdtH;emrA;efmA;tet(38);tet(40);tet(L)
+mix_gut_GCF_051619525.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	acrB;mdtB;acrD;mdtC;AcrF;mdtF;oqxB;mdtE;Klebsiella pneumoniae acrA;AcrE;Escherichia coli acrA;mdtA;MuxC;oqxA;MexB
+mix_gut_GCF_051619525.1_2x	APH(6)	spike truth or protein-only hit	APH(6)-Id
+mix_gut_GCF_051619525.1_2x	sulfonamide resistant sul	spike truth or protein-only hit	sul2
+mix_gut_GCF_051619525.1_2x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_gut_GCF_051619525.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	LptD;msbA;YojI;patB;tetA(46);tetB(60)
+mix_gut_GCF_051619525.1_2x	APH(3'')	spike truth or protein-only hit	APH(3'')-Ib
+mix_gut_GCF_051619525.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP;gadX;gadW;AcrS
+mix_gut_GCF_051619525.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;H-NS;evgA
+mix_gut_GCF_051619525.1_2x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptB;ArnT;eptA;ugd;PmrF;arnA
+mix_gut_GCF_051619525.1_2x	General Bacterial Porin with reduced permeability to beta-lactams	spike truth or protein-only hit	Klebsiella pneumoniae OmpK37
+mix_gut_GCF_051619525.1_2x	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA14
+mix_gut_GCF_051619525.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_gut_GCF_051619525.1_2x	tetracycline-resistant ribosomal protection protein	background alone	tet(M);tet(Q)
+mix_gut_GCF_051619525.1_2x	undecaprenyl pyrophosphate related proteins	spike Loose homolog (>= 80%)	bacA
+mix_gut_GCF_051619525.1_2x	LEN beta-lactamase	spike truth or protein-only hit	LEN-9
+mix_gut_GCF_051619525.1_2x	Outer Membrane Porin (Opr)	spike Loose homolog (>= 80%)	MdtQ
+mix_gut_GCF_051619525.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR;leuO
+mix_gut_GCF_051619525.1_2x	EC beta-lactamase	background alone	EC-8
+mix_gut_GCF_051619525.1_2x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_gut_GCF_051619525.1_2x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Klebsiella pneumoniae KpnF;Klebsiella pneumoniae KpnE
+mix_gut_GCF_051619525.1_2x	CTX-M beta-lactamase	spike truth or protein-only hit	CTX-M-254;CTX-M-238;CTX-M-66
+mix_gut_GCF_051619525.1_2x	msr-type ABC-F protein	background alone	mel
+mix_gut_GCF_051619525.1_2x	fosfomycin thiol transferase	spike truth or protein-only hit	FosA6;fosA5
+mix_gut_GCF_051619525.1_2x	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-320
+mix_gut_GCF_051619525.1_2x	multidrug and toxic compound extrusion (MATE) transporter	spike Loose homolog (>= 80%)	MdtK
+mix_gut_GCF_051619525.1_2x	quinolone resistance protein (qnr)	spike truth or protein-only hit	QnrB1
+mix_gut_GCF_051619525.1_2x	TEM beta-lactamase	spike truth or protein-only hit	TEM-181;TEM-239;TEM-195
+mix_gut_GCF_051619525.1_2x	AAC(6'); AAC(6')-Ib-cr	spike truth or protein-only hit	AAC(6')-Ib-cr4
+mix_gut_GCF_051619525.1_2x	nitroimidazole reductase	background alone	nimE
+mix_gut_GCF_051619525.1_2x	aminoglycoside bifunctional resistance protein	UNEXPLAINED	AAC(3)-Ib/AAC(6')-Ib3 bifunctional protein
+mix_gut_GCF_051619525.1_2x	CMH beta-lactamase	background alone	CMH-24
+mix_gut_GCF_051619525.1_2x	ampC-type beta-lactamase	background alone	Escherichia coli ampC beta-lactamase
+mix_gut_GCF_051619525.1_2x	lsa-type ABC-F protein	background alone	lsaA
+mix_gut_GCF_051619525.1_2x	macrolide phosphotransferase (MPH)	background alone	Mrx
+mix_gut_GCF_051619525.1_8x	Erm-like 23S rRNA methyltransferase	background alone	ErmX;ErmT
+mix_gut_GCF_051619525.1_8x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin
+mix_gut_GCF_051619525.1_8x	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	background alone	Bifidobacterium bifidum ileS conferring resistance to mupirocin
+mix_gut_GCF_051619525.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(A);emrB;Klebsiella pneumoniae KpnG;mdtP;emrY;mdtO;Escherichia coli mdfA;mdtN;mdtM;emrA;mdtH;emrK;mdtG;efmA;tet(38);tet(40);tet(L)
+mix_gut_GCF_051619525.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	oqxB;acrB;mdtB;acrD;mdtC;Klebsiella pneumoniae acrA;mdtF;AcrF;oqxA;mdtE;AcrE;Escherichia coli acrA;mdtA;MuxB
+mix_gut_GCF_051619525.1_8x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	LptD;YojI;msbA;patB;tetA(46);tetB(60)
+mix_gut_GCF_051619525.1_8x	General Bacterial Porin with reduced permeability to beta-lactams	spike truth or protein-only hit	Klebsiella pneumoniae OmpK37
+mix_gut_GCF_051619525.1_8x	APH(6)	spike truth or protein-only hit	APH(6)-Id
+mix_gut_GCF_051619525.1_8x	sulfonamide resistant sul	spike truth or protein-only hit	sul2
+mix_gut_GCF_051619525.1_8x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_gut_GCF_051619525.1_8x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptB;ArnT;arnA;eptA;ugd;PmrF
+mix_gut_GCF_051619525.1_8x	APH(3'')	spike truth or protein-only hit	APH(3'')-Ib
+mix_gut_GCF_051619525.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP;gadX;gadW;AcrS
+mix_gut_GCF_051619525.1_8x	Outer Membrane Porin (Opr)	spike Loose homolog (>= 80%)	MdtQ
+mix_gut_GCF_051619525.1_8x	LEN beta-lactamase	spike truth or protein-only hit	LEN-9
+mix_gut_GCF_051619525.1_8x	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA14
+mix_gut_GCF_051619525.1_8x	CTX-M beta-lactamase	spike truth or protein-only hit	CTX-M-15
+mix_gut_GCF_051619525.1_8x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_gut_GCF_051619525.1_8x	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-1
+mix_gut_GCF_051619525.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;H-NS;evgA
+mix_gut_GCF_051619525.1_8x	TEM beta-lactamase	spike truth or protein-only hit	TEM-104;TEM-239
+mix_gut_GCF_051619525.1_8x	AAC(6')	spike truth or protein-only hit	AAC(6')-Ib7
+mix_gut_GCF_051619525.1_8x	chloramphenicol acetyltransferase (CAT)	spike Loose homolog (>= 80%)	catB3
+mix_gut_GCF_051619525.1_8x	undecaprenyl pyrophosphate related proteins	spike Loose homolog (>= 80%)	bacA
+mix_gut_GCF_051619525.1_8x	quinolone resistance protein (qnr)	spike truth or protein-only hit	QnrB1;QnrB17
+mix_gut_GCF_051619525.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR;leuO
+mix_gut_GCF_051619525.1_8x	tetracycline-resistant ribosomal protection protein	background alone	tet(M);tet(Q)
+mix_gut_GCF_051619525.1_8x	AAC(6'); AAC(6')-Ib-cr	spike truth or protein-only hit	AAC(6')-Ib-cr4;aac(6')-Ib-cr10
+mix_gut_GCF_051619525.1_8x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Klebsiella pneumoniae KpnF;Klebsiella pneumoniae KpnE
+mix_gut_GCF_051619525.1_8x	EC beta-lactamase	background alone	EC-8
+mix_gut_GCF_051619525.1_8x	fosfomycin thiol transferase	spike truth or protein-only hit	fosA5;FosA6
+mix_gut_GCF_051619525.1_8x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_gut_GCF_051619525.1_8x	msr-type ABC-F protein	background alone	mel
+mix_gut_GCF_051619525.1_8x	multidrug and toxic compound extrusion (MATE) transporter	spike Loose homolog (>= 80%)	MdtK
+mix_gut_GCF_051619525.1_8x	nitroimidazole reductase	background alone	nimE
+mix_gut_GCF_051619525.1_8x	CMH beta-lactamase	background alone	CMH-24
+mix_gut_GCF_051619525.1_8x	ampC-type beta-lactamase	background alone	Escherichia coli ampC beta-lactamase
+mix_gut_GCF_051619525.1_8x	lsa-type ABC-F protein	background alone	lsaA
+mix_gut_GCF_051619525.1_8x	macrolide phosphotransferase (MPH)	background alone	Mrx
+mix_wastewater_GCF_051563005.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	MuxB;MuxC;ceoB;MexB;smeE;AcrF;mdtB;mdtC;AcrE;acrB;mdtF;acrD;mexQ;MexW;mdtA
+mix_wastewater_GCF_051563005.1_0.5x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin;rpoB2
+mix_wastewater_GCF_051563005.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	emrB;emrK;emrY;mdtP;emrA;Escherichia coli mdfA;mdtH;floR;mdtG;mdtM;qacEdelta1;tet(C)
+mix_wastewater_GCF_051563005.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;evgA
+mix_wastewater_GCF_051563005.1_0.5x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	qacL;Escherichia coli emrE
+mix_wastewater_GCF_051563005.1_0.5x	OXA-10-like beta-lactamase	background alone	OXA-10;OXA-1232
+mix_wastewater_GCF_051563005.1_0.5x	OXA-2-like beta-lactamase	background alone	OXA-544
+mix_wastewater_GCF_051563005.1_0.5x	OXA-5-like beta-lactamase	background alone	OXA-5;OXA-129
+mix_wastewater_GCF_051563005.1_0.5x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_wastewater_GCF_051563005.1_0.5x	macrolide phosphotransferase (MPH)	background alone	mphE
+mix_wastewater_GCF_051563005.1_0.5x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	msbA;LptD;YojI
+mix_wastewater_GCF_051563005.1_0.5x	sulfonamide resistant sul	background alone	sul1;sul2
+mix_wastewater_GCF_051563005.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR;leuO
+mix_wastewater_GCF_051563005.1_0.5x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_wastewater_GCF_051563005.1_0.5x	APH(6)	background alone	APH(6)-Id
+mix_wastewater_GCF_051563005.1_0.5x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_wastewater_GCF_051563005.1_0.5x	undecaprenyl pyrophosphate related proteins	spike truth or protein-only hit	bacA
+mix_wastewater_GCF_051563005.1_0.5x	AAC(6')	background alone	AAC(6')-Ib7
+mix_wastewater_GCF_051563005.1_0.5x	AER beta-lactamase	background alone	AER-1
+mix_wastewater_GCF_051563005.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	CRP;gadW;AcrS;cpxA;gadX
+mix_wastewater_GCF_051563005.1_0.5x	msr-type ABC-F protein	background alone	msrE
+mix_wastewater_GCF_051563005.1_0.5x	tetracycline inactivation enzyme	background alone	tet(X3);tet(X)
+mix_wastewater_GCF_051563005.1_0.5x	ANT(3'')	background alone	aadA
+mix_wastewater_GCF_051563005.1_0.5x	aminoglycoside bifunctional resistance protein	background alone	ANT(3'')-II-AAC(6')-IId bifunctional protein
+mix_wastewater_GCF_051563005.1_0.5x	APH(3'')	background alone	APH(3'')-Ib
+mix_wastewater_GCF_051563005.1_0.5x	EC beta-lactamase	UNEXPLAINED	EC-5
+mix_wastewater_GCF_051563005.1_0.5x	macrolide esterase	background alone	EreA;EreA2
+mix_wastewater_GCF_051563005.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	spike truth or protein-only hit	marA
+mix_wastewater_GCF_051563005.1_0.5x	OXA-46-like beta-lactamase	background alone	OXA-119
+mix_wastewater_GCF_051563005.1_0.5x	OXA beta-lactamase without subfamily	background alone	OXA-464
+mix_wastewater_GCF_051563005.1_0.5x	OXA-9-like beta-lactamase	background alone	OXA-896
+mix_wastewater_GCF_051563005.1_0.5x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	PmrF
+mix_wastewater_GCF_051563005.1_0.5x	TEM beta-lactamase	background alone	TEM-219
+mix_wastewater_GCF_051563005.1_0.5x	VEB beta-lactamase	background alone	VEB-18
+mix_wastewater_GCF_051563005.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	mdtB;acrD;AcrF;mdtF;mdtC;MuxB;acrB;AcrE;MexB;MuxC;ceoB;mdtA;smeE;mdtE;Escherichia coli acrA;mexQ;MexW
+mix_wastewater_GCF_051563005.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;evgA;H-NS
+mix_wastewater_GCF_051563005.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	emrY;emrB;mdtP;mdtO;emrK;Escherichia coli mdfA;mdtM;emrA;mdtN;mdtH;mdtG;floR;qacEdelta1;tet(C)
+mix_wastewater_GCF_051563005.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	YojI;msbA;LptD
+mix_wastewater_GCF_051563005.1_2x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	rpoB2
+mix_wastewater_GCF_051563005.1_2x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptA;ugd;PmrF
+mix_wastewater_GCF_051563005.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP;gadW;gadX;AcrS
+mix_wastewater_GCF_051563005.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_wastewater_GCF_051563005.1_2x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_wastewater_GCF_051563005.1_2x	undecaprenyl pyrophosphate related proteins	spike truth or protein-only hit	bacA
+mix_wastewater_GCF_051563005.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR;leuO
+mix_wastewater_GCF_051563005.1_2x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_wastewater_GCF_051563005.1_2x	EC beta-lactamase	UNEXPLAINED	EC-5
+mix_wastewater_GCF_051563005.1_2x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	qacL;Escherichia coli emrE
+mix_wastewater_GCF_051563005.1_2x	OXA-10-like beta-lactamase	background alone	OXA-10;OXA-1232
+mix_wastewater_GCF_051563005.1_2x	OXA-2-like beta-lactamase	background alone	OXA-544
+mix_wastewater_GCF_051563005.1_2x	OXA-5-like beta-lactamase	background alone	OXA-5;OXA-129
+mix_wastewater_GCF_051563005.1_2x	macrolide phosphotransferase (MPH)	background alone	mphE
+mix_wastewater_GCF_051563005.1_2x	sulfonamide resistant sul	background alone	sul1;sul2
+mix_wastewater_GCF_051563005.1_2x	APH(6)	background alone	APH(6)-Id
+mix_wastewater_GCF_051563005.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	spike truth or protein-only hit	marA
+mix_wastewater_GCF_051563005.1_2x	multidrug and toxic compound extrusion (MATE) transporter	spike Loose homolog (>= 80%)	MdtK
+mix_wastewater_GCF_051563005.1_2x	AAC(6')	background alone	AAC(6')-Ib7
+mix_wastewater_GCF_051563005.1_2x	AER beta-lactamase	background alone	AER-1
+mix_wastewater_GCF_051563005.1_2x	msr-type ABC-F protein	background alone	msrE
+mix_wastewater_GCF_051563005.1_2x	tetracycline inactivation enzyme	background alone	tet(X3);tet(X)
+mix_wastewater_GCF_051563005.1_2x	ANT(3'')	background alone	aadA
+mix_wastewater_GCF_051563005.1_2x	aminoglycoside bifunctional resistance protein	background alone	ANT(3'')-II-AAC(6')-IId bifunctional protein
+mix_wastewater_GCF_051563005.1_2x	APH(3'')	background alone	APH(3'')-Ib
+mix_wastewater_GCF_051563005.1_2x	macrolide esterase	background alone	EreA;EreA2
+mix_wastewater_GCF_051563005.1_2x	OXA-46-like beta-lactamase	background alone	OXA-119
+mix_wastewater_GCF_051563005.1_2x	OXA beta-lactamase without subfamily	background alone	OXA-464
+mix_wastewater_GCF_051563005.1_2x	OXA-9-like beta-lactamase	background alone	OXA-896
+mix_wastewater_GCF_051563005.1_2x	TEM beta-lactamase	background alone	TEM-219
+mix_wastewater_GCF_051563005.1_2x	VEB beta-lactamase	background alone	VEB-18
+mix_wastewater_GCF_051563005.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;evgA;H-NS
+mix_wastewater_GCF_051563005.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	acrD;mdtB;AcrF;mdtF;acrB;mdtC;AcrE;mdtA;mdtE;Escherichia coli acrA;MuxB;smeE;MexB;MuxC;ceoB;Shigella flexneri acrA;mexQ;MexW
+mix_wastewater_GCF_051563005.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	mdtO;emrY;emrB;mdtP;mdtG;emrA;Escherichia coli mdfA;mdtM;mdtH;emrK;mdtN;floR;qacEdelta1;tet(C)
+mix_wastewater_GCF_051563005.1_8x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	YojI;msbA
+mix_wastewater_GCF_051563005.1_8x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_wastewater_GCF_051563005.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP;gadX;gadW;AcrS
+mix_wastewater_GCF_051563005.1_8x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptA;ugd;PmrF
+mix_wastewater_GCF_051563005.1_8x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_wastewater_GCF_051563005.1_8x	undecaprenyl pyrophosphate related proteins	spike truth or protein-only hit	bacA
+mix_wastewater_GCF_051563005.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	leuO;emrR
+mix_wastewater_GCF_051563005.1_8x	EC beta-lactamase	UNEXPLAINED	EC-5
+mix_wastewater_GCF_051563005.1_8x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_wastewater_GCF_051563005.1_8x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Escherichia coli emrE;qacL
+mix_wastewater_GCF_051563005.1_8x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	rpoB2
+mix_wastewater_GCF_051563005.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	spike truth or protein-only hit	marA
+mix_wastewater_GCF_051563005.1_8x	OXA-10-like beta-lactamase	background alone	OXA-10;OXA-1232
+mix_wastewater_GCF_051563005.1_8x	OXA-2-like beta-lactamase	background alone	OXA-544
+mix_wastewater_GCF_051563005.1_8x	OXA-5-like beta-lactamase	background alone	OXA-5;OXA-129
+mix_wastewater_GCF_051563005.1_8x	macrolide phosphotransferase (MPH)	background alone	mphE
+mix_wastewater_GCF_051563005.1_8x	sulfonamide resistant sul	background alone	sul1;sul2
+mix_wastewater_GCF_051563005.1_8x	APH(6)	background alone	APH(6)-Id
+mix_wastewater_GCF_051563005.1_8x	AAC(6')	background alone	AAC(6')-Ib7
+mix_wastewater_GCF_051563005.1_8x	AER beta-lactamase	background alone	AER-1
+mix_wastewater_GCF_051563005.1_8x	msr-type ABC-F protein	background alone	msrE
+mix_wastewater_GCF_051563005.1_8x	tetracycline inactivation enzyme	background alone	tet(X3);tet(X)
+mix_wastewater_GCF_051563005.1_8x	ANT(3'')	background alone	aadA
+mix_wastewater_GCF_051563005.1_8x	aminoglycoside bifunctional resistance protein	background alone	ANT(3'')-II-AAC(6')-IId bifunctional protein
+mix_wastewater_GCF_051563005.1_8x	APH(3'')	background alone	APH(3'')-Ib
+mix_wastewater_GCF_051563005.1_8x	macrolide esterase	background alone	EreA;EreA2
+mix_wastewater_GCF_051563005.1_8x	OXA-46-like beta-lactamase	background alone	OXA-119
+mix_wastewater_GCF_051563005.1_8x	OXA beta-lactamase without subfamily	background alone	OXA-464
+mix_wastewater_GCF_051563005.1_8x	OXA-9-like beta-lactamase	background alone	OXA-896
+mix_wastewater_GCF_051563005.1_8x	TEM beta-lactamase	background alone	TEM-219
+mix_wastewater_GCF_051563005.1_8x	VEB beta-lactamase	background alone	VEB-18
+mix_wastewater_GCF_051617875.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	MuxB;MexB;MuxC;ceoB;smeE;acrB;oqxB;acrD;Enterobacter cloacae acrA;mdtB;mdtC;mexQ;MexW;oqxA
+mix_wastewater_GCF_051617875.1_0.5x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	rpoB2
+mix_wastewater_GCF_051617875.1_0.5x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	qacL
+mix_wastewater_GCF_051617875.1_0.5x	sulfonamide resistant sul	spike truth or protein-only hit	sul1;sul2
+mix_wastewater_GCF_051617875.1_0.5x	OXA-10-like beta-lactamase	background alone	OXA-10;OXA-1232
+mix_wastewater_GCF_051617875.1_0.5x	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-1
+mix_wastewater_GCF_051617875.1_0.5x	OXA-2-like beta-lactamase	background alone	OXA-544
+mix_wastewater_GCF_051617875.1_0.5x	MCR phosphoethanolamine transferase	spike truth or protein-only hit	MCR-9.1
+mix_wastewater_GCF_051617875.1_0.5x	OXA-5-like beta-lactamase	background alone	OXA-5;OXA-129
+mix_wastewater_GCF_051617875.1_0.5x	APH(6)	spike truth or protein-only hit	APH(6)-Id
+mix_wastewater_GCF_051617875.1_0.5x	macrolide phosphotransferase (MPH)	background alone	mphE
+mix_wastewater_GCF_051617875.1_0.5x	ACT beta-lactamase	spike truth or protein-only hit	ACT-GC1
+mix_wastewater_GCF_051617875.1_0.5x	aminoglycoside bifunctional resistance protein	background alone	ANT(3'')-II-AAC(6')-IId bifunctional protein
+mix_wastewater_GCF_051617875.1_0.5x	APH(3'')	spike Loose homolog (>= 80%)	APH(3'')-Ib
+mix_wastewater_GCF_051617875.1_0.5x	chloramphenicol acetyltransferase (CAT)	spike truth or protein-only hit	catII from Escherichia coli K-12;catB3
+mix_wastewater_GCF_051617875.1_0.5x	AAC(6')	spike truth or protein-only hit	AAC(6')-Ib7
+mix_wastewater_GCF_051617875.1_0.5x	AER beta-lactamase	background alone	AER-1
+mix_wastewater_GCF_051617875.1_0.5x	fosfomycin thiol transferase	spike truth or protein-only hit	FosA2
+mix_wastewater_GCF_051617875.1_0.5x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	msbA;LptD
+mix_wastewater_GCF_051617875.1_0.5x	TEM beta-lactamase	spike truth or protein-only hit	TEM-207
+mix_wastewater_GCF_051617875.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(D);floR;qacEdelta1;tet(C)
+mix_wastewater_GCF_051617875.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	CRP
+mix_wastewater_GCF_051617875.1_0.5x	msr-type ABC-F protein	background alone	msrE
+mix_wastewater_GCF_051617875.1_0.5x	tetracycline inactivation enzyme	background alone	tet(X3);tet(X)
+mix_wastewater_GCF_051617875.1_0.5x	ANT(3'')	background alone	aadA
+mix_wastewater_GCF_051617875.1_0.5x	macrolide esterase	background alone	EreA;EreA2
+mix_wastewater_GCF_051617875.1_0.5x	OXA-46-like beta-lactamase	background alone	OXA-119
+mix_wastewater_GCF_051617875.1_0.5x	OXA beta-lactamase without subfamily	background alone	OXA-464
+mix_wastewater_GCF_051617875.1_0.5x	OXA-9-like beta-lactamase	background alone	OXA-896
+mix_wastewater_GCF_051617875.1_0.5x	VEB beta-lactamase	background alone	VEB-18
+mix_wastewater_GCF_051617875.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	MuxB;acrB;oqxB;MexB;MuxC;ceoB;Enterobacter cloacae acrA;mdtB;smeE;mdtC;oqxA;acrD;AcrF;mexQ;mdtA;MexW
+mix_wastewater_GCF_051617875.1_2x	APH(6)	spike truth or protein-only hit	APH(6)-Id
+mix_wastewater_GCF_051617875.1_2x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	rpoB2
+mix_wastewater_GCF_051617875.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(D);emrB;Klebsiella pneumoniae KpnG;qacEdelta1;mdtH;emrA;floR;tet(C)
+mix_wastewater_GCF_051617875.1_2x	General Bacterial Porin with reduced permeability to beta-lactams	spike truth or protein-only hit	Klebsiella pneumoniae OmpK37
+mix_wastewater_GCF_051617875.1_2x	ACT beta-lactamase	spike truth or protein-only hit	ACT-GC1;ACT-70
+mix_wastewater_GCF_051617875.1_2x	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-1
+mix_wastewater_GCF_051617875.1_2x	SHV beta-lactamase	spike truth or protein-only hit	SHV-228
+mix_wastewater_GCF_051617875.1_2x	MCR phosphoethanolamine transferase	spike truth or protein-only hit	MCR-9.1
+mix_wastewater_GCF_051617875.1_2x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	qacL;Klebsiella pneumoniae KpnE
+mix_wastewater_GCF_051617875.1_2x	sulfonamide resistant sul	spike truth or protein-only hit	sul1;sul2
+mix_wastewater_GCF_051617875.1_2x	aminoglycoside bifunctional resistance protein	background alone	ANT(3'')-II-AAC(6')-IId bifunctional protein
+mix_wastewater_GCF_051617875.1_2x	OXA-10-like beta-lactamase	background alone	OXA-10;OXA-1232
+mix_wastewater_GCF_051617875.1_2x	APH(3'')	spike Loose homolog (>= 80%)	APH(3'')-Ib
+mix_wastewater_GCF_051617875.1_2x	chloramphenicol acetyltransferase (CAT)	spike truth or protein-only hit	catII from Escherichia coli K-12;catB3
+mix_wastewater_GCF_051617875.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	msbA;LptD;YojI
+mix_wastewater_GCF_051617875.1_2x	OXA-2-like beta-lactamase	background alone	OXA-544
+mix_wastewater_GCF_051617875.1_2x	TEM beta-lactamase	spike truth or protein-only hit	TEM-70
+mix_wastewater_GCF_051617875.1_2x	fosfomycin thiol transferase	spike truth or protein-only hit	FosA2
+mix_wastewater_GCF_051617875.1_2x	OXA-5-like beta-lactamase	background alone	OXA-5;OXA-129
+mix_wastewater_GCF_051617875.1_2x	macrolide phosphotransferase (MPH)	background alone	mphE
+mix_wastewater_GCF_051617875.1_2x	AAC(6'); AAC(6')-Ib-cr	spike truth or protein-only hit	AAC(6')-Ib-cr5
+mix_wastewater_GCF_051617875.1_2x	rifampin ADP-ribosyltransferase (Arr)	spike truth or protein-only hit	arr-3
+mix_wastewater_GCF_051617875.1_2x	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA19
+mix_wastewater_GCF_051617875.1_2x	AAC(6')	spike truth or protein-only hit	AAC(6')-Ib7
+mix_wastewater_GCF_051617875.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR
+mix_wastewater_GCF_051617875.1_2x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_wastewater_GCF_051617875.1_2x	AER beta-lactamase	background alone	AER-1
+mix_wastewater_GCF_051617875.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	spike truth or protein-only hit	ramA
+mix_wastewater_GCF_051617875.1_2x	undecaprenyl pyrophosphate related proteins	spike Loose homolog (>= 80%)	bacA
+mix_wastewater_GCF_051617875.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	CRP
+mix_wastewater_GCF_051617875.1_2x	msr-type ABC-F protein	background alone	msrE
+mix_wastewater_GCF_051617875.1_2x	tetracycline inactivation enzyme	background alone	tet(X3);tet(X)
+mix_wastewater_GCF_051617875.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_wastewater_GCF_051617875.1_2x	ANT(3'')	background alone	aadA
+mix_wastewater_GCF_051617875.1_2x	macrolide esterase	background alone	EreA;EreA2
+mix_wastewater_GCF_051617875.1_2x	OXA-46-like beta-lactamase	background alone	OXA-119
+mix_wastewater_GCF_051617875.1_2x	OXA beta-lactamase without subfamily	background alone	OXA-464
+mix_wastewater_GCF_051617875.1_2x	OXA-9-like beta-lactamase	background alone	OXA-896
+mix_wastewater_GCF_051617875.1_2x	VEB beta-lactamase	background alone	VEB-18
+mix_wastewater_GCF_051617875.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	acrB;oqxB;mdtC;Enterobacter cloacae acrA;mdtB;oqxA;MuxB;MuxC;smeE;ceoB;mexQ;Klebsiella pneumoniae acrA;MexW
+mix_wastewater_GCF_051617875.1_8x	MCR phosphoethanolamine transferase	spike truth or protein-only hit	MCR-9.1
+mix_wastewater_GCF_051617875.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	emrB;tet(D);Klebsiella pneumoniae KpnG;qacEdelta1;Escherichia coli mdfA;floR;tet(C)
+mix_wastewater_GCF_051617875.1_8x	General Bacterial Porin with reduced permeability to beta-lactams	spike truth or protein-only hit	Klebsiella pneumoniae OmpK37
+mix_wastewater_GCF_051617875.1_8x	ACT beta-lactamase	spike truth or protein-only hit	ACT-GC1;ACT-73
+mix_wastewater_GCF_051617875.1_8x	SHV beta-lactamase	spike truth or protein-only hit	SHV-12
+mix_wastewater_GCF_051617875.1_8x	chloramphenicol acetyltransferase (CAT)	spike truth or protein-only hit	catII from Escherichia coli K-12;catB3
+mix_wastewater_GCF_051617875.1_8x	APH(3'')	spike Loose homolog (>= 80%)	APH(3'')-Ib
+mix_wastewater_GCF_051617875.1_8x	APH(6)	spike truth or protein-only hit	APH(6)-Id
+mix_wastewater_GCF_051617875.1_8x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	msbA;LptD
+mix_wastewater_GCF_051617875.1_8x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_wastewater_GCF_051617875.1_8x	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-1
+mix_wastewater_GCF_051617875.1_8x	sulfonamide resistant sul	spike truth or protein-only hit	sul1;sul2
+mix_wastewater_GCF_051617875.1_8x	fosfomycin thiol transferase	spike truth or protein-only hit	FosA2
+mix_wastewater_GCF_051617875.1_8x	TEM beta-lactamase	spike truth or protein-only hit	TEM-198;TEM-1
+mix_wastewater_GCF_051617875.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR
+mix_wastewater_GCF_051617875.1_8x	rifampin ADP-ribosyltransferase (Arr)	spike truth or protein-only hit	arr-3
+mix_wastewater_GCF_051617875.1_8x	AAC(6'); AAC(6')-Ib-cr	spike truth or protein-only hit	AAC(6')-Ib-cr5
+mix_wastewater_GCF_051617875.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	CRP
+mix_wastewater_GCF_051617875.1_8x	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA19
+mix_wastewater_GCF_051617875.1_8x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	rpoB2
+mix_wastewater_GCF_051617875.1_8x	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+mix_wastewater_GCF_051617875.1_8x	aminoglycoside bifunctional resistance protein	background alone	ANT(3'')-II-AAC(6')-IId bifunctional protein
+mix_wastewater_GCF_051617875.1_8x	undecaprenyl pyrophosphate related proteins	spike Loose homolog (>= 80%)	bacA
+mix_wastewater_GCF_051617875.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	spike truth or protein-only hit	marA;ramA
+mix_wastewater_GCF_051617875.1_8x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	qacL;Klebsiella pneumoniae KpnE;Klebsiella pneumoniae KpnF
+mix_wastewater_GCF_051617875.1_8x	OXA-10-like beta-lactamase	background alone	OXA-10;OXA-1232
+mix_wastewater_GCF_051617875.1_8x	OXA-2-like beta-lactamase	background alone	OXA-544
+mix_wastewater_GCF_051617875.1_8x	OXA-5-like beta-lactamase	background alone	OXA-5;OXA-129
+mix_wastewater_GCF_051617875.1_8x	macrolide phosphotransferase (MPH)	background alone	mphE
+mix_wastewater_GCF_051617875.1_8x	AER beta-lactamase	background alone	AER-1
+mix_wastewater_GCF_051617875.1_8x	msr-type ABC-F protein	background alone	msrE
+mix_wastewater_GCF_051617875.1_8x	tetracycline inactivation enzyme	background alone	tet(X3);tet(X)
+mix_wastewater_GCF_051617875.1_8x	ANT(3'')	background alone	aadA
+mix_wastewater_GCF_051617875.1_8x	macrolide esterase	background alone	EreA;EreA2
+mix_wastewater_GCF_051617875.1_8x	OXA-46-like beta-lactamase	background alone	OXA-119
+mix_wastewater_GCF_051617875.1_8x	OXA beta-lactamase without subfamily	background alone	OXA-464
+mix_wastewater_GCF_051617875.1_8x	OXA-9-like beta-lactamase	background alone	OXA-896
+mix_wastewater_GCF_051617875.1_8x	VEB beta-lactamase	background alone	VEB-18
+mix_wastewater_GCF_051619525.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	MuxB;MuxC;ceoB;MexB;smeE;smeB;acrD;acrB;mdtB;Klebsiella pneumoniae acrA;mexQ;mdtC;MexW;AcrF;oqxA
+mix_wastewater_GCF_051619525.1_0.5x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin;rpoB2
+mix_wastewater_GCF_051619525.1_0.5x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	qacL
+mix_wastewater_GCF_051619525.1_0.5x	OXA-10-like beta-lactamase	background alone	OXA-10;OXA-1232
+mix_wastewater_GCF_051619525.1_0.5x	APH(6)	spike truth or protein-only hit	APH(6)-Id
+mix_wastewater_GCF_051619525.1_0.5x	OXA-2-like beta-lactamase	background alone	OXA-544
+mix_wastewater_GCF_051619525.1_0.5x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	ArnT;eptB
+mix_wastewater_GCF_051619525.1_0.5x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	LptD;YojI
+mix_wastewater_GCF_051619525.1_0.5x	OXA-5-like beta-lactamase	background alone	OXA-5;OXA-129
+mix_wastewater_GCF_051619525.1_0.5x	macrolide phosphotransferase (MPH)	background alone	mphE
+mix_wastewater_GCF_051619525.1_0.5x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_wastewater_GCF_051619525.1_0.5x	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-1
+mix_wastewater_GCF_051619525.1_0.5x	sulfonamide resistant sul	spike truth or protein-only hit	sul1;sul2
+mix_wastewater_GCF_051619525.1_0.5x	TEM beta-lactamase	spike truth or protein-only hit	TEM-1
+mix_wastewater_GCF_051619525.1_0.5x	aminoglycoside bifunctional resistance protein	background alone	ANT(3'')-II-AAC(6')-IId bifunctional protein
+mix_wastewater_GCF_051619525.1_0.5x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA
+mix_wastewater_GCF_051619525.1_0.5x	General Bacterial Porin with reduced permeability to beta-lactams	spike truth or protein-only hit	Klebsiella pneumoniae OmpK37
+mix_wastewater_GCF_051619525.1_0.5x	Outer Membrane Porin (Opr)	spike Loose homolog (>= 80%)	MdtQ
+mix_wastewater_GCF_051619525.1_0.5x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(A);Klebsiella pneumoniae KpnH;floR;qacEdelta1;tet(C)
+mix_wastewater_GCF_051619525.1_0.5x	AER beta-lactamase	background alone	AER-1
+mix_wastewater_GCF_051619525.1_0.5x	quinolone resistance protein (qnr)	spike truth or protein-only hit	QnrB17
+mix_wastewater_GCF_051619525.1_0.5x	APH(3'')	spike truth or protein-only hit	APH(3'')-Ib
+mix_wastewater_GCF_051619525.1_0.5x	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA14
+mix_wastewater_GCF_051619525.1_0.5x	msr-type ABC-F protein	background alone	msrE
+mix_wastewater_GCF_051619525.1_0.5x	tetracycline inactivation enzyme	background alone	tet(X3);tet(X)
+mix_wastewater_GCF_051619525.1_0.5x	ANT(3'')	background alone	aadA
+mix_wastewater_GCF_051619525.1_0.5x	macrolide esterase	background alone	EreA;EreA2
+mix_wastewater_GCF_051619525.1_0.5x	fosfomycin thiol transferase	spike truth or protein-only hit	fosA5
+mix_wastewater_GCF_051619525.1_0.5x	LEN beta-lactamase	spike truth or protein-only hit	LEN-13
+mix_wastewater_GCF_051619525.1_0.5x	OXA-46-like beta-lactamase	background alone	OXA-119
+mix_wastewater_GCF_051619525.1_0.5x	OXA beta-lactamase without subfamily	background alone	OXA-464
+mix_wastewater_GCF_051619525.1_0.5x	OXA-9-like beta-lactamase	background alone	OXA-896
+mix_wastewater_GCF_051619525.1_0.5x	VEB beta-lactamase	background alone	VEB-18
+mix_wastewater_GCF_051619525.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	MuxB;oqxB;acrB;MuxC;smeE;MexB;ceoB;Klebsiella pneumoniae acrA;acrD;smeB;mdtB;oqxA;mdtC;mexQ;MexW;AcrF
+mix_wastewater_GCF_051619525.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	LptD;YojI
+mix_wastewater_GCF_051619525.1_2x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin;rpoB2
+mix_wastewater_GCF_051619525.1_2x	General Bacterial Porin with reduced permeability to beta-lactams	spike truth or protein-only hit	Klebsiella pneumoniae OmpK37
+mix_wastewater_GCF_051619525.1_2x	APH(6)	spike truth or protein-only hit	APH(6)-Id
+mix_wastewater_GCF_051619525.1_2x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptB;ArnT
+mix_wastewater_GCF_051619525.1_2x	LEN beta-lactamase	spike truth or protein-only hit	LEN-9
+mix_wastewater_GCF_051619525.1_2x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_wastewater_GCF_051619525.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	Klebsiella pneumoniae KpnG;tet(A);emrB;mdtH;Escherichia coli mdfA;floR;qacEdelta1;tet(C)
+mix_wastewater_GCF_051619525.1_2x	Outer Membrane Porin (Opr)	spike Loose homolog (>= 80%)	MdtQ
+mix_wastewater_GCF_051619525.1_2x	APH(3'')	spike truth or protein-only hit	APH(3'')-Ib
+mix_wastewater_GCF_051619525.1_2x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	qacL;Klebsiella pneumoniae KpnF
+mix_wastewater_GCF_051619525.1_2x	sulfonamide resistant sul	spike truth or protein-only hit	sul2;sul1
+mix_wastewater_GCF_051619525.1_2x	TEM beta-lactamase	spike truth or protein-only hit	TEM-239
+mix_wastewater_GCF_051619525.1_2x	OXA-10-like beta-lactamase	background alone	OXA-10;OXA-1232
+mix_wastewater_GCF_051619525.1_2x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA
+mix_wastewater_GCF_051619525.1_2x	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-534
+mix_wastewater_GCF_051619525.1_2x	OXA-2-like beta-lactamase	background alone	OXA-544
+mix_wastewater_GCF_051619525.1_2x	OXA-5-like beta-lactamase	background alone	OXA-5;OXA-129
+mix_wastewater_GCF_051619525.1_2x	macrolide phosphotransferase (MPH)	background alone	mphE
+mix_wastewater_GCF_051619525.1_2x	aminoglycoside bifunctional resistance protein	background alone	ANT(3'')-II-AAC(6')-IId bifunctional protein
+mix_wastewater_GCF_051619525.1_2x	fosfomycin thiol transferase	spike truth or protein-only hit	fosA5;FosA6
+mix_wastewater_GCF_051619525.1_2x	quinolone resistance protein (qnr)	spike truth or protein-only hit	QnrB1
+mix_wastewater_GCF_051619525.1_2x	AAC(6')	spike truth or protein-only hit	AAC(6')-Ib7
+mix_wastewater_GCF_051619525.1_2x	AER beta-lactamase	background alone	AER-1
+mix_wastewater_GCF_051619525.1_2x	CTX-M beta-lactamase	spike truth or protein-only hit	CTX-M-211;CTX-M-123
+mix_wastewater_GCF_051619525.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_wastewater_GCF_051619525.1_2x	AAC(6'); AAC(6')-Ib-cr	spike truth or protein-only hit	AAC(6')-Ib-cr4
+mix_wastewater_GCF_051619525.1_2x	msr-type ABC-F protein	background alone	msrE
+mix_wastewater_GCF_051619525.1_2x	tetracycline inactivation enzyme	background alone	tet(X3);tet(X)
+mix_wastewater_GCF_051619525.1_2x	ANT(3'')	background alone	aadA
+mix_wastewater_GCF_051619525.1_2x	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA14
+mix_wastewater_GCF_051619525.1_2x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR
+mix_wastewater_GCF_051619525.1_2x	macrolide esterase	background alone	EreA;EreA2
+mix_wastewater_GCF_051619525.1_2x	OXA-46-like beta-lactamase	background alone	OXA-119
+mix_wastewater_GCF_051619525.1_2x	OXA beta-lactamase without subfamily	background alone	OXA-464
+mix_wastewater_GCF_051619525.1_2x	OXA-9-like beta-lactamase	background alone	OXA-896
+mix_wastewater_GCF_051619525.1_2x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	Pseudomonas aeruginosa soxR
+mix_wastewater_GCF_051619525.1_2x	VEB beta-lactamase	background alone	VEB-18
+mix_wastewater_GCF_051619525.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	oqxB;acrB;Klebsiella pneumoniae acrA;mdtB;acrD;smeE;MuxB;oqxA;MuxC;ceoB;mexY;mexQ;MexW
+mix_wastewater_GCF_051619525.1_8x	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	LptD
+mix_wastewater_GCF_051619525.1_8x	General Bacterial Porin with reduced permeability to beta-lactams	spike truth or protein-only hit	Klebsiella pneumoniae OmpK37
+mix_wastewater_GCF_051619525.1_8x	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptB;ArnT
+mix_wastewater_GCF_051619525.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(A);Klebsiella pneumoniae KpnG;emrB;mdtH;Escherichia coli mdfA;floR;qacEdelta1;tet(C)
+mix_wastewater_GCF_051619525.1_8x	Outer Membrane Porin (Opr)	spike Loose homolog (>= 80%)	MdtQ
+mix_wastewater_GCF_051619525.1_8x	LEN beta-lactamase	spike truth or protein-only hit	LEN-9
+mix_wastewater_GCF_051619525.1_8x	APH(6)	spike truth or protein-only hit	APH(6)-Id
+mix_wastewater_GCF_051619525.1_8x	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+mix_wastewater_GCF_051619525.1_8x	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-1
+mix_wastewater_GCF_051619525.1_8x	sulfonamide resistant sul	spike truth or protein-only hit	sul2;sul1
+mix_wastewater_GCF_051619525.1_8x	CTX-M beta-lactamase	spike truth or protein-only hit	CTX-M-15
+mix_wastewater_GCF_051619525.1_8x	AAC(6')	spike truth or protein-only hit	AAC(6')-Ib7
+mix_wastewater_GCF_051619525.1_8x	TEM beta-lactamase	spike truth or protein-only hit	TEM-104;TEM-239
+mix_wastewater_GCF_051619525.1_8x	chloramphenicol acetyltransferase (CAT)	spike Loose homolog (>= 80%)	catB3
+mix_wastewater_GCF_051619525.1_8x	APH(3'')	spike truth or protein-only hit	APH(3'')-Ib
+mix_wastewater_GCF_051619525.1_8x	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP
+mix_wastewater_GCF_051619525.1_8x	quinolone resistance protein (qnr)	spike truth or protein-only hit	QnrB1;QnrB17
+mix_wastewater_GCF_051619525.1_8x	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	background alone	rpoB2
+mix_wastewater_GCF_051619525.1_8x	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA14
+mix_wastewater_GCF_051619525.1_8x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+mix_wastewater_GCF_051619525.1_8x	AAC(6'); AAC(6')-Ib-cr	spike truth or protein-only hit	AAC(6')-Ib-cr4;aac(6')-Ib-cr10
+mix_wastewater_GCF_051619525.1_8x	fosfomycin thiol transferase	spike truth or protein-only hit	fosA5;FosA6
+mix_wastewater_GCF_051619525.1_8x	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Klebsiella pneumoniae KpnF;qacL;Klebsiella pneumoniae KpnE
+mix_wastewater_GCF_051619525.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	H-NS
+mix_wastewater_GCF_051619525.1_8x	OXA-10-like beta-lactamase	background alone	OXA-10;OXA-1232
+mix_wastewater_GCF_051619525.1_8x	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR
+mix_wastewater_GCF_051619525.1_8x	OXA-2-like beta-lactamase	background alone	OXA-544
+mix_wastewater_GCF_051619525.1_8x	undecaprenyl pyrophosphate related proteins	spike Loose homolog (>= 80%)	bacA
+mix_wastewater_GCF_051619525.1_8x	OXA-5-like beta-lactamase	background alone	OXA-5;OXA-129
+mix_wastewater_GCF_051619525.1_8x	macrolide phosphotransferase (MPH)	background alone	mphE
+mix_wastewater_GCF_051619525.1_8x	AER beta-lactamase	background alone	AER-1
+mix_wastewater_GCF_051619525.1_8x	aminoglycoside bifunctional resistance protein	background alone	ANT(3'')-II-AAC(6')-IId bifunctional protein
+mix_wastewater_GCF_051619525.1_8x	msr-type ABC-F protein	background alone	msrE
+mix_wastewater_GCF_051619525.1_8x	tetracycline inactivation enzyme	background alone	tet(X3);tet(X)
+mix_wastewater_GCF_051619525.1_8x	ANT(3'')	background alone	aadA
+mix_wastewater_GCF_051619525.1_8x	macrolide esterase	background alone	EreA;EreA2
+mix_wastewater_GCF_051619525.1_8x	OXA-46-like beta-lactamase	background alone	OXA-119
+mix_wastewater_GCF_051619525.1_8x	OXA beta-lactamase without subfamily	background alone	OXA-464
+mix_wastewater_GCF_051619525.1_8x	OXA-9-like beta-lactamase	background alone	OXA-896
+mix_wastewater_GCF_051619525.1_8x	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	Pseudomonas aeruginosa soxR
+mix_wastewater_GCF_051619525.1_8x	VEB beta-lactamase	background alone	VEB-18
+pure_GCF_051563005.1	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	evgS;evgA;H-NS
+pure_GCF_051563005.1	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	acrD;mdtB;AcrF;mdtF;mdtC;acrB;AcrE;mdtA;mdtE;Escherichia coli acrA;Shigella flexneri acrA
+pure_GCF_051563005.1	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	mdtO;emrY;emrB;mdtP;mdtG;emrK;mdtM;Escherichia coli mdfA;emrA;mdtH;mdtN
+pure_GCF_051563005.1	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	YojI;msbA
+pure_GCF_051563005.1	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	TolC
+pure_GCF_051563005.1	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptA;ugd;PmrF
+pure_GCF_051563005.1	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP;gadX;gadW;AcrS
+pure_GCF_051563005.1	EC beta-lactamase	UNEXPLAINED	EC-5
+pure_GCF_051563005.1	undecaprenyl pyrophosphate related proteins	spike truth or protein-only hit	bacA
+pure_GCF_051563005.1	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	leuO;emrR
+pure_GCF_051563005.1	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+pure_GCF_051563005.1	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+pure_GCF_051563005.1	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Escherichia coli emrE
+pure_GCF_051563005.1	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	spike truth or protein-only hit	marA
+pure_GCF_051563005.1	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	UNEXPLAINED	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin
+pure_GCF_051617875.1	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	acrB;oqxB;mdtC;oqxA;Enterobacter cloacae acrA;mdtB;Klebsiella pneumoniae acrA
+pure_GCF_051617875.1	MCR phosphoethanolamine transferase	spike truth or protein-only hit	MCR-9.1
+pure_GCF_051617875.1	General Bacterial Porin with reduced permeability to beta-lactams	spike truth or protein-only hit	Klebsiella pneumoniae OmpK37
+pure_GCF_051617875.1	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	emrB;tet(D);Klebsiella pneumoniae KpnG;qacEdelta1
+pure_GCF_051617875.1	SHV beta-lactamase	spike truth or protein-only hit	SHV-12
+pure_GCF_051617875.1	ACT beta-lactamase	spike truth or protein-only hit	ACT-73;ACT-179
+pure_GCF_051617875.1	APH(6)	spike truth or protein-only hit	APH(6)-Id
+pure_GCF_051617875.1	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-1;OXA-320
+pure_GCF_051617875.1	TEM beta-lactamase	spike truth or protein-only hit	TEM-206;TEM-234
+pure_GCF_051617875.1	sulfonamide resistant sul	spike truth or protein-only hit	sul1
+pure_GCF_051617875.1	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+pure_GCF_051617875.1	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	msbA
+pure_GCF_051617875.1	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA19
+pure_GCF_051617875.1	rifampin ADP-ribosyltransferase (Arr)	spike truth or protein-only hit	arr-3
+pure_GCF_051617875.1	chloramphenicol acetyltransferase (CAT)	spike truth or protein-only hit	catB3;catII from Escherichia coli K-12
+pure_GCF_051617875.1	APH(3'')	spike Loose homolog (>= 80%)	APH(3'')-Ib
+pure_GCF_051617875.1	fosfomycin thiol transferase	spike truth or protein-only hit	FosA2
+pure_GCF_051617875.1	AAC(6'); AAC(6')-Ib-cr	spike truth or protein-only hit	AAC(6')-Ib-cr5
+pure_GCF_051617875.1	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR
+pure_GCF_051617875.1	AAC(6')	spike truth or protein-only hit	AAC(6')-Ib7
+pure_GCF_051617875.1	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	CRP
+pure_GCF_051617875.1	undecaprenyl pyrophosphate related proteins	spike Loose homolog (>= 80%)	bacA
+pure_GCF_051617875.1	kdpDE; antibiotic efflux regulatory protein	spike truth or protein-only hit	kdpE
+pure_GCF_051617875.1	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	spike truth or protein-only hit	marA;ramA
+pure_GCF_051617875.1	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Klebsiella pneumoniae KpnE;Klebsiella pneumoniae KpnF
+pure_GCF_051619525.1	resistance-nodulation-cell division (RND) antibiotic efflux pump	spike truth or protein-only hit	oqxB;acrB;Klebsiella pneumoniae acrA;mdtB;acrD;oqxA;MuxB
+pure_GCF_051619525.1	ATP-binding cassette (ABC) antibiotic efflux pump	spike truth or protein-only hit	LptD;msbA
+pure_GCF_051619525.1	General Bacterial Porin with reduced permeability to beta-lactams	spike truth or protein-only hit	Klebsiella pneumoniae OmpK37
+pure_GCF_051619525.1	pmr phosphoethanolamine transferase	spike truth or protein-only hit	eptB;ArnT
+pure_GCF_051619525.1	major facilitator superfamily (MFS) antibiotic efflux pump	spike truth or protein-only hit	tet(A);Klebsiella pneumoniae KpnG;emrB
+pure_GCF_051619525.1	Outer Membrane Porin (Opr)	spike Loose homolog (>= 80%)	MdtQ
+pure_GCF_051619525.1	APH(3'')	spike truth or protein-only hit	APH(3'')-Ib
+pure_GCF_051619525.1	General Bacterial Porin with reduced permeability to peptide antibiotics	spike Loose homolog (>= 80%)	OmpA
+pure_GCF_051619525.1	APH(6)	spike truth or protein-only hit	APH(6)-Id
+pure_GCF_051619525.1	LEN beta-lactamase	spike truth or protein-only hit	LEN-9
+pure_GCF_051619525.1	sulfonamide resistant sul	spike truth or protein-only hit	sul2
+pure_GCF_051619525.1	OXA-1-like beta-lactamase	spike truth or protein-only hit	OXA-1
+pure_GCF_051619525.1	CTX-M beta-lactamase	spike truth or protein-only hit	CTX-M-15
+pure_GCF_051619525.1	TEM beta-lactamase	spike truth or protein-only hit	TEM-198;TEM-34
+pure_GCF_051619525.1	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	cpxA;CRP
+pure_GCF_051619525.1	trimethoprim resistant dihydrofolate reductase dfr	spike truth or protein-only hit	dfrA14
+pure_GCF_051619525.1	AAC(6')	spike truth or protein-only hit	AAC(6')-Ib7
+pure_GCF_051619525.1	chloramphenicol acetyltransferase (CAT)	spike Loose homolog (>= 80%)	catB3
+pure_GCF_051619525.1	quinolone resistance protein (qnr)	spike truth or protein-only hit	QnrB1;QnrB17
+pure_GCF_051619525.1	fosfomycin thiol transferase	spike truth or protein-only hit	FosA6;fosA5
+pure_GCF_051619525.1	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	H-NS
+pure_GCF_051619525.1	small multidrug resistance (SMR) antibiotic efflux pump	spike truth or protein-only hit	Klebsiella pneumoniae KpnF;Klebsiella pneumoniae KpnE
+pure_GCF_051619525.1	AAC(6'); AAC(6')-Ib-cr	spike truth or protein-only hit	AAC(6')-Ib-cr1
+pure_GCF_051619525.1	undecaprenyl pyrophosphate related proteins	spike Loose homolog (>= 80%)	bacA
+pure_GCF_051619525.1	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	spike truth or protein-only hit	emrR
+pure_GCF_051619525.1	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	UNEXPLAINED	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin

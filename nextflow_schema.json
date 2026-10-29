@@ -1,0 +1,157 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://raw.githubusercontent.com/MacaulayWinter/seq-resistome/main/nextflow_schema.json",
+    "title": "MacaulayWinter/seq-resistome pipeline parameters",
+    "description": "Antibiotic resistance genes in shotgun metagenomes: read-based counts against CARD, normalised, with denominators",
+    "type": "object",
+    "$defs": {
+        "input_output_options": {
+            "title": "Input/output options",
+            "type": "object",
+            "description": "Where the samples come from and where results go.",
+            "required": [
+                "input",
+                "outdir"
+            ],
+            "properties": {
+                "input": {
+                    "type": "string",
+                    "description": "Samplesheet CSV: sample, fastq_1, fastq_2, then any study metadata columns (carried through to the tables). Several rows with one sample name are one sample in several files.",
+                    "format": "file-path",
+                    "exists": true,
+                    "mimetype": "text/csv",
+                    "pattern": "^\\S+\\.csv$",
+                    "fa_icon": "fas fa-file-csv"
+                },
+                "triage_results": {
+                    "type": "string",
+                    "description": "A seq-triage results folder (its --outdir). Give it with the samplesheet seq-triage was run with: only samples seq-triage passed (PASS or WARN) as short-read metagenomes are analysed; the rest are listed in samples_left_out.tsv with the reason.",
+                    "format": "directory-path",
+                    "exists": true
+                },
+                "outdir": {
+                    "type": "string",
+                    "description": "Directory for results. Created if it does not exist.",
+                    "format": "directory-path",
+                    "default": "results"
+                },
+                "publish_dir_mode": {
+                    "type": "string",
+                    "description": "How results are written to --outdir.",
+                    "default": "copy",
+                    "enum": [
+                        "copy",
+                        "symlink",
+                        "rellink",
+                        "link",
+                        "copyNoFollow",
+                        "move"
+                    ],
+                    "hidden": true
+                }
+            }
+        },
+        "card_options": {
+            "title": "CARD",
+            "type": "object",
+            "description": "The Comprehensive Antibiotic Resistance Database: downloaded once from card.mcmaster.ca into a cache, checksum-checked on every run, never stored in the pipeline. Free for non-commercial research use only.",
+            "properties": {
+                "card_version": {
+                    "type": "string",
+                    "description": "'validated': the CARD release this pipeline version was validated with. 'latest': the newest CARD release; every output then says it was not validated by the pipeline authors.",
+                    "default": "validated",
+                    "enum": [
+                        "validated",
+                        "latest"
+                    ]
+                },
+                "card_cache": {
+                    "type": "string",
+                    "description": "Folder CARD is kept in between runs. Default: ~/.seq-resistome/card",
+                    "format": "directory-path"
+                },
+                "card_versions": {
+                    "type": "string",
+                    "description": "Table of CARD releases with their pinned checksums.",
+                    "format": "file-path",
+                    "exists": true,
+                    "hidden": true,
+                    "help_text": "Defaults to assets/card_versions.csv in the pipeline. Its validated row is the CARD release this version of the pipeline was checked with."
+                }
+            }
+        },
+        "host_removal_options": {
+            "title": "Host removal",
+            "type": "object",
+            "description": "Reads from the host are removed with hostile before counting. Human by default.",
+            "properties": {
+                "host_index": {
+                    "type": "string",
+                    "description": "A hostile standard index, fetched once into --host_cache (hostile's list: human-t2t-hla, human-t2t-hla-argos985, ...).",
+                    "default": "human-t2t-hla"
+                },
+                "host_cache": {
+                    "type": "string",
+                    "description": "Folder hostile indexes are kept in between runs. Default: ~/.seq-resistome/hostile",
+                    "format": "directory-path"
+                },
+                "host_fasta": {
+                    "type": "string",
+                    "description": "Your own host genome (FASTA) instead of --host_index; indexed with bowtie2 on each run.",
+                    "format": "file-path",
+                    "exists": true
+                },
+                "skip_host_removal": {
+                    "type": "boolean",
+                    "description": "Skip host removal (samples with no host, such as water or soil).",
+                    "default": false
+                }
+            }
+        },
+        "counting_options": {
+            "title": "Counting and normalisation",
+            "type": "object",
+            "description": "The 16S denominator and when an ARG counts as detected.",
+            "properties": {
+                "rrna_16s": {
+                    "type": "string",
+                    "description": "16S rRNA reference FASTA file(s) for SortMeRNA, comma-separated. Default: SILVA bacteria and archaea 16S as shipped with SortMeRNA 4.3.7.",
+                    "default": "https://raw.githubusercontent.com/sortmerna/sortmerna/v4.3.7/data/rRNA_databases/silva-bac-16s-id90.fasta,https://raw.githubusercontent.com/sortmerna/sortmerna/v4.3.7/data/rRNA_databases/silva-arc-16s-id95.fasta"
+                },
+                "length_16s": {
+                    "type": "integer",
+                    "description": "Length (bp) one 16S gene copy is counted as: E. coli rrsB.",
+                    "default": 1542,
+                    "minimum": 1
+                },
+                "min_arg_reads": {
+                    "type": "integer",
+                    "description": "Fewest reads for an ARG to count as detected.",
+                    "default": 2,
+                    "minimum": 1
+                },
+                "min_breadth_ratio": {
+                    "type": "number",
+                    "description": "An ARG counts as detected only if its reads cover at least this share of the breadth that the same number of reads landing at random would cover.",
+                    "default": 0.5,
+                    "minimum": 0,
+                    "maximum": 1
+                }
+            }
+        }
+    },
+    "allOf": [
+        {
+            "$ref": "#/$defs/input_output_options"
+        },
+        {
+            "$ref": "#/$defs/card_options"
+        },
+        {
+            "$ref": "#/$defs/host_removal_options"
+        },
+        {
+            "$ref": "#/$defs/counting_options"
+        }
+    ]
+}
