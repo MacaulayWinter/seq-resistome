@@ -1,0 +1,18 @@
+genome	orf	aro_accession	aro_term	family	cut_off	protein_identity	best_dna_identity	best_dna_cover
+GCF_051560495.1	NZ_CP196279.1_1303	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	Strict	38.66	79.592	0.089
+GCF_051560495.1	NZ_CP196279.1_1556	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	Strict	83.44	75.528	0.928
+GCF_051560495.1	NZ_CP196279.1_3431	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	Strict	85.25	77.564	0.839
+GCF_051560505.1	NZ_CP196282.1_133	3005053	ArnT	pmr phosphoethanolamine transferase	Strict	72.6	73.739	0.94
+GCF_051560505.1	NZ_CP196282.1_1031	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	Strict	85.25	78.205	0.839
+GCF_051560505.1	NZ_CP196282.1_2426	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	Strict	88.07	79.394	1
+GCF_051560505.1	NZ_CP196282.1_2427	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	Strict	84.17	78.202	1.011
+GCF_051560505.1	NZ_CP196282.1_3512	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	Strict	39.2	NA	NA
+GCF_051560505.1	NZ_CP196282.1_3811	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	Strict	82.17	75.342	0.927
+GCF_051618705.1	NZ_CP196312.1_23	3005053	ArnT	pmr phosphoethanolamine transferase	Strict	63.7	68.457	0.878
+GCF_051618705.1	NZ_CP196312.1_446	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	Strict	85.25	79.487	0.839
+GCF_051618705.1	NZ_CP196312.1_2544	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	Strict	38.23	NA	NA
+GCF_051618705.1	NZ_CP196312.1_3851	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	Strict	84.4	75.385	0.985
+GCF_051618705.1	NZ_CP196312.1_3852	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	Strict	82.2	75.833	0.984
+GCF_051620725.1	NZ_CP196330.1_2073	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	Strict	85.25	77.564	0.839
+GCF_051620725.1	NZ_CP196330.1_3988	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	Strict	83.44	75.417	0.945
+GCF_051620725.1	NZ_CP196330.1_4230	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	Strict	38.66	79.592	0.089

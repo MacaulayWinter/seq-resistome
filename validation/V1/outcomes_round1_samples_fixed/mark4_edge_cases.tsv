@@ -1,0 +1,4 @@
+case	passed	detail
+E1 no ARGs, has 16S	TRUE	detected 0, 16S reads 120
+E2 no 16S, no ARGs	TRUE	detected 0, 16S reads 0, note: No 16S reads: copies per 16S copy are missing (NA), not zero or infinite.
+E3 only host	TRUE	status analysed; host removed 395002 of 395886 reads

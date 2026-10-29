@@ -1,0 +1,6 @@
+# Same package as nf-core's sortmerna module.
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - conda-forge::sortmerna=4.3.7

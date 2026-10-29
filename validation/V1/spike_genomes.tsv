@@ -1,0 +1,11 @@
+order	isolate	organism	assembly	level	replicons	released	role
+1	ECE107	Escherichia coli	-	-	-	-	no RefSeq complete assembly
+2	KPE111	Klebsiella pneumoniae	GCF_051620725.1	Complete Genome	5	2025-07-30	spike 1
+3	ECE170	Escherichia coli	GCA_051930425.1	Complete Genome	4	2025-08-12	GenBank only, no RefSeq assembly: does not qualify
+4	KPE072	Klebsiella variicola	-	-	-	-	no RefSeq complete assembly
+5	CPO025	Enterobacter hormaechei	GCF_051560505.1	Complete Genome	3	2025-07-29	spike 2
+6	ECE228	Escherichia coli	GCF_051618705.1	Complete Genome	4	2025-07-30	spike 3
+7	ALF22C020	Klebsiella pneumoniae	GCF_051560495.1	Complete Genome	3	2025-07-29	spike 4
+8	AH21H052	Escherichia coli	GCF_051563005.1	Complete Genome	1	2025-07-29	reserve 1 (fresh data for a fix-and-reconfirm cycle)
+9	KPE040	Klebsiella variicola subsp. variicola	GCF_051619525.1	Complete Genome	5	2025-07-30	reserve 2
+10	CPO413	Enterobacter hormaechei	GCF_051617875.1	Complete Genome	4	2025-07-30	reserve 3
