@@ -6,9 +6,8 @@ cleaned, host reads removed, and reads from ARGs counted against
 reads, RPM, RPKM, copies per 16S rRNA gene copy) with every denominator
 shown.
 
-**Status:** v0.1 under construction. Validation V1 is
-[pre-registered](validation/V1/PREREGISTRATION.md) and not yet scored, so the
-numbers are not yet validated. The plan and every decision are in
+**Status:** v0.1 under construction. Validation V1 has run three
+pre-registered rounds and **not passed** (see Validation below). The plan and every decision are in
 [CLAUDE.md](CLAUDE.md).
 
 It is the first domain pipeline after
@@ -121,11 +120,23 @@ pandas).
 ## Validation
 
 V1 tests detection, specificity and accuracy of copies per 16S copy on reads
-simulated from four complete genomes (K. pneumoniae, E. hormaechei, E. coli)
-mixed into two real metagenomes (human gut, wastewater), plus edge cases and
-the CARD cache. Its pass marks were
-[committed before any data was chosen](validation/V1/PREREGISTRATION.md).
-Results will be reported here, failures included.
+simulated from complete *E. coli*, *Klebsiella* and *Enterobacter* genomes
+mixed into real human gut and wastewater metagenomes, plus edge cases and the
+CARD cache. Every round's marks were committed before its data was chosen
+([round 1](validation/V1/PREREGISTRATION.md),
+[round 2](validation/V1/PREREGISTRATION_round2.md),
+[round 3](validation/V1/PREREGISTRATION_round3.md)). **V1 has not passed.**
+
+| Round | Detection (100% needed) | Specificity (0 unexplained) | Accuracy (all within 1.5x / 2x) | Edge cases | CARD cache |
+|---|---|---|---|---|---|
+| 1 | FAIL 526/544 | FAIL 23 families | FAIL 120/166 | PASS | PASS |
+| 2 (16S fix) | FAIL 348/352 | FAIL 9 families | FAIL 70/89 | PASS | PASS |
+| 3 (scored by location) | FAIL 543/544 | FAIL 22 of 2,337 genes | FAIL 354/358 | PASS | PASS |
+
+Rounds 1 and 2 failed mostly because CARD names one gene in different ways
+(CLAUDE.md D12, D15). Round 3's misses are real: reads from a bacterium's
+own genes that only partly resemble a CARD gene (*E. coli* LptD, MdtK,
+eptB) are called detected (D17).
 
 ## Known limitations (v0.1)
 
