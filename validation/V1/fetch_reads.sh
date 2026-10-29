@@ -20,9 +20,15 @@ for mate in 1 2; do
     # head closes the pipe after N records, so curl and gzip upstream stop
     # with a broken pipe: expected, so pipefail is off for this line only.
     # The record counts and mate names below catch a short download.
-    set +o pipefail
-    curl -sS --retry 3 "https://$url" 2>/dev/null | gzip -dc 2>/dev/null | head -n $((4 * (skip + pairs))) | tail -n $((4 * pairs)) | gzip -1 > "${out}_${mate}.fastq.gz"
-    set -o pipefail
+    # Up to three attempts: a dropped connection mid-stream gives a short
+    # file, which is caught by the count and tried again.
+    for attempt in 1 2 3; do
+        set +o pipefail
+        curl -sS --retry 3 "https://$url" 2>/dev/null | gzip -dc 2>/dev/null | head -n $((4 * (skip + pairs))) | tail -n $((4 * pairs)) | gzip -1 > "${out}_${mate}.fastq.gz"
+        set -o pipefail
+        [ "$(gzip -dc "${out}_${mate}.fastq.gz" | awk 'END {print NR / 4}')" = "$pairs" ] && break
+        echo "$run mate $mate: attempt $attempt short; retrying" >&2; sleep 10
+    done
 done
 n1=$(gzip -dc "${out}_1.fastq.gz" | awk 'END {print NR / 4}'); n2=$(gzip -dc "${out}_2.fastq.gz" | awk 'END {print NR / 4}')
 [ "$n1" = "$pairs" ] && [ "$n2" = "$pairs" ] || { echo "$run: got $n1 / $n2 records, wanted $pairs" >&2; exit 1; }

@@ -28,6 +28,10 @@ docker run --rm -u "$(id -u):$(id -g)" -v "$v1:/v" -v "$repo:/repo:ro" -w /v "$R
     Rscript "/repo/validation/V1/${SCORER:-score_V1.R}" /v/results /v/truth /v/outcomes
 
 echo "== 3. mark 5: the CARD cache (real cache, card.mcmaster.ca)"
+# From a folder of its own: -resume resumes the last run launched in a
+# folder, and these small runs must not become "the last V1 run" (they did
+# once, and a later -resume redid every V1 task).
+mkdir -p "$v1/cache_test"; cd "$v1/cache_test"
 cache=${CARD_CACHE:-$HOME/.seq-resistome/card}
 archive=$cache/broadstreet-v4.0.2.tar.bz2
 pinned=$(awk -F, '$2 == "validated" {print $4}' "$repo/assets/card_versions.csv")
