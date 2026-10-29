@@ -135,6 +135,14 @@ Results will be reported here, failures included.
   in [CLAUDE.md](CLAUDE.md), D1 section 2).
 - Close alleles (TEM-1 vs TEM-116) cannot be told apart reliably from reads;
   judge at the level of CARD's AMR gene family.
+- Found in validation (V1 rounds 1 and 2, CLAUDE.md D12, D15), stated before
+  round 3: a gene can be called from 2 reads on a long CARD reference that
+  only resembles a resistance gene (for example *E. coli* reads on a
+  *Bifidobacterium* rpoB); ABC transporter genes are undercounted (about
+  0.4x); chloramphenicol acetyltransferases and porins are overcounted (up
+  to about 2x). About 1 in 8 genes RGI finds by protein similarity has DNA
+  too far from CARD's reference for any read to map (vanG, rsmA, leuO in
+  Enterobacterales, for example): read-based counting cannot see them.
 - No statistics yet: v0.1 counts and normalises. Comparisons between groups
   and times come in v0.2.
 
