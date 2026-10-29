@@ -136,6 +136,13 @@
                     "default": 0.5,
                     "minimum": 0,
                     "maximum": 1
+                },
+                "min_read_identity": {
+                    "type": "number",
+                    "description": "An ARG counts as detected only if its reads match the CARD reference at least this well on average (1 - mismatches / aligned bases). Reads from a different gene that only shares a stretch with a CARD gene match it less well. 0 switches the check off.",
+                    "default": 0,
+                    "minimum": 0,
+                    "maximum": 1
                 }
             }
         }

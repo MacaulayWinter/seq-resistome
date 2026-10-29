@@ -24,9 +24,10 @@
 #               rpkm            reads per kilobase of the CARD reference gene
 #                               per million reads analysed
 #               copies_per_16s  ARG copies per 16S rRNA gene copy:
-#                               (reads x mean read length / gene length) /
+#                               (ARG aligned bases / gene length) /
 #                               (16S aligned bases / 16S length), counting
-#                               only the 16S bases reads actually cover (D13).
+#                               only the bases reads actually cover on each
+#                               reference (16S: D13; ARGs: D19).
 #                               Missing (NA), never infinite, when a sample
 #                               has no 16S reads.
 #
@@ -34,8 +35,12 @@
 #               min_breadth_ratio of the breadth reads landing at random would
 #               cover: 1 - exp(-reads x read length / gene length). Reads piled
 #               on one shared domain of a gene that is not there cover far
-#               less than that (D8). Every hit is kept in arg_long.tsv with
-#               its call and reason; the matrices hold detected genes only.
+#               less than that (D8). And, if min_read_identity > 0, the reads
+#               match the CARD reference at least that well on average (D19):
+#               reads from a different gene that only shares a stretch with
+#               a CARD gene match it less well. Every hit is kept in
+#               arg_long.tsv with its call and reason; the matrices hold
+#               detected genes only.
 #
 # Usage:  resistome_tables.R <rgi_dir> <rrna_dir> <read_flow.tsv>
 #             <samples_left_out.tsv> <samplesheet.csv> <card_version>
@@ -44,7 +49,7 @@
 #*******************************************************************************
 
 args <- commandArgs(trailingOnly = TRUE)
-if (length(args) < 10) stop("Usage: resistome_tables.R <rgi_dir> <rrna_dir> <read_flow.tsv> <samples_left_out.tsv> <samplesheet.csv> <card_version> <card_validated> <length_16s> <min_arg_reads> <min_breadth_ratio> [pipeline_version]")
+if (length(args) < 10) stop("Usage: resistome_tables.R <rgi_dir> <rrna_dir> <read_flow.tsv> <samples_left_out.tsv> <samplesheet.csv> <card_version> <card_validated> <length_16s> <min_arg_reads> <min_breadth_ratio> [pipeline_version] [min_read_identity]")
 rgi_dir      <- args[1]
 rrna_dir     <- args[2]
 flow_file    <- args[3]
@@ -56,6 +61,7 @@ length_16s   <- as.numeric(args[8])
 min_reads    <- as.numeric(args[9])
 min_ratio    <- as.numeric(args[10])
 pipe_version <- if (length(args) >= 11) args[11] else "dev"
+min_identity <- if (length(args) >= 12) as.numeric(args[12]) else 0
 
 # Pipeline columns (main.nf): never study metadata.
 PIPELINE_COLUMNS <- c("sample", "fastq_1", "fastq_2", "bam", "fastq_dir", "platform", "sample_type",
@@ -101,12 +107,26 @@ hits <- do.call(rbind, c(list(as.data.frame(setNames(replicate(length(RGI_COLS) 
 for (k in c("reads", "completely_mapped_reads", "average_percent_coverage", "average_mapq", "reference_length_bp"))
   hits[[k]] <- num(hits[[k]])
 
+# Read statistics per CARD reference (bin/rgi_read_stats.sh), summed per ARO:
+# aligned bases (for copies) and mismatches (for read identity; D19).
+stat_files <- list.files(rgi_dir, pattern = "\\.read_stats\\.tsv$", full.names = TRUE)
+stats <- do.call(rbind, c(list(data.frame(sample = character(0), aro_accession = character(0), aligned_bases = numeric(0),
+                                          mismatches = numeric(0))),
+  lapply(stat_files, function(f) {
+    x <- read_tsv(f)
+    if (!nrow(x)) return(NULL)
+    a <- aggregate(cbind(aligned_bases = num(x$aligned_bases), mismatches = num(x$mismatches)) ~ aro_accession, data = x, FUN = sum)
+    cbind(sample = rep(sub("\\.read_stats\\.tsv$", "", basename(f)), nrow(a)), a, stringsAsFactors = FALSE)
+  })))
+
 # 4. Bookkeeping checks: every analysed sample has its outputs, and nothing
 #    else does; SortMeRNA saw exactly the reads the read flow says. A broken
 #    join would otherwise give wrong numbers silently.
 analysed <- flow$sample[flow$reads_analysed > 0]
 rgi_samples <- sub("\\.gene_mapping_data\\.txt$", "", basename(rgi_files))
+stat_samples <- sub("\\.read_stats\\.tsv$", "", basename(stat_files))
 problems <- c(
+  if (length(setdiff(rgi_samples, stat_samples))) paste("no RGI read statistics for", paste(setdiff(rgi_samples, stat_samples), collapse = ", ")),
   if (length(setdiff(analysed, rgi_samples))) paste("no RGI output for", paste(setdiff(analysed, rgi_samples), collapse = ", ")),
   if (length(setdiff(rgi_samples, analysed))) paste("RGI output for samples with no reads analysed:", paste(setdiff(rgi_samples, analysed), collapse = ", ")),
   if (length(setdiff(analysed, rrna$sample))) paste("no 16S count for", paste(setdiff(analysed, rrna$sample), collapse = ", ")),
@@ -124,7 +144,7 @@ sheet <- read.csv(sheet_file, check.names = FALSE, stringsAsFactors = FALSE, col
 meta_cols <- setdiff(names(sheet), PIPELINE_COLUMNS)
 OUTPUT_COLS <- c("sample", "aro_accession", "aro_term", "amr_gene_family", "drug_class", "resistance_mechanism",
                  "model_type", "reference_length_bp", "reads", "completely_mapped_reads", "average_percent_coverage",
-                 "expected_percent_coverage", "breadth_ratio", "average_mapq", "detected", "detection_note", "rpm",
+                 "expected_percent_coverage", "breadth_ratio", "average_mapq", "aligned_bases", "read_identity", "detected", "detection_note", "rpm",
                  "rpkm", "arg_copies", "copies_per_16s", "reads_analysed", "mean_read_length", "reads_16s",
                  "bases_16s", "copies_16s", "card_version", "card_validated", "layout", "n_files", "reads_raw", "reads_after_qc",
                  "host_removal", "host_reads_removed", "status", "note")
@@ -148,17 +168,27 @@ den$card_validated <- card_ok
 
 # 7. Measures and the detection call, per hit --------------------------------------
 long <- merge(hits, den[, c("sample", "reads_analysed", "mean_read_length", "reads_16s", "bases_16s", "copies_16s")], by = "sample")
+long <- merge(long, stats, by = c("sample", "aro_accession"), all.x = TRUE)
 L <- long$reference_length_bp
+long$read_identity <- ifelse(long$aligned_bases > 0, 1 - long$mismatches / long$aligned_bases, NA)
 long$expected_percent_coverage <- 100 * (1 - exp(-long$reads * long$mean_read_length / L))
 long$breadth_ratio <- long$average_percent_coverage / long$expected_percent_coverage
-long$detected <- long$reads >= min_reads & long$breadth_ratio >= min_ratio
+id_ok <- min_identity <= 0 | (!is.na(long$read_identity) & long$read_identity >= min_identity)
+long$detected <- long$reads >= min_reads & long$breadth_ratio >= min_ratio & id_ok
 long$detection_note <- ifelse(long$detected, "",
   ifelse(long$reads < min_reads, sprintf("fewer than %g reads", min_reads),
+  ifelse(long$breadth_ratio < min_ratio,
          sprintf("reads cover %.0f%% of the gene; reads landing at random would cover %.0f%% (ratio %.2f < %g): likely a shared domain of another gene",
-                 long$average_percent_coverage, long$expected_percent_coverage, long$breadth_ratio, min_ratio)))
+                 long$average_percent_coverage, long$expected_percent_coverage, long$breadth_ratio, min_ratio),
+         sprintf("reads match the CARD reference at %.1f%% identity (< %.1f%%): likely a related gene that only resembles it",
+                 100 * long$read_identity, 100 * min_identity))))
 long$rpm  <- long$reads / long$reads_analysed * 1e6
 long$rpkm <- long$reads / (L / 1e3) / (long$reads_analysed / 1e6)
-long$arg_copies <- long$reads * long$mean_read_length / L
+# Copies from the reference bases reads cover, as for 16S (D13): a read
+# hanging over a gene end covers only part of it (D19). Read-based if the
+# statistics are missing for a hit (never expected; the bookkeeping checks
+# that every sample has them).
+long$arg_copies <- ifelse(is.na(long$aligned_bases), long$reads * long$mean_read_length / L, long$aligned_bases / L)
 long$copies_per_16s <- ifelse(long$reads_16s > 0, long$arg_copies / long$copies_16s, NA)
 long$card_version   <- rep(card_version, nrow(long))
 long$card_validated <- rep(card_ok, nrow(long))
@@ -234,8 +264,8 @@ md <- c(md, "## How to read these numbers", "",
         "- **rpkm**: reads per kilobase of the CARD reference gene per million reads analysed.",
         paste("- **copies_per_16s**:", CAVEAT_16S),
         sprintf(paste("- **detected**: at least %g reads, spread along the gene at least %g times as widely as reads landing",
-                      "at random would be. Hits that fail are kept in arg_long.tsv with the reason, and left out of the matrices."),
-                min_reads, min_ratio),
+                      "at random would be%s. Hits that fail are kept in arg_long.tsv with the reason, and left out of the matrices."),
+                min_reads, min_ratio, if (min_identity > 0) sprintf(", matching the CARD reference at %.0f%% identity or more on average", 100 * min_identity) else ""),
         "- Only CARD's protein homolog models are searched: genes whose presence alone confers resistance. Resistance by point mutation (e.g. in gyrA) cannot be called from reads mapped this way and is not reported.",
         "- Counts are of reads, not organisms: which organisms carry these genes, and whether on plasmids, is for later versions.")
 writeLines(md, "resistome_summary.md")

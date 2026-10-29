@@ -23,7 +23,7 @@ gene <- function(term, acc, reads, cov, len, fam = "fam", cls = "cls")
 # rrna: named vector sample -> 16S reads (and reads_seen = reads_analysed
 # unless seen is given); sheet: lines of the samplesheet.
 run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, card_ok = "true", expect_fail = FALSE,
-                     rgi_header = RGI_HEADER, bases = NULL) {
+                     rgi_header = RGI_HEADER, bases = NULL, identity = NULL, min_identity = 0, stats = TRUE) {
   d <- tempfile("case"); dir.create(d); dir.create(file.path(d, "rgi")); dir.create(file.path(d, "rrna"))
   write.table(flow, file.path(d, "read_flow.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
   writeLines(c("sample\treason", left), file.path(d, "left.tsv"))
@@ -31,6 +31,15 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
   for (s in names(rgi)) {
     rows <- vapply(rgi[[s]], paste, "", collapse = "\t")
     writeLines(c(paste(rgi_header, collapse = "\t"), rows), file.path(d, "rgi", paste0(s, ".gene_mapping_data.txt")))
+    # Read statistics (D19): every read aligned over its whole 100 bp unless
+    # a test says otherwise; mismatches from the identity given per ARO.
+    if (stats) {
+      st <- vapply(rgi[[s]], function(g) {
+        b <- 100 * as.numeric(g[5]); id <- if (!is.null(identity) && g[2] %in% names(identity)) identity[[g[2]]] else 1
+        sprintf("ARO:%s|ID:1|Name:%s\t%s\t%s\t%s\t%s", g[2], g[1], g[2], g[5], b, round(b * (1 - id)))
+      }, "")
+      writeLines(c("reference\taro_accession\treads\taligned_bases\tmismatches", st), file.path(d, "rgi", paste0(s, ".read_stats.tsv")))
+    }
   }
   for (s in names(rrna)) {
     sn <- if (!is.null(seen) && s %in% names(seen)) seen[[s]] else flow$reads_analysed[flow$sample == s]
@@ -40,7 +49,7 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
                file.path(d, "rrna", paste0(s, ".16s.tsv")))
   }
   old <- setwd(d); on.exit(setwd(old))
-  res <- suppressWarnings(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", card_ok, "1542", "2", "0.5", "test"),
+  res <- suppressWarnings(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", card_ok, "1542", "2", "0.5", "test", min_identity),
                                   stdout = TRUE, stderr = TRUE))
   status <- attr(res, "status"); if (is.null(status)) status <- 0
   if (expect_fail) return(list(status = status, msg = paste(res, collapse = "\n")))
@@ -128,6 +137,31 @@ r6 <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 10
                c("sample,fastq_1", "A,a.fq.gz"), bases = c(A = 77100))
 ok(near(r6$den$copies_16s, 50) && near(r6$long$copies_per_16s, 0.1) && r6$den$bases_16s == 77100,
    "case 6: partial 16S alignments count only their aligned bases")
+
+# --- Case 7: read identity (D19) ---------------------------------------------
+# X: 50 reads at 99% identity, detected; Y: 50 reads, 95% covered (looks like
+# a real gene by breadth) but only 82% identity: not detected at 0.9, with
+# the reason; at 0 (off) both are detected.
+g7 <- list(A = list(gene("X", "3000001", 50, 99, 1000), gene("Y", "3000002", 50, 99, 1000)))
+r7 <- run_case(flow_row("A", 1e6), g7, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), identity = c("3000001" = 0.99, "3000002" = 0.82), min_identity = 0.9)
+ok(r7$long$detected[r7$long$aro_term == "X"] && !r7$long$detected[r7$long$aro_term == "Y"] &&
+   grepl("82.0% identity", r7$long$detection_note[r7$long$aro_term == "Y"]), "case 7: low read identity is not detected, with the reason")
+ok(near(r7$long$read_identity[r7$long$aro_term == "X"], 0.99), "case 7: read identity reported")
+r7b <- run_case(flow_row("A", 1e6), g7, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), identity = c("3000001" = 0.99, "3000002" = 0.82), min_identity = 0)
+ok(all(r7b$long$detected), "case 7: identity check off when min_read_identity is 0")
+
+# --- Case 8: ARG copies from aligned bases (D19) -------------------------------
+# 50 reads but only 2,500 aligned bases (half each) on a 1,000 bp gene: 2.5
+# copies, not 5; per 16S copy (100 copies) 0.025.
+d8 <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 1000))), c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"))
+st <- file.path(d8$dir, "rgi", "A.read_stats.tsv"); x <- readLines(st); x[2] <- sub("\t5000\t", "\t2500\t", x[2]); writeLines(x, st)
+old <- setwd(d8$dir); invisible(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", "true", "1542", "2", "0.5", "test", "0"), stdout = TRUE, stderr = TRUE)); setwd(old)
+l8 <- read.delim(file.path(d8$dir, "arg_long.tsv"), comment.char = "#", stringsAsFactors = FALSE)
+ok(near(l8$arg_copies, 2.5) && near(l8$copies_per_16s, 0.025), "case 8: ARG copies follow aligned bases")
+
+# --- Case 9: a sample with RGI output but no read statistics stops ---------------
+f <- run_case(flow_row("A", 1000), list(A = list()), c(A = 10), c("sample,fastq_1", "A,a.fq.gz"), stats = FALSE, expect_fail = TRUE)
+ok(f$status != 0 && grepl("no RGI read statistics for A", f$msg), "case 9: missing read statistics stop the run")
 
 if (length(fails)) {
   cat(sprintf("test_resistome_tables.R: %d passed, %d FAILED\n", n_pass, length(fails)), paste0("  - ", fails, collapse = "\n"), "\n", sep = "")

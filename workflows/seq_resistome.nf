@@ -116,7 +116,8 @@ workflow SEQ_RESISTOME {
         .map { s, why -> "${s}\t${why.toString().replaceAll(/[\t\r\n]+/, ' ')}" }
         .collectFile(name: 'samples_left_out.tsv', newLine: true, sort: false)
     RESISTOME_TABLES(
-        RGI_BWT.out.tsv.map { _meta, files -> files.find { f -> f.name.endsWith('.gene_mapping_data.txt') } }.collect().ifEmpty([]),
+        RGI_BWT.out.tsv.map { _meta, files -> files.find { f -> f.name.endsWith('.gene_mapping_data.txt') } }
+            .mix(RGI_BWT.out.read_stats.map { _meta, f -> f }).collect().ifEmpty([]),
         COUNT_16S.out.counts.map { _meta, f -> f }.collect().ifEmpty([]),
         ch_flow_rows,
         ch_left_out,
@@ -125,7 +126,8 @@ workflow SEQ_RESISTOME {
         card.validated,
         params.length_16s,
         params.min_arg_reads,
-        params.min_breadth_ratio
+        params.min_breadth_ratio,
+        params.min_read_identity
     )
 
     // Every tool's version, from the nf-core 'versions' topic.

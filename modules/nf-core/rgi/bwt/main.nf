@@ -16,6 +16,7 @@ process RGI_BWT {
     tuple val(meta), path("*.json"), emit: json
     tuple val(meta), path("*.txt"), emit: tsv
     tuple val(meta), path("temp/"), emit: tmp
+    tuple val(meta), path("*.read_stats.tsv"), emit: read_stats
     tuple val("${task.process}"), val('rgi'), eval("rgi main --version"),  emit: versions_rgi, topic: versions
     tuple val("${task.process}"), val('rgi-database'), eval("echo \$DB_VERSION"),  emit: versions_db , topic: versions
     tuple val("${task.process}"), val('kma'), eval("kma -v | sed 's/KMA-//'"),  emit: versions_kma, topic: versions
@@ -66,6 +67,8 @@ process RGI_BWT {
         --read_one ${read_one} \\
         ${read_two_cmd}
 
+    rgi_read_stats.sh ${prefix}.sorted.temp.bam ${card}/card_database_v\$DB_VERSION.fasta > ${prefix}.read_stats.tsv
+
     mkdir temp/
     for FILE in *.xml *.fsa *.{nhr,nin,nsq} *.draft *.potentialGenes *{variant,rrna,protein,predictedGenes,overexpression,homolog}.json; do [[ -e \$FILE ]] && mv \$FILE temp/; done
 
@@ -76,6 +79,7 @@ process RGI_BWT {
     mkdir -p temp
     touch test.json
     touch test.txt
+    touch test.read_stats.tsv
 
     DB_VERSION=stub_version
     """
