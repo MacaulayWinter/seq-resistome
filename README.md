@@ -1,5 +1,8 @@
 # seq-resistome
 
+[![Nextflow](https://img.shields.io/badge/version-%E2%89%A526.10.0-green?style=flat&logo=nextflow&logoColor=white&color=%230DC09D&link=https%3A%2F%2Fnextflow.io)](https://www.nextflow.io/)
+[![CI](https://github.com/MacaulayWinter/seq-resistome/actions/workflows/ci.yml/badge.svg)](https://github.com/MacaulayWinter/seq-resistome/actions/workflows/ci.yml)
+
 Antibiotic resistance genes (ARGs) in shotgun metagenomes: reads are
 cleaned, host reads removed, and reads from ARGs counted against
 [CARD](https://card.mcmaster.ca); each gene is then reported four ways (raw

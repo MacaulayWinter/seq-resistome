@@ -54,6 +54,10 @@ lint:
     - conf/test_full.config
     - assets/multiqc_config.yml
     - tests/default.nf.test
+    # No nf-test here: the end-to-end check is tests/e2e/check_test_profile.R
+    # and the unit tests are R and bash scripts (D10), so there is no
+    # nf-test.config (CI fix 4).
+    - nf-test.config
   nextflow_config:
     # The name and home page are this repository's, not nf-core's.
     - manifest.name

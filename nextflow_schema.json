@@ -75,8 +75,8 @@
                     "description": "Table of CARD releases with their pinned checksums.",
                     "format": "file-path",
                     "exists": true,
-                    "default": "${projectDir}/assets/card_versions.csv",
-                    "hidden": true
+                    "hidden": true,
+                    "help_text": "Defaults to assets/card_versions.csv in the pipeline. Its validated row is the CARD release this version of the pipeline was checked with."
                 }
             }
         },

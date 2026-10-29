@@ -367,8 +367,8 @@ work is local on branch `v0.1-build`.
 - R tests: `docker run --rm -v "$PWD":/w -w /w <R_IMAGE> Rscript tests/resistome_tables/test_resistome_tables.R`.
 - Bulky files (work dirs, validation reads) go in `~/seqresistome-scratch/`,
   never in `~/Documents` (synced to iCloud) or the repository.
-- `nf-core pipelines lint` cannot reach schemastore.org from Python in
-  Claude's sandbox (curl can); lint runs in CI.
+- `nf-core pipelines lint --dir .` runs on the Mac (it could not reach
+  schemastore.org on 2026-10-28; it could on 2026-10-29).
 
 ## CI fix log
 
@@ -420,3 +420,23 @@ checks"** (first run, commit e81d97f).
 - *How verified:* 15 of 15 locally; the job re-runs on this push. The
   end-to-end runs themselves (plain and seq-triage handoff) had passed in
   the failing job.
+
+**4. 2026-10-29, PR #1, job "Lockfile rebuild (linux-64), lint, --help"**
+(after fix 2 let the checker run).
+- *What failed:* nf-core lint: 2 failures and 1 warning (the job stops on
+  any pipeline warning).
+- *Why, and what changed:*
+  - "File not found: nf-test.config": this pipeline has no nf-test tests
+    (its end-to-end check is an R script, D10). The check is switched off
+    in `.nf-core.yml`, with that reason.
+  - "Config default value incorrect: params.card_versions": the parameter
+    schema gave the default as `${projectDir}/assets/card_versions.csv`,
+    but the checker compares it with the path as the config resolves it.
+    As in seq-triage, a default inside the pipeline folder is described in
+    the schema's help text instead of given as a value.
+  - "README did not have a Nextflow minimum version badge": added, with
+    the CI badge, as in seq-triage.
+  - Seven "new module version available" notes are deliberate (modules are
+    pinned to a commit two weeks old, D2) and are not pipeline warnings.
+- *How verified:* `nf-core pipelines lint` on the Mac: 0 failures, 0
+  pipeline warnings; `--help` still shows every line the job checks.
