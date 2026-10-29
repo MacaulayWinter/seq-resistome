@@ -1,0 +1,16 @@
+genome	orf	aro_accession	aro_term	family	cut_off	protein_identity	best_dna_identity	best_dna_cover
+GCF_051563005.1	NZ_CP196264.1_860	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	Strict	37.95	NA	NA
+GCF_051563005.1	NZ_CP196264.1_2181	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	Strict	84.4	75.385	0.985
+GCF_051563005.1	NZ_CP196264.1_2182	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	Strict	82.2	75.833	0.984
+GCF_051563005.1	NZ_CP196264.1_2917	3005053	ArnT	pmr phosphoethanolamine transferase	Strict	63.7	68.138	0.877
+GCF_051563005.1	NZ_CP196264.1_3268	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	Strict	85.25	79.487	0.839
+GCF_051617875.1	NZ_CP196300.1_947	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	Strict	88.07	79.394	1
+GCF_051617875.1	NZ_CP196300.1_948	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	Strict	84.17	78.202	1.011
+GCF_051617875.1	NZ_CP196300.1_2032	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	Strict	39.2	NA	NA
+GCF_051617875.1	NZ_CP196300.1_2331	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	Strict	82.17	75.342	0.927
+GCF_051617875.1	NZ_CP196300.1_3338	3005053	ArnT	pmr phosphoethanolamine transferase	Strict	72.6	73.739	0.94
+GCF_051617875.1	NZ_CP196300.1_4237	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	Strict	85.25	78.205	0.839
+GCF_051619525.1	NZ_CP196321.1_135	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	Strict	83.11	75.612	0.944
+GCF_051619525.1	NZ_CP196321.1_337	3007015	qacG	small multidrug resistance (SMR) antibiotic efflux pump	Strict	38.61	NA	NA
+GCF_051619525.1	NZ_CP196321.1_1961	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	Strict	85.25	77.564	0.839
+GCF_051619525.1	NZ_CP196321.1_5186	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	Strict	38.66	80.612	0.089

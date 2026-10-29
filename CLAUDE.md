@@ -327,31 +327,29 @@ samplesheet (+ seq-triage results) ─► main.nf: header check (D4), which samp
 | D12 | **Validation V1, round 1: FAILED as pre-registered** (run 2026-10-28/29 on the Mac; tables in `validation/V1/outcomes/`). Mark 1 detection **FAIL** (526 of 544 truth genes at 2x/8x; misses: marA, vanG, FosA6 at 2x); mark 2 specificity **FAIL** (23 "unexplained" families in 31 samples); mark 3 accuracy **FAIL** (pure genomes 54 of 79 families within 1.5x; 8x mixtures 66 of 87 within 2x); mark 4 edge cases E1-E3 **PASS**, E4 **PASS** (a real seq-triage run, commit fbf74dd, Standard-8 Kraken2: it passed none of the three samples, and all three were left out with its reasons and appear in no table; the path where seq-triage passes a sample is covered only by the CI fixtures, because seq-triage FAILs the gut mixture on 'off target fraction 67.3%', a limit that may not suit a metagenome with no declared target: a question for seq-triage, not changed here, D1 section 5 item 5; a first E4 run without a declared platform passed none for that reason, and the 10 GB Kraken2 request needed `validation/V1/e4.config`); mark 5 CARD cache **PASS** (second run downloaded nothing; appended bytes detected, archive fetched again, pinned checksum restored). **Diagnosis** (pure KPE111 gene by gene, then all four genomes): (1) **24 of 136 truth genes (18%) receive no read at all**: RGI `main` calls them from *protein* similarity (marA, vanG, rsmA, Shigella acrA in Klebsiella/Enterobacter), but their DNA is too far from CARD's reference for any read mapper; the pre-registered truth includes genes read mapping cannot see. (2) **The family test was stricter than its intent:** `score_V1.R` compared CARD's AMR Gene Family label as exact text, but close relatives carry differently worded labels (AAC(6')-Ib7 "AAC(6')" vs AAC(6')-Ib-cr5 "AAC(6'); AAC(6')-Ib-cr"; TolC; OmpK37), so allele-level spill-over was scored as unexplained or missed, and 16 accuracy rows had observed 0. (3) **A real pipeline bias: 16S copies overestimated 1.25-1.34x** on every pure genome. Cause found: 27% of SortMeRNA's 16S reads align over only part of their length (gene ends, short local hits) yet counted as full 150 bp reads. Counting aligned bases instead gives 1.09x on KPE111. For the genes reads can find, accuracy is otherwise close: exact-gene median 0.81 of truth (IQR 0.72-0.94), 1.04 once the 16S bias is removed. **Decision needed from the user** (D1 section 5, item 2: marks 1 and 2 cannot pass without changing how the committed marks define truth and gene family): see Status. | Negative results are reported as they are. |
 | D13 | **V1 round 2 re-registered** (user, 2026-10-29: option A; `validation/V1/PREREGISTRATION_round2.md`, committed before any round-2 data was fetched, simulated or looked at). Truth = RGI `main` Perfect/Strict homolog hits **findable by reads** (predicted gene DNA has a BLASTN hit >= 80% identity over >= 80% of its length to a CARD 4.0.2 homolog reference); the others are **protein-only hits**, listed in full with their count in the outputs and here, never scored. Same family = at least one CARD family term in common. Mark numbers unchanged. One fix cycle: **16S counted by aligned bases** (D7 changes). Fresh data: reserve genomes AH21H052, KPE040, CPO413; backup backgrounds gut SRR28158871, wastewater SRR11809751; ART seed 20261029; HG002's next 200,000 pairs. Disclosed: the reserves' assemblies and their RGI/barrnap outputs were made on 2026-10-28 (one summary line each seen) and moved aside unread; truth is recomputed. Any round-2 mark failing: stop and ask. | User's conditions with option A. |
 | D14 | **Two resource fixes found while running V1 on the laptop; neither changes any result.** (1) RGI_BWT leaves its read alignments (SAM/BAM, about 1 GB per 2-million-read sample, not outputs) in the work folder; with 33 samples they filled the disk twice (2026-10-29, Docker Desktop wedged and had to be force-restarted), so `afterScript` now deletes them when the task ends. (2) Nextflow's local executor schedules by *requested* memory; tasks asking 8 GB but using under 1 GB (SORTMERNA_INDEX, RGI_CARDANNOTATION) were never scheduled while smaller tasks kept the memory busy, holding up every 16S or RGI task. Sized in `validation/V1/local.config`; a pipeline-wide fix (smaller labels for these one-off tasks) is a follow-up. Also learnt: `-resume` resumes the last run launched in a folder, so V1's CARD-cache test now runs from its own folder (it once made a resume redo every task). **Regression check of the 16S fix** (round-1 samples, scored by the round-2 rules; development results, not validation; `validation/V1/outcomes_round1_samples_fixed/`): 16S estimates 1.07-1.15x of truth (were 1.25-1.34x); edge cases E1-E3 still pass; marks 1-3 would still fail on these samples (2 misses: FosA6 at 2x; 3 unexplained families; 57 of 73 pure-genome families within 1.5x, ratios up to 5.8x). 17 protein-only hits excluded across the four genomes, listed in full in `protein_only_hits.tsv`. | Disk and scheduling problems fixed in place; results reported as they are. |
+| D15 | **V1 round 2 (fresh data, after the 16S fix): FAILED as re-registered; stopped for the user** (2026-10-29; `validation/V1/outcomes_round2/`). Mark 1 detection **FAIL** (348 of 352; all 4 misses are CMY-181 in AH21H052); mark 2 specificity **FAIL** (9 unexplained families in 24 samples); mark 3 accuracy **FAIL** (pure genomes 37 of 51 units within 1.5x; 8x mixtures 33 of 38 within 2x); mark 4 edge cases E1-E4 **PASS**; mark 5 CARD cache **PASS**. 16S estimates 1.13-1.15x of truth (round 1: 1.25-1.34x). **Protein-only hits excluded, 15** (listed in full in `protein_only_hits.tsv`): AH21H052 vanG, KpnF, KpnE, ArnT, rsmA; CPO413 KpnF, KpnE, vanG, leuO, ArnT, rsmA; KPE040 leuO, qacG, rsmA, vanG. (Round-1 genomes, development: 17.) **Diagnosis:** (1) Most failures are still CARD labels, not counts. AH21H052's chromosomal ampC is labelled CMY-181 by RGI `main` (76% protein identity, Strict) while reads map, correctly, to EC-5 (E. coli's own ampC, 98.7% covered): one gene gives the 4 "misses", 4 "unexplained" EC families and an accuracy 0. Aminoglycoside bifunctional proteins (AAC(3)-Ib/AAC(6')-Ib3) carry a family label sharing no term with AAC(6'). Efflux pumps and porins carry overlapping multi-term labels, and assigning each detected gene to one label splits one true total between neighbours: E. coli 20.7x on one label and 0 on its neighbours (round-1 genomes: summed over the three labels, observed 2.49 vs truth 2.43). (2) **Genuine pipeline weaknesses:** a 2-read call on a long housekeeping homolog (Bifidobacterium rpoB, 2 reads covering 5% of 3.5 kb) passes the detection rule; ABC transporters are undercounted (0.37-0.47x); CAT and porins overcounted (1.6-2.3x). No further fix was made (the user's condition: one fix cycle). | Negative results reported as they are; the next step is the user's. |
 
 ## Status
 
-**2026-10-29.** Built locally on branch `v0.1-build` (milestones 1-5 pass
-every local test). **The GitHub repository does not exist yet:** creating a
-public repository was refused by Claude Code's permission system ("Create
-Public Surface"); the user must create it or allow it. **Milestone 6
-(validation V1) failed as pre-registered (D12)** and is stopped on a
-decision that is the user's (a committed mark would change):
+**2026-10-29 (afternoon).** Built locally on branch `v0.1-build`;
+milestones 1-5 pass every local test. **GitHub repository still not
+created** (the permission classifier refuses `gh repo create` without
+showing a prompt; the user creates it or adds a permission rule). **V1
+failed twice** (round 1, D12; round 2 on fresh data after the 16S fix,
+D15). Stopped for the user, as agreed:
 
-- **Recommended (A):** V1 round 2, re-registered before any new data:
-  truth = CARD genes *findable by reads* (CARD's reference DNA present in
-  the assembly, e.g. >= 80% identity over >= 80% of its length);
-  protein-only genes reported as a stated limitation, not truth; "same gene
-  family" = at least one CARD AMR gene family term in common; the marks'
-  numbers unchanged (100%, 0, 1.5x, 2x). Pipeline fix (the one allowed
-  cycle): count 16S by aligned bases, not reads. Fresh data by the same
-  rules: reserves AH21H052, KPE040, CPO413 and the backup backgrounds
-  (gut SRR28158871, wastewater SRR11809751).
-- (B) Keep the marks: v0.1 stays unvalidated and unreleased.
-- (C) Change only the family test and fix 16S: mark 1 would still fail
-  (18% of truth genes get no reads).
-
-**Next:** the user's choice above; then the repository, PRs, CI; v0.1.0 once
-V1 passes; v0.2 (the compendium) after that.
+- **Recommended (A): round 3 scored by location, not label.** A detected
+  gene counts as the truth gene if its CARD reference DNA aligns to that
+  gene's place in the assembly (>= 80% identity), so CARD's label wording
+  no longer decides the score. Pipeline unchanged; the weak spots found
+  (2-read calls on long housekeeping homologs; ABC transporters ~0.4x;
+  CAT and porins up to ~2x) are stated as limitations. Fresh genomes:
+  RefSeq Complete Genome assemblies of PRJNA1287288 beyond layer D, drawn
+  by a seeded rule; backgrounds: each type's backup 2 (gut SRR26421003,
+  wastewater SRR31394446). Re-registered and committed before any data.
+- (B) Release nothing; record v0.1 as unvalidated and move to v0.2.
+- (C) Allow a second fix cycle first (e.g. a stricter detection rule for
+  long genes), then round 3.
 
 ## Open questions
 
