@@ -1,0 +1,5 @@
+sample	seq-triage verdict	detected type	platform	expected	observed	pass
+E4_mixture	FAIL	metagenome	illumina	left out	left out: listed in the stop message	pass
+E4_isolate	WARN	isolate	illumina	left out	left out: listed in the stop message	pass
+E4_tiny	FAIL	uncertain	illumina	left out	left out: listed in the stop message	pass
+E4						PASS

@@ -5,7 +5,10 @@
 #
 # seq-triage (a clone at a fixed commit) runs on three samples: mixture M1
 # (KPE111 in the gut background at 8x), KPE111's pure reads, and a 50-pair
-# subsample of them. seq-resistome then runs on seq-triage's results. Pass:
+# subsample of them, platform declared as Illumina (ART's simulated read
+# names carry no instrument markers, so without the declaration seq-triage
+# rightly passes none: first E4 run, 2026-10-29). seq-resistome then runs
+# on seq-triage's results. Pass:
 # every sample seq-triage did not pass as a short-read metagenome is in
 # samples_left_out.tsv with seq-triage's reason and in no other table; every
 # sample it passed is analysed.
@@ -25,10 +28,10 @@ set +o pipefail   # head stops reading early; the broken pipe upstream is expect
 for m in 1 2; do gzip -dc "$r/pure_${g}_${m}.fastq.gz" | head -n 200 | gzip > "$e4/tiny_${m}.fastq.gz"; done
 set -o pipefail
 cat > "$e4/samplesheet_E4.csv" <<EOF
-sample,fastq_1,fastq_2,site
-E4_mixture,$r/mix_gut_${g}_8x_1.fastq.gz,$r/mix_gut_${g}_8x_2.fastq.gz,gut
-E4_isolate,$r/pure_${g}_1.fastq.gz,$r/pure_${g}_2.fastq.gz,isolate
-E4_tiny,$e4/tiny_1.fastq.gz,$e4/tiny_2.fastq.gz,isolate
+sample,fastq_1,fastq_2,platform,site
+E4_mixture,$r/mix_gut_${g}_8x_1.fastq.gz,$r/mix_gut_${g}_8x_2.fastq.gz,illumina,gut
+E4_isolate,$r/pure_${g}_1.fastq.gz,$r/pure_${g}_2.fastq.gz,illumina,isolate
+E4_tiny,$e4/tiny_1.fastq.gz,$e4/tiny_2.fastq.gz,illumina,isolate
 EOF
 echo "seq-triage commit: $(git -C "$triage_repo" rev-parse --short HEAD)" | tee "$e4/versions.txt"
 

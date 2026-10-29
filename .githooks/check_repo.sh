@@ -7,9 +7,9 @@
 #               1. sequencing data (FASTQ, BAM, CRAM, SAM, POD5, FAST5, SRA),
 #                  by extension and by content (a FASTQ renamed .txt is
 #                  still caught: line 1 starts "@", line 3 starts "+");
-#               2. files over 1 MB, or 10 MB under validation/outcomes/
-#                  (published result tables: layer D round 1's qc_values.tsv
-#                  is 5.7 MB; everything else tracked is under 60 KB);
+#               2. files over 1 MB, or 10 MB under validation/V*/outcomes/
+#                  (published validation tables; V1's arg_long.tsv is
+#                  1.6 MB; everything else is far smaller);
 #               3. CARD database files (card.json, CARD's FASTA and index
 #                  tables, its download archives): CARD is licensed for
 #                  non-commercial research use and this repository never
@@ -71,7 +71,7 @@ while IFS= read -r f; do
             problem "$f: CARD database file (CARD is downloaded from card.mcmaster.ca, never redistributed)"; continue ;;
     esac
     size=$(content "$f" | wc -c | tr -d ' ')
-    limit=$MAX_BYTES; case $f in validation/outcomes/*) limit=$((10 * MAX_BYTES)) ;; esac
+    limit=$MAX_BYTES; case $f in validation/V*/outcomes/*) limit=$((10 * MAX_BYTES)) ;; esac
     if [ "$size" -gt "$limit" ]; then
         problem "$f: $size bytes, over the $((limit / MAX_BYTES)) MB limit"; continue
     fi
