@@ -1,6 +1,6 @@
 // Calls the CARD cache exactly as main.nf does, with CARD's site replaced by
 // local files (tests/card_cache/test_card_cache.sh). Prints one result line.
-include { cardArchive } from '../../subworkflows/local/card_cache'
+include { cardArchive } from '../../utils/card_cache'
 
 params.which = 'validated'
 params.cache = null

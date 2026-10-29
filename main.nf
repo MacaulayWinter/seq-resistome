@@ -9,7 +9,7 @@
  */
 
 include { validateParameters; paramsSummaryLog } from 'plugin/nf-schema'
-include { cardArchive } from './subworkflows/local/card_cache'
+include { cardArchive } from './utils/card_cache'
 include { SEQ_RESISTOME } from './workflows/seq_resistome'
 
 // Columns the pipeline reads. Everything else in the samplesheet is study
