@@ -84,7 +84,7 @@ metagenomes, or are not short reads given as FASTQ are listed in
 | `resistome_summary.md` | **Start here.** Per sample: reads analysed, host share, 16S reads, ARGs detected; samples left out and why; how to read the numbers |
 | `arg_long.tsv` | One row per sample and CARD gene with any mapped read: every measure, the detection call with its reason, the denominators and your metadata (the table later versions build on) |
 | `arg_reads.tsv`, `arg_rpm.tsv`, `arg_rpkm.tsv`, `arg_copies_per_16s.tsv` | Gene x sample matrices of detected genes (a sample with none is a column of zeros) |
-| `denominators.tsv` | Per sample: raw reads, reads after QC, host reads removed, reads analysed, mean read length, 16S reads and 16S copies |
+| `denominators.tsv` | Per sample: raw reads, reads after QC, host reads removed, reads analysed, mean read length, 16S reads, 16S bases and 16S copies |
 | `samples_left_out.tsv` | Samples not analysed, and why |
 | `fastp/`, `host_removal/`, `rgi/`, `16s/` | Each tool's own reports (no reads are ever published) |
 | `pipeline_info/` | Tool versions actually used (including the CARD release), run timeline and resource report |
@@ -109,7 +109,7 @@ pandas).
    - **RPKM**: reads per kilobase of the CARD reference gene per million
      reads analysed;
    - **copies per 16S copy**: (gene reads x read length / gene length) /
-     (16S reads x read length / 1,542 bp). Bacteria carry 1 to about 15
+     (16S bases covered by reads / 1,542 bp). Bacteria carry 1 to about 15
      copies of the 16S gene, so this is **not ARGs per cell or per genome**,
      and communities whose members carry more 16S copies look poorer in ARGs.
      A sample with no 16S reads gets NA, never zero or infinity.

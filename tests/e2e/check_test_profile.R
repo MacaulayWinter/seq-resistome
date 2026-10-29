@@ -63,7 +63,9 @@ check(all(is.na(long$copies_per_16s[long$sample %in% no16])), "arg_long.tsv: cop
 near <- function(a, b) all(abs(a - b) <= 1e-4 * pmax(1, abs(b)), na.rm = TRUE)
 check(near(long$rpm, long$reads / long$reads_analysed * 1e6), "rpm does not match reads / reads analysed x 1e6")
 check(near(long$rpkm, long$reads / (long$reference_length_bp / 1e3) / (long$reads_analysed / 1e6)), "rpkm does not match its definition")
-check(near(long$copies_per_16s, (long$reads / long$reference_length_bp) / (long$reads_16s / 1542)), "copies_per_16s does not match its definition")
+check(near(long$copies_per_16s, (long$reads * long$mean_read_length / long$reference_length_bp) / (long$bases_16s / 1542)),
+      "copies_per_16s does not match its definition (D13: 16S copies from aligned bases)")
+check(near(den$copies_16s, den$bases_16s / 1542), "copies_16s is not 16S aligned bases / 1542")
 check(near(den$reads_analysed, den$reads_after_qc - den$host_reads_removed), "reads analysed != reads after QC - host reads removed")
 for (m in c("reads", "rpm", "rpkm")) {
   x <- rd(sprintf("arg_%s.tsv", m))

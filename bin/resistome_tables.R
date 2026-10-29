@@ -25,7 +25,8 @@
 #                               per million reads analysed
 #               copies_per_16s  ARG copies per 16S rRNA gene copy:
 #                               (reads x mean read length / gene length) /
-#                               (16S reads x mean read length / 16S length).
+#                               (16S aligned bases / 16S length), counting
+#                               only the 16S bases reads actually cover (D13).
 #                               Missing (NA), never infinite, when a sample
 #                               has no 16S reads.
 #
@@ -74,8 +75,9 @@ left <- read_tsv(left_file)
 # 2. 16S counts ------------------------------------------------------------------
 rrna_files <- list.files(rrna_dir, pattern = "\\.16s\\.tsv$", full.names = TRUE)
 rrna <- if (length(rrna_files)) do.call(rbind, lapply(rrna_files, read_tsv)) else
-  data.frame(sample = character(0), reads_16s = character(0), reads_seen = character(0))
+  data.frame(sample = character(0), reads_16s = character(0), bases_16s = character(0), reads_seen = character(0))
 rrna$reads_16s  <- num(rrna$reads_16s)
+rrna$bases_16s  <- num(rrna$bases_16s)
 rrna$reads_seen <- num(rrna$reads_seen)
 
 # 3. RGI gene tables --------------------------------------------------------------
@@ -124,7 +126,7 @@ OUTPUT_COLS <- c("sample", "aro_accession", "aro_term", "amr_gene_family", "drug
                  "model_type", "reference_length_bp", "reads", "completely_mapped_reads", "average_percent_coverage",
                  "expected_percent_coverage", "breadth_ratio", "average_mapq", "detected", "detection_note", "rpm",
                  "rpkm", "arg_copies", "copies_per_16s", "reads_analysed", "mean_read_length", "reads_16s",
-                 "copies_16s", "card_version", "card_validated", "layout", "n_files", "reads_raw", "reads_after_qc",
+                 "bases_16s", "copies_16s", "card_version", "card_validated", "layout", "n_files", "reads_raw", "reads_after_qc",
                  "host_removal", "host_reads_removed", "status", "note")
 clash <- intersect(meta_cols, OUTPUT_COLS)
 if (length(clash)) stop("Samplesheet column(s) ", paste(clash, collapse = ", "), " have the same name as an output column. ",
@@ -135,8 +137,8 @@ if (length(dup)) stop("Samplesheet rows of the same sample disagree on study met
                       ". Each sample has one value per column; nothing has been assumed.")
 
 # 6. Denominators, per sample ------------------------------------------------------
-den <- merge(flow, rrna[, c("sample", "reads_16s")], by = "sample", all.x = TRUE)
-den$copies_16s <- den$reads_16s * den$mean_read_length / length_16s
+den <- merge(flow, rrna[, c("sample", "reads_16s", "bases_16s")], by = "sample", all.x = TRUE)
+den$copies_16s <- den$bases_16s / length_16s
 den$status <- ifelse(den$reads_after_qc == 0, "no reads left after QC",
               ifelse(den$reads_analysed == 0, "no reads left after host removal", "analysed"))
 den$note <- ifelse(den$status != "analysed", "Zero ARGs (no reads to look in); copies per 16S copy missing (NA).",
@@ -145,7 +147,7 @@ den$card_version   <- card_version
 den$card_validated <- card_ok
 
 # 7. Measures and the detection call, per hit --------------------------------------
-long <- merge(hits, den[, c("sample", "reads_analysed", "mean_read_length", "reads_16s", "copies_16s")], by = "sample")
+long <- merge(hits, den[, c("sample", "reads_analysed", "mean_read_length", "reads_16s", "bases_16s", "copies_16s")], by = "sample")
 L <- long$reference_length_bp
 long$expected_percent_coverage <- 100 * (1 - exp(-long$reads * long$mean_read_length / L))
 long$breadth_ratio <- long$average_percent_coverage / long$expected_percent_coverage
@@ -200,7 +202,7 @@ for (m in c("reads", "rpm", "rpkm", "copies_per_16s")) {
   write_out(mat, sprintf("arg_%s.tsv", m), sprintf("%s of detected genes; one column per sample (including samples with none)", m))
 }
 write_out(den[, c("sample", "status", "note", "layout", "n_files", "reads_raw", "reads_after_qc", "host_removal",
-                  "host_reads_removed", "reads_analysed", "mean_read_length", "reads_16s", "copies_16s",
+                  "host_reads_removed", "reads_analysed", "mean_read_length", "reads_16s", "bases_16s", "copies_16s",
                   "card_version", "card_validated", meta_cols)],
           "denominators.tsv", "per sample: the numbers every measure divides by")
 write_out(left, "samples_left_out.tsv", "samples not analysed, and why")

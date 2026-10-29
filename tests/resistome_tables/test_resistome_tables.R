@@ -23,7 +23,7 @@ gene <- function(term, acc, reads, cov, len, fam = "fam", cls = "cls")
 # rrna: named vector sample -> 16S reads (and reads_seen = reads_analysed
 # unless seen is given); sheet: lines of the samplesheet.
 run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, card_ok = "true", expect_fail = FALSE,
-                     rgi_header = RGI_HEADER) {
+                     rgi_header = RGI_HEADER, bases = NULL) {
   d <- tempfile("case"); dir.create(d); dir.create(file.path(d, "rgi")); dir.create(file.path(d, "rrna"))
   write.table(flow, file.path(d, "read_flow.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
   writeLines(c("sample\treason", left), file.path(d, "left.tsv"))
@@ -34,7 +34,10 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
   }
   for (s in names(rrna)) {
     sn <- if (!is.null(seen) && s %in% names(seen)) seen[[s]] else flow$reads_analysed[flow$sample == s]
-    writeLines(c("sample\treads_16s\treads_seen", sprintf("%s\t%s\t%s", s, rrna[[s]], sn)), file.path(d, "rrna", paste0(s, ".16s.tsv")))
+    # 16S aligned bases: every 16S read aligned over its whole 100 bp, so the
+    # hand-worked copies below are 16S reads x 100 / 1,542 (D13).
+    writeLines(c("sample\treads_16s\tbases_16s\treads_seen", sprintf("%s\t%s\t%s\t%s", s, rrna[[s]], if (!is.null(bases)) bases[[s]] else 100 * as.numeric(rrna[[s]]), sn)),
+               file.path(d, "rrna", paste0(s, ".16s.tsv")))
   }
   old <- setwd(d); on.exit(setwd(old))
   res <- suppressWarnings(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", card_ok, "1542", "2", "0.5", "test"),
@@ -52,7 +55,7 @@ flow_row <- function(s, analysed, qc = analysed, removed = qc - analysed, len = 
              host_removal = "own genome (test)", host_reads_removed = removed, reads_analysed = analysed)
 
 # --- Case 1: the measures, worked by hand ------------------------------------
-# A: 1,000,000 reads of 100 bp; 1,542 16S reads -> 100 16S copies.
+# A: 1,000,000 reads of 100 bp; 1,542 16S reads aligned over 154,200 bases -> 100 16S copies.
 #   X: 1,000 bp, 50 reads, 99% covered -> rpm 50, rpkm 50, 5 copies, 0.05 per 16S copy;
 #      random breadth 100(1 - e^-5) = 99.33% -> ratio 0.997 -> detected.
 #   Y: 2,000 bp, 10 reads, 5% covered -> random breadth 39.3% -> ratio 0.127 -> not detected.
@@ -117,6 +120,14 @@ f <- run_case(flow_row("A", 1000), list(A = list(gene("X", "3000001", 5, 40, 100
 ok(f$status != 0 && grepl("lacks column\\(s\\) Reference Length", f$msg), "case 5e: an RGI table with a missing column stops, naming it")
 f <- run_case(flow_row("A", 0, qc = 10), list(A = list()), c(A = 0), c("sample,fastq_1", "A,a.fq.gz"), expect_fail = TRUE)
 ok(f$status != 0 && grepl("RGI output for samples with no reads analysed", f$msg), "case 5f: outputs for an emptied sample stop the run")
+
+# --- Case 6: 16S copies come from aligned bases, not reads (D13) ------------
+# 1,542 16S reads of 100 bp, but aligned over only 77,100 bases (half each):
+# 50 16S copies, not 100, so A:X is 0.1 copies per 16S copy, not 0.05.
+r6 <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 1000))), c(A = 1542),
+               c("sample,fastq_1", "A,a.fq.gz"), bases = c(A = 77100))
+ok(near(r6$den$copies_16s, 50) && near(r6$long$copies_per_16s, 0.1) && r6$den$bases_16s == 77100,
+   "case 6: partial 16S alignments count only their aligned bases")
 
 if (length(fails)) {
   cat(sprintf("test_resistome_tables.R: %d passed, %d FAILED\n", n_pass, length(fails)), paste0("  - ", fails, collapse = "\n"), "\n", sep = "")

@@ -23,7 +23,7 @@ e4=$v1/E4; mkdir -p "$e4"; r=$v1/reads
 # Launch from E4's own folder: Nextflow writes its run history (.nextflow/)
 # where it is launched, and the seq-triage clone must stay untouched.
 cd "$e4"
-g=GCF_051620725.1
+g=${E4_GENOME:-GCF_051620725.1}   # round 2: GCF_051563005.1
 set +o pipefail   # head stops reading early; the broken pipe upstream is expected
 for m in 1 2; do gzip -dc "$r/pure_${g}_${m}.fastq.gz" | head -n 200 | gzip > "$e4/tiny_${m}.fastq.gz"; done
 set -o pipefail

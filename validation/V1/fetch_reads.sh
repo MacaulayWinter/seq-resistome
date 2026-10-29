@@ -6,11 +6,13 @@
 # read), so a 20-million-pair run costs a few hundred MB, not tens of GB.
 # Both mates are checked to hold N complete records with matching names.
 #
-# Usage:  bash validation/V1/fetch_reads.sh <run_accession> <pairs> <out_prefix>
+# Usage:  [SKIP=<pairs>] bash validation/V1/fetch_reads.sh <run_accession> <pairs> <out_prefix>
+#         SKIP: leave out the first <pairs> pairs (round 2's E3 uses HG002's
+#         pairs 200,001-400,000)
 #         writes <out_prefix>_1.fastq.gz and <out_prefix>_2.fastq.gz
 #*******************************************************************************
 set -euo pipefail
-run=$1; pairs=$2; out=$3
+run=$1; pairs=$2; out=$3; skip=${SKIP:-0}
 urls=$(curl -sSf "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=$run&result=read_run&fields=fastq_ftp&format=tsv" | tail -n 1 | cut -f2)
 for mate in 1 2; do
     url=$(printf '%s\n' "$urls" | tr ';' '\n' | grep "_${mate}.fastq.gz$")
@@ -19,7 +21,7 @@ for mate in 1 2; do
     # with a broken pipe: expected, so pipefail is off for this line only.
     # The record counts and mate names below catch a short download.
     set +o pipefail
-    curl -sS --retry 3 "https://$url" 2>/dev/null | gzip -dc 2>/dev/null | head -n $((4 * pairs)) | gzip -1 > "${out}_${mate}.fastq.gz"
+    curl -sS --retry 3 "https://$url" 2>/dev/null | gzip -dc 2>/dev/null | head -n $((4 * (skip + pairs))) | tail -n $((4 * pairs)) | gzip -1 > "${out}_${mate}.fastq.gz"
     set -o pipefail
 done
 n1=$(gzip -dc "${out}_1.fastq.gz" | awk 'END {print NR / 4}'); n2=$(gzip -dc "${out}_2.fastq.gz" | awk 'END {print NR / 4}')

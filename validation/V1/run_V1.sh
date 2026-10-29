@@ -9,7 +9,7 @@
 #      to the cached archive, which must detect it, fetch again and finish
 #      with the pinned checksum. Both use the tiny test profile.
 #
-# Usage:  bash validation/V1/run_V1.sh <V1 scratch dir> [extra nextflow args, e.g. -c validation/V1/local.config -profile docker,arm64]
+# Usage:  [SCORER=score_V1_round2.R] bash validation/V1/run_V1.sh <V1 scratch dir> [extra nextflow args, e.g. -c validation/V1/local.config -profile docker,arm64]
 #         <V1 scratch dir> holds reads/ (with samplesheet_V1.csv), truth/, genomes/
 #*******************************************************************************
 set -euo pipefail
@@ -25,7 +25,7 @@ nextflow -log "$v1/V1_run.log" run "$repo/main.nf" -profile "$profile" -work-dir
 
 echo "== 2. marks 1-4"
 docker run --rm -u "$(id -u):$(id -g)" -v "$v1:/v" -v "$repo:/repo:ro" -w /v "$R_IMAGE" \
-    Rscript /repo/validation/V1/score_V1.R /v/results /v/truth /v/outcomes
+    Rscript "/repo/validation/V1/${SCORER:-score_V1.R}" /v/results /v/truth /v/outcomes
 
 echo "== 3. mark 5: the CARD cache (real cache, card.mcmaster.ca)"
 cache=${CARD_CACHE:-$HOME/.seq-resistome/card}

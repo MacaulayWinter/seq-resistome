@@ -3,7 +3,7 @@
 # build_samples.sh: make every V1 test sample (PREREGISTRATION.md section 2)
 #
 # Reads are simulated with ART (HiSeq 2500 profile, 2 x 150 bp, fragments
-# 350 +/- 50, seed 20261028), every replicon at the same depth. Mixtures are
+# 350 +/- 50, seed $SEED: 20261028 in round 1, 20261029 in round 2), every replicon at the same depth. Mixtures are
 # a background's pairs followed by the spike's simulated pairs. Writes the
 # reads and samplesheet_V1.csv into <reads_dir> (outside the repository),
 # with the design (background, spike, depth) as study metadata columns.
@@ -13,12 +13,13 @@
 set -euo pipefail
 gdir=$(cd "$1" && pwd); rdir=$(cd "$2" && pwd); spikes=$3
 ART_IMAGE=quay.io/biocontainers/art:2016.06.05--h0704011_13
+SEED=${SEED:-20261028}
 DEPTHS="0.5 2 8"
 art() {   # art <genome accession> <depth> <out prefix>: simulated pairs, gzipped
     local g=$1 depth=$2 out=$3
     [ -s "${out}_1.fastq.gz" ] && return
     docker run --rm --platform linux/amd64 -u "$(id -u):$(id -g)" -v "$gdir:/g:ro" -v "$rdir:/r" -w /r "$ART_IMAGE" \
-        art_illumina -ss HS25 -i "/g/$g.fna" -p -l 150 -f "$depth" -m 350 -s 50 -rs 20261028 -na -q -o "$(basename "$out")_" > /dev/null
+        art_illumina -ss HS25 -i "/g/$g.fna" -p -l 150 -f "$depth" -m 350 -s 50 -rs "$SEED" -na -q -o "$(basename "$out")_" > /dev/null
     gzip -1 -c "${out}_1.fq" > "${out}_1.fastq.gz"; gzip -1 -c "${out}_2.fq" > "${out}_2.fastq.gz"; rm "${out}_1.fq" "${out}_2.fq"
 }
 sheet=$rdir/samplesheet_V1.csv
