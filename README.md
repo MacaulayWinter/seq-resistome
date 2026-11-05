@@ -111,14 +111,22 @@ pandas).
    - **RPM**: reads per million reads analysed (after QC and host removal);
    - **RPKM**: reads per kilobase of the CARD reference gene per million
      reads analysed;
-   - **copies per 16S copy**: (gene reads x read length / gene length) /
-     (16S bases covered by reads / 1,542 bp). Bacteria carry 1 to about 15
+   - **copies per 16S copy**: (gene bases covered by reads / gene length) /
+     (16S copies), where 16S copies = the sum over 16S alignments of the
+     bases each covers / the length of the SILVA reference it hit;
+     alignments covering fewer than 50 bases are not counted. With
+     `copies_per_16s_low95` and `copies_per_16s_high95`, a 95% interval for
+     counting noise (the read count as Poisson, widened when a gene's reads
+     clump). It does not cover bias from CARD's choice of reference
+     sequence. Bacteria carry 1 to about 15
      copies of the 16S gene, so this is **not ARGs per cell or per genome**,
      and communities whose members carry more 16S copies look poorer in ARGs.
      A sample with no 16S reads gets NA, never zero or infinity.
    - **detected**: at least 2 reads, spread along the gene at least half as
      widely as reads landing at random would be. Reads piled on one stretch a
-     gene shares with an unrelated gene do not count. Every hit is kept in
+     gene shares with an unrelated gene do not count. `read_identity` (how
+     well the reads match CARD's sequence) is reported for every hit, and
+     `--min_read_identity` can require it. Every hit is kept in
      `arg_long.tsv` with the reason it was or was not called.
 
 ## Validation
@@ -158,6 +166,13 @@ eptB) are called detected (D17).
   to about 2x). About 1 in 8 genes RGI finds by protein similarity has DNA
   too far from CARD's reference for any read to map (vanG, rsmA, leuO in
   Enterobacterales, for example): read-based counting cannot see them.
+- CARD's own reference sequences only. CARD's variants collection
+  (WildCARD), which might seem to help genes that differ from CARD's one
+  reference, made every validation mark worse in development and is not
+  used (CLAUDE.md D20; evidence in
+  [validation/V1/outcomes_dev_round3_variants](validation/V1/outcomes_dev_round3_variants/README.md)).
+  Genes only 80-90% identical to CARD's reference are therefore still partly
+  counted.
 - No statistics yet: v0.1 counts and normalises. Comparisons between groups
   and times come in v0.2.
 

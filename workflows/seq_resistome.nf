@@ -44,8 +44,7 @@ workflow SEQ_RESISTOME {
     ch_samples    // [ meta, [ fastq ... ] ]
     left_out      // [ [ sample, reason ] ... ]: samples not analysed, and why
     samplesheet   // the --input file: study metadata is read from it
-    card          // [ archive, version, validated, sha256, variants ] from the CARD cache;
-                  // variants: the same for CARD's variants collection, or null (D20)
+    card          // [ archive, version, validated, sha256 ] from the CARD cache
 
     main:
 
@@ -102,18 +101,13 @@ workflow SEQ_RESISTOME {
         .filter { _id, _meta, _reads, c -> c.reads_analysed > 0 }
         .map { _id, meta, reads, _c -> [ meta, reads ] }
 
-    // 5. ARG reads: RGI bwt against CARD's protein homolog models (D8), and
-    // their variants in sequenced genomes when asked for (D20). Database and
-    // kma index built once (RGI_DB).
+    // 5. ARG reads: RGI bwt against CARD's protein homolog models (D8).
+    // RGI's database and kma index are built once (RGI_DB; D20), not in
+    // every sample's task.
     UNTAR_CARD(channel.of([ [ id: "card-${card.version}" ], card.archive ]))
     RGI_CARDANNOTATION(UNTAR_CARD.out.untar.map { _meta, dir -> dir })
-    RGI_DB(
-        RGI_CARDANNOTATION.out.db,
-        card.variants ? card.variants.archive : [],
-        card.version,
-        card.variants ? card.variants.version : ''
-    )
-    RGI_BWT(ch_to_count, RGI_DB.out.db.first(), RGI_DB.out.reference.map { f -> f.text.trim() }.first())
+    RGI_DB(RGI_CARDANNOTATION.out.db, card.version)
+    RGI_BWT(ch_to_count, RGI_DB.out.db.first())
 
     // 6. 16S reads: SortMeRNA against SILVA 16S (D7). Index built once.
     def ch_16s_refs = channel.fromList(params.rrna_16s.tokenize(',').collect { u -> file(u.trim(), checkIfExists: true) }).collect()
@@ -132,7 +126,7 @@ workflow SEQ_RESISTOME {
         ch_flow_rows,
         ch_left_out,
         samplesheet,
-        card.variants ? "${card.version} (variants ${card.variants.version})" : card.version,
+        card.version,
         card.validated,
         params.length_16s,
         params.min_arg_reads,

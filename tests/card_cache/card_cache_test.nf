@@ -7,9 +7,8 @@ params.cache = null
 params.csv   = null
 params.page  = null
 params.base  = null
-params.prefix = 'broadstreet'
 
 workflow {
-    def (archive, version, validated, sha, action) = cardArchive(params.which, params.cache, params.csv, params.page, params.base, params.prefix)
+    def (archive, version, validated, sha, action) = cardArchive(params.which, params.cache, params.csv, params.page, params.base)
     println "RESULT\t${version}\t${validated}\t${sha}\t${action}\t${archive}"
 }

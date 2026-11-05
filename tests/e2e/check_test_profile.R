@@ -98,8 +98,7 @@ check(length(reads_like) == 0, paste("reads published:", paste(reads_like, colla
 v <- read.delim(file.path(out, "pipeline_info", "software_versions.tsv"), stringsAsFactors = FALSE)
 for (t in c("fastp", "hostile", "rgi", "kma", "sortmerna", "R", "rgi-database"))
   check(t %in% v$tool, paste("no version recorded for", t))
-# card_version is "4.0.2", or "4.0.2 (variants 4.0.2)" with the variants collection (D20).
-check(all(sub(" .*", "", den$card_version[1]) == v$version[v$tool == "rgi-database"]), "RGI's database version differs from the CARD release reported")
+check(all(v$version[v$tool == "rgi-database"] == den$card_version[1]), "RGI's database version differs from the CARD release reported")
 
 if (length(fails)) {
   cat("FAILED:\n", paste0("  - ", fails, collapse = "\n"), "\n", sep = "")

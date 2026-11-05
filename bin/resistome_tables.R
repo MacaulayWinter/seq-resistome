@@ -110,16 +110,18 @@ hits <- do.call(rbind, c(list(as.data.frame(setNames(replicate(length(RGI_COLS) 
     cbind(sample = rep(sub("\\.gene_mapping_data\\.txt$", "", basename(f)), nrow(out)), out, stringsAsFactors = FALSE)
   })))
 for (k in c("reads", "completely_mapped_reads", "average_percent_coverage", "average_mapq", "reference_length_bp"))
-  hits[[k]] <- suppressWarnings(num(hits[[k]]))   # with variants, RGI lists one length per allele (D20)
+  hits[[k]] <- suppressWarnings(num(hits[[k]]))   # a list when RGI maps reads to several references of a gene (D20)
 
 # Read statistics per CARD reference (bin/rgi_read_stats.sh), summed per ARO:
 # aligned bases (for copies) and mismatches (for read identity; D19).
 stat_files <- list.files(rgi_dir, pattern = "\\.read_stats\\.tsv$", full.names = TRUE)
-# Per ARO (D20): a gene's reads may sit on several references (CARD's own
-# and its variants, some only fragments). Breadth is judged on each
-# reference in its own coordinates, against what its own reads landing at
-# random would cover, and the ratios averaged weighted by reads; the gene's
-# length is its CARD reference's (canonical_length).
+# Per ARO (D20), from the read statistics, not RGI's table: breadth is
+# judged on each reference in its own coordinates, against what its own
+# reads landing at random would cover, and averaged over the ARO's
+# references weighted by reads; the gene's length is its CARD reference's
+# (canonical_length). CARD 4.0.2 has one reference per ARO, so this equals
+# the per-gene rule of D8; it stays right if a reference set ever gives a
+# gene several (as CARD's variants collection did in development, D20).
 stats <- do.call(rbind, c(list(data.frame(sample = character(0), aro_accession = character(0), stat_reads = numeric(0),
                                           canonical_length = numeric(0), aligned_bases = numeric(0), mismatches = numeric(0),
                                           pct_covered = numeric(0), pct_expected = numeric(0), ratio = numeric(0),
@@ -202,9 +204,9 @@ den$card_validated <- card_ok
 # 7. Measures and the detection call, per hit --------------------------------------
 long <- merge(hits, den[, c("sample", "reads_analysed", "mean_read_length", "reads_16s", "bases_16s", "copies_16s")], by = "sample")
 long <- merge(long, stats, by = c("sample", "aro_accession"), all.x = TRUE)
-# RGI's own per-gene coverage is kept for reference; with variants it is an
-# average over partly covered alleles, so detection uses the read statistics
-# (D20). Gene length: the ARO's CARD reference; RGI's if that is missing.
+# RGI's own per-gene coverage is kept for reference (rgi_percent_coverage);
+# detection uses the read statistics (D20). Gene length: the ARO's CARD
+# reference; RGI's if that is missing.
 long$rgi_percent_coverage <- long$average_percent_coverage
 has <- !is.na(long$stat_reads)
 long$reference_length_bp <- ifelse(has & !is.na(long$canonical_length), long$canonical_length, long$reference_length_bp)

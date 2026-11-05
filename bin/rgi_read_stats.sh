@@ -17,13 +17,11 @@
 # window_var / window_mean above 1 means they clump, and the interval is
 # widened to match. Fewer than 3 such windows: written as NA.
 #
-# With CARD's variants collection (D20) a gene's reads are spread over many
-# references (CARD's own and variants from sequenced genomes, some only
-# fragments), so RGI's per-gene coverage is an average over partly covered
-# alleles and its reference length a list. Hence, per reference: its length,
-# the bases it has covered by at least one read (covered_bases, for the
-# breadth check in its own coordinates), and canonical_length, the length of
-# the ARO's own CARD reference sequence (the gene length used for copies).
+# Per reference also: its length, the bases covered by at least one read
+# (covered_bases, for the breadth check in the reference's own coordinates)
+# and canonical_length, the length of the ARO's own CARD reference sequence
+# (the gene length used for copies). With CARD alone each ARO has one
+# reference; these keep the tables right if a gene ever has several (D20).
 #
 # Usage:  rgi_read_stats.sh <rgi sorted bam> <card reference fasta>  > stats.tsv
 #*******************************************************************************

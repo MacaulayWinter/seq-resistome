@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased (branch `read-identity`; development, not validated)
+
+- Per-gene read identity to CARD (`read_identity`) and an optional
+  detection threshold (`--min_read_identity`; D19).
+- ARG copies from reference bases covered, not reads x read length (D19).
+- 16S: alignments covering under 50 bases are dropped (`--min_16s_bases`,
+  `short_16s`); each counts against its own SILVA reference's length (D20).
+- 95% interval per gene for copies per 16S copy (D20).
+- RGI's CARD database and index are built once per run, not per sample;
+  RGI's temporary files are deleted after each sample (D20).
+- CARD's variants collection was built in and then removed: in development
+  it made every validation mark worse (D20; evidence in
+  `validation/V1/outcomes_dev_round3_variants/`).
+
 ## 0.1.0dev (unvalidated)
 
 First version. Validation V1 did not pass in three pre-registered rounds

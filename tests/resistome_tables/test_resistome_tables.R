@@ -43,7 +43,7 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
         win <- if (is.na(ph)) "NA\tNA\tNA" else sprintf("10\t1\t%s", ph)
         # One reference per gene (CARD's own): its length, and the bases RGI
         # says are covered (D20).
-        len <- as.numeric(g[11]); cb <- round(len * as.numeric(g[8]) / 100)
+        len <- suppressWarnings(as.numeric(g[11])); cb <- round(len * as.numeric(g[8]) / 100)
         sprintf("ARO:%s|ID:1|Name:%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s", g[2], g[1], g[2], len, len, g[5], b, round(b * (1 - id)), cb, win)
       }, "")
       if (!is.null(extra_stats) && s %in% names(extra_stats)) st <- extra_stats[[s]]
@@ -203,7 +203,10 @@ f <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 100
               old16 = TRUE, expect_fail = TRUE)
 ok(f$status != 0 && grepl("16S counts lack column", f$msg), "case 11: 16S counts without copies_16s stop the run")
 
-# --- Case 12: reads spread over a gene's variants (D20) --------------------------
+# --- Case 12: reads spread over several references of one gene (D20) ------------
+# Not possible with CARD 4.0.2 alone (one reference per ARO) but kept so the
+# tables stay right if a reference set ever has several (as CARD's variants
+# collection did in development).
 # X (CARD reference 1,000 bp) has 50 reads in RGI's table, but they sit on
 # three references: CARD's own (30 reads, 990 of 1,000 bp covered), a full
 # variant (15 reads, 1,000 bp, 780 covered) and a 400 bp fragment (5 reads,
@@ -224,7 +227,7 @@ r12 <- run_case(flow_row("A", 1e6), rgi12, c(A = 1542), c("sample,fastq_1", "A,a
 x12 <- r12$long[r12$long$aro_term == "X", ]; y12 <- r12$long[r12$long$aro_term == "Y", ]
 want <- (30 * 0.99 / (1 - exp(-3)) + 15 * 0.78 / (1 - exp(-1.5)) + 5 * 0.95 / (1 - exp(-1.25))) / 50
 ok(near(x12$breadth_ratio, want) && x12$detected && x12$n_references == 3 && near(x12$rgi_percent_coverage, 40),
-   "case 12: breadth judged per reference across variants")
+   "case 12: breadth judged per reference across a gene's references")
 ok(near(x12$reference_length_bp, 1000) && near(x12$arg_copies, 5) && near(x12$copies_per_16s, 0.05), "case 12: gene length is CARD's reference")
 ok(!y12$detected && near(y12$breadth_ratio, 0.1 / (1 - exp(-2))), "case 12: a pile-up split over alleles is still not detected")
 
