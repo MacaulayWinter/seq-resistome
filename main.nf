@@ -161,11 +161,20 @@ workflow {
     def (archive, version, validated, sha, action) = cardArchive(params.card_version, cacheDir, params.card_versions,
                                                                    'https://card.mcmaster.ca/download', 'https://card.mcmaster.ca/download/0/')
     log.info "CARD ${version} (${validated ? 'validated with this pipeline version' : 'NOT validated by the pipeline authors'}): ${action}. ${archive}, SHA-256 ${sha}"
+    // CARD's variants collection (D20): the same cache, checks and
+    // validated/latest choice, with its own pinned table.
+    def variants = null
+    if (params.card_variants) {
+        def (va, vv, vok, vsha, vaction) = cardArchive(params.card_version, cacheDir, params.card_variants_versions,
+                                                       'https://card.mcmaster.ca/download', 'https://card.mcmaster.ca/download/6/', 'prevalence')
+        log.info "CARD variants ${vv} (${vok ? 'validated with this pipeline version' : 'NOT validated by the pipeline authors'}): ${vaction}. ${va}, SHA-256 ${vsha}"
+        variants = [ archive: va, version: vv, validated: vok, sha256: vsha ]
+    }
 
     SEQ_RESISTOME(
         channel.fromList(analysed),
         leftOut,
         file(params.input),
-        [ archive: archive, version: version, validated: validated, sha256: sha ]
+        [ archive: archive, version: version, validated: validated && (variants == null || variants.validated), sha256: sha, variants: variants ]
     )
 }

@@ -56,6 +56,18 @@
             "type": "object",
             "description": "The Comprehensive Antibiotic Resistance Database: downloaded once from card.mcmaster.ca into a cache, checksum-checked on every run, never stored in the pipeline. Free for non-commercial research use only.",
             "properties": {
+                "card_variants": {
+                    "type": "boolean",
+                    "description": "Also map reads to CARD's variants collection (WildCARD): CARD's genes as found in sequenced genomes, so reads from a gene that differs from CARD's single reference sequence are still counted. A 1.8 GB download, cached and checksum-checked like CARD.",
+                    "default": true
+                },
+                "card_variants_versions": {
+                    "type": "string",
+                    "format": "file-path",
+                    "description": "Table of CARD variants releases with their pinned checksums.",
+                    "help_text": "Defaults to assets/card_variants_versions.csv in the pipeline folder.",
+                    "hidden": true
+                },
                 "card_version": {
                     "type": "string",
                     "description": "'validated': the CARD release this pipeline version was validated with. 'latest': the newest CARD release; every output then says it was not validated by the pipeline authors.",

@@ -8,7 +8,9 @@
 # fetched again; a download that does not match the pinned checksum stops the
 # run; 'latest' finds the newest release, labels it not validated, records
 # its checksum and catches damage against it; an unreachable site stops with
-# a clear message.
+# a clear message; CARD's variants collection (prevalence-v*, D20) is cached
+# beside CARD under its own name and pinned table, and 'latest' finds the
+# newest variants release, not CARD's.
 #
 # Usage (repository root, Nextflow on PATH):  bash tests/card_cache/test_card_cache.sh
 #*******************************************************************************
@@ -25,15 +27,20 @@ sha() { shasum -a 256 "$1" 2>/dev/null | cut -d' ' -f1 || sha256sum "$1" | cut -
 mkdir -p "$t/site"
 printf 'card release 4.0.2\n' > "$t/site/broadstreet-v4.0.2.tar.bz2"
 printf 'card release 4.1.0\n' > "$t/site/broadstreet-v4.1.0.tar.bz2"
-printf '<a href="download/0/broadstreet-v4.0.2.tar.bz2">4.0.2</a> <a href="download/0/broadstreet-v4.1.0.tar.bz2">4.1.0</a> <a href="download/0/broadstreet-v3.9.9.tar.bz2">old</a>\n' > "$t/site/download.html"
+printf 'variants 4.0.2\n' > "$t/site/prevalence-v4.0.2.tar.bz2"
+printf 'variants 3.1.5\n' > "$t/site/prevalence-v3.1.5.tar.bz2"
+printf '<a href="download/0/broadstreet-v4.0.2.tar.bz2">4.0.2</a> <a href="download/0/broadstreet-v4.1.0.tar.bz2">4.1.0</a> <a href="download/0/broadstreet-v3.9.9.tar.bz2">old</a> <a href="download/6/prevalence-v4.0.2.tar.bz2">v</a> <a href="download/6/prevalence-v3.1.5.tar.bz2">v</a>\n' > "$t/site/download.html"
 good=$(sha "$t/site/broadstreet-v4.0.2.tar.bz2")
 printf 'version,status,url,sha256,released,note\n4.0.2,validated,file://%s/site/broadstreet-v4.0.2.tar.bz2,%s,2026-08-11,test\n' "$t" "$good" > "$t/versions.csv"
 printf 'version,status,url,sha256,released,note\n4.0.2,validated,file://%s/site/broadstreet-v4.0.2.tar.bz2,%s,2026-08-11,test\n' "$t" "$(printf 0 | sha /dev/stdin)" > "$t/versions_wrong.csv"
 
-run() {   # run <which> <cache> <csv> [page]; prints the RESULT line or the error
+vgood=$(sha "$t/site/prevalence-v4.0.2.tar.bz2")
+printf 'version,status,url,sha256,released,note\n4.0.2,validated,file://%s/site/prevalence-v4.0.2.tar.bz2,%s,2026-08-11,test\n' "$t" "$vgood" > "$t/variants.csv"
+
+run() {   # run <which> <cache> <csv> [page] [prefix]; prints the RESULT line or the error
     rm -f "$t/nf.log"
     nextflow -log "$t/nf.log" -q run "$root/tests/card_cache/card_cache_test.nf" -work-dir "$t/work" \
-        --which "$1" --cache "$2" --csv "$3" --page "${4:-file://$t/site/download.html}" --base "file://$t/site/" > "$t/out.txt" 2>&1
+        --which "$1" --cache "$2" --csv "$3" --page "${4:-file://$t/site/download.html}" --base "file://$t/site/" --prefix "${5:-broadstreet}" > "$t/out.txt" 2>&1
     echo $? > "$t/rc.txt"
     cat "$t/out.txt"
     grep -h 'WARN' "$t/nf.log" 2>/dev/null   # warnings go to the log under -q
@@ -69,6 +76,14 @@ out=$(run latest "$t/cache" "$t/versions.csv")
 
 out=$(run latest "$t/cache" "$t/versions.csv" "file://$t/site/nothing_here.html")
 [ "$(cat "$t/rc.txt")" != 0 ] && [[ $out == *'Could not reach'* ]] && ok "unreachable download page stops with a clear message" || bad "unreachable page: $out"
+out=$(run validated "$t/cache" "$t/variants.csv" "file://$t/site/download.html" prevalence)
+[[ $out == *$'\t4.0.2\ttrue\t'"$vgood"$'\tdownloaded into the cache (first use)'* ]] && [ "$(sha "$t/cache/prevalence-v4.0.2.tar.bz2")" = "$vgood" ] && [ "$(sha "$t/cache/broadstreet-v4.0.2.tar.bz2")" = "$good" ] && ok "variants cached beside CARD, checked against their own pinned checksum" || bad "variants first use: $out"
+printf 'damage' >> "$t/cache/prevalence-v4.0.2.tar.bz2"
+out=$(run validated "$t/cache" "$t/variants.csv" "file://$t/site/download.html" prevalence)
+[[ $out == *'CARD variants 4.0.2'*'does not match'* && $out == *'fetched again'* ]] && ok "damaged variants archive is reported and fetched again" || bad "variants damage: $out"
+out=$(run latest "$t/cache" "$t/variants.csv" "file://$t/site/download.html" prevalence)
+[[ $out == *$'\t4.0.2\ttrue\t'*'reused from the cache'* ]] && ok "'latest' variants: newest prevalence release (4.0.2), not CARD's 4.1.0" || bad "variants latest: $out"
+
 leftovers=$(find "$t/cache" -name '*.part-*' | wc -l | tr -d ' ')
 [ "$leftovers" = 0 ] && ok "no half-written downloads left in the cache" || bad "$leftovers .part files left"
 

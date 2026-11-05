@@ -12,7 +12,8 @@ include { FASTP              } from '../modules/nf-core/fastp/main'
 include { HOSTILE_CLEAN      } from '../modules/nf-core/hostile/clean/main'
 include { UNTAR as UNTAR_CARD } from '../modules/nf-core/untar/main'
 include { RGI_CARDANNOTATION } from '../modules/nf-core/rgi/cardannotation/main'
-include { RGI_BWT            } from '../modules/nf-core/rgi/bwt/main'
+include { RGI_DB             } from '../modules/local/rgi_db/main'
+include { RGI_BWT            } from '../modules/local/rgi_bwt/main'
 include { HOST_INDEX         } from '../modules/local/host_index/main'
 include { HOST_FETCH         } from '../modules/local/host_fetch/main'
 include { SORTMERNA_INDEX    } from '../modules/local/sortmerna_index/main'
@@ -43,7 +44,8 @@ workflow SEQ_RESISTOME {
     ch_samples    // [ meta, [ fastq ... ] ]
     left_out      // [ [ sample, reason ] ... ]: samples not analysed, and why
     samplesheet   // the --input file: study metadata is read from it
-    card          // [ archive, version, validated, sha256 ] from the CARD cache
+    card          // [ archive, version, validated, sha256, variants ] from the CARD cache;
+                  // variants: the same for CARD's variants collection, or null (D20)
 
     main:
 
@@ -100,10 +102,18 @@ workflow SEQ_RESISTOME {
         .filter { _id, _meta, _reads, c -> c.reads_analysed > 0 }
         .map { _id, meta, reads, _c -> [ meta, reads ] }
 
-    // 5. ARG reads: RGI bwt against CARD's protein homolog models (D8).
+    // 5. ARG reads: RGI bwt against CARD's protein homolog models (D8), and
+    // their variants in sequenced genomes when asked for (D20). Database and
+    // kma index built once (RGI_DB).
     UNTAR_CARD(channel.of([ [ id: "card-${card.version}" ], card.archive ]))
     RGI_CARDANNOTATION(UNTAR_CARD.out.untar.map { _meta, dir -> dir })
-    RGI_BWT(ch_to_count, RGI_CARDANNOTATION.out.db.first(), [])
+    RGI_DB(
+        RGI_CARDANNOTATION.out.db,
+        card.variants ? card.variants.archive : [],
+        card.version,
+        card.variants ? card.variants.version : ''
+    )
+    RGI_BWT(ch_to_count, RGI_DB.out.db.first(), RGI_DB.out.reference.map { f -> f.text.trim() }.first())
 
     // 6. 16S reads: SortMeRNA against SILVA 16S (D7). Index built once.
     def ch_16s_refs = channel.fromList(params.rrna_16s.tokenize(',').collect { u -> file(u.trim(), checkIfExists: true) }).collect()
@@ -122,7 +132,7 @@ workflow SEQ_RESISTOME {
         ch_flow_rows,
         ch_left_out,
         samplesheet,
-        card.version,
+        card.variants ? "${card.version} (variants ${card.variants.version})" : card.version,
         card.validated,
         params.length_16s,
         params.min_arg_reads,
