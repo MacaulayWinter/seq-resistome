@@ -63,6 +63,6 @@ process COUNT_16S {
     read n16 b16 c16 short16 < counts.txt
     seen=\$(sed -n 's/.*Total reads = \\([0-9]*\\).*/\\1/p' ${prefix}.16s.log | head -1)
     printf 'sample\\treads_16s\\tbases_16s\\tcopies_16s\\tshort_16s\\treads_seen\\n%s\\t%s\\t%s\\t%s\\t%s\\t%s\\n' ${prefix} "\$n16" "\$b16" "\$c16" "\$short16" "\$seen" > ${prefix}.16s.tsv
-    rm -f ${prefix}.16s.sam* ref_lengths.tsv counts.txt
+    rm -rf ${prefix}.16s.sam* ref_lengths.tsv counts.txt smr   # smr/: SortMeRNA scratch copy of the reads (~0.1-0.2 GB)
     """
 }
