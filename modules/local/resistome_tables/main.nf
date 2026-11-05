@@ -35,6 +35,6 @@ process RESISTOME_TABLES {
     script:
     """
     resistome_tables.R rgi rrna input/read_flow.tsv input/samples_left_out.tsv input/samplesheet.csv \\
-        ${card_version} ${card_validated} ${length_16s} ${min_arg_reads} ${min_breadth_ratio} ${workflow.manifest.version} ${min_read_identity}
+        '${card_version}' ${card_validated} ${length_16s} ${min_arg_reads} ${min_breadth_ratio} ${workflow.manifest.version} ${min_read_identity}
     """
 }

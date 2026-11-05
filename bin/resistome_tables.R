@@ -110,29 +110,45 @@ hits <- do.call(rbind, c(list(as.data.frame(setNames(replicate(length(RGI_COLS) 
     cbind(sample = rep(sub("\\.gene_mapping_data\\.txt$", "", basename(f)), nrow(out)), out, stringsAsFactors = FALSE)
   })))
 for (k in c("reads", "completely_mapped_reads", "average_percent_coverage", "average_mapq", "reference_length_bp"))
-  hits[[k]] <- num(hits[[k]])
+  hits[[k]] <- suppressWarnings(num(hits[[k]]))   # with variants, RGI lists one length per allele (D20)
 
 # Read statistics per CARD reference (bin/rgi_read_stats.sh), summed per ARO:
 # aligned bases (for copies) and mismatches (for read identity; D19).
 stat_files <- list.files(rgi_dir, pattern = "\\.read_stats\\.tsv$", full.names = TRUE)
-stats <- do.call(rbind, c(list(data.frame(sample = character(0), aro_accession = character(0), aligned_bases = numeric(0),
-                                          mismatches = numeric(0), dispersion = numeric(0))),
+# Per ARO (D20): a gene's reads may sit on several references (CARD's own
+# and its variants, some only fragments). Breadth is judged on each
+# reference in its own coordinates, against what its own reads landing at
+# random would cover, and the ratios averaged weighted by reads; the gene's
+# length is its CARD reference's (canonical_length).
+stats <- do.call(rbind, c(list(data.frame(sample = character(0), aro_accession = character(0), stat_reads = numeric(0),
+                                          canonical_length = numeric(0), aligned_bases = numeric(0), mismatches = numeric(0),
+                                          pct_covered = numeric(0), pct_expected = numeric(0), ratio = numeric(0),
+                                          n_references = numeric(0), dispersion = numeric(0))),
   lapply(stat_files, function(f) {
     x <- read_tsv(f)
     if (!nrow(x)) return(NULL)
-    if (!"window_var" %in% names(x)) stop(basename(f), ": read statistics lack window counts; nothing was written.")
-    x$reads <- num(x$reads); x$aligned_bases <- num(x$aligned_bases); x$mismatches <- num(x$mismatches)
-    # Clumping of read starts along each reference (variance / mean of
-    # counts in 100-base windows), averaged over an ARO's references weighted
-    # by reads; NA where no reference had 3 windows (D20).
-    phi <- num(x$window_var) / num(x$window_mean)
+    need <- c("reference_length", "canonical_length", "covered_bases", "window_var")
+    if (length(setdiff(need, names(x)))) stop(basename(f), ": read statistics lack ", paste(setdiff(need, names(x)), collapse = ", "),
+                                              "; nothing was written.")
+    smp <- sub("\\.read_stats\\.tsv$", "", basename(f))
+    rl  <- flow$mean_read_length[flow$sample == smp]; if (!length(rl)) rl <- NA_real_
+    for (k in c("reads", "aligned_bases", "mismatches", "reference_length", "canonical_length", "covered_bases", "window_mean", "window_var"))
+      x[[k]] <- num(x[[k]])
+    cov <- 100 * x$covered_bases / x$reference_length
+    expd <- 100 * (1 - exp(-x$reads * rl / x$reference_length))
+    phi <- x$window_var / x$window_mean
     phi[!is.finite(phi)] <- NA
-    a <- do.call(rbind, lapply(split(x, x$aro_accession), function(g) {
-      p <- phi[match(rownames(g), rownames(x))]; ok <- !is.na(p)
-      data.frame(aro_accession = g$aro_accession[1], aligned_bases = sum(g$aligned_bases), mismatches = sum(g$mismatches),
-                 dispersion = if (any(ok)) sum(p[ok] * g$reads[ok]) / sum(g$reads[ok]) else NA_real_, stringsAsFactors = FALSE)
+    a <- do.call(rbind, lapply(split(seq_len(nrow(x)), x$aro_accession), function(i) {
+      w <- x$reads[i]; ok <- !is.na(phi[i])
+      data.frame(aro_accession = x$aro_accession[i[1]], stat_reads = sum(w),
+                 canonical_length = suppressWarnings(max(x$canonical_length[i], na.rm = TRUE)),
+                 aligned_bases = sum(x$aligned_bases[i]), mismatches = sum(x$mismatches[i]),
+                 pct_covered = sum(w * cov[i]) / sum(w), pct_expected = sum(w * expd[i]) / sum(w),
+                 ratio = sum(w * cov[i] / expd[i]) / sum(w), n_references = length(i),
+                 dispersion = if (any(ok)) sum(phi[i][ok] * w[ok]) / sum(w[ok]) else NA_real_, stringsAsFactors = FALSE)
     }))
-    cbind(sample = rep(sub("\\.read_stats\\.tsv$", "", basename(f)), nrow(a)), a, stringsAsFactors = FALSE)
+    a$canonical_length[!is.finite(a$canonical_length)] <- NA
+    cbind(sample = rep(smp, nrow(a)), a, stringsAsFactors = FALSE)
   })))
 
 # 4. Bookkeeping checks: every analysed sample has its outputs, and nothing
@@ -159,7 +175,7 @@ sheet <- read.csv(sheet_file, check.names = FALSE, stringsAsFactors = FALSE, col
                   na.strings = character(0), strip.white = TRUE, fileEncoding = "UTF-8-BOM")
 meta_cols <- setdiff(names(sheet), PIPELINE_COLUMNS)
 OUTPUT_COLS <- c("sample", "aro_accession", "aro_term", "amr_gene_family", "drug_class", "resistance_mechanism",
-                 "model_type", "reference_length_bp", "reads", "completely_mapped_reads", "average_percent_coverage",
+                 "model_type", "reference_length_bp", "n_references", "reads", "completely_mapped_reads", "average_percent_coverage", "rgi_percent_coverage",
                  "expected_percent_coverage", "breadth_ratio", "average_mapq", "aligned_bases", "read_identity", "detected", "detection_note", "rpm",
                  "rpkm", "arg_copies", "copies_per_16s", "copies_per_16s_low95", "copies_per_16s_high95", "dispersion", "reads_analysed", "mean_read_length", "reads_16s",
                  "bases_16s", "copies_16s", "card_version", "card_validated", "layout", "n_files", "reads_raw", "reads_after_qc",
@@ -186,10 +202,17 @@ den$card_validated <- card_ok
 # 7. Measures and the detection call, per hit --------------------------------------
 long <- merge(hits, den[, c("sample", "reads_analysed", "mean_read_length", "reads_16s", "bases_16s", "copies_16s")], by = "sample")
 long <- merge(long, stats, by = c("sample", "aro_accession"), all.x = TRUE)
+# RGI's own per-gene coverage is kept for reference; with variants it is an
+# average over partly covered alleles, so detection uses the read statistics
+# (D20). Gene length: the ARO's CARD reference; RGI's if that is missing.
+long$rgi_percent_coverage <- long$average_percent_coverage
+has <- !is.na(long$stat_reads)
+long$reference_length_bp <- ifelse(has & !is.na(long$canonical_length), long$canonical_length, long$reference_length_bp)
+long$average_percent_coverage  <- ifelse(has, long$pct_covered, long$average_percent_coverage)
 L <- long$reference_length_bp
 long$read_identity <- ifelse(long$aligned_bases > 0, 1 - long$mismatches / long$aligned_bases, NA)
-long$expected_percent_coverage <- 100 * (1 - exp(-long$reads * long$mean_read_length / L))
-long$breadth_ratio <- long$average_percent_coverage / long$expected_percent_coverage
+long$expected_percent_coverage <- ifelse(has, long$pct_expected, 100 * (1 - exp(-long$reads * long$mean_read_length / L)))
+long$breadth_ratio <- ifelse(has, long$ratio, long$average_percent_coverage / long$expected_percent_coverage)
 id_ok <- min_identity <= 0 | (!is.na(long$read_identity) & long$read_identity >= min_identity)
 long$detected <- long$reads >= min_reads & long$breadth_ratio >= min_ratio & id_ok
 long$detection_note <- ifelse(long$detected, "",

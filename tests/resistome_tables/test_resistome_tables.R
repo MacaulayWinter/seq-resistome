@@ -24,7 +24,7 @@ gene <- function(term, acc, reads, cov, len, fam = "fam", cls = "cls")
 # unless seen is given); sheet: lines of the samplesheet.
 run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, card_ok = "true", expect_fail = FALSE,
                      rgi_header = RGI_HEADER, bases = NULL, identity = NULL, min_identity = 0, stats = TRUE,
-                     dispersion = NULL, copies16 = NULL, old16 = FALSE) {
+                     dispersion = NULL, copies16 = NULL, old16 = FALSE, extra_stats = NULL) {
   d <- tempfile("case"); dir.create(d); dir.create(file.path(d, "rgi")); dir.create(file.path(d, "rrna"))
   write.table(flow, file.path(d, "read_flow.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
   writeLines(c("sample\treason", left), file.path(d, "left.tsv"))
@@ -41,9 +41,13 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
         # ARO; NA (no interval widening) unless a test gives one.
         ph <- if (!is.null(dispersion) && g[2] %in% names(dispersion)) dispersion[[g[2]]] else NA
         win <- if (is.na(ph)) "NA\tNA\tNA" else sprintf("10\t1\t%s", ph)
-        sprintf("ARO:%s|ID:1|Name:%s\t%s\t%s\t%s\t%s\t%s", g[2], g[1], g[2], g[5], b, round(b * (1 - id)), win)
+        # One reference per gene (CARD's own): its length, and the bases RGI
+        # says are covered (D20).
+        len <- as.numeric(g[11]); cb <- round(len * as.numeric(g[8]) / 100)
+        sprintf("ARO:%s|ID:1|Name:%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s", g[2], g[1], g[2], len, len, g[5], b, round(b * (1 - id)), cb, win)
       }, "")
-      writeLines(c("reference\taro_accession\treads\taligned_bases\tmismatches\twindows\twindow_mean\twindow_var", st), file.path(d, "rgi", paste0(s, ".read_stats.tsv")))
+      if (!is.null(extra_stats) && s %in% names(extra_stats)) st <- extra_stats[[s]]
+      writeLines(c("reference\taro_accession\treference_length\tcanonical_length\treads\taligned_bases\tmismatches\tcovered_bases\twindows\twindow_mean\twindow_var", st), file.path(d, "rgi", paste0(s, ".read_stats.tsv")))
     }
   }
   for (s in names(rrna)) {
@@ -164,7 +168,7 @@ ok(all(r7b$long$detected), "case 7: identity check off when min_read_identity is
 # 50 reads but only 2,500 aligned bases (half each) on a 1,000 bp gene: 2.5
 # copies, not 5; per 16S copy (100 copies) 0.025.
 d8 <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 1000))), c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"))
-st <- file.path(d8$dir, "rgi", "A.read_stats.tsv"); x <- readLines(st); x[2] <- sub("\t5000\t", "\t2500\t", x[2]); writeLines(x, st)
+st <- file.path(d8$dir, "rgi", "A.read_stats.tsv"); x <- readLines(st); x[2] <- sub("\t50\t5000\t", "\t50\t2500\t", x[2]); writeLines(x, st)
 old <- setwd(d8$dir); invisible(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", "true", "1542", "2", "0.5", "test", "0"), stdout = TRUE, stderr = TRUE)); setwd(old)
 l8 <- read.delim(file.path(d8$dir, "arg_long.tsv"), comment.char = "#", stringsAsFactors = FALSE)
 ok(near(l8$arg_copies, 2.5) && near(l8$copies_per_16s, 0.025), "case 8: ARG copies follow aligned bases")
@@ -198,6 +202,31 @@ ok(near(r11$den$copies_16s, 80) && near(r11$long$copies_per_16s, 0.0625) && r11$
 f <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 1000))), c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"),
               old16 = TRUE, expect_fail = TRUE)
 ok(f$status != 0 && grepl("16S counts lack column", f$msg), "case 11: 16S counts without copies_16s stop the run")
+
+# --- Case 12: reads spread over a gene's variants (D20) --------------------------
+# X (CARD reference 1,000 bp) has 50 reads in RGI's table, but they sit on
+# three references: CARD's own (30 reads, 990 of 1,000 bp covered), a full
+# variant (15 reads, 1,000 bp, 780 covered) and a 400 bp fragment (5 reads,
+# 380 covered). RGI's averaged coverage (40%) would fail the breadth check;
+# judged per reference: ratios 0.99/(1-e^-3) = 1.0396, 0.78/(1-e^-1.5) =
+# 1.0051, 0.95/(1-e^-1.25) = 1.3256; weighted by reads 1.0909 -> detected.
+# Length 1,000 (CARD's), not RGI's list; copies 5,000 bases / 1,000 = 5.
+# Y: 40 reads piled on one 100 bp stretch of each of two 1,000 bp alleles
+# (20 reads, 100 covered each): ratio 0.1/(1-e^-2) = 0.1157 -> not detected.
+rgi12 <- list(A = list(c("X", "3000001", "protein homolog model", "CARD; Resistomes & Variants", 50, 0, 50, 40, 400, 60, "1000; 1000; 400", "fam", "cls", "mech"),
+                       c("Y", "3000002", "protein homolog model", "CARD; Resistomes & Variants", 40, 0, 40, 10, 100, 60, "1000; 1000", "fam", "cls", "mech")))
+st12 <- c(sprintf("ARO:3000001|ID:1|Name:X\t3000001\t1000\t1000\t30\t3000\t0\t990\tNA\tNA\tNA"),
+          sprintf("Prevalence_Sequence_ID:1|ID:1|Name:X|ARO:3000001\t3000001\t1000\t1000\t15\t1500\t0\t780\tNA\tNA\tNA"),
+          sprintf("Prevalence_Sequence_ID:2|ID:1|Name:X|ARO:3000001\t3000001\t400\t1000\t5\t500\t0\t380\tNA\tNA\tNA"),
+          sprintf("Prevalence_Sequence_ID:3|ID:2|Name:Y|ARO:3000002\t3000002\t1000\t1000\t20\t2000\t0\t100\tNA\tNA\tNA"),
+          sprintf("Prevalence_Sequence_ID:4|ID:2|Name:Y|ARO:3000002\t3000002\t1000\t1000\t20\t2000\t0\t100\tNA\tNA\tNA"))
+r12 <- run_case(flow_row("A", 1e6), rgi12, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), extra_stats = list(A = st12))
+x12 <- r12$long[r12$long$aro_term == "X", ]; y12 <- r12$long[r12$long$aro_term == "Y", ]
+want <- (30 * 0.99 / (1 - exp(-3)) + 15 * 0.78 / (1 - exp(-1.5)) + 5 * 0.95 / (1 - exp(-1.25))) / 50
+ok(near(x12$breadth_ratio, want) && x12$detected && x12$n_references == 3 && near(x12$rgi_percent_coverage, 40),
+   "case 12: breadth judged per reference across variants")
+ok(near(x12$reference_length_bp, 1000) && near(x12$arg_copies, 5) && near(x12$copies_per_16s, 0.05), "case 12: gene length is CARD's reference")
+ok(!y12$detected && near(y12$breadth_ratio, 0.1 / (1 - exp(-2))), "case 12: a pile-up split over alleles is still not detected")
 
 if (length(fails)) {
   cat(sprintf("test_resistome_tables.R: %d passed, %d FAILED\n", n_pass, length(fails)), paste0("  - ", fails, collapse = "\n"), "\n", sep = "")

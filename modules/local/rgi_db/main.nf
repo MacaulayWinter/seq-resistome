@@ -45,10 +45,13 @@ process RGI_DB {
     REF=card_reference
     if [ -n "${wild}" ]; then
         mkdir variants
+        # Members are gzipped (./index-for-model-sequences.txt.gz ...) in
+        # 4.0.2; plain or in a subfolder is accepted too. RGI wants them flat
+        # and uncompressed.
         tar -xjf ${variants} -C variants --wildcards --no-anchored \\
-            'index-for-model-sequences.txt' '*_variants.fasta'
-        # Some releases put the files in a subfolder; RGI wants them flat.
+            '*index-for-model-sequences.txt*' '*nucleotide_fasta_*_variants.fasta*'
         find variants -mindepth 2 -type f -exec mv {} variants/ \\;
+        find variants -name '*.gz' -exec gunzip {} +
         for f in index-for-model-sequences.txt nucleotide_fasta_protein_homolog_model_variants.fasta; do
             [ -s variants/\$f ] || { echo "RGI_DB: ${variants} has no \$f" >&2; exit 1; }
         done
