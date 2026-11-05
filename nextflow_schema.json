@@ -143,6 +143,12 @@
                     "default": 0,
                     "minimum": 0,
                     "maximum": 1
+                },
+                "min_16s_bases": {
+                    "type": "integer",
+                    "description": "16S alignments covering fewer reference bases than this are not counted: short local hits, often from other genes, would inflate the 16S denominator.",
+                    "default": 50,
+                    "minimum": 0
                 }
             }
         }

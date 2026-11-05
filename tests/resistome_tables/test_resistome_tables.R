@@ -23,7 +23,8 @@ gene <- function(term, acc, reads, cov, len, fam = "fam", cls = "cls")
 # rrna: named vector sample -> 16S reads (and reads_seen = reads_analysed
 # unless seen is given); sheet: lines of the samplesheet.
 run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, card_ok = "true", expect_fail = FALSE,
-                     rgi_header = RGI_HEADER, bases = NULL, identity = NULL, min_identity = 0, stats = TRUE) {
+                     rgi_header = RGI_HEADER, bases = NULL, identity = NULL, min_identity = 0, stats = TRUE,
+                     dispersion = NULL, copies16 = NULL, old16 = FALSE) {
   d <- tempfile("case"); dir.create(d); dir.create(file.path(d, "rgi")); dir.create(file.path(d, "rrna"))
   write.table(flow, file.path(d, "read_flow.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
   writeLines(c("sample\treason", left), file.path(d, "left.tsv"))
@@ -36,17 +37,26 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
     if (stats) {
       st <- vapply(rgi[[s]], function(g) {
         b <- 100 * as.numeric(g[5]); id <- if (!is.null(identity) && g[2] %in% names(identity)) identity[[g[2]]] else 1
-        sprintf("ARO:%s|ID:1|Name:%s\t%s\t%s\t%s\t%s", g[2], g[1], g[2], g[5], b, round(b * (1 - id)))
+        # Window counts (D20): mean 1 and variance = dispersion given per
+        # ARO; NA (no interval widening) unless a test gives one.
+        ph <- if (!is.null(dispersion) && g[2] %in% names(dispersion)) dispersion[[g[2]]] else NA
+        win <- if (is.na(ph)) "NA\tNA\tNA" else sprintf("10\t1\t%s", ph)
+        sprintf("ARO:%s|ID:1|Name:%s\t%s\t%s\t%s\t%s\t%s", g[2], g[1], g[2], g[5], b, round(b * (1 - id)), win)
       }, "")
-      writeLines(c("reference\taro_accession\treads\taligned_bases\tmismatches", st), file.path(d, "rgi", paste0(s, ".read_stats.tsv")))
+      writeLines(c("reference\taro_accession\treads\taligned_bases\tmismatches\twindows\twindow_mean\twindow_var", st), file.path(d, "rgi", paste0(s, ".read_stats.tsv")))
     }
   }
   for (s in names(rrna)) {
     sn <- if (!is.null(seen) && s %in% names(seen)) seen[[s]] else flow$reads_analysed[flow$sample == s]
-    # 16S aligned bases: every 16S read aligned over its whole 100 bp, so the
-    # hand-worked copies below are 16S reads x 100 / 1,542 (D13).
-    writeLines(c("sample\treads_16s\tbases_16s\treads_seen", sprintf("%s\t%s\t%s\t%s", s, rrna[[s]], if (!is.null(bases)) bases[[s]] else 100 * as.numeric(rrna[[s]]), sn)),
-               file.path(d, "rrna", paste0(s, ".16s.tsv")))
+    # 16S aligned bases: every 16S read aligned over its whole 100 bp; 16S
+    # copies (D20: summed per SILVA reference length) = bases / 1,542 unless
+    # a test gives them, so the hand-worked copies below are reads x 100 / 1,542.
+    b16 <- if (!is.null(bases)) as.numeric(bases[[s]]) else 100 * as.numeric(rrna[[s]])
+    c16 <- if (!is.null(copies16)) copies16[[s]] else b16 / 1542
+    if (old16) writeLines(c("sample\treads_16s\tbases_16s\treads_seen", sprintf("%s\t%s\t%s\t%s", s, rrna[[s]], b16, sn)),
+                          file.path(d, "rrna", paste0(s, ".16s.tsv")))
+    else writeLines(c("sample\treads_16s\tbases_16s\tcopies_16s\tshort_16s\treads_seen",
+                      sprintf("%s\t%s\t%s\t%s\t0\t%s", s, rrna[[s]], b16, c16, sn)), file.path(d, "rrna", paste0(s, ".16s.tsv")))
   }
   old <- setwd(d); on.exit(setwd(old))
   res <- suppressWarnings(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", card_ok, "1542", "2", "0.5", "test", min_identity),
@@ -162,6 +172,32 @@ ok(near(l8$arg_copies, 2.5) && near(l8$copies_per_16s, 0.025), "case 8: ARG copi
 # --- Case 9: a sample with RGI output but no read statistics stops ---------------
 f <- run_case(flow_row("A", 1000), list(A = list()), c(A = 10), c("sample,fastq_1", "A,a.fq.gz"), stats = FALSE, expect_fail = TRUE)
 ok(f$status != 0 && grepl("no RGI read statistics for A", f$msg), "case 9: missing read statistics stop the run")
+
+# --- Case 10: per-gene 95% interval (D20) ---------------------------------------
+# X: 50 reads, 0.05 copies per 16S copy. Window counts as Poisson (NA: no
+# widening): limits 0.05 x qgamma(0.025, 50)/50 and 0.05 x qgamma(0.975, 51)/50.
+# Read starts clumped at dispersion 2: effective reads 25. Dispersion below 1
+# never narrows the interval.
+g10 <- list(A = list(gene("X", "3000001", 50, 99, 1000), gene("Y", "3000002", 50, 99, 1000), gene("Z", "3000003", 50, 99, 1000)))
+r10 <- run_case(flow_row("A", 1e6), g10, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), dispersion = c("3000002" = 2, "3000003" = 0.5))
+lx <- r10$long[r10$long$aro_term == "X", ]; ly <- r10$long[r10$long$aro_term == "Y", ]; lz <- r10$long[r10$long$aro_term == "Z", ]
+ok(near(lx$copies_per_16s_low95, 0.05 * qgamma(0.025, 50) / 50) && near(lx$copies_per_16s_high95, 0.05 * qgamma(0.975, 51) / 50),
+   "case 10: Poisson interval")
+ok(near(ly$dispersion, 2) && near(ly$copies_per_16s_low95, 0.05 * qgamma(0.025, 25) / 25) &&
+   near(ly$copies_per_16s_high95, 0.05 * qgamma(0.975, 26) / 25), "case 10: interval widened by clumping")
+ok(near(lz$copies_per_16s_low95, lx$copies_per_16s_low95), "case 10: dispersion below 1 does not narrow it")
+r10b <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 1000))), c(A = 0), c("sample,fastq_1", "A,a.fq.gz"))
+ok(is.na(r10b$long$copies_per_16s_low95) && is.na(r10b$long$copies_per_16s_high95), "case 10: no 16S reads, interval missing")
+
+# --- Case 11: 16S copies come from COUNT_16S's per-reference sum (D20) -----------
+# 1,542 16S reads (154,200 bases) but copies_16s given as 80 (references
+# longer than 1,542 bp): X's 5 copies -> 0.0625 per 16S copy, not 0.05.
+r11 <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 1000))), c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"),
+                copies16 = c(A = 80))
+ok(near(r11$den$copies_16s, 80) && near(r11$long$copies_per_16s, 0.0625) && r11$den$short_16s == 0, "case 11: 16S copies as counted")
+f <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 1000))), c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"),
+              old16 = TRUE, expect_fail = TRUE)
+ok(f$status != 0 && grepl("16S counts lack column", f$msg), "case 11: 16S counts without copies_16s stop the run")
 
 if (length(fails)) {
   cat(sprintf("test_resistome_tables.R: %d passed, %d FAILED\n", n_pass, length(fails)), paste0("  - ", fails, collapse = "\n"), "\n", sep = "")

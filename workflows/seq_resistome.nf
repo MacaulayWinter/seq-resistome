@@ -108,7 +108,7 @@ workflow SEQ_RESISTOME {
     // 6. 16S reads: SortMeRNA against SILVA 16S (D7). Index built once.
     def ch_16s_refs = channel.fromList(params.rrna_16s.tokenize(',').collect { u -> file(u.trim(), checkIfExists: true) }).collect()
     SORTMERNA_INDEX(ch_16s_refs)
-    COUNT_16S(ch_to_count, ch_16s_refs, SORTMERNA_INDEX.out.index)
+    COUNT_16S(ch_to_count, ch_16s_refs, SORTMERNA_INDEX.out.index, params.min_16s_bases)
 
     // 7. Tables: counts, RPM, RPKM, copies per 16S copy, denominators.
     // The header is an item of its own, so the file exists when no sample is left out.

@@ -81,9 +81,14 @@ left <- read_tsv(left_file)
 # 2. 16S counts ------------------------------------------------------------------
 rrna_files <- list.files(rrna_dir, pattern = "\\.16s\\.tsv$", full.names = TRUE)
 rrna <- if (length(rrna_files)) do.call(rbind, lapply(rrna_files, read_tsv)) else
-  data.frame(sample = character(0), reads_16s = character(0), bases_16s = character(0), reads_seen = character(0))
+  data.frame(sample = character(0), reads_16s = character(0), bases_16s = character(0), copies_16s = character(0),
+             short_16s = character(0), reads_seen = character(0))
+miss16 <- setdiff(c("reads_16s", "bases_16s", "copies_16s", "short_16s", "reads_seen"), names(rrna))
+if (length(miss16)) stop("16S counts lack column(s) ", paste(miss16, collapse = ", "), "; nothing was written.")
 rrna$reads_16s  <- num(rrna$reads_16s)
 rrna$bases_16s  <- num(rrna$bases_16s)
+rrna$copies_16s <- num(rrna$copies_16s)
+rrna$short_16s  <- num(rrna$short_16s)
 rrna$reads_seen <- num(rrna$reads_seen)
 
 # 3. RGI gene tables --------------------------------------------------------------
@@ -111,11 +116,22 @@ for (k in c("reads", "completely_mapped_reads", "average_percent_coverage", "ave
 # aligned bases (for copies) and mismatches (for read identity; D19).
 stat_files <- list.files(rgi_dir, pattern = "\\.read_stats\\.tsv$", full.names = TRUE)
 stats <- do.call(rbind, c(list(data.frame(sample = character(0), aro_accession = character(0), aligned_bases = numeric(0),
-                                          mismatches = numeric(0))),
+                                          mismatches = numeric(0), dispersion = numeric(0))),
   lapply(stat_files, function(f) {
     x <- read_tsv(f)
     if (!nrow(x)) return(NULL)
-    a <- aggregate(cbind(aligned_bases = num(x$aligned_bases), mismatches = num(x$mismatches)) ~ aro_accession, data = x, FUN = sum)
+    if (!"window_var" %in% names(x)) stop(basename(f), ": read statistics lack window counts; nothing was written.")
+    x$reads <- num(x$reads); x$aligned_bases <- num(x$aligned_bases); x$mismatches <- num(x$mismatches)
+    # Clumping of read starts along each reference (variance / mean of
+    # counts in 100-base windows), averaged over an ARO's references weighted
+    # by reads; NA where no reference had 3 windows (D20).
+    phi <- num(x$window_var) / num(x$window_mean)
+    phi[!is.finite(phi)] <- NA
+    a <- do.call(rbind, lapply(split(x, x$aro_accession), function(g) {
+      p <- phi[match(rownames(g), rownames(x))]; ok <- !is.na(p)
+      data.frame(aro_accession = g$aro_accession[1], aligned_bases = sum(g$aligned_bases), mismatches = sum(g$mismatches),
+                 dispersion = if (any(ok)) sum(p[ok] * g$reads[ok]) / sum(g$reads[ok]) else NA_real_, stringsAsFactors = FALSE)
+    }))
     cbind(sample = rep(sub("\\.read_stats\\.tsv$", "", basename(f)), nrow(a)), a, stringsAsFactors = FALSE)
   })))
 
@@ -145,7 +161,7 @@ meta_cols <- setdiff(names(sheet), PIPELINE_COLUMNS)
 OUTPUT_COLS <- c("sample", "aro_accession", "aro_term", "amr_gene_family", "drug_class", "resistance_mechanism",
                  "model_type", "reference_length_bp", "reads", "completely_mapped_reads", "average_percent_coverage",
                  "expected_percent_coverage", "breadth_ratio", "average_mapq", "aligned_bases", "read_identity", "detected", "detection_note", "rpm",
-                 "rpkm", "arg_copies", "copies_per_16s", "reads_analysed", "mean_read_length", "reads_16s",
+                 "rpkm", "arg_copies", "copies_per_16s", "copies_per_16s_low95", "copies_per_16s_high95", "dispersion", "reads_analysed", "mean_read_length", "reads_16s",
                  "bases_16s", "copies_16s", "card_version", "card_validated", "layout", "n_files", "reads_raw", "reads_after_qc",
                  "host_removal", "host_reads_removed", "status", "note")
 clash <- intersect(meta_cols, OUTPUT_COLS)
@@ -157,8 +173,9 @@ if (length(dup)) stop("Samplesheet rows of the same sample disagree on study met
                       ". Each sample has one value per column; nothing has been assumed.")
 
 # 6. Denominators, per sample ------------------------------------------------------
-den <- merge(flow, rrna[, c("sample", "reads_16s", "bases_16s")], by = "sample", all.x = TRUE)
-den$copies_16s <- den$bases_16s / length_16s
+# 16S copies: each alignment's covered bases over its own SILVA reference's
+# length, summed (COUNT_16S; D20). length_16s is no longer used for this.
+den <- merge(flow, rrna[, c("sample", "reads_16s", "bases_16s", "copies_16s", "short_16s")], by = "sample", all.x = TRUE)
 den$status <- ifelse(den$reads_after_qc == 0, "no reads left after QC",
               ifelse(den$reads_analysed == 0, "no reads left after host removal", "analysed"))
 den$note <- ifelse(den$status != "analysed", "Zero ARGs (no reads to look in); copies per 16S copy missing (NA).",
@@ -190,6 +207,17 @@ long$rpkm <- long$reads / (L / 1e3) / (long$reads_analysed / 1e6)
 # that every sample has them).
 long$arg_copies <- ifelse(is.na(long$aligned_bases), long$reads * long$mean_read_length / L, long$aligned_bases / L)
 long$copies_per_16s <- ifelse(long$reads_16s > 0, long$arg_copies / long$copies_16s, NA)
+# 95% interval for copies_per_16s (D20): the read count treated as Poisson
+# (exact gamma limits), widened by the gene's clumping of read starts when
+# above 1 (effective reads = reads / dispersion). It covers counting noise
+# only, not bias from CARD's reference choice; 16S counts are in the
+# thousands, so their own noise is left out.
+infl <- pmax(1, ifelse(is.na(long$dispersion), 1, long$dispersion))
+neff <- long$reads / infl
+long$copies_per_16s_low95  <- ifelse(is.na(long$copies_per_16s) | neff <= 0, NA,
+                                     long$copies_per_16s * qgamma(0.025, neff) / neff)
+long$copies_per_16s_high95 <- ifelse(is.na(long$copies_per_16s) | neff <= 0, NA,
+                                     long$copies_per_16s * qgamma(0.975, neff + 1) / neff)
 long$card_version   <- rep(card_version, nrow(long))
 long$card_validated <- rep(card_ok, nrow(long))
 long <- merge(long, den[, c("sample", "layout", "n_files", "reads_raw", "reads_after_qc", "host_removal",
@@ -232,7 +260,7 @@ for (m in c("reads", "rpm", "rpkm", "copies_per_16s")) {
   write_out(mat, sprintf("arg_%s.tsv", m), sprintf("%s of detected genes; one column per sample (including samples with none)", m))
 }
 write_out(den[, c("sample", "status", "note", "layout", "n_files", "reads_raw", "reads_after_qc", "host_removal",
-                  "host_reads_removed", "reads_analysed", "mean_read_length", "reads_16s", "bases_16s", "copies_16s",
+                  "host_reads_removed", "reads_analysed", "mean_read_length", "reads_16s", "bases_16s", "short_16s", "copies_16s",
                   "card_version", "card_validated", meta_cols)],
           "denominators.tsv", "per sample: the numbers every measure divides by")
 write_out(left, "samples_left_out.tsv", "samples not analysed, and why")
