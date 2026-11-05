@@ -1,0 +1,6 @@
+# Used by -profile conda. Same R version as the pinned container
+# docker.io/rocker/r-ver:4.5.2; the script uses base R only.
+channels:
+  - conda-forge
+dependencies:
+  - conda-forge::r-base=4.5.2

@@ -1,0 +1,4 @@
+sample	verdict	verdict_reason	qc_result	qc_findings	detected_type	declared_target
+E4_mixture	FAIL	Reads confirm the declared platform (illumina).	FAIL	off target fraction is 67.3% (fail limit: above 20.0%).	metagenome	
+E4_isolate	WARN	Declared platform (illumina) is not confirmed by the reads (detection confidence: medium).	PASS		isolate	
+E4_tiny	FAIL	Declared platform (illumina) is not confirmed by the reads (detection confidence: low).	FAIL	total reads is 100 (fail limit: below 1,000).	uncertain	

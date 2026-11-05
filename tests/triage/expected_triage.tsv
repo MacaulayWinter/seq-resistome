@@ -1,0 +1,9 @@
+sample	status	has_16s	min_detected	must_detect	must_not_detect
+minigut	analysed	TRUE	5	tet(Q);acrB	rmtH
+mock_community	analysed	TRUE	20	adeB;sul2;APH(6)-Id	
+host_only	no reads left after host removal	NA	0		
+virus_only	analysed	FALSE	0		
+an_isolate	left out	NA	0	not a metagenome	
+too_few_reads	left out	NA	0	verdict FAIL: too few reads	
+nanopore_mg	left out	NA	0	short reads only	
+from_bam	left out	NA	0	BAM/CRAM	

@@ -1,0 +1,6 @@
+# Same package as nf-core's hostile modules: hostile 2.0.2 brings bowtie2.
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - bioconda::hostile=2.0.2

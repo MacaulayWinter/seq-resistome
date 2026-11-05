@@ -1,0 +1,80 @@
+# .gitignore for seq-resistome
+# Lists files git must never track. Each block says why.
+
+# --- Nextflow runtime -------------------------------------------------------
+# work/ holds every task's intermediate files and grows to gigabytes.
+# .nextflow/ is Nextflow's run cache (used by -resume). Both are disposable
+# and rebuilt on every run, so neither belongs in history.
+work/
+.nextflow/
+.nextflow.log*
+# Default output directory, plus "null/", which appears if --outdir is unset.
+results/
+null/
+# nf-test scratch space, in case tests are added later.
+.nf-test/
+.nf-test.log
+
+# --- Sequencing data: never commit, anywhere in the tree --------------------
+# Hard rule: no real research data in this repo. Test data is referenced by
+# public URL in assets/samplesheet_test.csv, never stored here. Blocking the
+# extensions as well is a second line of defence: a stray `git add .` cannot
+# pick up a FASTQ even if one is copied into the folder by mistake.
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bai
+*.cram
+*.crai
+*.sam
+*.pod5
+*.fast5
+*.sra
+
+# --- Local scratch -----------------------------------------------------------
+# A place for ad hoc test runs and samplesheets pointing at local files.
+testing/
+scratch/
+
+# --- R -----------------------------------------------------------------------
+.Rhistory
+.RData
+.Rproj.user/
+
+# --- macOS and editors -------------------------------------------------------
+.DS_Store
+.vscode/
+.idea/
+
+# --- Secrets -----------------------------------------------------------------
+# Nothing in this pipeline needs credentials; this is a guard, not a hint.
+.env
+
+# --- Reference databases: downloaded, never committed ------------------------
+# CARD is licensed for non-commercial research use and is fetched from
+# card.mcmaster.ca into a cache outside the repository (~/.seq-resistome/card/,
+# CLAUDE.md D1). These patterns catch a copy dropped into the folder by mistake;
+# the repository guard (.githooks/check_repo.sh) checks again.
+card.json
+broadstreet-*
+card_database_*
+wildcard_database_*
+*.tar.bz2
+# Host and 16S references and their indexes.
+*.bt2
+*.bt2l
+*.mmi
+*.idx
+
+# --- Validation ------------------------------------------------------------
+# Per-site HPC settings (account, partition, paths) stay local; only the
+# template with placeholders is tracked. Mixture reads and backgrounds are
+# built in a scratch folder outside the repository.
+validation/**/settings*.config
+!validation/**/settings.example.config
+*.slurm.log
+
+# Your own private strings for the repo guard (one per line); never committed
+.githooks/private_patterns.txt

@@ -1,0 +1,137 @@
+sample	kind	genome	depth	family	truth	observed	limit	ratio	within
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	APH(6)	0.125	0.111925	1.5	0.8954	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	ATP-binding cassette (ABC) antibiotic efflux pump	0.25	0.104688	1.5	0.418752	FALSE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	chloramphenicol acetyltransferase (CAT)	0.125	0.153738	1.5	1.229904	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	fosfomycin thiol transferase	0.125	0.139406	1.5	1.115248	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	General Bacterial Porin with reduced permeability to beta-lactams	0.125	0.209667	1.5	1.677336	FALSE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	General Bacterial Porin with reduced permeability to peptide antibiotics	0.125	0.135317	1.5	1.082536	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	major facilitator superfamily (MFS) antibiotic efflux pump	0.25	0.23847872	1.5	0.95391488	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	0.125	0.1258117	1.5	1.0064936	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	MCR phosphoethanolamine transferase	0.125	0.11359	1.5	0.90872	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	Outer Membrane Porin (Opr)	0.125	0.127789	1.5	1.022312	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	pmr phosphoethanolamine transferase	0.25	0.275874	1.5	1.103496	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	quinolone resistance protein (qnr)	0.125	0.147682	1.5	1.181456	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	resistance-nodulation-cell division (RND) antibiotic efflux pump	0.375	0.5119236	1.5	1.3651296	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	0.125	0.0845688	1.5	0.6765504	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	0.125	0	1.5	0	FALSE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	SHV beta-lactamase	0.25	0.2332084	1.5	0.9328336	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	small multidrug resistance (SMR) antibiotic efflux pump	0.25	0.27743	1.5	1.10972	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	sulfonamide resistant sul	0.125	0.111525	1.5	0.8922	TRUE
+pure_GCF_051560495.1	pure	GCF_051560495.1	10	trimethoprim resistant dihydrofolate reductase dfr	0.125	0.11446	1.5	0.91568	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	AAC(3)	0.125	0.123443	1.5	0.987544	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	AAC(6')	0.125	0.0784853	1.5	0.6278824	FALSE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	ACT beta-lactamase	0.125	0.12467258	1.5	0.99738064	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	APH(6)	0.125	0.13531	1.5	1.08248	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	ATP-binding cassette (ABC) antibiotic efflux pump	0.125	0.0368598	1.5	0.2948784	FALSE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	chloramphenicol acetyltransferase (CAT)	0.25	0.3786192	1.5	1.5144768	FALSE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	fosfomycin thiol transferase	0.125	0.0736214	1.5	0.5889712	FALSE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	IMP beta-lactamase	0.125	0.0940552	1.5	0.7524416	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	macrolide phosphotransferase (MPH)	0.25	0.264309	1.5	1.057236	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	major facilitator superfamily (MFS) antibiotic efflux pump	0.5	0.5812075	1.5	1.162415	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	0.125	0.1307007	1.5	1.0456056	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	MCR phosphoethanolamine transferase	0.125	0.112932	1.5	0.903456	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	OXA-1-like beta-lactamase	0.125	0.123706	1.5	0.989648	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	resistance-nodulation-cell division (RND) antibiotic efflux pump	0.375	0.46875704	1.5	1.25001877333333	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	0.125	0.0660615	1.5	0.528492	FALSE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	0.125	0.2561413	1.5	2.0491304	FALSE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	rifampin ADP-ribosyltransferase (Arr)	0.125	0.146159	1.5	1.169272	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	SHV beta-lactamase	0.125	0.14368032	1.5	1.14944256	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	sulfonamide resistant sul	0.375	0.412776	1.5	1.100736	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	TEM beta-lactamase	0.25	0.26770372	1.5	1.07081488	TRUE
+pure_GCF_051560505.1	pure	GCF_051560505.1	10	trimethoprim resistant dihydrofolate reductase dfr	0.125	0.128385	1.5	1.02708	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	APH(3'')	0.142857142857143	0.126771	1.5	0.887397	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	APH(6)	0.142857142857143	0.137271	1.5	0.960897	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	ATP-binding cassette (ABC) antibiotic efflux pump	0.285714285714286	0.3419186	1.5	1.1967151	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	CTX-M beta-lactamase	0.142857142857143	0.15443	1.5	1.08101	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	EC beta-lactamase	0.142857142857143	0.10948935	1.5	0.76642545	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	kdpDE; antibiotic efflux regulatory protein	0.142857142857143	0.144863	1.5	1.014041	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	major facilitator superfamily (MFS) antibiotic efflux pump	1.71428571428571	1.572151	1.5	0.917088083333333	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	0.285714285714286	0.2079673	1.5	0.72788555	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	0.428571428571429	2.4935989	1.5	5.81839743333333	FALSE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	pmr phosphoethanolamine transferase	0.285714285714286	0.349905	1.5	1.2246675	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	quinolone resistance protein (qnr)	0.142857142857143	0.138211	1.5	0.967477	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	resistance-nodulation-cell division (RND) antibiotic efflux pump	1.42857142857143	0	1.5	0	FALSE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	0.571428571428571	0	1.5	0	FALSE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	0.142857142857143	0.125474	1.5	0.878318	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	small multidrug resistance (SMR) antibiotic efflux pump	0.142857142857143	0.144691	1.5	1.012837	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	sulfonamide resistant sul	0.142857142857143	0.124906	1.5	0.874342	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	TEM beta-lactamase	0.142857142857143	0.13774932	1.5	0.96424524	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	trimethoprim resistant dihydrofolate reductase dfr	0.142857142857143	0.117288	1.5	0.821016	TRUE
+pure_GCF_051618705.1	pure	GCF_051618705.1	10	undecaprenyl pyrophosphate related proteins	0.142857142857143	0.151048	1.5	1.057336	TRUE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	ATP-binding cassette (ABC) antibiotic efflux pump	0.25	0.0969176	1.5	0.3876704	FALSE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	fosfomycin thiol transferase	0.125	0.126342	1.5	1.010736	TRUE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	General Bacterial Porin with reduced permeability to beta-lactams	0.125	0.225187	1.5	1.801496	FALSE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	General Bacterial Porin with reduced permeability to peptide antibiotics	0.125	0.139981	1.5	1.119848	TRUE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	major facilitator superfamily (MFS) antibiotic efflux pump	0.25	0.124038	1.5	0.496152	FALSE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	0.125	0.1098823	1.5	0.8790584	TRUE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	Outer Membrane Porin (Opr)	0.125	0.143832	1.5	1.150656	TRUE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	pmr phosphoethanolamine transferase	0.25	0.241254	1.5	0.965016	TRUE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	resistance-nodulation-cell division (RND) antibiotic efflux pump	0.375	0.5175516	1.5	1.3801376	TRUE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	0.125	0.115186	1.5	0.921488	TRUE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	0.125	0	1.5	0	FALSE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	SHV beta-lactamase	0.25	0.20477139	1.5	0.81908556	TRUE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	small multidrug resistance (SMR) antibiotic efflux pump	0.25	0.278685	1.5	1.11474	TRUE
+pure_GCF_051620725.1	pure	GCF_051620725.1	10	trimethoprim resistant dihydrofolate reductase dfr	0.125	0.151672	1.5	1.213376	TRUE
+mix_gut_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	APH(6)	0.0147857206459776	0.0163316	2	1.10455218186764	TRUE
+mix_gut_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	ATP-binding cassette (ABC) antibiotic efflux pump	0.0295714412919552	0.013467665	2	0.455428089115962	FALSE
+mix_gut_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	fosfomycin thiol transferase	0.0147857206459776	0.0169242	2	1.1446313916802	TRUE
+mix_gut_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	General Bacterial Porin with reduced permeability to beta-lactams	0.0147857206459776	0.0281897	2	1.9065489383278	TRUE
+mix_gut_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	General Bacterial Porin with reduced permeability to peptide antibiotics	0.0147857206459776	0.0187121	2	1.26555211261147	TRUE
+mix_gut_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	MCR phosphoethanolamine transferase	0.0147857206459776	0.0135008	2	0.913097191760677	TRUE
+mix_gut_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	Outer Membrane Porin (Opr)	0.0147857206459776	0.0180362	2	1.21983908879725	TRUE
+mix_gut_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	quinolone resistance protein (qnr)	0.0147857206459776	0.017061	2	1.15388356161331	TRUE
+mix_gut_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	SHV beta-lactamase	0.0295714412919552	0.02604509	2	0.880751456882336	TRUE
+mix_gut_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	small multidrug resistance (SMR) antibiotic efflux pump	0.0295714412919552	0.0360756	2	1.21994730131109	TRUE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	AAC(3)	0.0147859375071004	0.0136532	2	0.923390890394574	TRUE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	AAC(6')	0.0147859375071004	0.01634537	2	1.10546727200427	TRUE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	ACT beta-lactamase	0.0147859375071004	0.014313213	2	0.968028776878475	TRUE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	APH(6)	0.0147859375071004	0.0156778	2	1.06031829178713	TRUE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	ATP-binding cassette (ABC) antibiotic efflux pump	0.0147859375071004	0.00531446	2	0.359426650995104	FALSE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	fosfomycin thiol transferase	0.0147859375071004	0.00834265	2	0.564228679851631	TRUE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	IMP beta-lactamase	0.0147859375071004	0.0154953	2	1.04797548295865	TRUE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	macrolide phosphotransferase (MPH)	0.0295718750142009	0.0380084	2	1.28528880842854	TRUE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	MCR phosphoethanolamine transferase	0.0147859375071004	0.0180567	2	1.22120765026424	TRUE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	OXA-1-like beta-lactamase	0.0147859375071004	0.0177649	2	1.20147268250451	TRUE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	rifampin ADP-ribosyltransferase (Arr)	0.0147859375071004	0.0126733	2	0.857118460964283	TRUE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	SHV beta-lactamase	0.0147859375071004	0.0146058	2	0.987816970887782	TRUE
+mix_gut_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	TEM beta-lactamase	0.0295718750142009	0.0215162	2	0.727589981685895	TRUE
+mix_gut_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	APH(3'')	0.0150077116714928	0.0143586	2	0.95674812485065	TRUE
+mix_gut_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	APH(6)	0.0150077116714928	0.01839	2	1.22537002326156	TRUE
+mix_gut_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	ATP-binding cassette (ABC) antibiotic efflux pump	0.0300154233429857	0.03992402	2	1.33011683839301	TRUE
+mix_gut_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	CTX-M beta-lactamase	0.0150077116714928	0.0134922	2	0.899017804668279	TRUE
+mix_gut_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	EC beta-lactamase	0.0150077116714928	0.0135735	2	0.90443501961614	TRUE
+mix_gut_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	quinolone resistance protein (qnr)	0.0150077116714928	0.0171529	2	1.14293906862443	TRUE
+mix_gut_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	small multidrug resistance (SMR) antibiotic efflux pump	0.0150077116714928	0.0132067	2	0.879994251561091	TRUE
+mix_gut_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	TEM beta-lactamase	0.0150077116714928	0.01273183	2	0.848352518937588	TRUE
+mix_gut_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	undecaprenyl pyrophosphate related proteins	0.0150077116714928	0.0187256	2	1.24773186011891	TRUE
+mix_gut_GCF_051620725.1_8x	mixture	GCF_051620725.1	7.99952147860905	ATP-binding cassette (ABC) antibiotic efflux pump	0.0295712791567585	0.0131132	2	0.443443786468837	FALSE
+mix_gut_GCF_051620725.1_8x	mixture	GCF_051620725.1	7.99952147860905	fosfomycin thiol transferase	0.0147856395783793	0.0123316	2	0.83402547009412	TRUE
+mix_gut_GCF_051620725.1_8x	mixture	GCF_051620725.1	7.99952147860905	General Bacterial Porin with reduced permeability to beta-lactams	0.0147856395783793	0.0295612	2	1.99931831445606	TRUE
+mix_gut_GCF_051620725.1_8x	mixture	GCF_051620725.1	7.99952147860905	General Bacterial Porin with reduced permeability to peptide antibiotics	0.0147856395783793	0.0172036	2	1.16353438137072	TRUE
+mix_gut_GCF_051620725.1_8x	mixture	GCF_051620725.1	7.99952147860905	Outer Membrane Porin (Opr)	0.0147856395783793	0.0160906	2	1.0882586387084	TRUE
+mix_gut_GCF_051620725.1_8x	mixture	GCF_051620725.1	7.99952147860905	SHV beta-lactamase	0.0295712791567585	0.034826	2	1.17769677176919	TRUE
+mix_gut_GCF_051620725.1_8x	mixture	GCF_051620725.1	7.99952147860905	small multidrug resistance (SMR) antibiotic efflux pump	0.0295712791567585	0.0364959	2	1.23416710540433	TRUE
+mix_wastewater_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	fosfomycin thiol transferase	0.0288978287759345	0.0324117	2	1.12159637498412	TRUE
+mix_wastewater_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	General Bacterial Porin with reduced permeability to beta-lactams	0.0288978287759345	0.0539863	2	1.86817841639918	TRUE
+mix_wastewater_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	MCR phosphoethanolamine transferase	0.0288978287759345	0.0265019	2	0.917089661146801	TRUE
+mix_wastewater_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	Outer Membrane Porin (Opr)	0.0288978287759345	0.0345413	2	1.1952904928541	TRUE
+mix_wastewater_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	SHV beta-lactamase	0.0577956575518689	0.04987908	2	0.863024699653877	TRUE
+mix_wastewater_GCF_051560495.1_8x	mixture	GCF_051560495.1	7.99957122291181	small multidrug resistance (SMR) antibiotic efflux pump	0.0577956575518689	0.070531	2	1.22035119916581	TRUE
+mix_wastewater_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	AAC(3)	0.0288981983478303	0.0261465	2	0.904779588169831	TRUE
+mix_wastewater_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	ACT beta-lactamase	0.0288981983478303	0.02741046	2	0.948517954997634	TRUE
+mix_wastewater_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	fosfomycin thiol transferase	0.0288981983478303	0.0159765	2	0.552854534656467	TRUE
+mix_wastewater_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	IMP beta-lactamase	0.0288981983478303	0.0296743	2	1.02685640270124	TRUE
+mix_wastewater_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	MCR phosphoethanolamine transferase	0.0288981983478303	0.0352258	2	1.21896180433147	TRUE
+mix_wastewater_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	rifampin ADP-ribosyltransferase (Arr)	0.0288981983478303	0.0254257	2	0.87983685674678	TRUE
+mix_wastewater_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	SHV beta-lactamase	0.0288981983478303	0.0279707	2	0.96790463070858	TRUE
+mix_wastewater_GCF_051560505.1_8x	mixture	GCF_051560505.1	7.99970429253196	TEM beta-lactamase	0.0577963966956606	0.04302652	2	0.74444986988662	TRUE
+mix_wastewater_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	CTX-M beta-lactamase	0.0297579258919721	0.0259707	2	0.87273219559318	TRUE
+mix_wastewater_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	EC beta-lactamase	0.0297579258919721	0.02752697	2	0.925029859269392	TRUE
+mix_wastewater_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	small multidrug resistance (SMR) antibiotic efflux pump	0.0297579258919721	0.0254211	2	0.854263166468127	TRUE
+mix_wastewater_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	TEM beta-lactamase	0.0297579258919721	0.02519415	2	0.846636626875823	TRUE
+mix_wastewater_GCF_051618705.1_8x	mixture	GCF_051618705.1	7.99962635314797	undecaprenyl pyrophosphate related proteins	0.0297579258919721	0.0321823	2	1.08146986173797	TRUE
+mix_wastewater_GCF_051620725.1_8x	mixture	GCF_051620725.1	7.99952147860905	fosfomycin thiol transferase	0.0288976906212348	0.023552	2	0.815013224021901	TRUE
+mix_wastewater_GCF_051620725.1_8x	mixture	GCF_051620725.1	7.99952147860905	General Bacterial Porin with reduced permeability to beta-lactams	0.0288976906212348	0.0564587	2	1.95374435763779	TRUE
+mix_wastewater_GCF_051620725.1_8x	mixture	GCF_051620725.1	7.99952147860905	Outer Membrane Porin (Opr)	0.0288976906212348	0.0307312	2	1.06344830120847	TRUE
+mix_wastewater_GCF_051620725.1_8x	mixture	GCF_051620725.1	7.99952147860905	SHV beta-lactamase	0.0577953812424696	0.06772336	2	1.17177806503048	TRUE
+mix_wastewater_GCF_051620725.1_8x	mixture	GCF_051620725.1	7.99952147860905	small multidrug resistance (SMR) antibiotic efflux pump	0.0577953812424696	0.0711375	2	1.23085095159345	TRUE

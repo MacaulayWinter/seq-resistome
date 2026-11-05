@@ -1,0 +1,9 @@
+sample	verdict	verdict_reason	qc_result	qc_findings	hint	declared_platform	declared_platform_raw	detected_platform	detected_layout	confidence	route	routed_by	n_files	n_reads	declared_type	declared_molecule	declared_library	n_flags	flags	detection_flags	reasons	detected_type	type_confidence	type_reason	declared_target
+minigut	PASS		PASS			illumina	Illumina	illumina	paired	high	illumina	detected	2	100000	metagenome	dna		0				metagenome	high	many genera	
+mock_community	WARN	duplication above the warn limit	WARN			illumina	Illumina	illumina	paired	high	illumina	detected	2	49986	metagenome	dna		0				metagenome	high	many genera	
+host_only	WARN	mostly human reads	WARN			illumina	Illumina	illumina	single	high	illumina	detected	1	545	metagenome	dna		0				metagenome	medium	human	
+virus_only	PASS		PASS			illumina	Illumina	illumina	paired	high	illumina	detected	2	200	metagenome	dna		0				metagenome	medium		
+an_isolate	PASS		PASS			illumina	Illumina	illumina	paired	high	illumina	detected	2	50000	isolate	dna		0				isolate	high	one species dominates (99%)	
+too_few_reads	FAIL	too few reads (12)	FAIL			illumina	Illumina	illumina	paired	high	illumina	detected	2	12	metagenome	dna		0				metagenome	low		
+nanopore_mg	PASS		PASS			ont	ONT	ont	single	high	ont	detected	1	5000	metagenome	dna		0				metagenome	high	many genera	
+from_bam	PASS		PASS			illumina	Illumina	illumina	paired	high	illumina	detected	1	50000	metagenome	dna		0				metagenome	high	many genera	

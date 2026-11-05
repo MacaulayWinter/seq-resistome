@@ -1,0 +1,2 @@
+tax_eq(527639) AND library_strategy="WGS" AND library_source="METAGENOMIC" AND instrument_platform="ILLUMINA" AND library_layout="PAIRED" AND read_count>=2000000 AND first_public>=2020-01-01 AND first_public<=2025-12-31
+7963 runs returned; 234 after the 2 x 150 bp and one-run-per-study rules

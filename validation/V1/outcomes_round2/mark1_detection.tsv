@@ -1,0 +1,529 @@
+sample	background	genome	depth	aro_accession	aro_term	family	exact_aro	found	marked
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3003952	YojI	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000237	TolC	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3008118	CMY-181	CMY beta-lactamase	FALSE	FALSE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3003841	kdpE	kdpDE; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000027	emrA	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000206	emrK	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000254	emrY	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3001328	Escherichia coli mdfA	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3001329	mdtG	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3001216	mdtH	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3001214	mdtM	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3003548	mdtN	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3003549	mdtO	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3003550	mdtP	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000832	evgA	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000676	H-NS	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3003576	eptA	pmr phosphoethanolamine transferase	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3003578	PmrF	pmr phosphoethanolamine transferase	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3003577	ugd	pmr phosphoethanolamine transferase	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000216	acrB	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000491	acrD	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000499	AcrE	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000502	AcrF	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3004043	Escherichia coli acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000792	mdtA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000793	mdtB	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000794	mdtC	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000795	mdtE	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000796	mdtF	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000656	AcrS	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3003838	gadW	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000508	gadX	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3004039	Escherichia coli emrE	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_0.5x	gut	GCF_051563005.1	0.5	3002986	bacA	undecaprenyl pyrophosphate related proteins	TRUE	TRUE	FALSE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3003952	YojI	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000237	TolC	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3008118	CMY-181	CMY beta-lactamase	FALSE	FALSE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3003841	kdpE	kdpDE; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000027	emrA	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000206	emrK	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000254	emrY	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3001328	Escherichia coli mdfA	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3001329	mdtG	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3001216	mdtH	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3001214	mdtM	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3003548	mdtN	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3003549	mdtO	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3003550	mdtP	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000832	evgA	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000676	H-NS	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3003576	eptA	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3003578	PmrF	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3003577	ugd	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000216	acrB	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000491	acrD	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000499	AcrE	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000502	AcrF	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3004043	Escherichia coli acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000792	mdtA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000793	mdtB	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000794	mdtC	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000795	mdtE	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000796	mdtF	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000656	AcrS	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3003838	gadW	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000508	gadX	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3004039	Escherichia coli emrE	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_2x	gut	GCF_051563005.1	2	3002986	bacA	undecaprenyl pyrophosphate related proteins	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3003952	YojI	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000237	TolC	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3008118	CMY-181	CMY beta-lactamase	FALSE	FALSE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3003841	kdpE	kdpDE; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000027	emrA	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000206	emrK	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000254	emrY	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3001328	Escherichia coli mdfA	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3001329	mdtG	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3001216	mdtH	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3001214	mdtM	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3003548	mdtN	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3003549	mdtO	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3003550	mdtP	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000832	evgA	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000676	H-NS	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3003576	eptA	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3003578	PmrF	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3003577	ugd	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000216	acrB	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000491	acrD	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000499	AcrE	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000502	AcrF	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3004043	Escherichia coli acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000792	mdtA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000793	mdtB	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000794	mdtC	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000795	mdtE	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000796	mdtF	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000656	AcrS	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3003838	gadW	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000508	gadX	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3004039	Escherichia coli emrE	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051563005.1_8x	gut	GCF_051563005.1	8	3002986	bacA	undecaprenyl pyrophosphate related proteins	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3002581	AAC(6')-Ib10	AAC(6')	FALSE	FALSE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3001838	ACT-17	ACT beta-lactamase	FALSE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3002660	APH(6)-Id	APH(6)	TRUE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3002676	catB3	chloramphenicol acetyltransferase (CAT)	TRUE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3002804	FosA2	fosfomycin thiol transferase	TRUE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3005010	qacEdelta1	major facilitator superfamily (MFS) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3000168	tet(D)	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3004684	MCR-9.1	MCR phosphoethanolamine transferase	TRUE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3001396	OXA-1	OXA-1-like beta-lactamase	TRUE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3007509	Shigella flexneri acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	FALSE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3002848	arr-3	rifampin ADP-ribosyltransferase (Arr)	FALSE	FALSE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3001071	SHV-12	SHV beta-lactamase	FALSE	FALSE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3000410	sul1	sulfonamide resistant sul	TRUE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3000873	TEM-1	TEM beta-lactamase	FALSE	TRUE	FALSE
+mix_gut_GCF_051617875.1_0.5x	gut	GCF_051617875.1	0.5	3003015	dfrA19	trimethoprim resistant dihydrofolate reductase dfr	FALSE	TRUE	FALSE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3002581	AAC(6')-Ib10	AAC(6')	FALSE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3001838	ACT-17	ACT beta-lactamase	FALSE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3002660	APH(6)-Id	APH(6)	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3002676	catB3	chloramphenicol acetyltransferase (CAT)	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3002804	FosA2	fosfomycin thiol transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3005010	qacEdelta1	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3000168	tet(D)	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3004684	MCR-9.1	MCR phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3001396	OXA-1	OXA-1-like beta-lactamase	FALSE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3007509	Shigella flexneri acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	FALSE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3002848	arr-3	rifampin ADP-ribosyltransferase (Arr)	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3001071	SHV-12	SHV beta-lactamase	FALSE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3000410	sul1	sulfonamide resistant sul	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3000873	TEM-1	TEM beta-lactamase	FALSE	TRUE	TRUE
+mix_gut_GCF_051617875.1_2x	gut	GCF_051617875.1	2	3003015	dfrA19	trimethoprim resistant dihydrofolate reductase dfr	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3002581	AAC(6')-Ib10	AAC(6')	FALSE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3001838	ACT-17	ACT beta-lactamase	FALSE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3002660	APH(6)-Id	APH(6)	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3002676	catB3	chloramphenicol acetyltransferase (CAT)	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3002804	FosA2	fosfomycin thiol transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3005010	qacEdelta1	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3000168	tet(D)	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3004684	MCR-9.1	MCR phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3001396	OXA-1	OXA-1-like beta-lactamase	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3007509	Shigella flexneri acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3002848	arr-3	rifampin ADP-ribosyltransferase (Arr)	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3001071	SHV-12	SHV beta-lactamase	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3000410	sul1	sulfonamide resistant sul	TRUE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3000873	TEM-1	TEM beta-lactamase	FALSE	TRUE	TRUE
+mix_gut_GCF_051617875.1_8x	gut	GCF_051617875.1	8	3003015	dfrA19	trimethoprim resistant dihydrofolate reductase dfr	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3002581	AAC(6')-Ib10	AAC(6')	FALSE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3002639	APH(3'')-Ib	APH(3'')	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3002660	APH(6)-Id	APH(6)	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3005059	LptD	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3001878	CTX-M-15	CTX-M beta-lactamase	FALSE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3004111	FosA6	fosfomycin thiol transferase	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3004122	Klebsiella pneumoniae OmpK37	General Bacterial Porin with reduced permeability to beta-lactams	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3002459	LEN-9	LEN beta-lactamase	FALSE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3004588	Klebsiella pneumoniae KpnG	major facilitator superfamily (MFS) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3004597	Klebsiella pneumoniae KpnH	major facilitator superfamily (MFS) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3000165	tet(A)	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3001396	OXA-1	OXA-1-like beta-lactamase	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3005053	ArnT	pmr phosphoethanolamine transferase	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3005047	eptB	pmr phosphoethanolamine transferase	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3002714	QnrB1	quinolone resistance protein (qnr)	FALSE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	FALSE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3000412	sul2	sulfonamide resistant sul	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3000873	TEM-1	TEM beta-lactamase	FALSE	TRUE	FALSE
+mix_gut_GCF_051619525.1_0.5x	gut	GCF_051619525.1	0.5	3002859	dfrA14	trimethoprim resistant dihydrofolate reductase dfr	TRUE	TRUE	FALSE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3002581	AAC(6')-Ib10	AAC(6')	FALSE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3002639	APH(3'')-Ib	APH(3'')	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3002660	APH(6)-Id	APH(6)	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3005059	LptD	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3001878	CTX-M-15	CTX-M beta-lactamase	FALSE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3004111	FosA6	fosfomycin thiol transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3004122	Klebsiella pneumoniae OmpK37	General Bacterial Porin with reduced permeability to beta-lactams	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3002459	LEN-9	LEN beta-lactamase	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3004588	Klebsiella pneumoniae KpnG	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3004597	Klebsiella pneumoniae KpnH	major facilitator superfamily (MFS) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3000165	tet(A)	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3001396	OXA-1	OXA-1-like beta-lactamase	FALSE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3005053	ArnT	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3005047	eptB	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3002714	QnrB1	quinolone resistance protein (qnr)	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	FALSE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3000412	sul2	sulfonamide resistant sul	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3000873	TEM-1	TEM beta-lactamase	FALSE	TRUE	TRUE
+mix_gut_GCF_051619525.1_2x	gut	GCF_051619525.1	2	3002859	dfrA14	trimethoprim resistant dihydrofolate reductase dfr	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3002581	AAC(6')-Ib10	AAC(6')	FALSE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3002639	APH(3'')-Ib	APH(3'')	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3002660	APH(6)-Id	APH(6)	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3005059	LptD	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3001878	CTX-M-15	CTX-M beta-lactamase	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3004111	FosA6	fosfomycin thiol transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3004122	Klebsiella pneumoniae OmpK37	General Bacterial Porin with reduced permeability to beta-lactams	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3002459	LEN-9	LEN beta-lactamase	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3004588	Klebsiella pneumoniae KpnG	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3004597	Klebsiella pneumoniae KpnH	major facilitator superfamily (MFS) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3000165	tet(A)	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3001396	OXA-1	OXA-1-like beta-lactamase	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3005053	ArnT	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3005047	eptB	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3002714	QnrB1	quinolone resistance protein (qnr)	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	FALSE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3000412	sul2	sulfonamide resistant sul	TRUE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3000873	TEM-1	TEM beta-lactamase	FALSE	TRUE	TRUE
+mix_gut_GCF_051619525.1_8x	gut	GCF_051619525.1	8	3002859	dfrA14	trimethoprim resistant dihydrofolate reductase dfr	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3003952	YojI	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000237	TolC	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3008118	CMY-181	CMY beta-lactamase	FALSE	FALSE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3003841	kdpE	kdpDE; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000027	emrA	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000206	emrK	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000254	emrY	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3001328	Escherichia coli mdfA	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3001329	mdtG	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3001216	mdtH	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3001214	mdtM	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3003548	mdtN	major facilitator superfamily (MFS) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3003549	mdtO	major facilitator superfamily (MFS) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3003550	mdtP	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000832	evgA	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000676	H-NS	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3003576	eptA	pmr phosphoethanolamine transferase	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3003578	PmrF	pmr phosphoethanolamine transferase	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3003577	ugd	pmr phosphoethanolamine transferase	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000216	acrB	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000491	acrD	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000499	AcrE	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000502	AcrF	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3004043	Escherichia coli acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000792	mdtA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000793	mdtB	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000794	mdtC	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000795	mdtE	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000796	mdtF	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000656	AcrS	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3003838	gadW	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000508	gadX	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3004039	Escherichia coli emrE	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_0.5x	wastewater	GCF_051563005.1	0.5	3002986	bacA	undecaprenyl pyrophosphate related proteins	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3003952	YojI	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000237	TolC	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3008118	CMY-181	CMY beta-lactamase	FALSE	FALSE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3003841	kdpE	kdpDE; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000027	emrA	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000206	emrK	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000254	emrY	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3001328	Escherichia coli mdfA	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3001329	mdtG	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3001216	mdtH	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3001214	mdtM	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3003548	mdtN	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3003549	mdtO	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3003550	mdtP	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000832	evgA	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000676	H-NS	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3003576	eptA	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3003578	PmrF	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3003577	ugd	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000216	acrB	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000491	acrD	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000499	AcrE	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000502	AcrF	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3004043	Escherichia coli acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000792	mdtA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000793	mdtB	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000794	mdtC	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000795	mdtE	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000796	mdtF	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000656	AcrS	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3003838	gadW	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000508	gadX	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3004039	Escherichia coli emrE	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_2x	wastewater	GCF_051563005.1	2	3002986	bacA	undecaprenyl pyrophosphate related proteins	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3003952	YojI	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000237	TolC	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3008118	CMY-181	CMY beta-lactamase	FALSE	FALSE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3003841	kdpE	kdpDE; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000027	emrA	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000206	emrK	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000254	emrY	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3001328	Escherichia coli mdfA	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3001329	mdtG	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3001216	mdtH	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3001214	mdtM	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3003548	mdtN	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3003549	mdtO	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3003550	mdtP	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000832	evgA	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000676	H-NS	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3003576	eptA	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3003578	PmrF	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3003577	ugd	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000216	acrB	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000491	acrD	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000499	AcrE	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000502	AcrF	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3004043	Escherichia coli acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000792	mdtA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000793	mdtB	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000794	mdtC	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000795	mdtE	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000796	mdtF	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000656	AcrS	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3003838	gadW	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000508	gadX	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3004039	Escherichia coli emrE	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051563005.1_8x	wastewater	GCF_051563005.1	8	3002986	bacA	undecaprenyl pyrophosphate related proteins	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3002581	AAC(6')-Ib10	AAC(6')	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3001838	ACT-17	ACT beta-lactamase	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3002660	APH(6)-Id	APH(6)	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3002676	catB3	chloramphenicol acetyltransferase (CAT)	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3002804	FosA2	fosfomycin thiol transferase	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3005010	qacEdelta1	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3000168	tet(D)	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3004684	MCR-9.1	MCR phosphoethanolamine transferase	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3001396	OXA-1	OXA-1-like beta-lactamase	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3007509	Shigella flexneri acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3002848	arr-3	rifampin ADP-ribosyltransferase (Arr)	FALSE	FALSE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3001071	SHV-12	SHV beta-lactamase	FALSE	FALSE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3000410	sul1	sulfonamide resistant sul	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3000873	TEM-1	TEM beta-lactamase	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051617875.1_0.5x	wastewater	GCF_051617875.1	0.5	3003015	dfrA19	trimethoprim resistant dihydrofolate reductase dfr	FALSE	FALSE	FALSE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3002581	AAC(6')-Ib10	AAC(6')	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3001838	ACT-17	ACT beta-lactamase	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3002660	APH(6)-Id	APH(6)	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3002676	catB3	chloramphenicol acetyltransferase (CAT)	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3002804	FosA2	fosfomycin thiol transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3005010	qacEdelta1	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3000168	tet(D)	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3004684	MCR-9.1	MCR phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3001396	OXA-1	OXA-1-like beta-lactamase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3007509	Shigella flexneri acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3002848	arr-3	rifampin ADP-ribosyltransferase (Arr)	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3001071	SHV-12	SHV beta-lactamase	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3000410	sul1	sulfonamide resistant sul	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3000873	TEM-1	TEM beta-lactamase	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_2x	wastewater	GCF_051617875.1	2	3003015	dfrA19	trimethoprim resistant dihydrofolate reductase dfr	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3002581	AAC(6')-Ib10	AAC(6')	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3001838	ACT-17	ACT beta-lactamase	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3002660	APH(6)-Id	APH(6)	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3002676	catB3	chloramphenicol acetyltransferase (CAT)	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3002804	FosA2	fosfomycin thiol transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3000074	emrB	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3005010	qacEdelta1	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3000168	tet(D)	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3004684	MCR-9.1	MCR phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3001396	OXA-1	OXA-1-like beta-lactamase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3007509	Shigella flexneri acrA	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3002848	arr-3	rifampin ADP-ribosyltransferase (Arr)	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3001071	SHV-12	SHV beta-lactamase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3000410	sul1	sulfonamide resistant sul	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3000873	TEM-1	TEM beta-lactamase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051617875.1_8x	wastewater	GCF_051617875.1	8	3003015	dfrA19	trimethoprim resistant dihydrofolate reductase dfr	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3002581	AAC(6')-Ib10	AAC(6')	FALSE	FALSE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3002639	APH(3'')-Ib	APH(3'')	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3002660	APH(6)-Id	APH(6)	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3005059	LptD	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3001878	CTX-M-15	CTX-M beta-lactamase	FALSE	FALSE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3004111	FosA6	fosfomycin thiol transferase	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3004122	Klebsiella pneumoniae OmpK37	General Bacterial Porin with reduced permeability to beta-lactams	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3002459	LEN-9	LEN beta-lactamase	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3004588	Klebsiella pneumoniae KpnG	major facilitator superfamily (MFS) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3004597	Klebsiella pneumoniae KpnH	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3000165	tet(A)	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3001396	OXA-1	OXA-1-like beta-lactamase	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3005053	ArnT	pmr phosphoethanolamine transferase	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3005047	eptB	pmr phosphoethanolamine transferase	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3002714	QnrB1	quinolone resistance protein (qnr)	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	FALSE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3000412	sul2	sulfonamide resistant sul	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3000873	TEM-1	TEM beta-lactamase	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_0.5x	wastewater	GCF_051619525.1	0.5	3002859	dfrA14	trimethoprim resistant dihydrofolate reductase dfr	TRUE	TRUE	FALSE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3002581	AAC(6')-Ib10	AAC(6')	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3002639	APH(3'')-Ib	APH(3'')	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3002660	APH(6)-Id	APH(6)	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3005059	LptD	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3001878	CTX-M-15	CTX-M beta-lactamase	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3004111	FosA6	fosfomycin thiol transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3004122	Klebsiella pneumoniae OmpK37	General Bacterial Porin with reduced permeability to beta-lactams	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3002459	LEN-9	LEN beta-lactamase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3004588	Klebsiella pneumoniae KpnG	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3004597	Klebsiella pneumoniae KpnH	major facilitator superfamily (MFS) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3000165	tet(A)	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3001396	OXA-1	OXA-1-like beta-lactamase	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3005053	ArnT	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3005047	eptB	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3002714	QnrB1	quinolone resistance protein (qnr)	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3000412	sul2	sulfonamide resistant sul	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3000873	TEM-1	TEM beta-lactamase	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_2x	wastewater	GCF_051619525.1	2	3002859	dfrA14	trimethoprim resistant dihydrofolate reductase dfr	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3002581	AAC(6')-Ib10	AAC(6')	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3002639	APH(3'')-Ib	APH(3'')	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3002660	APH(6)-Id	APH(6)	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3005059	LptD	ATP-binding cassette (ABC) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3003950	msbA	ATP-binding cassette (ABC) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3001878	CTX-M-15	CTX-M beta-lactamase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3004111	FosA6	fosfomycin thiol transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3004122	Klebsiella pneumoniae OmpK37	General Bacterial Porin with reduced permeability to beta-lactams	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3002459	LEN-9	LEN beta-lactamase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3004588	Klebsiella pneumoniae KpnG	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3004597	Klebsiella pneumoniae KpnH	major facilitator superfamily (MFS) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3000165	tet(A)	major facilitator superfamily (MFS) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3000516	emrR	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3001396	OXA-1	OXA-1-like beta-lactamase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3005053	ArnT	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3005047	eptB	pmr phosphoethanolamine transferase	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3002714	QnrB1	quinolone resistance protein (qnr)	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3003922	oqxA	resistance-nodulation-cell division (RND) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3000518	CRP	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3000263	marA	resistance-nodulation-cell division (RND) antibiotic efflux pump; General Bacterial Porin with reduced permeability to beta-lactams; antibiotic efflux regulatory protein	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3000412	sul2	sulfonamide resistant sul	TRUE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3000873	TEM-1	TEM beta-lactamase	FALSE	TRUE	TRUE
+mix_wastewater_GCF_051619525.1_8x	wastewater	GCF_051619525.1	8	3002859	dfrA14	trimethoprim resistant dihydrofolate reductase dfr	TRUE	TRUE	TRUE

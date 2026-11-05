@@ -1,0 +1,9 @@
+# SortMeRNA 4.3.7, the build in the pinned container (conda-forge
+# py313h71a826f_1: Python 3.13, build 1). Unpinned, conda chose a newer build
+# that crashes with "Illegal instruction" on GitHub's runners (CI fix 1).
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - conda-forge::python=3.13
+  - conda-forge::sortmerna=4.3.7=py313*_1

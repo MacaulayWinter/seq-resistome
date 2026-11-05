@@ -1,0 +1,29 @@
+# seq-resistome 0.1.0dev | CARD 4.0.2 (the release this pipeline version was validated with) | per sample: the numbers every measure divides by
+# copies_per_16s counts ARG copies per 16S rRNA gene copy. Bacterial genomes carry 1 to about 15 16S copies (most 1 to 7), so this is not ARGs per cell or per genome, and communities whose members carry more 16S copies look poorer in ARGs.
+sample	status	note	layout	n_files	reads_raw	reads_after_qc	host_removal	host_reads_removed	reads_analysed	mean_read_length	reads_16s	bases_16s	copies_16s	card_version	card_validated	kind	background	spike	spike_depth
+bg_gut	analysed		paired	1	2000000	1999980	hostile human-t2t-hla	6	1999980	144.5	3617	469197	304.278	4.0.2	TRUE	background	gut	none	0
+bg_wastewater	analysed		paired	1	2000000	1937750	hostile human-t2t-hla	66	1937680	141	13220	1672790	1084.82	4.0.2	TRUE	background	wastewater	none	0
+E1_mgenitalium	analysed		paired	1	38670	38670	hostile human-t2t-hla	0	38670	149	148	18927	12.2743	4.0.2	TRUE	edge_no_arg	none	NC_000908.2	10
+E2_lambda	analysed	No 16S reads: copies per 16S copy are missing (NA), not zero or infinite.	paired	1	3230	3230	hostile human-t2t-hla	0	3230	150	0	0	0	4.0.2	TRUE	edge_no_16s	none	NC_001416.1	10
+E3_host	analysed		paired	1	400000	395868	hostile human-t2t-hla	395060	808	149	215	25504	16.5396	4.0.2	TRUE	edge_host_only	none	HG002	0
+mix_gut_GCF_051559745.1_0.5x	analysed		paired	1	2017290	2017280	hostile human-t2t-hla	6	2017270	144.5	3646	473291	306.933	4.0.2	TRUE	mixture	gut	GCF_051559745.1	0.5
+mix_gut_GCF_051559745.1_2x	analysed		paired	1	2069180	2069160	hostile human-t2t-hla	6	2069150	145	3785	490845	318.317	4.0.2	TRUE	mixture	gut	GCF_051559745.1	2
+mix_gut_GCF_051559745.1_8x	analysed		paired	1	2276700	2276690	hostile human-t2t-hla	6	2276680	145	4311	559138	362.606	4.0.2	TRUE	mixture	gut	GCF_051559745.1	8
+mix_gut_GCF_051563765.1_0.5x	analysed		paired	1	2017330	2017310	hostile human-t2t-hla	6	2017300	144.5	3658	474752	307.881	4.0.2	TRUE	mixture	gut	GCF_051563765.1	0.5
+mix_gut_GCF_051563765.1_2x	analysed		paired	1	2069310	2069290	hostile human-t2t-hla	6	2069280	145	3801	493379	319.96	4.0.2	TRUE	mixture	gut	GCF_051563765.1	2
+mix_gut_GCF_051563765.1_8x	analysed		paired	1	2277220	2277210	hostile human-t2t-hla	6	2277200	145	4345	563557	365.471	4.0.2	TRUE	mixture	gut	GCF_051563765.1	8
+mix_gut_GCF_051618695.1_0.5x	analysed		paired	1	2017020	2017010	hostile human-t2t-hla	6	2017000	144.5	3664	475449	308.333	4.0.2	TRUE	mixture	gut	GCF_051618695.1	0.5
+mix_gut_GCF_051618695.1_2x	analysed		paired	1	2068080	2068060	hostile human-t2t-hla	6	2068060	145	3801	492430	319.345	4.0.2	TRUE	mixture	gut	GCF_051618695.1	2
+mix_gut_GCF_051618695.1_8x	analysed		paired	1	2272320	2272300	hostile human-t2t-hla	6	2272300	145	4359	564616	366.158	4.0.2	TRUE	mixture	gut	GCF_051618695.1	8
+mix_wastewater_GCF_051559745.1_0.5x	analysed		paired	1	2017290	1955040	hostile human-t2t-hla	66	1954980	141	13253	1677040	1087.58	4.0.2	TRUE	mixture	wastewater	GCF_051559745.1	0.5
+mix_wastewater_GCF_051559745.1_2x	analysed		paired	1	2069180	2006920	hostile human-t2t-hla	66	2006860	142	13393	1694660	1099	4.0.2	TRUE	mixture	wastewater	GCF_051559745.1	2
+mix_wastewater_GCF_051559745.1_8x	analysed		paired	1	2276700	2214450	hostile human-t2t-hla	66	2214390	142	13873	1760800	1141.9	4.0.2	TRUE	mixture	wastewater	GCF_051559745.1	8
+mix_wastewater_GCF_051563765.1_0.5x	analysed		paired	1	2017330	1955070	hostile human-t2t-hla	66	1955010	141	13265	1678510	1088.53	4.0.2	TRUE	mixture	wastewater	GCF_051563765.1	0.5
+mix_wastewater_GCF_051563765.1_2x	analysed		paired	1	2069310	2007050	hostile human-t2t-hla	66	2006990	142	13409	1697190	1100.64	4.0.2	TRUE	mixture	wastewater	GCF_051563765.1	2
+mix_wastewater_GCF_051563765.1_8x	analysed		paired	1	2277220	2214970	hostile human-t2t-hla	66	2214910	142	13907	1765220	1144.76	4.0.2	TRUE	mixture	wastewater	GCF_051563765.1	8
+mix_wastewater_GCF_051618695.1_0.5x	analysed		paired	1	2017020	1954770	hostile human-t2t-hla	66	1954700	141	13271	1679200	1088.98	4.0.2	TRUE	mixture	wastewater	GCF_051618695.1	0.5
+mix_wastewater_GCF_051618695.1_2x	analysed		paired	1	2068080	2005830	hostile human-t2t-hla	66	2005760	142	13409	1696210	1100.01	4.0.2	TRUE	mixture	wastewater	GCF_051618695.1	2
+mix_wastewater_GCF_051618695.1_8x	analysed		paired	1	2272320	2210070	hostile human-t2t-hla	66	2210000	142	13923	1766350	1145.49	4.0.2	TRUE	mixture	wastewater	GCF_051618695.1	8
+pure_GCF_051559745.1	analysed		paired	1	345880	345880	hostile human-t2t-hla	0	345880	149	883	113623	73.6855	4.0.2	TRUE	pure	none	GCF_051559745.1	10
+pure_GCF_051563765.1	analysed		paired	1	346530	346530	hostile human-t2t-hla	0	346530	149	929	119206	77.3061	4.0.2	TRUE	pure	none	GCF_051563765.1	10
+pure_GCF_051618695.1	analysed		paired	1	340400	340400	hostile human-t2t-hla	0	340400	149	916	115483	74.8917	4.0.2	TRUE	pure	none	GCF_051618695.1	10

@@ -1,0 +1,9 @@
+sample,fastq_1,fastq_2,bam,platform,sample_type,site,day
+minigut,https://raw.githubusercontent.com/nf-core/test-datasets/22af0864c6fe34b6e496412a72553ed89eb58c41/test_data/test_minigut_R1.fastq.gz,https://raw.githubusercontent.com/nf-core/test-datasets/22af0864c6fe34b6e496412a72553ed89eb58c41/test_data/test_minigut_R2.fastq.gz,,illumina,metagenome,gut,1
+mock_community,https://raw.githubusercontent.com/nf-core/test-datasets/53cf177d0dfd0512d0c0a2ec4a74c19b569e19fd/data/genomics/prokaryotes/bacteroides_fragilis/illumina/fastq/test2_1.fastq.gz,https://raw.githubusercontent.com/nf-core/test-datasets/53cf177d0dfd0512d0c0a2ec4a74c19b569e19fd/data/genomics/prokaryotes/bacteroides_fragilis/illumina/fastq/test2_2.fastq.gz,,illumina,metagenome,gut,2
+host_only,https://raw.githubusercontent.com/nf-core/test-datasets/53cf177d0dfd0512d0c0a2ec4a74c19b569e19fd/data/genomics/homo_sapiens/illumina/fastq/rCRS_simulated_test.fq.gz,,,illumina,metagenome,host,1
+virus_only,https://raw.githubusercontent.com/nf-core/test-datasets/53cf177d0dfd0512d0c0a2ec4a74c19b569e19fd/data/genomics/sarscov2/illumina/fastq/test_1.fastq.gz,https://raw.githubusercontent.com/nf-core/test-datasets/53cf177d0dfd0512d0c0a2ec4a74c19b569e19fd/data/genomics/sarscov2/illumina/fastq/test_2.fastq.gz,,illumina,metagenome,virus,1
+an_isolate,not_used_1.fastq.gz,not_used_2.fastq.gz,,illumina,,gut,1
+too_few_reads,not_used_1.fastq.gz,not_used_2.fastq.gz,,illumina,metagenome,gut,1
+nanopore_mg,not_used.fastq.gz,,,ont,metagenome,gut,1
+from_bam,,,not_used.bam,illumina,metagenome,gut,1
