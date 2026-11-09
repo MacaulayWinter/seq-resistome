@@ -11,6 +11,12 @@
 - ARG copies from reference bases covered, not reads x read length (D19).
 - 16S: alignments covering under 50 bases are dropped (`--min_16s_bases`,
   `short_16s`); each counts against its own SILVA reference's length (D20).
+- 16S alignments matching their SILVA reference below 90% identity are
+  dropped (`--min_16s_identity`, `low_identity_16s`; D23): reads from 23S
+  genes, gene flanks and short local hits had inflated the 16S count.
+- Read identity is judged read by read: reads below `--min_read_identity`
+  are left out of every count (`reads_below_identity`), instead of the
+  gene's mean deciding its call (D23).
 - 95% interval per gene for copies per 16S copy (D20).
 - RGI's CARD database and index are built once per run, not per sample;
   RGI's temporary files are deleted after each sample (D20).

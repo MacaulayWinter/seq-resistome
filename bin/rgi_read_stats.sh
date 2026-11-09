@@ -23,14 +23,21 @@
 # (the gene length used for copies). With CARD alone each ARO has one
 # reference; these keep the tables right if a gene ever has several (D20).
 #
-# Usage:  rgi_read_stats.sh <rgi sorted bam> <card reference fasta>  > stats.tsv
+# Read identity is judged read by read (D23): a read matching its reference
+# below min_identity (1 - NM / covered bases) is left out of every number
+# above and counted in reads_low_identity. A few reads from a look-alike
+# gene can no longer pull a real gene's mean identity under the threshold,
+# and a look-alike gene's reads still do not count. A reference whose reads
+# all fall below is still listed (reads 0), so the tables can say why.
+#
+# Usage:  rgi_read_stats.sh <rgi sorted bam> <card reference fasta> [min_identity, default 0]  > stats.tsv
 #*******************************************************************************
 set -euo pipefail
-bam=$1; ref=$2
+bam=$1; ref=$2; minid=${3:-0}
 cp "$ref" ref.fasta           # calmd indexes the FASTA; the staged copy may be read-only
 samtools faidx ref.fasta
-echo -e "reference\taro_accession\treference_length\tcanonical_length\treads\taligned_bases\tmismatches\tcovered_bases\twindows\twindow_mean\twindow_var"
-samtools calmd -u "$bam" ref.fasta 2>/dev/null | samtools view -F 0x904 - | awk -F'\t' -v OFS='\t' -v fai=ref.fasta.fai '
+echo -e "reference\taro_accession\treference_length\tcanonical_length\treads\taligned_bases\tmismatches\tcovered_bases\twindows\twindow_mean\twindow_var\treads_low_identity"
+samtools calmd -u "$bam" ref.fasta 2>/dev/null | samtools view -F 0x904 - | awk -F'\t' -v OFS='\t' -v fai=ref.fasta.fai -v minid="$minid" '
     BEGIN { while ((getline line < fai) > 0) {
               split(line, f, "\t"); len[f[1]] = f[2]
               # the CARD reference of the ARO (name starts ARO:<accession>|)
@@ -38,19 +45,21 @@ samtools calmd -u "$bam" ref.fasta 2>/dev/null | samtools view -F 0x904 - | awk 
     { c = $6; al = 0
       while (match(c, /[0-9]+[MDX=]/)) { al += substr(c, RSTART, RLENGTH - 1); c = substr(c, RSTART + RLENGTH) }
       nm = 0; for (i = 12; i <= NF; i++) if ($i ~ /^NM:i:/) nm = substr($i, 6)
+      seen[$3] = 1
+      if (al == 0 || 1 - nm / al < minid) { lo[$3]++; next }
       n[$3]++; b[$3] += al; e[$3] += nm
       if (al > mx[$3]) mx[$3] = al
       st[$3, int(($4 - 1) / 100)]++
       for (p = $4; p < $4 + al; p++) if (!(($3, p) in cv)) { cv[$3, p] = 1; cb[$3]++ } }
-    END { for (r in n) {
+    END { for (r in seen) {
             match(r, /ARO:[0-9]+/); aro = substr(r, RSTART + 4, RLENGTH - 4)
             w = int((len[r] - mx[r] + 1) / 100)
-            if (w >= 3) {
+            if (n[r] > 0 && w >= 3) {
               s1 = 0; s2 = 0
               for (k = 0; k < w; k++) { x = st[r, k] + 0; s1 += x; s2 += x * x }
               m = s1 / w; v = (s2 - w * m * m) / (w - 1)
               wm = sprintf("%.4f", m); wv = sprintf("%.4f", v)
             } else { w = "NA"; wm = "NA"; wv = "NA" }
             cl = (aro in canon) ? canon[aro] : "NA"
-            print r, aro, len[r], cl, n[r], b[r], e[r], cb[r] + 0, w, wm, wv } }' | sort
+            print r, aro, len[r], cl, n[r] + 0, b[r] + 0, e[r] + 0, cb[r] + 0, w, wm, wv, lo[r] + 0 } }' | sort
 rm -f ref.fasta ref.fasta.fai

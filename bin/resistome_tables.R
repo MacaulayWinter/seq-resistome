@@ -19,6 +19,9 @@
 #                 resistome_summary.md    a plain-language summary
 #
 # MEASURES      reads           reads mapped to the gene (each mate counted)
+#                               that match its CARD reference at
+#                               min_read_identity or more, judged read by
+#                               read (D23); reads_below_identity, the rest
 #               rpm             reads per million reads analysed (after QC
 #                               and host removal)
 #               rpkm            reads per kilobase of the CARD reference gene
@@ -35,10 +38,12 @@
 #               min_breadth_ratio of the breadth reads landing at random would
 #               cover: 1 - exp(-reads x read length / gene length). Reads piled
 #               on one shared domain of a gene that is not there cover far
-#               less than that (D8). And, if min_read_identity > 0, the reads
-#               match the CARD reference at least that well on average (D19):
-#               reads from a different gene that only shares a stretch with
-#               a CARD gene match it less well. Every hit is kept in
+#               less than that (D8). Reads and breadth count only reads
+#               matching the CARD reference at min_read_identity or more,
+#               each read on its own (D19, D23): reads from a different gene
+#               that only shares a stretch with a CARD gene match it less
+#               well, and a few such reads no longer drag a real gene's
+#               average below the line. Every hit is kept in
 #               arg_long.tsv with its call and reason; the matrices hold
 #               detected genes only.
 #
@@ -101,13 +106,14 @@ left <- read_tsv(left_file)
 rrna_files <- list.files(rrna_dir, pattern = "\\.16s\\.tsv$", full.names = TRUE)
 rrna <- if (length(rrna_files)) do.call(rbind, lapply(rrna_files, read_tsv)) else
   data.frame(sample = character(0), reads_16s = character(0), bases_16s = character(0), copies_16s = character(0),
-             short_16s = character(0), reads_seen = character(0))
-miss16 <- setdiff(c("reads_16s", "bases_16s", "copies_16s", "short_16s", "reads_seen"), names(rrna))
+             short_16s = character(0), low_identity_16s = character(0), reads_seen = character(0))
+miss16 <- setdiff(c("reads_16s", "bases_16s", "copies_16s", "short_16s", "low_identity_16s", "reads_seen"), names(rrna))
 if (length(miss16)) stop("16S counts lack column(s) ", paste(miss16, collapse = ", "), "; nothing was written.")
 rrna$reads_16s  <- num(rrna$reads_16s)
 rrna$bases_16s  <- num(rrna$bases_16s)
 rrna$copies_16s <- num(rrna$copies_16s)
 rrna$short_16s  <- num(rrna$short_16s)
+rrna$low_identity_16s <- num(rrna$low_identity_16s)
 rrna$reads_seen <- num(rrna$reads_seen)
 
 # 3. RGI gene tables --------------------------------------------------------------
@@ -144,16 +150,16 @@ stat_files <- list.files(rgi_dir, pattern = "\\.read_stats\\.tsv$", full.names =
 stats <- do.call(rbind, c(list(data.frame(sample = character(0), aro_accession = character(0), stat_reads = numeric(0),
                                           canonical_length = numeric(0), aligned_bases = numeric(0), mismatches = numeric(0),
                                           pct_covered = numeric(0), pct_expected = numeric(0), ratio = numeric(0),
-                                          n_references = numeric(0), dispersion = numeric(0))),
+                                          n_references = numeric(0), dispersion = numeric(0), reads_below_identity = numeric(0))),
   lapply(stat_files, function(f) {
     x <- read_tsv(f)
     if (!nrow(x)) return(NULL)
-    need <- c("reference_length", "canonical_length", "covered_bases", "window_var")
+    need <- c("reference_length", "canonical_length", "covered_bases", "window_var", "reads_low_identity")
     if (length(setdiff(need, names(x)))) stop(basename(f), ": read statistics lack ", paste(setdiff(need, names(x)), collapse = ", "),
                                               "; nothing was written.")
     smp <- sub("\\.read_stats\\.tsv$", "", basename(f))
     rl  <- flow$mean_read_length[flow$sample == smp]; if (!length(rl)) rl <- NA_real_
-    for (k in c("reads", "aligned_bases", "mismatches", "reference_length", "canonical_length", "covered_bases"))
+    for (k in c("reads", "aligned_bases", "mismatches", "reference_length", "canonical_length", "covered_bases", "reads_low_identity"))
       x[[k]] <- num(x[[k]])
     # Window counts are "NA" for genes too short for three windows (D20).
     for (k in c("window_mean", "window_var")) x[[k]] <- num(ifelse(x[[k]] == "NA", NA, x[[k]]))
@@ -162,13 +168,17 @@ stats <- do.call(rbind, c(list(data.frame(sample = character(0), aro_accession =
     phi <- x$window_var / x$window_mean
     phi[!is.finite(phi)] <- NA
     a <- do.call(rbind, lapply(split(seq_len(nrow(x)), x$aro_accession), function(i) {
-      w <- x$reads[i]; ok <- !is.na(phi[i])
-      data.frame(aro_accession = x$aro_accession[i[1]], stat_reads = sum(w),
+      # Weighted by the reads kept (D23); a gene whose reads all fell below
+      # the identity threshold has none: covered 0, ratio 0.
+      w <- x$reads[i]; ok <- !is.na(phi[i]) & w > 0; W <- sum(w)
+      wavg <- function(v) if (W > 0) sum((w * v)[w > 0]) / W else 0
+      data.frame(aro_accession = x$aro_accession[i[1]], stat_reads = W,
                  canonical_length = suppressWarnings(max(x$canonical_length[i], na.rm = TRUE)),
                  aligned_bases = sum(x$aligned_bases[i]), mismatches = sum(x$mismatches[i]),
-                 pct_covered = sum(w * cov[i]) / sum(w), pct_expected = sum(w * expd[i]) / sum(w),
-                 ratio = sum(w * cov[i] / expd[i]) / sum(w), n_references = length(i),
-                 dispersion = if (any(ok)) sum(phi[i][ok] * w[ok]) / sum(w[ok]) else NA_real_, stringsAsFactors = FALSE)
+                 pct_covered = wavg(cov[i]), pct_expected = wavg(expd[i]),
+                 ratio = wavg(cov[i] / expd[i]), n_references = length(i),
+                 dispersion = if (any(ok)) sum(phi[i][ok] * w[ok]) / sum(w[ok]) else NA_real_,
+                 reads_below_identity = sum(x$reads_low_identity[i]), stringsAsFactors = FALSE)
     }))
     a$canonical_length[!is.finite(a$canonical_length)] <- NA
     cbind(sample = rep(smp, nrow(a)), a, stringsAsFactors = FALSE)
@@ -198,7 +208,7 @@ sheet <- read.csv(sheet_file, check.names = FALSE, stringsAsFactors = FALSE, col
                   na.strings = character(0), strip.white = TRUE, fileEncoding = "UTF-8-BOM")
 meta_cols <- setdiff(names(sheet), PIPELINE_COLUMNS)
 OUTPUT_COLS <- c("sample", "aro_accession", "aro_term", "amr_gene_family", "drug_class", "resistance_mechanism",
-                 "model_type", "reference_length_bp", "n_references", "reads", "merged_reads", "merged_from", "completely_mapped_reads", "average_percent_coverage", "rgi_percent_coverage",
+                 "model_type", "reference_length_bp", "n_references", "reads", "reads_below_identity", "merged_reads", "merged_from", "completely_mapped_reads", "average_percent_coverage", "rgi_percent_coverage",
                  "expected_percent_coverage", "breadth_ratio", "average_mapq", "aligned_bases", "merged_aligned_bases", "read_identity", "detected", "detection_note", "rpm",
                  "rpkm", "arg_copies", "copies_per_16s", "copies_per_16s_low95", "copies_per_16s_high95", "dispersion", "reads_analysed", "mean_read_length", "reads_16s",
                  "bases_16s", "copies_16s", "card_version", "card_validated", "layout", "n_files", "reads_raw", "reads_after_qc",
@@ -214,7 +224,7 @@ if (length(dup)) stop("Samplesheet rows of the same sample disagree on study met
 # 6. Denominators, per sample ------------------------------------------------------
 # 16S copies: each alignment's covered bases over its own SILVA reference's
 # length, summed (COUNT_16S; D20). length_16s is no longer used for this.
-den <- merge(flow, rrna[, c("sample", "reads_16s", "bases_16s", "copies_16s", "short_16s")], by = "sample", all.x = TRUE)
+den <- merge(flow, rrna[, c("sample", "reads_16s", "bases_16s", "copies_16s", "short_16s", "low_identity_16s")], by = "sample", all.x = TRUE)
 den$status <- ifelse(den$reads_after_qc == 0, "no reads left after QC",
               ifelse(den$reads_analysed == 0, "no reads left after host removal", "analysed"))
 den$note <- ifelse(den$status != "analysed", "Zero ARGs (no reads to look in); copies per 16S copy missing (NA).",
@@ -230,21 +240,29 @@ long <- merge(long, stats, by = c("sample", "aro_accession"), all.x = TRUE)
 # reference; RGI's if that is missing.
 long$rgi_percent_coverage <- long$average_percent_coverage
 has <- !is.na(long$stat_reads)
+# reads = the reads kept, those matching the CARD reference at or above
+# min_read_identity one by one (D23); RGI's own count includes the others,
+# reported as reads_below_identity.
+long$reads <- ifelse(has, long$stat_reads, long$reads)
+long$reads_below_identity <- ifelse(has, long$reads_below_identity, 0)
 long$reference_length_bp <- ifelse(has & !is.na(long$canonical_length), long$canonical_length, long$reference_length_bp)
 long$average_percent_coverage  <- ifelse(has, long$pct_covered, long$average_percent_coverage)
 L <- long$reference_length_bp
-long$read_identity <- ifelse(long$aligned_bases > 0, 1 - long$mismatches / long$aligned_bases, NA)
+long$read_identity <- ifelse(!is.na(long$aligned_bases) & long$aligned_bases > 0, 1 - long$mismatches / long$aligned_bases, NA)
 long$expected_percent_coverage <- ifelse(has, long$pct_expected, 100 * (1 - exp(-long$reads * long$mean_read_length / L)))
 long$breadth_ratio <- ifelse(has, long$ratio, long$average_percent_coverage / long$expected_percent_coverage)
 id_ok <- min_identity <= 0 | (!is.na(long$read_identity) & long$read_identity >= min_identity)
 long$detected <- long$reads >= min_reads & long$breadth_ratio >= min_ratio & id_ok
 long$detection_note <- ifelse(long$detected, "",
+  ifelse(long$reads < min_reads & long$reads_below_identity > 0,
+         sprintf("fewer than %g reads match the CARD reference at %.0f%% identity or more (%g did; %g below): likely a related gene that only resembles it",
+                 min_reads, 100 * min_identity, long$reads, long$reads_below_identity),
   ifelse(long$reads < min_reads, sprintf("fewer than %g reads", min_reads),
   ifelse(long$breadth_ratio < min_ratio,
          sprintf("reads cover %.0f%% of the gene; reads landing at random would cover %.0f%% (ratio %.2f < %g): likely a shared domain of another gene",
                  long$average_percent_coverage, long$expected_percent_coverage, long$breadth_ratio, min_ratio),
          sprintf("reads match the CARD reference at %.1f%% identity (< %.1f%%): likely a related gene that only resembles it",
-                 100 * long$read_identity, 100 * min_identity))))
+                 100 * long$read_identity, 100 * min_identity)))))
 long$rpm  <- long$reads / long$reads_analysed * 1e6
 long$rpkm <- long$reads / (L / 1e3) / (long$reads_analysed / 1e6)
 
@@ -340,7 +358,7 @@ for (m in c("reads", "rpm", "rpkm", "copies_per_16s")) {
   write_out(mat, sprintf("arg_%s.tsv", m), sprintf("%s of detected genes; one column per sample (including samples with none)", m))
 }
 write_out(den[, c("sample", "status", "note", "layout", "n_files", "reads_raw", "reads_after_qc", "host_removal",
-                  "host_reads_removed", "reads_analysed", "mean_read_length", "reads_16s", "bases_16s", "short_16s", "copies_16s",
+                  "host_reads_removed", "reads_analysed", "mean_read_length", "reads_16s", "bases_16s", "short_16s", "low_identity_16s", "copies_16s",
                   "card_version", "card_validated", meta_cols)],
           "denominators.tsv", "per sample: the numbers every measure divides by")
 write_out(left, "samples_left_out.tsv", "samples not analysed, and why")

@@ -21,6 +21,7 @@ process RGI_BWT {
     input:
     tuple val(meta), path(reads, arity: '1..2')
     path db, name: 'rgi_db'
+    val min_read_identity   // reads below this are left out of the statistics (D23)
 
     output:
     tuple val(meta), path("*.json")          , emit: json
@@ -44,7 +45,7 @@ process RGI_BWT {
         --read_one ${reads[0]} \\
         ${r2}
 
-    rgi_read_stats.sh ${prefix}.sorted.temp.bam localDB/card_reference.fasta > ${prefix}.read_stats.tsv
+    rgi_read_stats.sh ${prefix}.sorted.temp.bam localDB/card_reference.fasta ${min_read_identity} > ${prefix}.read_stats.tsv
     """
 
     stub:

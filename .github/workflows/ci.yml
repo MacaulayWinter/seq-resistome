@@ -77,6 +77,12 @@ jobs:
         run: |
           docker run --rm -v "$PWD":/w -w /w "$R_IMAGE" \
             Rscript tests/resistome_tables/test_resistome_tables.R
+      # RGI's read statistics, in the pipeline's own RGI image (it has samtools; D23).
+      - name: RGI read statistics (per-read identity)
+        run: |
+          docker run --rm -u "$(id -u):$(id -g)" -v "$PWD":/w -w /w \
+            community.wave.seqera.io/library/rgi_kma:e905ecb8305e2609 \
+            bash tests/read_stats/test_rgi_read_stats.sh
 
   e2e:
     name: End-to-end (-profile test), CARD cache, input checks

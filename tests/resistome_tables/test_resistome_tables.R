@@ -25,7 +25,7 @@ gene <- function(term, acc, reads, cov, len, fam = "fam", cls = "cls")
 run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, card_ok = "true", expect_fail = FALSE,
                      rgi_header = RGI_HEADER, bases = NULL, identity = NULL, min_identity = 0, stats = TRUE,
                      dispersion = NULL, copies16 = NULL, old16 = FALSE, extra_stats = NULL,
-                     alleles = NULL, min_allele = 0) {
+                     alleles = NULL, min_allele = 0, low = NULL) {
   d <- tempfile("case"); dir.create(d); dir.create(file.path(d, "rgi")); dir.create(file.path(d, "rrna"))
   write.table(flow, file.path(d, "read_flow.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
   writeLines(c("sample\treason", left), file.path(d, "left.tsv"))
@@ -45,10 +45,13 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
         # One reference per gene (CARD's own): its length, and the bases RGI
         # says are covered (D20).
         len <- suppressWarnings(as.numeric(g[11])); cb <- round(len * as.numeric(g[8]) / 100)
-        sprintf("ARO:%s|ID:1|Name:%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s", g[2], g[1], g[2], len, len, g[5], b, round(b * (1 - id)), cb, win)
+        # Reads below the identity threshold (D23): left out of every number
+        # above by rgi_read_stats.sh and counted here; 0 unless a test gives some.
+        lo <- if (!is.null(low) && g[2] %in% names(low)) low[[g[2]]] else 0
+        sprintf("ARO:%s|ID:1|Name:%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s", g[2], g[1], g[2], len, len, g[5], b, round(b * (1 - id)), cb, win, lo)
       }, "")
       if (!is.null(extra_stats) && s %in% names(extra_stats)) st <- extra_stats[[s]]
-      writeLines(c("reference\taro_accession\treference_length\tcanonical_length\treads\taligned_bases\tmismatches\tcovered_bases\twindows\twindow_mean\twindow_var", st), file.path(d, "rgi", paste0(s, ".read_stats.tsv")))
+      writeLines(c("reference\taro_accession\treference_length\tcanonical_length\treads\taligned_bases\tmismatches\tcovered_bases\twindows\twindow_mean\twindow_var\treads_low_identity", st), file.path(d, "rgi", paste0(s, ".read_stats.tsv")))
     }
   }
   for (s in names(rrna)) {
@@ -60,8 +63,8 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
     c16 <- if (!is.null(copies16)) copies16[[s]] else b16 / 1542
     if (old16) writeLines(c("sample\treads_16s\tbases_16s\treads_seen", sprintf("%s\t%s\t%s\t%s", s, rrna[[s]], b16, sn)),
                           file.path(d, "rrna", paste0(s, ".16s.tsv")))
-    else writeLines(c("sample\treads_16s\tbases_16s\tcopies_16s\tshort_16s\treads_seen",
-                      sprintf("%s\t%s\t%s\t%s\t0\t%s", s, rrna[[s]], b16, c16, sn)), file.path(d, "rrna", paste0(s, ".16s.tsv")))
+    else writeLines(c("sample\treads_16s\tbases_16s\tcopies_16s\tshort_16s\tlow_identity_16s\treads_seen",
+                      sprintf("%s\t%s\t%s\t%s\t0\t0\t%s", s, rrna[[s]], b16, c16, sn)), file.path(d, "rrna", paste0(s, ".16s.tsv")))
   }
   # Allele pairs (D22): a data frame aro_a, aro_b, identity, or NULL for none.
   af <- "none"
@@ -223,11 +226,11 @@ ok(f$status != 0 && grepl("16S counts lack column", f$msg), "case 11: 16S counts
 # (20 reads, 100 covered each): ratio 0.1/(1-e^-2) = 0.1157 -> not detected.
 rgi12 <- list(A = list(c("X", "3000001", "protein homolog model", "CARD; Resistomes & Variants", 50, 0, 50, 40, 400, 60, "1000; 1000; 400", "fam", "cls", "mech"),
                        c("Y", "3000002", "protein homolog model", "CARD; Resistomes & Variants", 40, 0, 40, 10, 100, 60, "1000; 1000", "fam", "cls", "mech")))
-st12 <- c(sprintf("ARO:3000001|ID:1|Name:X\t3000001\t1000\t1000\t30\t3000\t0\t990\tNA\tNA\tNA"),
-          sprintf("Prevalence_Sequence_ID:1|ID:1|Name:X|ARO:3000001\t3000001\t1000\t1000\t15\t1500\t0\t780\tNA\tNA\tNA"),
-          sprintf("Prevalence_Sequence_ID:2|ID:1|Name:X|ARO:3000001\t3000001\t400\t1000\t5\t500\t0\t380\tNA\tNA\tNA"),
-          sprintf("Prevalence_Sequence_ID:3|ID:2|Name:Y|ARO:3000002\t3000002\t1000\t1000\t20\t2000\t0\t100\tNA\tNA\tNA"),
-          sprintf("Prevalence_Sequence_ID:4|ID:2|Name:Y|ARO:3000002\t3000002\t1000\t1000\t20\t2000\t0\t100\tNA\tNA\tNA"))
+st12 <- c(sprintf("ARO:3000001|ID:1|Name:X\t3000001\t1000\t1000\t30\t3000\t0\t990\tNA\tNA\tNA\t0"),
+          sprintf("Prevalence_Sequence_ID:1|ID:1|Name:X|ARO:3000001\t3000001\t1000\t1000\t15\t1500\t0\t780\tNA\tNA\tNA\t0"),
+          sprintf("Prevalence_Sequence_ID:2|ID:1|Name:X|ARO:3000001\t3000001\t400\t1000\t5\t500\t0\t380\tNA\tNA\tNA\t0"),
+          sprintf("Prevalence_Sequence_ID:3|ID:2|Name:Y|ARO:3000002\t3000002\t1000\t1000\t20\t2000\t0\t100\tNA\tNA\tNA\t0"),
+          sprintf("Prevalence_Sequence_ID:4|ID:2|Name:Y|ARO:3000002\t3000002\t1000\t1000\t20\t2000\t0\t100\tNA\tNA\tNA\t0"))
 r12 <- run_case(flow_row("A", 1e6), rgi12, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), extra_stats = list(A = st12))
 x12 <- r12$long[r12$long$aro_term == "X", ]; y12 <- r12$long[r12$long$aro_term == "Y", ]
 want <- (30 * 0.99 / (1 - exp(-3)) + 15 * 0.78 / (1 - exp(-1.5)) + 5 * 0.95 / (1 - exp(-1.25))) / 50
@@ -269,6 +272,27 @@ r13o <- run_case(flow_row("A", 1e6), rgi13, c(A = 1542), c("sample,fastq_1", "A,
 ok(all(r13o$long$merged_reads == 0) && near(r13o$long$arg_copies[r13o$long$aro_term == "E18"], 6), "case 13: min_allele_identity 0 switches merging off")
 f13 <- run_case(flow_row("A", 1e6), rgi13, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_allele = 0.95, expect_fail = TRUE)
 ok(f13$status != 0 && grepl("no allele table", f13$msg), "case 13: merging asked for without an allele table stops the run")
+
+# --- Case 14: read identity judged read by read (D23) -------------------------------
+# rgi_read_stats.sh leaves reads below min_read_identity out and counts them.
+# A: 1,000,000 reads, 100 16S copies; min_read_identity 0.85.
+#   R (1,000 bp): RGI saw 4 reads; 2 matched below 0.85 and are left out.
+#      The 2 kept cover 19% (random 100(1 - e^-0.2) = 18.1%, ratio 1.05)
+#      -> detected on its 2 good reads; rpm 2.
+#   S (1,000 bp): RGI saw 4 reads, only 1 matched well -> fewer than 2 reads
+#      match: not detected, and the note says why.
+#   T: RGI saw 3 reads, none matched well -> 0 kept, not detected.
+rgi14 <- list(A = list(gene("R", "3000101", 2, 19, 1000), gene("S", "3000102", 1, 10, 1000), gene("T", "3000103", 0, 0, 1000)))
+r14 <- run_case(flow_row("A", 1e6), rgi14, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.85,
+                low = c("3000101" = 2, "3000102" = 3, "3000103" = 3))
+g14 <- function(t) r14$long[r14$long$aro_term == t, ]
+ok(g14("R")$detected && g14("R")$reads == 2 && g14("R")$reads_below_identity == 2 && near(g14("R")$rpm, 2),
+   "case 14: a gene is called on its good reads although others fell below the identity")
+ok(!g14("S")$detected && g14("S")$reads == 1 && g14("S")$reads_below_identity == 3 && grepl("fewer than 2 reads match the CARD reference at 85%", g14("S")$detection_note),
+   "case 14: too few good reads: not called, the note says how many fell below")
+ok(!g14("T")$detected && g14("T")$reads == 0 && g14("T")$reads_below_identity == 3 && is.na(g14("T")$read_identity),
+   "case 14: no good reads at all: not called, identity missing")
+ok(all(r14$den$low_identity_16s == 0) && "low_identity_16s" %in% names(r14$den), "case 14: denominators report 16S hits dropped for low identity")
 
 if (length(fails)) {
   cat(sprintf("test_resistome_tables.R: %d passed, %d FAILED\n", n_pass, length(fails)), paste0("  - ", fails, collapse = "\n"), "\n", sep = "")
