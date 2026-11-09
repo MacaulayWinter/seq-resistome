@@ -24,7 +24,8 @@ gene <- function(term, acc, reads, cov, len, fam = "fam", cls = "cls")
 # unless seen is given); sheet: lines of the samplesheet.
 run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, card_ok = "true", expect_fail = FALSE,
                      rgi_header = RGI_HEADER, bases = NULL, identity = NULL, min_identity = 0, stats = TRUE,
-                     dispersion = NULL, copies16 = NULL, old16 = FALSE, extra_stats = NULL) {
+                     dispersion = NULL, copies16 = NULL, old16 = FALSE, extra_stats = NULL,
+                     alleles = NULL, min_allele = 0) {
   d <- tempfile("case"); dir.create(d); dir.create(file.path(d, "rgi")); dir.create(file.path(d, "rrna"))
   write.table(flow, file.path(d, "read_flow.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
   writeLines(c("sample\treason", left), file.path(d, "left.tsv"))
@@ -62,8 +63,12 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
     else writeLines(c("sample\treads_16s\tbases_16s\tcopies_16s\tshort_16s\treads_seen",
                       sprintf("%s\t%s\t%s\t%s\t0\t%s", s, rrna[[s]], b16, c16, sn)), file.path(d, "rrna", paste0(s, ".16s.tsv")))
   }
+  # Allele pairs (D22): a data frame aro_a, aro_b, identity, or NULL for none.
+  af <- "none"
+  if (!is.null(alleles)) { af <- "alleles.tsv"; write.table(alleles, file.path(d, af), sep = "\t", quote = FALSE, row.names = FALSE) }
   old <- setwd(d); on.exit(setwd(old))
-  res <- suppressWarnings(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", card_ok, "1542", "2", "0.5", "test", min_identity),
+  res <- suppressWarnings(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", card_ok, "1542", "2", "0.5", "test", min_identity,
+                                               af, min_allele),
                                   stdout = TRUE, stderr = TRUE))
   status <- attr(res, "status"); if (is.null(status)) status <- 0
   if (expect_fail) return(list(status = status, msg = paste(res, collapse = "\n")))
@@ -230,6 +235,40 @@ ok(near(x12$breadth_ratio, want) && x12$detected && x12$n_references == 3 && nea
    "case 12: breadth judged per reference across a gene's references")
 ok(near(x12$reference_length_bp, 1000) && near(x12$arg_copies, 5) && near(x12$copies_per_16s, 0.05), "case 12: gene length is CARD's reference")
 ok(!y12$detected && near(y12$breadth_ratio, 0.1 / (1 - exp(-2))), "case 12: a pile-up split over alleles is still not detected")
+
+# --- Case 13: reads split between near-identical alleles (D22) -------------------
+# A: 100 16S copies. E18 (1,000 bp) 60 reads, 99% covered -> detected, 6 copies.
+# Undetected, each 10 reads covering 25-30% of 1,000 bp (random breadth 63.2%):
+#   E15: reference 99.1% identical to E18 -> its reads counted under E18.
+#   E8:  96.9% identical                   -> counted under E18 at 0.95.
+#   W:   90.0% identical                   -> below 0.95, not merged.
+#   Q:   99.0% identical but its reads match Q at 80% (< 0.85) -> a different
+#        gene, not merged.
+# E18: copies (6,000 + 2,000) / 1,000 = 8 -> 0.08 per 16S copy; its reads,
+# rpm and detection unchanged; merged_reads 20 from E15 and E8.
+rgi13 <- list(A = list(gene("E18", "3006878", 60, 99, 1000), gene("E15", "3006876", 10, 30, 1000),
+                       gene("E8", "3006881", 10, 25, 1000), gene("W", "3000500", 10, 25, 1000),
+                       gene("Q", "3000600", 10, 25, 1000)))
+al13 <- data.frame(aro_a = c("3006876", "3006878", "3006881", "3006878", "3000500", "3006878", "3000600", "3006878"),
+                   aro_b = c("3006878", "3006876", "3006878", "3006881", "3006878", "3000500", "3006878", "3000600"),
+                   identity = c(0.991, 0.991, 0.969, 0.969, 0.90, 0.90, 0.99, 0.99))
+r13 <- run_case(flow_row("A", 1e6), rgi13, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), identity = c("3000600" = 0.80),
+                min_identity = 0.85, alleles = al13, min_allele = 0.95)
+g13 <- function(t) r13$long[r13$long$aro_term == t, ]
+e18 <- g13("E18")
+ok(e18$detected && e18$reads == 60 && near(e18$rpm, 60) && e18$merged_reads == 20 && near(e18$merged_aligned_bases, 2000),
+   "case 13: minor alleles' reads added to the detected gene, its own reads unchanged")
+ok(near(e18$arg_copies, 8) && near(e18$copies_per_16s, 0.08) && setequal(strsplit(e18$merged_from, ";")[[1]], c("E15", "E8")),
+   "case 13: copies include the merged reads, and merged_from names them")
+ok(!g13("E15")$detected && grepl("counted under E18", g13("E15")$detection_note) && grepl("counted under E18", g13("E8")$detection_note),
+   "case 13: merged alleles stay undetected, with a note saying where their reads went")
+ok(!grepl("counted under", g13("W")$detection_note) && !grepl("counted under", g13("Q")$detection_note) &&
+   g13("W")$merged_reads == 0 && near(r13$cp[r13$cp$aro_term == "E18", "A"], 0.08) && !any(c("E15", "E8") %in% r13$cp$aro_term),
+   "case 13: not merged below the identity, nor when the reads match poorly; matrices hold detected genes only")
+r13o <- run_case(flow_row("A", 1e6), rgi13, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), alleles = al13, min_allele = 0)
+ok(all(r13o$long$merged_reads == 0) && near(r13o$long$arg_copies[r13o$long$aro_term == "E18"], 6), "case 13: min_allele_identity 0 switches merging off")
+f13 <- run_case(flow_row("A", 1e6), rgi13, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_allele = 0.95, expect_fail = TRUE)
+ok(f13$status != 0 && grepl("no allele table", f13$msg), "case 13: merging asked for without an allele table stops the run")
 
 if (length(fails)) {
   cat(sprintf("test_resistome_tables.R: %d passed, %d FAILED\n", n_pass, length(fails)), paste0("  - ", fails, collapse = "\n"), "\n", sep = "")

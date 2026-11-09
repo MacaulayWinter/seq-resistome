@@ -2,8 +2,12 @@
 
 ## Unreleased (branch `read-identity`; development, not validated)
 
-- Per-gene read identity to CARD (`read_identity`) and an optional
-  detection threshold (`--min_read_identity`; D19).
+- Per-gene read identity to CARD (`read_identity`) and a detection
+  threshold, `--min_read_identity`, default 0.85 (D19, D21).
+- Reads split between near-identical alleles are counted under the detected
+  allele (`--min_allele_identity`, default 0.95; `merged_reads`,
+  `merged_aligned_bases`, `merged_from`; D22). RGI_DB also writes the
+  allele table, `card_alleles.tsv`.
 - ARG copies from reference bases covered, not reads x read length (D19).
 - 16S: alignments covering under 50 bases are dropped (`--min_16s_bases`,
   `short_16s`); each counts against its own SILVA reference's length (D20).

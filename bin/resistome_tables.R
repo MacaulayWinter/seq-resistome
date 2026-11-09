@@ -42,10 +42,25 @@
 #               arg_long.tsv with its call and reason; the matrices hold
 #               detected genes only.
 #
+# ALLELES       (D22) A gene's reads can split between near-identical CARD
+#               references (alleles): kma gives each read to the best one,
+#               and reads that match several equally well scatter. The minor
+#               alleles then fail the call on their own and their reads are
+#               lost. When min_allele_identity > 0, an undetected gene that
+#               failed only on read count or breadth (its reads match it well)
+#               has its reads counted under the most similar detected gene of
+#               the same sample, if their CARD references are at least
+#               min_allele_identity identical over >= 90% of the longer one
+#               (allele table from RGI_DB). Detection calls never change;
+#               reads, rpm and rpkm stay each gene's own; copies and the
+#               interval of the detected gene include the merged reads, and
+#               merged_reads / merged_from say what was added.
+#
 # Usage:  resistome_tables.R <rgi_dir> <rrna_dir> <read_flow.tsv>
 #             <samples_left_out.tsv> <samplesheet.csv> <card_version>
 #             <card_validated true|false> <length_16s> <min_arg_reads>
-#             <min_breadth_ratio> [pipeline_version]
+#             <min_breadth_ratio> [pipeline_version] [min_read_identity]
+#             [allele_table|none] [min_allele_identity]
 #*******************************************************************************
 
 args <- commandArgs(trailingOnly = TRUE)
@@ -62,6 +77,10 @@ min_reads    <- as.numeric(args[9])
 min_ratio    <- as.numeric(args[10])
 pipe_version <- if (length(args) >= 11) args[11] else "dev"
 min_identity <- if (length(args) >= 12) as.numeric(args[12]) else 0
+allele_file  <- if (length(args) >= 13) args[13] else "none"
+min_allele   <- if (length(args) >= 14) as.numeric(args[14]) else 0
+if (min_allele > 0 && (allele_file == "none" || !file.exists(allele_file)))
+  stop("min_allele_identity is ", min_allele, " but no allele table was given; nothing was written.")
 
 # Pipeline columns (main.nf): never study metadata.
 PIPELINE_COLUMNS <- c("sample", "fastq_1", "fastq_2", "bam", "fastq_dir", "platform", "sample_type",
@@ -134,8 +153,10 @@ stats <- do.call(rbind, c(list(data.frame(sample = character(0), aro_accession =
                                               "; nothing was written.")
     smp <- sub("\\.read_stats\\.tsv$", "", basename(f))
     rl  <- flow$mean_read_length[flow$sample == smp]; if (!length(rl)) rl <- NA_real_
-    for (k in c("reads", "aligned_bases", "mismatches", "reference_length", "canonical_length", "covered_bases", "window_mean", "window_var"))
+    for (k in c("reads", "aligned_bases", "mismatches", "reference_length", "canonical_length", "covered_bases"))
       x[[k]] <- num(x[[k]])
+    # Window counts are "NA" for genes too short for three windows (D20).
+    for (k in c("window_mean", "window_var")) x[[k]] <- num(ifelse(x[[k]] == "NA", NA, x[[k]]))
     cov <- 100 * x$covered_bases / x$reference_length
     expd <- 100 * (1 - exp(-x$reads * rl / x$reference_length))
     phi <- x$window_var / x$window_mean
@@ -177,8 +198,8 @@ sheet <- read.csv(sheet_file, check.names = FALSE, stringsAsFactors = FALSE, col
                   na.strings = character(0), strip.white = TRUE, fileEncoding = "UTF-8-BOM")
 meta_cols <- setdiff(names(sheet), PIPELINE_COLUMNS)
 OUTPUT_COLS <- c("sample", "aro_accession", "aro_term", "amr_gene_family", "drug_class", "resistance_mechanism",
-                 "model_type", "reference_length_bp", "n_references", "reads", "completely_mapped_reads", "average_percent_coverage", "rgi_percent_coverage",
-                 "expected_percent_coverage", "breadth_ratio", "average_mapq", "aligned_bases", "read_identity", "detected", "detection_note", "rpm",
+                 "model_type", "reference_length_bp", "n_references", "reads", "merged_reads", "merged_from", "completely_mapped_reads", "average_percent_coverage", "rgi_percent_coverage",
+                 "expected_percent_coverage", "breadth_ratio", "average_mapq", "aligned_bases", "merged_aligned_bases", "read_identity", "detected", "detection_note", "rpm",
                  "rpkm", "arg_copies", "copies_per_16s", "copies_per_16s_low95", "copies_per_16s_high95", "dispersion", "reads_analysed", "mean_read_length", "reads_16s",
                  "bases_16s", "copies_16s", "card_version", "card_validated", "layout", "n_files", "reads_raw", "reads_after_qc",
                  "host_removal", "host_reads_removed", "status", "note")
@@ -226,19 +247,53 @@ long$detection_note <- ifelse(long$detected, "",
                  100 * long$read_identity, 100 * min_identity))))
 long$rpm  <- long$reads / long$reads_analysed * 1e6
 long$rpkm <- long$reads / (L / 1e3) / (long$reads_analysed / 1e6)
+
+# Alleles (D22): reads of an undetected near-identical allele counted under
+# the detected gene. Only genes that failed on read count or breadth: one
+# whose reads match it poorly (identity rule) is a different gene.
+long$merged_reads <- rep(0, nrow(long)); long$merged_aligned_bases <- rep(0, nrow(long)); long$merged_from <- rep("", nrow(long))
+if (min_allele > 0) {
+  al <- read_tsv(allele_file)
+  if (length(setdiff(c("aro_a", "aro_b", "identity"), names(al))))
+    stop(basename(allele_file), ": allele table lacks aro_a, aro_b or identity; nothing was written.")
+  al$identity <- num(al$identity)
+  al <- al[al$identity >= min_allele & al$aro_a != al$aro_b, ]
+  long$own_aligned <- ifelse(is.na(long$aligned_bases), long$reads * long$mean_read_length, long$aligned_bases)
+  for (s in unique(long$sample)) {
+    rows <- which(long$sample == s)
+    dets <- rows[long$detected[rows]]
+    cand <- rows[!long$detected[rows] & long$reads[rows] > 0 & id_ok[rows]]
+    for (u in cand) {
+      p <- al[al$aro_a == long$aro_accession[u], ]
+      d <- dets[long$aro_accession[dets] %in% p$aro_b]
+      if (!length(d)) next
+      idn <- p$identity[match(long$aro_accession[d], p$aro_b)]
+      d <- d[order(-idn, -long$reads[d])][1]
+      long$merged_reads[d] <- long$merged_reads[d] + long$reads[u]
+      long$merged_aligned_bases[d] <- long$merged_aligned_bases[d] + long$own_aligned[u]
+      long$merged_from[d] <- paste(c(if (nzchar(long$merged_from[d])) long$merged_from[d], long$aro_term[u]), collapse = ";")
+      long$detection_note[u] <- sprintf("%s; its reads are counted under %s (an allele: CARD references %.1f%% identical)",
+                                        long$detection_note[u], long$aro_term[d], 100 * max(idn))
+    }
+  }
+  long$own_aligned <- NULL
+}
+
 # Copies from the reference bases reads cover, as for 16S (D13): a read
 # hanging over a gene end covers only part of it (D19). Read-based if the
 # statistics are missing for a hit (never expected; the bookkeeping checks
-# that every sample has them).
-long$arg_copies <- ifelse(is.na(long$aligned_bases), long$reads * long$mean_read_length / L, long$aligned_bases / L)
+# that every sample has them). Merged alleles' bases count over this gene's
+# length (D22).
+long$arg_copies <- (ifelse(is.na(long$aligned_bases), long$reads * long$mean_read_length, long$aligned_bases) +
+                    long$merged_aligned_bases) / L
 long$copies_per_16s <- ifelse(long$reads_16s > 0, long$arg_copies / long$copies_16s, NA)
 # 95% interval for copies_per_16s (D20): the read count treated as Poisson
 # (exact gamma limits), widened by the gene's clumping of read starts when
 # above 1 (effective reads = reads / dispersion). It covers counting noise
 # only, not bias from CARD's reference choice; 16S counts are in the
-# thousands, so their own noise is left out.
+# thousands, so their own noise is left out. Merged reads count (D22).
 infl <- pmax(1, ifelse(is.na(long$dispersion), 1, long$dispersion))
-neff <- long$reads / infl
+neff <- (long$reads + long$merged_reads) / infl
 long$copies_per_16s_low95  <- ifelse(is.na(long$copies_per_16s) | neff <= 0, NA,
                                      long$copies_per_16s * qgamma(0.025, neff) / neff)
 long$copies_per_16s_high95 <- ifelse(is.na(long$copies_per_16s) | neff <= 0, NA,

@@ -63,8 +63,11 @@ check(all(is.na(long$copies_per_16s[long$sample %in% no16])), "arg_long.tsv: cop
 near <- function(a, b) all(abs(a - b) <= 1e-4 * pmax(1, abs(b)), na.rm = TRUE)
 check(near(long$rpm, long$reads / long$reads_analysed * 1e6), "rpm does not match reads / reads analysed x 1e6")
 check(near(long$rpkm, long$reads / (long$reference_length_bp / 1e3) / (long$reads_analysed / 1e6)), "rpkm does not match its definition")
-check(near(long$copies_per_16s, (long$aligned_bases / long$reference_length_bp) / long$copies_16s),
-      "copies_per_16s does not match its definition (D13, D19: copies from aligned bases)")
+check(near(long$copies_per_16s, ((long$aligned_bases + long$merged_aligned_bases) / long$reference_length_bp) / long$copies_16s),
+      "copies_per_16s does not match its definition (D13, D19: copies from aligned bases; D22: plus merged alleles)")
+# Merged alleles (D22): only into detected genes, never from them.
+check(all(long$merged_reads[!long$detected] == 0) && all((long$merged_reads > 0) == nzchar(ifelse(is.na(long$merged_from), "", long$merged_from))),
+      "merged_reads on an undetected gene, or merged_reads and merged_from disagree")
 check(all(!is.na(long$read_identity) & long$read_identity > 0 & long$read_identity <= 1), "read_identity missing or out of range")
 # 16S copies are summed per SILVA reference length (D20), so they sit near,
 # not at, bases / 1,542; short hits are dropped and counted.

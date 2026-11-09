@@ -124,10 +124,20 @@ pandas).
      A sample with no 16S reads gets NA, never zero or infinity.
    - **detected**: at least 2 reads, spread along the gene at least half as
      widely as reads landing at random would be. Reads piled on one stretch a
-     gene shares with an unrelated gene do not count. `read_identity` (how
-     well the reads match CARD's sequence) is reported for every hit, and
-     `--min_read_identity` can require it. Every hit is kept in
-     `arg_long.tsv` with the reason it was or was not called.
+     gene shares with an unrelated gene do not count. The reads must also
+     match CARD's sequence at 85% identity or more on average
+     (`read_identity`; `--min_read_identity`, 0 to switch off): reads from a
+     different gene that only resembles a CARD gene match it less well.
+     Every hit is kept in `arg_long.tsv` with the reason it was or was not
+     called.
+   - **alleles**: one gene's reads can split between near-identical CARD
+     sequences (alleles), leaving the minor ones too thin to be called and
+     their reads uncounted. An undetected allele whose reads match it well
+     has them counted under the detected gene of the same sample whose CARD
+     sequence is at least 95% identical (`--min_allele_identity`, 0 to
+     switch off). `merged_reads`, `merged_aligned_bases` and `merged_from`
+     show what was added; `reads`, `rpm` and `rpkm` stay each gene's own,
+     and no detection call changes.
 
 ## Validation
 
