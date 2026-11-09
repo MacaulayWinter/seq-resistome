@@ -68,9 +68,37 @@ Mark 2 at identity 0.85 or more: OXA-1307 in
 `mix_wastewater_GCF_051618695.1_8x`. It has 2 reads covering 28% of the
 gene, and is detected because it just meets the 2-read rule.
 
-## Open decision (the user's)
+## Decision (user, 2026-11-09): truth from the depth actually simulated
 
-Marks 1 and 3 compare against a truth that assumes every locus was
-simulated at the genome's nominal depth. Basing the truth on the depth
-actually simulated at each locus would change how the truth is computed.
-That is a scoring change, which section 5 of the plan reserves for the user.
+Marks 1 and 3 compared against a truth that assumed every locus was
+simulated at the genome's nominal depth. The user chose to base the truth on
+the depth actually simulated at each locus, with the mark wording unchanged
+(CLAUDE.md D21):
+
+- `simulated_depth.sh` measures that depth.
+- `score_V1_round4.R` scores against it.
+
+Rescored at each identity threshold (`marks_simulated_depth_identity_*.md`):
+
+| Identity | 1. Loci found | 2. Unexplained | 3. Pure groups within 1.5x | 3. 8x mixtures within 2x |
+|---|---|---|---|---|
+| 0 | 522 / 522 PASS | 22 | 135 / 136 | 222 / 222 |
+| 0.80 | 522 / 522 PASS | 19 | 135 / 136 | 224 / 224 |
+| 0.85 | 522 / 522 PASS | 1 | 135 / 136 | 227 / 227 |
+| 0.90 | 522 / 522 PASS | 1 | 135 / 136 | 236 / 236 |
+| 0.95 | 457 / 522 | 1 | 124 / 136 | 217 / 239 |
+
+Mark 1 no longer marks 22 loci, because they were simulated below 1x. Of
+those 22, 21 were detected anyway. The one missed is EC-5 at 0.37x.
+
+What is left are genuine pipeline issues:
+
+1. **16S overcount, 1.09-1.14x** of the depth simulated at the complete 16S
+   copies. It pulls every ratio down: the pure-genome median is 0.90. The
+   simulated 16S depth itself is 0.93-1.0x of the genome's depth, so the
+   truth side is sound. The cause is still open.
+2. **Reads split between near-identical alleles.** EC-18 (pure
+   GCF_051618695.1, ratio 0.64) had its reads go 60 / 10 / 10 to EC-18, EC-15
+   and EC-8. The two minor alleles fail the breadth rule alone, so their
+   reads are not counted.
+3. **OXA-1307**: 2 reads covering 28% of the gene, in one 8x mixture.
