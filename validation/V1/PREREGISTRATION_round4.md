@@ -1,8 +1,10 @@
 # Validation V1, round 4: pre-registration (pipeline fixed, marks unchanged)
 
-**DRAFT, not yet in force.** The read-identity threshold is still to be set
-from development data. This file counts as the pre-registration only from
-the commit that removes this note.
+**DRAFT, not yet in force.** The read-identity threshold is set (0.85, from
+round-3 development data; D21). The 16S overcount, the allele-split
+undercount and the OXA-1307 call (D21) are still to be fixed or decided.
+This file counts as the pre-registration only from the commit that removes
+this note.
 
 Written and committed on 2026-11-05, **before any round-4 data is chosen,
 fetched, simulated or looked at** (the commit adding this file is the
@@ -12,8 +14,8 @@ the marks changed (2026-10-29 and 2026-11-05). The fixes are D19 and D20;
 CARD's variants collection was tried and removed (D20). Their settings were chosen on round 1-3 data only (development results,
 D20), never on round-4 data.
 
-**The marks are round 3's, word for word.** Scoring, truth and edge cases are
-unchanged too. If any mark fails, round 4 fails and Claude stops and asks
+**The marks are round 3's, word for word.** Edge cases are unchanged; the
+truth now uses the depth actually simulated (section 2; user, 2026-11-09). If any mark fails, round 4 fails and Claude stops and asks
 the user. A miss that falls inside the gene's own 95% interval is still a
 miss.
 
@@ -22,16 +24,27 @@ miss.
 The commit that adds this file, with its defaults. These include:
 
 - CARD 4.0.2 alone.
-- `--min_read_identity __THRESHOLD__`.
+- `--min_read_identity 0.85`.
 - `--min_16s_bases 50`.
 - `--min_arg_reads 2`.
 - `--min_breadth_ratio 0.5`.
 
-It is run as `validation/V1/run_V1.sh` runs it, with `SCORER=score_V1_round3.R`.
+It is run as `validation/V1/run_V1.sh` runs it, with `SCORER=score_V1_round4.R`,
+after `validation/V1/simulated_depth.sh` (in its pinned image, not `NATIVE=1`).
 
 ## 2. Scoring
 
-Scoring is as round 3 (`PREREGISTRATION_round3.md` section 2), unchanged:
+The marks' wording is round 3's. The truth uses the depth actually
+simulated (user, 2026-11-09; CLAUDE.md D21; `score_V1_round4.R`):
+
+- **Mark 3:** truth copies per 16S copy = the summed simulated depth of the
+  group's loci / (the summed simulated depth of the genome's complete 16S
+  copies, plus the background's 16S copies for mixtures).
+- **Mark 1:** a locus in a 2x or 8x mixture is marked only if the locus
+  itself was simulated at 1x or more.
+
+The nominal truth is still reported. Everything else is as round 3
+(`PREREGISTRATION_round3.md` section 2):
 
 - detection by location (100% of truth loci at 2x and 8x);
 - 0 unexplained detected AROs;
