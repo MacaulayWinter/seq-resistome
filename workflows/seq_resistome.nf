@@ -133,7 +133,8 @@ workflow SEQ_RESISTOME {
         params.min_breadth_ratio,
         params.min_read_identity,
         RGI_DB.out.alleles.first(),
-        params.min_allele_identity
+        params.min_allele_identity,
+        params.min_identity_share
     )
 
     // Every tool's version, from the nf-core 'versions' topic.

@@ -65,7 +65,7 @@
 #             <samples_left_out.tsv> <samplesheet.csv> <card_version>
 #             <card_validated true|false> <length_16s> <min_arg_reads>
 #             <min_breadth_ratio> [pipeline_version] [min_read_identity]
-#             [allele_table|none] [min_allele_identity]
+#             [allele_table|none] [min_allele_identity] [min_identity_share]
 #*******************************************************************************
 
 args <- commandArgs(trailingOnly = TRUE)
@@ -84,6 +84,7 @@ pipe_version <- if (length(args) >= 11) args[11] else "dev"
 min_identity <- if (length(args) >= 12) as.numeric(args[12]) else 0
 allele_file  <- if (length(args) >= 13) args[13] else "none"
 min_allele   <- if (length(args) >= 14) as.numeric(args[14]) else 0
+min_share    <- if (length(args) >= 15) as.numeric(args[15]) else 0   # D24; 0 = off
 if (min_allele > 0 && (allele_file == "none" || !file.exists(allele_file)))
   stop("min_allele_identity is ", min_allele, " but no allele table was given; nothing was written.")
 
@@ -252,17 +253,27 @@ long$read_identity <- ifelse(!is.na(long$aligned_bases) & long$aligned_bases > 0
 long$expected_percent_coverage <- ifelse(has, long$pct_expected, 100 * (1 - exp(-long$reads * long$mean_read_length / L)))
 long$breadth_ratio <- ifelse(has, long$ratio, long$average_percent_coverage / long$expected_percent_coverage)
 id_ok <- min_identity <= 0 | (!is.na(long$read_identity) & long$read_identity >= min_identity)
+# Share of a gene's reads that pass the identity (D24): at least
+# min_identity_share. Reads from a look-alike gene that happen to match well
+# in a shared stretch are a minority of its reads (LptD, eptB: 7-40%); a real
+# gene's reads mostly match, even if a few junk reads land on it.
+share <- ifelse(long$reads + long$reads_below_identity > 0, long$reads / (long$reads + long$reads_below_identity), 0)
+share_ok <- min_identity <= 0 | min_share <= 0 | share >= min_share
+id_ok <- id_ok & share_ok    # also keeps look-alikes out of allele merging (D22)
 long$detected <- long$reads >= min_reads & long$breadth_ratio >= min_ratio & id_ok
 long$detection_note <- ifelse(long$detected, "",
   ifelse(long$reads < min_reads & long$reads_below_identity > 0,
          sprintf("fewer than %g reads match the CARD reference at %.0f%% identity or more (%g did; %g below): likely a related gene that only resembles it",
                  min_reads, 100 * min_identity, long$reads, long$reads_below_identity),
   ifelse(long$reads < min_reads, sprintf("fewer than %g reads", min_reads),
+  ifelse(!share_ok,
+         sprintf("only %g of %g reads (%.0f%%; < %.0f%%) match the CARD reference at %.0f%% identity or more: likely a related gene that only resembles it",
+                 long$reads, long$reads + long$reads_below_identity, 100 * share, 100 * min_share, 100 * min_identity),
   ifelse(long$breadth_ratio < min_ratio,
          sprintf("reads cover %.0f%% of the gene; reads landing at random would cover %.0f%% (ratio %.2f < %g): likely a shared domain of another gene",
                  long$average_percent_coverage, long$expected_percent_coverage, long$breadth_ratio, min_ratio),
          sprintf("reads match the CARD reference at %.1f%% identity (< %.1f%%): likely a related gene that only resembles it",
-                 100 * long$read_identity, 100 * min_identity)))))
+                 100 * long$read_identity, 100 * min_identity))))))
 long$rpm  <- long$reads / long$reads_analysed * 1e6
 long$rpkm <- long$reads / (L / 1e3) / (long$reads_analysed / 1e6)
 

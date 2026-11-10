@@ -1,8 +1,8 @@
 # Validation V1, round 4: pre-registration (pipeline fixed, marks unchanged)
 
-**DRAFT, not yet in force.** The read-identity threshold is set (0.85, from
-round-3 development data; D21). The 16S overcount, the allele-split
-undercount and the OXA-1307 call (D21) are still to be fixed or decided.
+**DRAFT, not yet in force.** All fixes are built (D20-D24) and round 3
+passes every mark in development. Still to do before this note is removed:
+the user's go-ahead, and a full -profile test run on the final commit.
 This file counts as the pre-registration only from the commit that removes
 this note.
 
@@ -10,8 +10,11 @@ Written and committed on 2026-11-05, **before any round-4 data is chosen,
 fetched, simulated or looked at** (the commit adding this file is the
 proof). Round 3 (scored by location) failed marks 1-3 narrowly (CLAUDE.md
 D17). The user asked for the failed parts to be fixed in the pipeline, not
-the marks changed (2026-10-29 and 2026-11-05). The fixes are D19 and D20;
-CARD's variants collection was tried and removed (D20). Their settings were chosen on round 1-3 data only (development results,
+the marks changed (2026-10-29 and 2026-11-05). The fixes are D19-D24
+(read identity judged read by read with a share rule, the 16S identity
+floor and short-hit filter, allele merging, the per-gene interval);
+CARD's variants collection was tried and removed (D20). The truth uses the
+depth actually simulated (D21). Their settings were chosen on round 1-3 data only (development results,
 D20), never on round-4 data.
 
 **The marks are round 3's, word for word.** Edge cases are unchanged; the
@@ -24,7 +27,9 @@ miss.
 The commit that adds this file, with its defaults. These include:
 
 - CARD 4.0.2 alone.
-- `--min_read_identity 0.85`.
+- `--min_read_identity 0.85` (judged read by read), `--min_identity_share 0.5`.
+- `--min_allele_identity 0.95`.
+- `--min_16s_identity 0.90`.
 - `--min_16s_bases 50`.
 - `--min_arg_reads 2`.
 - `--min_breadth_ratio 0.5`.

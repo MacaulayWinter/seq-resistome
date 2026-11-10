@@ -16,7 +16,8 @@
   genes, gene flanks and short local hits had inflated the 16S count.
 - Read identity is judged read by read: reads below `--min_read_identity`
   are left out of every count (`reads_below_identity`), instead of the
-  gene's mean deciding its call (D23).
+  gene's mean deciding its call (D23). A gene counts only if at least half
+  its reads pass (`--min_identity_share`, default 0.5; D24).
 - 95% interval per gene for copies per 16S copy (D20).
 - RGI's CARD database and index are built once per run, not per sample;
   RGI's temporary files are deleted after each sample (D20).

@@ -133,8 +133,11 @@ pandas).
      CARD's sequence at 85% identity or more count, each judged on its own
      (`--min_read_identity`, 0 to switch off): reads from a different gene
      that only resembles a CARD gene match it less well, and a few of them
-     no longer hide a real gene. `read_identity` is the mean over the reads
-     kept.
+     no longer hide a real gene. At least half a gene's reads must pass
+     (`--min_identity_share`): a look-alike gene's reads that happen to match
+     in a shared stretch are a minority. `read_identity` is the mean over the
+     reads kept. Genes whose DNA is far (under ~85%) from CARD's sequence, as
+     some porins are, are therefore not called even when present.
      Every hit is kept in `arg_long.tsv` with the reason it was or was not
      called.
    - **alleles**: one gene's reads can split between near-identical CARD

@@ -144,6 +144,13 @@
                     "minimum": 0,
                     "maximum": 1
                 },
+                "min_identity_share": {
+                    "type": "number",
+                    "description": "An ARG counts as detected only if at least this share of its reads pass --min_read_identity. Reads from a look-alike gene that happen to match well in a shared stretch are a minority of its reads; a real gene's reads mostly match. 0.5 was set on development data (V1 round 3). 0 switches it off.",
+                    "default": 0.5,
+                    "minimum": 0,
+                    "maximum": 1
+                },
                 "min_allele_identity": {
                     "type": "number",
                     "description": "A gene's reads can split between near-identical CARD references (alleles). An undetected allele whose reads match it well has them counted under the detected gene of the same sample whose CARD reference is at least this identical (DNA, over 90% of its length). Detection calls never change. 0.95 was set on development data (V1 round 3). 0 switches it off.",

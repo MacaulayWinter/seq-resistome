@@ -25,6 +25,7 @@ process RESISTOME_TABLES {
     val min_read_identity
     path alleles, stageAs: 'input/card_alleles.tsv'   // RGI_DB's allele pairs (D22)
     val min_allele_identity
+    val min_identity_share
 
     output:
     path 'arg_long.tsv',            emit: long
@@ -38,6 +39,6 @@ process RESISTOME_TABLES {
     """
     resistome_tables.R rgi rrna input/read_flow.tsv input/samples_left_out.tsv input/samplesheet.csv \\
         '${card_version}' ${card_validated} ${length_16s} ${min_arg_reads} ${min_breadth_ratio} ${workflow.manifest.version} ${min_read_identity} \\
-        input/card_alleles.tsv ${min_allele_identity}
+        input/card_alleles.tsv ${min_allele_identity} ${min_identity_share}
     """
 }

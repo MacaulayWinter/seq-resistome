@@ -25,7 +25,7 @@ gene <- function(term, acc, reads, cov, len, fam = "fam", cls = "cls")
 run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, card_ok = "true", expect_fail = FALSE,
                      rgi_header = RGI_HEADER, bases = NULL, identity = NULL, min_identity = 0, stats = TRUE,
                      dispersion = NULL, copies16 = NULL, old16 = FALSE, extra_stats = NULL,
-                     alleles = NULL, min_allele = 0, low = NULL) {
+                     alleles = NULL, min_allele = 0, low = NULL, min_share = 0) {
   d <- tempfile("case"); dir.create(d); dir.create(file.path(d, "rgi")); dir.create(file.path(d, "rrna"))
   write.table(flow, file.path(d, "read_flow.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
   writeLines(c("sample\treason", left), file.path(d, "left.tsv"))
@@ -71,7 +71,7 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
   if (!is.null(alleles)) { af <- "alleles.tsv"; write.table(alleles, file.path(d, af), sep = "\t", quote = FALSE, row.names = FALSE) }
   old <- setwd(d); on.exit(setwd(old))
   res <- suppressWarnings(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", card_ok, "1542", "2", "0.5", "test", min_identity,
-                                               af, min_allele),
+                                               af, min_allele, min_share),
                                   stdout = TRUE, stderr = TRUE))
   status <- attr(res, "status"); if (is.null(status)) status <- 0
   if (expect_fail) return(list(status = status, msg = paste(res, collapse = "\n")))
@@ -293,6 +293,23 @@ ok(!g14("S")$detected && g14("S")$reads == 1 && g14("S")$reads_below_identity ==
 ok(!g14("T")$detected && g14("T")$reads == 0 && g14("T")$reads_below_identity == 3 && is.na(g14("T")$read_identity),
    "case 14: no good reads at all: not called, identity missing")
 ok(all(r14$den$low_identity_16s == 0) && "low_identity_16s" %in% names(r14$den), "case 14: denominators report 16S hits dropped for low identity")
+
+# --- Case 15: most of a gene's reads must pass the identity (D24) ---------------------
+# min_read_identity 0.85, min_identity_share 0.5. Each gene's kept reads cover
+# 19% of 1,000 bp (2 reads, breadth ratio 1.05), so only the share decides:
+#   H: 2 kept, 2 below -> 50%: detected (a real gene with one junk pair).
+#   L: 2 kept, 6 below -> 25%: not detected (a look-alike), with the reason.
+# With min_identity_share 0 (off), L is detected.
+rgi15 <- list(A = list(gene("H", "3000201", 2, 19, 1000), gene("L", "3000202", 2, 19, 1000)))
+r15 <- run_case(flow_row("A", 1e6), rgi15, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.85,
+                low = c("3000201" = 2, "3000202" = 6), min_share = 0.5)
+g15 <- function(t) r15$long[r15$long$aro_term == t, ]
+ok(g15("H")$detected, "case 15: half the reads passing is enough")
+ok(!g15("L")$detected && grepl("only 2 of 8 reads \\(25%; < 50%\\)", g15("L")$detection_note),
+   "case 15: a quarter passing is a look-alike, with the reason")
+r15o <- run_case(flow_row("A", 1e6), rgi15, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.85,
+                 low = c("3000201" = 2, "3000202" = 6), min_share = 0)
+ok(r15o$long$detected[r15o$long$aro_term == "L"], "case 15: min_identity_share 0 switches the rule off")
 
 if (length(fails)) {
   cat(sprintf("test_resistome_tables.R: %d passed, %d FAILED\n", n_pass, length(fails)), paste0("  - ", fails, collapse = "\n"), "\n", sep = "")
