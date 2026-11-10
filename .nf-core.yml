@@ -75,6 +75,10 @@ lint:
     - LICENSE
     - .github/PULL_REQUEST_TEMPLATE.md
     - .gitattributes
+    # The bug-report form and its config are this repository's own (privacy
+    # reminder, no blank issues), not nf-core's community templates.
+    - .github/ISSUE_TEMPLATE/bug_report.yml
+    - .github/ISSUE_TEMPLATE/config.yml
   # Test data is pinned by commit in conf/test.config and
   # assets/samplesheet_test.csv; tool versions are checked from
   # software_versions.tsv by the e2e check (D10).
