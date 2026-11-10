@@ -1,14 +1,10 @@
 # Validation V1, round 4: pre-registration (pipeline fixed, marks unchanged)
 
-**DRAFT, not yet in force.** All fixes are built (D20-D24) and round 3
-passes every mark in development. Still to do before this note is removed:
-the user's go-ahead, and a full -profile test run on the final commit.
-This file counts as the pre-registration only from the commit that removes
-this note.
-
-Written and committed on 2026-11-05, **before any round-4 data is chosen,
-fetched, simulated or looked at** (the commit adding this file is the
-proof). Round 3 (scored by location) failed marks 1-3 narrowly (CLAUDE.md
+**In force from the commit that adds this sentence (2026-11-10)**, made
+after the user's go-ahead ("Yes, finalise and run", 2026-11-10) and a passing
+`-profile test` run on the pipeline commit it names (13b8667), and **before
+any round-4 data was chosen, fetched, simulated or looked at.** Drafted from
+2026-11-05; its earlier draft commits are not the pre-registration. Round 3 (scored by location) failed marks 1-3 narrowly (CLAUDE.md
 D17). The user asked for the failed parts to be fixed in the pipeline, not
 the marks changed (2026-10-29 and 2026-11-05). The fixes are D19-D24
 (read identity judged read by read with a share rule, the 16S identity
@@ -24,7 +20,7 @@ miss.
 
 ## 1. Pipeline under test
 
-The commit that adds this file, with its defaults. These include:
+Pipeline commit 13b8667 (branch `read-identity`), with its defaults. These include:
 
 - CARD 4.0.2 alone.
 - `--min_read_identity 0.85` (judged read by read), `--min_identity_share 0.5`.
@@ -70,7 +66,8 @@ Reported, not marked:
 - **Spike genomes:** take the round-3 draw (`genomes_round3.tsv`, saved
   2026-10-29 before round 3; draws 1-3 used). Use the first three genomes,
   in draw order, from draws not yet used whose species is not already
-  taken. Distinct species test the pipeline beyond E. coli, which rounds 3
+  taken by an earlier pick of this round (the three differ from each
+  other; E. coli used in round 3 does not exclude it). Distinct species test the pipeline beyond E. coli, which rounds 3
   and 4 would otherwise be all of. Only species names, which are in the
   draw table, were seen to write this rule; no genome's genes were seen.
 - **Backgrounds:** for each type, the first run after backup 2 in its
@@ -80,3 +77,5 @@ Reported, not marked:
   pure genomes are at 10x. E1 and E2 are as before, with the new seed.
   E3 uses HG002 pairs 600,001-800,000. E4 uses round 4's first spike genome.
 - Mark 5 is repeated with the real cache.
+- All of this is done by `validation/V1/run_round4.sh`, which refuses to
+  start while this file is a draft.
