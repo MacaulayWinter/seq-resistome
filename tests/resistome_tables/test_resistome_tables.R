@@ -15,6 +15,8 @@ RGI_HEADER <- c("ARO Term", "ARO Accession", "Reference Model Type", "Reference 
                 "Mapped Reads with Flanking Sequence", "All Mapped Reads", "Average Percent Coverage",
                 "Average Length Coverage (bp)", "Average MAPQ (Completely Mapped Reads)", "Reference Length",
                 "AMR Gene Family", "Drug Class", "Resistance Mechanism")
+PROTEIN_HEADER <- c("aro_term", "aro_accession", "model_type", "reads", "completely_mapped_reads", "average_percent_coverage",
+                    "average_mapq", "reference_length_bp", "amr_gene_family", "drug_class", "resistance_mechanism")
 gene <- function(term, acc, reads, cov, len, fam = "fam", cls = "cls")
   c(term, acc, "protein homolog model", "CARD", reads, 0, reads, cov, round(len * cov / 100), 60, len, fam, cls, "mech")
 
@@ -25,14 +27,20 @@ gene <- function(term, acc, reads, cov, len, fam = "fam", cls = "cls")
 run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, card_ok = "true", expect_fail = FALSE,
                      rgi_header = RGI_HEADER, bases = NULL, identity = NULL, min_identity = 0, stats = TRUE,
                      dispersion = NULL, copies16 = NULL, old16 = FALSE, extra_stats = NULL,
-                     alleles = NULL, min_allele = 0, low = NULL, min_share = 0) {
+                     alleles = NULL, min_allele = 0, low = NULL, min_share = 0,
+                     count_mode = NULL, read_filter = NULL, stray = NULL) {
   d <- tempfile("case"); dir.create(d); dir.create(file.path(d, "rgi")); dir.create(file.path(d, "rrna"))
   write.table(flow, file.path(d, "read_flow.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
   writeLines(c("sample\treason", left), file.path(d, "left.tsv"))
   writeLines(sheet, file.path(d, "sheet.csv"))
   for (s in names(rgi)) {
     rows <- vapply(rgi[[s]], paste, "", collapse = "\t")
-    writeLines(c(paste(rgi_header, collapse = "\t"), rows), file.path(d, "rgi", paste0(s, ".gene_mapping_data.txt")))
+    # Protein mode (D27): DIAMOND's gene table, the same columns under the
+    # pipeline's own names (bin/protein_read_stats.sh).
+    if (identical(count_mode, "protein"))
+      writeLines(c(paste(PROTEIN_HEADER, collapse = "\t"), vapply(rgi[[s]], function(g) paste(c(g[c(1, 2, 3, 7)], "NA", g[8], "NA", g[11:14]), collapse = "\t"), "")),
+                 file.path(d, "rgi", paste0(s, ".protein_genes.tsv")))
+    else writeLines(c(paste(rgi_header, collapse = "\t"), rows), file.path(d, "rgi", paste0(s, ".gene_mapping_data.txt")))
     # Read statistics (D19): every read aligned over its whole 100 bp unless
     # a test says otherwise; mismatches from the identity given per ARO.
     if (stats) {
@@ -69,9 +77,11 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
   # Allele pairs (D22): a data frame aro_a, aro_b, identity, or NULL for none.
   af <- "none"
   if (!is.null(alleles)) { af <- "alleles.tsv"; write.table(alleles, file.path(d, af), sep = "\t", quote = FALSE, row.names = FALSE) }
+  # A gene table of the other engine, to test that mixing them stops the run.
+  if (!is.null(stray)) writeLines("x", file.path(d, "rgi", stray))
   old <- setwd(d); on.exit(setwd(old))
   res <- suppressWarnings(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", card_ok, "1542", "2", "0.5", "test", min_identity,
-                                               af, min_allele, min_share),
+                                               af, min_allele, min_share, count_mode, read_filter),
                                   stdout = TRUE, stderr = TRUE))
   status <- attr(res, "status"); if (is.null(status)) status <- 0
   if (expect_fail) return(list(status = status, msg = paste(res, collapse = "\n")))
@@ -310,6 +320,36 @@ ok(!g15("L")$detected && grepl("only 2 of 8 reads \\(25%; < 50%\\)", g15("L")$de
 r15o <- run_case(flow_row("A", 1e6), rgi15, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.85,
                  low = c("3000201" = 2, "3000202" = 6), min_share = 0)
 ok(r15o$long$detected[r15o$long$aro_term == "L"], "case 15: min_identity_share 0 switches the rule off")
+
+# --- Case 16: protein mode (D26, D27) ----------------------------------------------
+# DIAMOND's gene tables (<sample>.protein_genes.tsv) with the same read
+# statistics; rule f70g90: reads below 70% were already left out by
+# protein_read_stats.sh (counted as below), and a gene needs its kept reads
+# at 90% amino-acid identity together. The share rule is off (0), as the
+# workflow sets it in protein mode. Each gene: 1,000 bp, 4 kept reads over
+# 33% (random 100(1 - e^-0.4) = 33.0%, ratio 1.0).
+#   P: kept reads at 93% (a real gene of another species), 6 below: detected.
+#   O: kept reads at 85% (the host's own related gene): not detected.
+#   Q: 1 kept read, 5 below: the note names the per-read 70%, not the 90%.
+rgi16 <- list(A = list(gene("P", "3000301", 4, 33, 1000), gene("O", "3000302", 4, 33, 1000), gene("Q", "3000303", 1, 10, 1000)))
+r16 <- run_case(flow_row("A", 1e6), rgi16, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9,
+                identity = c("3000301" = 0.93, "3000302" = 0.85, "3000303" = 0.95), low = c("3000301" = 6, "3000303" = 5),
+                count_mode = "protein", read_filter = 0.7)
+g16 <- function(t) r16$long[r16$long$aro_term == t, ]
+ok(g16("P")$detected && g16("P")$reads == 4 && g16("P")$reads_below_identity == 6 && near(g16("P")$read_identity, 0.93),
+   "case 16: protein mode calls a gene whose kept reads reach the gene identity, however many fell below")
+ok(!g16("O")$detected && grepl("85.0% identity \\(< 90.0%\\)", g16("O")$detection_note),
+   "case 16: protein mode: kept reads below the gene identity are a related gene, with the reason")
+ok(!g16("Q")$detected && grepl("at 70% identity or more", g16("Q")$detection_note),
+   "case 16: protein mode: too few kept reads, the note gives the per-read identity")
+ok(all(r16$long$count_mode == "protein") && all(r16$den$count_mode == "protein") && any(grepl("DIAMOND blastx", r16$md)) &&
+   is.na(g16("P")$average_mapq), "case 16: protein mode is recorded in the tables and the summary; RGI-only columns are NA")
+ok(all(r14$long$count_mode == "dna") && any(grepl("RGI bwt", r14$md)), "case 16: DNA mode is recorded as dna")
+f <- run_case(flow_row("A", 1e6), rgi16, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9,
+              count_mode = "protein", read_filter = 0.7, stray = "A.gene_mapping_data.txt", expect_fail = TRUE)
+ok(f$status != 0 && grepl("other engine's gene tables", f$msg), "case 16: gene tables of both engines in one run stop it")
+f <- run_case(flow_row("A", 1e6), rgi16, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), count_mode = "rna", read_filter = 0.7, expect_fail = TRUE)
+ok(f$status != 0 && grepl("count_mode must be dna or protein", f$msg), "case 16: an unknown count_mode stops the run")
 
 if (length(fails)) {
   cat(sprintf("test_resistome_tables.R: %d passed, %d FAILED\n", n_pass, length(fails)), paste0("  - ", fails, collapse = "\n"), "\n", sep = "")

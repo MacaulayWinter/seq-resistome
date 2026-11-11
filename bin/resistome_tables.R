@@ -61,11 +61,23 @@
 #               interval of the detected gene include the merged reads, and
 #               merged_reads / merged_from say what was added.
 #
-# Usage:  resistome_tables.R <rgi_dir> <rrna_dir> <read_flow.tsv>
+# ENGINES       (D27) count_mode "dna": RGI bwt's gene tables
+#               (<sample>.gene_mapping_data.txt). count_mode "protein":
+#               DIAMOND's (<sample>.protein_genes.tsv, from
+#               bin/protein_read_stats.sh). Both come with <sample>.read_stats.tsv
+#               in the same columns (protein coordinates as nucleotide
+#               equivalents), so every measure and rule below is computed the
+#               same way. In protein mode identity is amino-acid identity:
+#               reads below read_filter_identity were already left out one by
+#               one, and min_read_identity is the identity the gene's kept
+#               reads must reach together (rule f70g90; D26).
+#
+# Usage:  resistome_tables.R <arg_dir> <rrna_dir> <read_flow.tsv>
 #             <samples_left_out.tsv> <samplesheet.csv> <card_version>
 #             <card_validated true|false> <length_16s> <min_arg_reads>
 #             <min_breadth_ratio> [pipeline_version] [min_read_identity]
 #             [allele_table|none] [min_allele_identity] [min_identity_share]
+#             [count_mode dna|protein] [read_filter_identity]
 #*******************************************************************************
 
 args <- commandArgs(trailingOnly = TRUE)
@@ -85,6 +97,11 @@ min_identity <- if (length(args) >= 12) as.numeric(args[12]) else 0
 allele_file  <- if (length(args) >= 13) args[13] else "none"
 min_allele   <- if (length(args) >= 14) as.numeric(args[14]) else 0
 min_share    <- if (length(args) >= 15) as.numeric(args[15]) else 0   # D24; 0 = off
+count_mode   <- if (length(args) >= 16) args[16] else "dna"               # D27
+read_filter  <- if (length(args) >= 17) as.numeric(args[17]) else min_identity
+if (!count_mode %in% c("dna", "protein")) stop("count_mode must be dna or protein, not '", count_mode, "'; nothing was written.")
+gene_suffix  <- if (count_mode == "dna") "\\.gene_mapping_data\\.txt$" else "\\.protein_genes\\.tsv$"
+engine_name  <- if (count_mode == "dna") "RGI" else "DIAMOND"
 if (min_allele > 0 && (allele_file == "none" || !file.exists(allele_file)))
   stop("min_allele_identity is ", min_allele, " but no allele table was given; nothing was written.")
 
@@ -117,23 +134,27 @@ rrna$short_16s  <- num(rrna$short_16s)
 rrna$low_identity_16s <- num(rrna$low_identity_16s)
 rrna$reads_seen <- num(rrna$reads_seen)
 
-# 3. RGI gene tables --------------------------------------------------------------
+# 3. Gene tables (RGI's, or DIAMOND's in the same columns under our names) ------
 RGI_COLS <- c(aro_term = "ARO Term", aro_accession = "ARO Accession", model_type = "Reference Model Type",
               reads = "All Mapped Reads", completely_mapped_reads = "Completely Mapped Reads",
               average_percent_coverage = "Average Percent Coverage", average_mapq = "Average MAPQ (Completely Mapped Reads)",
               reference_length_bp = "Reference Length", amr_gene_family = "AMR Gene Family",
               drug_class = "Drug Class", resistance_mechanism = "Resistance Mechanism")
-rgi_files <- list.files(rgi_dir, pattern = "\\.gene_mapping_data\\.txt$", full.names = TRUE)
+rgi_files <- list.files(rgi_dir, pattern = gene_suffix, full.names = TRUE)
+other <- list.files(rgi_dir, pattern = if (count_mode == "dna") "\\.protein_genes\\.tsv$" else "\\.gene_mapping_data\\.txt$")
+if (length(other)) stop("count_mode is ", count_mode, " but the other engine's gene tables are here too (", paste(other, collapse = ", "),
+                        "); nothing was written.")
+want_cols <- if (count_mode == "dna") RGI_COLS else setNames(names(RGI_COLS), names(RGI_COLS))
 hits <- do.call(rbind, c(list(as.data.frame(setNames(replicate(length(RGI_COLS) + 1, character(0), simplify = FALSE),
                                                      c("sample", names(RGI_COLS))))),
   lapply(rgi_files, function(f) {
     g <- read_tsv(f)
-    miss <- setdiff(RGI_COLS, names(g))
-    if (length(miss)) stop(basename(f), ": RGI output lacks column(s) ", paste(miss, collapse = ", "),
-                           ". RGI's output format may have changed; nothing was written.")
-    out <- g[, RGI_COLS, drop = FALSE]
+    miss <- setdiff(want_cols, names(g))
+    if (length(miss)) stop(basename(f), ": ", engine_name, " gene table lacks column(s) ", paste(miss, collapse = ", "),
+                           ". Its format may have changed; nothing was written.")
+    out <- g[, want_cols, drop = FALSE]
     names(out) <- names(RGI_COLS)
-    cbind(sample = rep(sub("\\.gene_mapping_data\\.txt$", "", basename(f)), nrow(out)), out, stringsAsFactors = FALSE)
+    cbind(sample = rep(sub(gene_suffix, "", basename(f)), nrow(out)), out, stringsAsFactors = FALSE)
   })))
 for (k in c("reads", "completely_mapped_reads", "average_percent_coverage", "average_mapq", "reference_length_bp"))
   hits[[k]] <- suppressWarnings(num(hits[[k]]))   # a list when RGI maps reads to several references of a gene (D20)
@@ -189,12 +210,12 @@ stats <- do.call(rbind, c(list(data.frame(sample = character(0), aro_accession =
 #    else does; SortMeRNA saw exactly the reads the read flow says. A broken
 #    join would otherwise give wrong numbers silently.
 analysed <- flow$sample[flow$reads_analysed > 0]
-rgi_samples <- sub("\\.gene_mapping_data\\.txt$", "", basename(rgi_files))
+rgi_samples <- sub(gene_suffix, "", basename(rgi_files))
 stat_samples <- sub("\\.read_stats\\.tsv$", "", basename(stat_files))
 problems <- c(
-  if (length(setdiff(rgi_samples, stat_samples))) paste("no RGI read statistics for", paste(setdiff(rgi_samples, stat_samples), collapse = ", ")),
-  if (length(setdiff(analysed, rgi_samples))) paste("no RGI output for", paste(setdiff(analysed, rgi_samples), collapse = ", ")),
-  if (length(setdiff(rgi_samples, analysed))) paste("RGI output for samples with no reads analysed:", paste(setdiff(rgi_samples, analysed), collapse = ", ")),
+  if (length(setdiff(rgi_samples, stat_samples))) paste("no", engine_name, "read statistics for", paste(setdiff(rgi_samples, stat_samples), collapse = ", ")),
+  if (length(setdiff(analysed, rgi_samples))) paste("no", engine_name, "output for", paste(setdiff(analysed, rgi_samples), collapse = ", ")),
+  if (length(setdiff(rgi_samples, analysed))) paste(engine_name, "output for samples with no reads analysed:", paste(setdiff(rgi_samples, analysed), collapse = ", ")),
   if (length(setdiff(analysed, rrna$sample))) paste("no 16S count for", paste(setdiff(analysed, rrna$sample), collapse = ", ")),
   if (length(setdiff(rrna$sample, analysed))) paste("16S count for samples with no reads analysed:", paste(setdiff(rrna$sample, analysed), collapse = ", ")))
 seen <- merge(flow[, c("sample", "reads_analysed")], rrna[, c("sample", "reads_seen")], by = "sample")
@@ -212,7 +233,7 @@ OUTPUT_COLS <- c("sample", "aro_accession", "aro_term", "amr_gene_family", "drug
                  "model_type", "reference_length_bp", "n_references", "reads", "reads_below_identity", "merged_reads", "merged_from", "completely_mapped_reads", "average_percent_coverage", "rgi_percent_coverage",
                  "expected_percent_coverage", "breadth_ratio", "average_mapq", "aligned_bases", "merged_aligned_bases", "read_identity", "detected", "detection_note", "rpm",
                  "rpkm", "arg_copies", "copies_per_16s", "copies_per_16s_low95", "copies_per_16s_high95", "dispersion", "reads_analysed", "mean_read_length", "reads_16s",
-                 "bases_16s", "copies_16s", "card_version", "card_validated", "layout", "n_files", "reads_raw", "reads_after_qc",
+                 "bases_16s", "copies_16s", "card_version", "card_validated", "count_mode", "layout", "n_files", "reads_raw", "reads_after_qc",
                  "host_removal", "host_reads_removed", "status", "note")
 clash <- intersect(meta_cols, OUTPUT_COLS)
 if (length(clash)) stop("Samplesheet column(s) ", paste(clash, collapse = ", "), " have the same name as an output column. ",
@@ -232,6 +253,7 @@ den$note <- ifelse(den$status != "analysed", "Zero ARGs (no reads to look in); c
             ifelse(den$reads_16s == 0, "No 16S reads: copies per 16S copy are missing (NA), not zero or infinite.", ""))
 den$card_version   <- card_version
 den$card_validated <- card_ok
+den$count_mode     <- count_mode
 
 # 7. Measures and the detection call, per hit --------------------------------------
 long <- merge(hits, den[, c("sample", "reads_analysed", "mean_read_length", "reads_16s", "bases_16s", "copies_16s")], by = "sample")
@@ -264,7 +286,7 @@ long$detected <- long$reads >= min_reads & long$breadth_ratio >= min_ratio & id_
 long$detection_note <- ifelse(long$detected, "",
   ifelse(long$reads < min_reads & long$reads_below_identity > 0,
          sprintf("fewer than %g reads match the CARD reference at %.0f%% identity or more (%g did; %g below): likely a related gene that only resembles it",
-                 min_reads, 100 * min_identity, long$reads, long$reads_below_identity),
+                 min_reads, 100 * read_filter, long$reads, long$reads_below_identity),
   ifelse(long$reads < min_reads, sprintf("fewer than %g reads", min_reads),
   ifelse(!share_ok,
          sprintf("only %g of %g reads (%.0f%%; < %.0f%%) match the CARD reference at %.0f%% identity or more: likely a related gene that only resembles it",
@@ -329,6 +351,7 @@ long$copies_per_16s_high95 <- ifelse(is.na(long$copies_per_16s) | neff <= 0, NA,
                                      long$copies_per_16s * qgamma(0.975, neff + 1) / neff)
 long$card_version   <- rep(card_version, nrow(long))
 long$card_validated <- rep(card_ok, nrow(long))
+long$count_mode     <- rep(count_mode, nrow(long))
 long <- merge(long, den[, c("sample", "layout", "n_files", "reads_raw", "reads_after_qc", "host_removal",
                             "host_reads_removed", "status", "note")], by = "sample")
 long <- merge(long, meta, by = "sample", all.x = TRUE)
@@ -370,7 +393,7 @@ for (m in c("reads", "rpm", "rpkm", "copies_per_16s")) {
 }
 write_out(den[, c("sample", "status", "note", "layout", "n_files", "reads_raw", "reads_after_qc", "host_removal",
                   "host_reads_removed", "reads_analysed", "mean_read_length", "reads_16s", "bases_16s", "short_16s", "low_identity_16s", "copies_16s",
-                  "card_version", "card_validated", meta_cols)],
+                  "card_version", "card_validated", "count_mode", meta_cols)],
           "denominators.tsv", "per sample: the numbers every measure divides by")
 write_out(left, "samples_left_out.tsv", "samples not analysed, and why")
 
@@ -385,7 +408,8 @@ per <- lapply(den$sample, function(s) {
 })
 per <- as.data.frame(do.call(rbind, per), stringsAsFactors = FALSE)
 md <- c("# seq-resistome summary", "",
-        sprintf("seq-resistome %s. %s.", pipe_version, card_line), "",
+        sprintf("seq-resistome %s. %s. ARG reads counted by %s (count_mode %s).", pipe_version, card_line,
+                if (count_mode == "dna") "RGI bwt" else "DIAMOND blastx", count_mode), "",
         sprintf("%d sample(s) analysed, %d left out.", nrow(den), nrow(left)), "",
         "| Sample | Status | Reads analysed | Host reads removed | 16S reads | ARGs detected | ARG copies per 16S copy (all detected) |",
         "|---|---|---:|---:|---:|---:|---:|",
@@ -396,14 +420,17 @@ if (nrow(left)) md <- c(md, "## Left out", "", sprintf("- **%s**: %s", left$samp
 notes <- den$note[den$note != ""]
 if (length(notes)) md <- c(md, "## Notes", "", sprintf("- **%s**: %s", den$sample[den$note != ""], notes), "")
 md <- c(md, "## How to read these numbers", "",
-        "- **reads**: reads mapped to a CARD gene by RGI bwt (each mate of a pair counts once).",
+        if (count_mode == "dna") "- **reads**: reads mapped to a CARD gene by RGI bwt (each mate of a pair counts once)." else
+          sprintf("- **reads**: reads whose translated sequence matches a CARD protein best, at %.0f%% amino-acid identity or more, found by DIAMOND blastx (each mate of a pair counts once).", 100 * read_filter),
         "- **rpm**: reads per million reads analysed (after QC and host removal).",
         "- **rpkm**: reads per kilobase of the CARD reference gene per million reads analysed.",
         paste("- **copies_per_16s**:", CAVEAT_16S),
         sprintf(paste("- **detected**: at least %g reads, spread along the gene at least %g times as widely as reads landing",
                       "at random would be%s. Hits that fail are kept in arg_long.tsv with the reason, and left out of the matrices."),
-                min_reads, min_ratio, if (min_identity > 0) sprintf(", matching the CARD reference at %.0f%% identity or more on average", 100 * min_identity) else ""),
+                min_reads, min_ratio, if (min_identity > 0) sprintf(", matching the CARD reference at %.0f%% %sidentity or more on average", 100 * min_identity,
+                                                                       if (count_mode == "protein") "amino-acid " else "") else ""),
         "- Only CARD's protein homolog models are searched: genes whose presence alone confers resistance. Resistance by point mutation (e.g. in gyrA) cannot be called from reads mapped this way and is not reported.",
+        if (count_mode == "protein") "- Gene lengths, aligned bases and coverage are protein lengths times 3 (the coding sequence), so rpkm and copies are on the same scale as in DNA mode. rgi_percent_coverage, completely_mapped_reads and average_mapq are RGI's and are missing (NA) in protein mode.",
         "- Counts are of reads, not organisms: which organisms carry these genes, and whether on plasmids, is for later versions.")
 writeLines(md, "resistome_summary.md")
 cat(sprintf("resistome_tables.R: %d samples, %d gene hits (%d detected), %d left out\n",

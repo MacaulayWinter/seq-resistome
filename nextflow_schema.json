@@ -124,6 +124,36 @@
                     "default": 1542,
                     "minimum": 1
                 },
+                "count_mode": {
+                    "type": "string",
+                    "description": "How ARG reads are counted. 'protein' (default): reads are translated and searched against CARD's protein homolog proteins with DIAMOND blastx, so genes that differ from CARD's reference only by synonymous changes (common in species other than the one CARD's reference came from) are counted in full. 'dna': RGI bwt (kma) against CARD's DNA sequences of the same models, as in seq-resistome's first builds.",
+                    "default": "protein",
+                    "enum": [
+                        "protein",
+                        "dna"
+                    ]
+                },
+                "min_protein_read_identity": {
+                    "type": "number",
+                    "description": "Protein mode: a read counts towards a gene only if its translated sequence matches the CARD protein at this amino-acid identity or more. Drops reads of related genes (paralogs) that land on a CARD protein. 0.70 was set on development data (V1 rounds 3-4).",
+                    "default": 0.7,
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "min_protein_gene_identity": {
+                    "type": "number",
+                    "description": "Protein mode: a gene counts as detected only if its kept reads, weighted by alignment length, match the CARD protein at this amino-acid identity or more. Separates a real gene (about 93% or more) from a related gene of the host (75-90%). 0.90 was set on development data (V1 rounds 3-4).",
+                    "default": 0.9,
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "min_protein_allele_identity": {
+                    "type": "number",
+                    "description": "Protein mode: as --min_allele_identity, with CARD proteins at least this identical (amino acids, over 90% of the longer one). 0 switches it off.",
+                    "default": 0.95,
+                    "minimum": 0,
+                    "maximum": 1
+                },
                 "min_arg_reads": {
                     "type": "integer",
                     "description": "Fewest reads for an ARG to count as detected.",
@@ -139,21 +169,21 @@
                 },
                 "min_read_identity": {
                     "type": "number",
-                    "description": "Reads matching their CARD reference below this identity (1 - mismatches and gaps / aligned bases), judged read by read, are not counted: reads from a different gene that only shares a stretch with a CARD gene match it less well. 0.85 was set on development data (V1 rounds 1-3). 0 switches the check off.",
+                    "description": "DNA mode (--count_mode dna): reads matching their CARD reference below this identity (1 - mismatches and gaps / aligned bases), judged read by read, are not counted: reads from a different gene that only shares a stretch with a CARD gene match it less well. 0.85 was set on development data (V1 rounds 1-3). 0 switches the check off.",
                     "default": 0.85,
                     "minimum": 0,
                     "maximum": 1
                 },
                 "min_identity_share": {
                     "type": "number",
-                    "description": "An ARG counts as detected only if at least this share of its reads pass --min_read_identity. Reads from a look-alike gene that happen to match well in a shared stretch are a minority of its reads; a real gene's reads mostly match. 0.5 was set on development data (V1 round 3). 0 switches it off.",
+                    "description": "DNA mode (--count_mode dna): an ARG counts as detected only if at least this share of its reads pass --min_read_identity. Reads from a look-alike gene that happen to match well in a shared stretch are a minority of its reads; a real gene's reads mostly match. 0.5 was set on development data (V1 round 3). 0 switches it off.",
                     "default": 0.5,
                     "minimum": 0,
                     "maximum": 1
                 },
                 "min_allele_identity": {
                     "type": "number",
-                    "description": "A gene's reads can split between near-identical CARD references (alleles). An undetected allele whose reads match it well has them counted under the detected gene of the same sample whose CARD reference is at least this identical (DNA, over 90% of its length). Detection calls never change. 0.95 was set on development data (V1 round 3). 0 switches it off.",
+                    "description": "DNA mode (--count_mode dna): a gene's reads can split between near-identical CARD references (alleles). An undetected allele whose reads match it well has them counted under the detected gene of the same sample whose CARD reference is at least this identical (DNA, over 90% of its length). Detection calls never change. 0.95 was set on development data (V1 round 3). 0 switches it off.",
                     "default": 0.95,
                     "minimum": 0,
                     "maximum": 1

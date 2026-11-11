@@ -103,11 +103,17 @@ all_files <- list.files(out, recursive = TRUE)
 reads_like <- grep("\\.(fastq|fq|bam|sam|cram)(\\.gz)?$", all_files, value = TRUE)
 check(length(reads_like) == 0, paste("reads published:", paste(reads_like, collapse = ", ")))
 
-# Every tool's version recorded, and the CARD release RGI used.
+# Every tool's version recorded, and the CARD release the engine searched
+# (D27: protein mode uses DIAMOND, DNA mode RGI and kma).
+mode <- unique(den$count_mode)
+check(length(mode) == 1 && mode %in% c("protein", "dna"), "count_mode missing or mixed in denominators.tsv")
+check(all(long$count_mode == mode[1]), "count_mode in arg_long.tsv differs from denominators.tsv")
 v <- read.delim(file.path(out, "pipeline_info", "software_versions.tsv"), stringsAsFactors = FALSE)
-for (t in c("fastp", "hostile", "rgi", "kma", "sortmerna", "R", "rgi-database"))
+engine <- if (identical(mode[1], "dna")) c("rgi", "kma", "rgi-database") else c("diamond", "card-database")
+for (t in c("fastp", "hostile", "sortmerna", "R", engine))
   check(t %in% v$tool, paste("no version recorded for", t))
-check(all(v$version[v$tool == "rgi-database"] == den$card_version[1]), "RGI's database version differs from the CARD release reported")
+dbv <- v$version[v$tool %in% c("rgi-database", "card-database")]
+check(length(dbv) > 0 && all(dbv == den$card_version[1]), "the searched CARD database's version differs from the CARD release reported")
 
 if (length(fails)) {
   cat("FAILED:\n", paste0("  - ", fails, collapse = "\n"), "\n", sep = "")

@@ -1,5 +1,7 @@
 /*
- * SEQ_RESISTOME: QC -> host removal -> ARG reads (RGI bwt / CARD)
+ * SEQ_RESISTOME: QC -> host removal -> ARG reads (DIAMOND blastx against
+ *                                      CARD's proteins; or RGI bwt / CARD
+ *                                      with --count_mode dna)
  *                                   -> 16S reads (SortMeRNA)  -> tables
  *
  * The channel diagram in CLAUDE.md ("Architecture") is the map for this
@@ -14,6 +16,8 @@ include { UNTAR as UNTAR_CARD } from '../modules/nf-core/untar/main'
 include { RGI_CARDANNOTATION } from '../modules/nf-core/rgi/cardannotation/main'
 include { RGI_DB             } from '../modules/local/rgi_db/main'
 include { RGI_BWT            } from '../modules/local/rgi_bwt/main'
+include { DIAMOND_DB         } from '../modules/local/diamond_db/main'
+include { DIAMOND_BLASTX     } from '../modules/local/diamond_blastx/main'
 include { HOST_INDEX         } from '../modules/local/host_index/main'
 include { HOST_FETCH         } from '../modules/local/host_fetch/main'
 include { SORTMERNA_INDEX    } from '../modules/local/sortmerna_index/main'
@@ -101,13 +105,45 @@ workflow SEQ_RESISTOME {
         .filter { _id, _meta, _reads, c -> c.reads_analysed > 0 }
         .map { _id, meta, reads, _c -> [ meta, reads ] }
 
-    // 5. ARG reads: RGI bwt against CARD's protein homolog models (D8).
-    // RGI's database and kma index are built once (RGI_DB; D20), not in
-    // every sample's task.
+    // 5. ARG reads, by one of two engines (D27).
+    //    protein (default): reads translated and searched against CARD's
+    //      protein homolog proteins with DIAMOND blastx. A read is kept at
+    //      min_protein_read_identity amino-acid identity or more; a gene is
+    //      called when its kept reads together reach min_protein_gene_identity
+    //      (rule f70g90; D26). Genes that differ from CARD's reference by
+    //      synonymous changes, as in species other than the one CARD's
+    //      reference came from, are counted in full (D25).
+    //    dna: RGI bwt (kma) against CARD's DNA sequences of the same models
+    //      (D8, D19-D24). RGI's database and kma index are built once (RGI_DB).
     UNTAR_CARD(channel.of([ [ id: "card-${card.version}" ], card.archive ]))
-    RGI_CARDANNOTATION(UNTAR_CARD.out.untar.map { _meta, dir -> dir })
-    RGI_DB(RGI_CARDANNOTATION.out.db, card.version)
-    RGI_BWT(ch_to_count, RGI_DB.out.db.first(), params.min_read_identity)
+    def ch_arg_files
+    def ch_alleles
+    def gene_identity
+    def read_identity
+    def identity_share
+    def allele_identity
+    if (params.count_mode == 'dna') {
+        RGI_CARDANNOTATION(UNTAR_CARD.out.untar.map { _meta, dir -> dir })
+        RGI_DB(RGI_CARDANNOTATION.out.db, card.version)
+        RGI_BWT(ch_to_count, RGI_DB.out.db.first(), params.min_read_identity)
+        ch_arg_files = RGI_BWT.out.tsv.map { _meta, files -> files.find { f -> f.name.endsWith('.gene_mapping_data.txt') } }
+            .mix(RGI_BWT.out.read_stats.map { _meta, f -> f })
+        ch_alleles      = RGI_DB.out.alleles.first()
+        gene_identity   = params.min_read_identity
+        read_identity   = params.min_read_identity
+        identity_share  = params.min_identity_share
+        allele_identity = params.min_allele_identity
+    } else {
+        DIAMOND_DB(UNTAR_CARD.out.untar.map { _meta, dir -> dir }, card.version)
+        DIAMOND_BLASTX(ch_to_count, DIAMOND_DB.out.db.first(), DIAMOND_DB.out.annotation.first(), params.min_protein_read_identity)
+        ch_arg_files = DIAMOND_BLASTX.out.genes.map { _meta, f -> f }
+            .mix(DIAMOND_BLASTX.out.read_stats.map { _meta, f -> f })
+        ch_alleles      = DIAMOND_DB.out.alleles.first()
+        gene_identity   = params.min_protein_gene_identity
+        read_identity   = params.min_protein_read_identity
+        identity_share  = 0      // the share rule (D24) is DNA mode's; f70g90 replaces it
+        allele_identity = params.min_protein_allele_identity
+    }
 
     // 6. 16S reads: SortMeRNA against SILVA 16S (D7). Index built once.
     def ch_16s_refs = channel.fromList(params.rrna_16s.tokenize(',').collect { u -> file(u.trim(), checkIfExists: true) }).collect()
@@ -120,8 +156,7 @@ workflow SEQ_RESISTOME {
         .map { s, why -> "${s}\t${why.toString().replaceAll(/[\t\r\n]+/, ' ')}" }
         .collectFile(name: 'samples_left_out.tsv', newLine: true, sort: false)
     RESISTOME_TABLES(
-        RGI_BWT.out.tsv.map { _meta, files -> files.find { f -> f.name.endsWith('.gene_mapping_data.txt') } }
-            .mix(RGI_BWT.out.read_stats.map { _meta, f -> f }).collect().ifEmpty([]),
+        ch_arg_files.collect().ifEmpty([]),
         COUNT_16S.out.counts.map { _meta, f -> f }.collect().ifEmpty([]),
         ch_flow_rows,
         ch_left_out,
@@ -131,10 +166,12 @@ workflow SEQ_RESISTOME {
         params.length_16s,
         params.min_arg_reads,
         params.min_breadth_ratio,
-        params.min_read_identity,
-        RGI_DB.out.alleles.first(),
-        params.min_allele_identity,
-        params.min_identity_share
+        gene_identity,
+        ch_alleles,
+        allele_identity,
+        identity_share,
+        params.count_mode,
+        read_identity
     )
 
     // Every tool's version, from the nf-core 'versions' topic.
