@@ -136,6 +136,40 @@
                     "default": 0.5,
                     "minimum": 0,
                     "maximum": 1
+                },
+                "min_read_identity": {
+                    "type": "number",
+                    "description": "Reads matching their CARD reference below this identity (1 - mismatches and gaps / aligned bases), judged read by read, are not counted: reads from a different gene that only shares a stretch with a CARD gene match it less well. 0.85 was set on development data (V1 rounds 1-3). 0 switches the check off.",
+                    "default": 0.85,
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "min_identity_share": {
+                    "type": "number",
+                    "description": "An ARG counts as detected only if at least this share of its reads pass --min_read_identity. Reads from a look-alike gene that happen to match well in a shared stretch are a minority of its reads; a real gene's reads mostly match. 0.5 was set on development data (V1 round 3). 0 switches it off.",
+                    "default": 0.5,
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "min_allele_identity": {
+                    "type": "number",
+                    "description": "A gene's reads can split between near-identical CARD references (alleles). An undetected allele whose reads match it well has them counted under the detected gene of the same sample whose CARD reference is at least this identical (DNA, over 90% of its length). Detection calls never change. 0.95 was set on development data (V1 round 3). 0 switches it off.",
+                    "default": 0.95,
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "min_16s_bases": {
+                    "type": "integer",
+                    "description": "16S alignments covering fewer reference bases than this are not counted: short local hits, often from other genes, would inflate the 16S denominator.",
+                    "default": 50,
+                    "minimum": 0
+                },
+                "min_16s_identity": {
+                    "type": "number",
+                    "description": "16S alignments matching their SILVA reference below this identity (1 - mismatches and gaps / aligned bases) are not counted: reads from 23S genes, from just past a 16S gene, and short local hits elsewhere match poorly and would inflate the 16S denominator. 0.90 was set on development data (V1 round 3). 0 switches it off.",
+                    "default": 0.9,
+                    "minimum": 0,
+                    "maximum": 1
                 }
             }
         }

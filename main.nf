@@ -161,7 +161,6 @@ workflow {
     def (archive, version, validated, sha, action) = cardArchive(params.card_version, cacheDir, params.card_versions,
                                                                    'https://card.mcmaster.ca/download', 'https://card.mcmaster.ca/download/0/')
     log.info "CARD ${version} (${validated ? 'validated with this pipeline version' : 'NOT validated by the pipeline authors'}): ${action}. ${archive}, SHA-256 ${sha}"
-
     SEQ_RESISTOME(
         channel.fromList(analysed),
         leftOut,

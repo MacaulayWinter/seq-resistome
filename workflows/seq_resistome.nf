@@ -12,7 +12,8 @@ include { FASTP              } from '../modules/nf-core/fastp/main'
 include { HOSTILE_CLEAN      } from '../modules/nf-core/hostile/clean/main'
 include { UNTAR as UNTAR_CARD } from '../modules/nf-core/untar/main'
 include { RGI_CARDANNOTATION } from '../modules/nf-core/rgi/cardannotation/main'
-include { RGI_BWT            } from '../modules/nf-core/rgi/bwt/main'
+include { RGI_DB             } from '../modules/local/rgi_db/main'
+include { RGI_BWT            } from '../modules/local/rgi_bwt/main'
 include { HOST_INDEX         } from '../modules/local/host_index/main'
 include { HOST_FETCH         } from '../modules/local/host_fetch/main'
 include { SORTMERNA_INDEX    } from '../modules/local/sortmerna_index/main'
@@ -101,14 +102,17 @@ workflow SEQ_RESISTOME {
         .map { _id, meta, reads, _c -> [ meta, reads ] }
 
     // 5. ARG reads: RGI bwt against CARD's protein homolog models (D8).
+    // RGI's database and kma index are built once (RGI_DB; D20), not in
+    // every sample's task.
     UNTAR_CARD(channel.of([ [ id: "card-${card.version}" ], card.archive ]))
     RGI_CARDANNOTATION(UNTAR_CARD.out.untar.map { _meta, dir -> dir })
-    RGI_BWT(ch_to_count, RGI_CARDANNOTATION.out.db.first(), [])
+    RGI_DB(RGI_CARDANNOTATION.out.db, card.version)
+    RGI_BWT(ch_to_count, RGI_DB.out.db.first(), params.min_read_identity)
 
     // 6. 16S reads: SortMeRNA against SILVA 16S (D7). Index built once.
     def ch_16s_refs = channel.fromList(params.rrna_16s.tokenize(',').collect { u -> file(u.trim(), checkIfExists: true) }).collect()
     SORTMERNA_INDEX(ch_16s_refs)
-    COUNT_16S(ch_to_count, ch_16s_refs, SORTMERNA_INDEX.out.index)
+    COUNT_16S(ch_to_count, ch_16s_refs, SORTMERNA_INDEX.out.index, params.min_16s_bases, params.min_16s_identity)
 
     // 7. Tables: counts, RPM, RPKM, copies per 16S copy, denominators.
     // The header is an item of its own, so the file exists when no sample is left out.
@@ -116,7 +120,8 @@ workflow SEQ_RESISTOME {
         .map { s, why -> "${s}\t${why.toString().replaceAll(/[\t\r\n]+/, ' ')}" }
         .collectFile(name: 'samples_left_out.tsv', newLine: true, sort: false)
     RESISTOME_TABLES(
-        RGI_BWT.out.tsv.map { _meta, files -> files.find { f -> f.name.endsWith('.gene_mapping_data.txt') } }.collect().ifEmpty([]),
+        RGI_BWT.out.tsv.map { _meta, files -> files.find { f -> f.name.endsWith('.gene_mapping_data.txt') } }
+            .mix(RGI_BWT.out.read_stats.map { _meta, f -> f }).collect().ifEmpty([]),
         COUNT_16S.out.counts.map { _meta, f -> f }.collect().ifEmpty([]),
         ch_flow_rows,
         ch_left_out,
@@ -125,7 +130,11 @@ workflow SEQ_RESISTOME {
         card.validated,
         params.length_16s,
         params.min_arg_reads,
-        params.min_breadth_ratio
+        params.min_breadth_ratio,
+        params.min_read_identity,
+        RGI_DB.out.alleles.first(),
+        params.min_allele_identity,
+        params.min_identity_share
     )
 
     // Every tool's version, from the nf-core 'versions' topic.

@@ -107,19 +107,47 @@ pandas).
 4. **SortMeRNA** counts reads from 16S rRNA genes (SILVA bacteria and
    archaea).
 5. The tables:
-   - **reads**: reads mapped to the gene (each mate of a pair counts once);
+   - **reads**: reads mapped to the gene (each mate of a pair counts once)
+     that match its CARD sequence at 85% identity or more, judged read by
+     read (`--min_read_identity`); `reads_below_identity` counts the rest;
    - **RPM**: reads per million reads analysed (after QC and host removal);
    - **RPKM**: reads per kilobase of the CARD reference gene per million
      reads analysed;
-   - **copies per 16S copy**: (gene reads x read length / gene length) /
-     (16S bases covered by reads / 1,542 bp). Bacteria carry 1 to about 15
+   - **copies per 16S copy**: (gene bases covered by reads / gene length) /
+     (16S copies), where 16S copies = the sum over 16S alignments of the
+     bases each covers / the length of the SILVA reference it hit;
+     alignments covering fewer than 50 bases, or matching their SILVA
+     reference below 90% identity (`--min_16s_identity`: reads from 23S
+     genes and other look-alikes), are not counted (`short_16s`,
+     `low_identity_16s`). With
+     `copies_per_16s_low95` and `copies_per_16s_high95`, a 95% interval for
+     counting noise (the read count as Poisson, widened when a gene's reads
+     clump). It does not cover bias from CARD's choice of reference
+     sequence. Bacteria carry 1 to about 15
      copies of the 16S gene, so this is **not ARGs per cell or per genome**,
      and communities whose members carry more 16S copies look poorer in ARGs.
      A sample with no 16S reads gets NA, never zero or infinity.
    - **detected**: at least 2 reads, spread along the gene at least half as
      widely as reads landing at random would be. Reads piled on one stretch a
-     gene shares with an unrelated gene do not count. Every hit is kept in
-     `arg_long.tsv` with the reason it was or was not called.
+     gene shares with an unrelated gene do not count. Only reads matching
+     CARD's sequence at 85% identity or more count, each judged on its own
+     (`--min_read_identity`, 0 to switch off): reads from a different gene
+     that only resembles a CARD gene match it less well, and a few of them
+     no longer hide a real gene. At least half a gene's reads must pass
+     (`--min_identity_share`): a look-alike gene's reads that happen to match
+     in a shared stretch are a minority. `read_identity` is the mean over the
+     reads kept. Genes whose DNA is far (under ~85%) from CARD's sequence, as
+     some porins are, are therefore not called even when present.
+     Every hit is kept in `arg_long.tsv` with the reason it was or was not
+     called.
+   - **alleles**: one gene's reads can split between near-identical CARD
+     sequences (alleles), leaving the minor ones too thin to be called and
+     their reads uncounted. An undetected allele whose reads match it well
+     has them counted under the detected gene of the same sample whose CARD
+     sequence is at least 95% identical (`--min_allele_identity`, 0 to
+     switch off). `merged_reads`, `merged_aligned_bases` and `merged_from`
+     show what was added; `reads`, `rpm` and `rpkm` stay each gene's own,
+     and no detection call changes.
 
 ## Validation
 
@@ -129,13 +157,15 @@ mixed into real human gut and wastewater metagenomes, plus edge cases and the
 CARD cache. Every round's marks were committed before its data was chosen
 ([round 1](validation/V1/PREREGISTRATION.md),
 [round 2](validation/V1/PREREGISTRATION_round2.md),
-[round 3](validation/V1/PREREGISTRATION_round3.md)). **V1 has not passed.**
+[round 3](validation/V1/PREREGISTRATION_round3.md),
+[round 4](validation/V1/PREREGISTRATION_round4.md)). **V1 has not passed.**
 
 | Round | Detection (100% needed) | Specificity (0 unexplained) | Accuracy (all within 1.5x / 2x) | Edge cases | CARD cache |
 |---|---|---|---|---|---|
 | 1 | FAIL 526/544 | FAIL 23 families | FAIL 120/166 | PASS | PASS |
 | 2 (16S fix) | FAIL 348/352 | FAIL 9 families | FAIL 70/89 | PASS | PASS |
 | 3 (scored by location) | FAIL 543/544 | FAIL 22 of 2,337 genes | FAIL 354/358 | PASS | PASS |
+| 4 (fixes D20-D24; truth from simulated depth) | FAIL 461/474 | FAIL 3 of 1,582 genes | FAIL 280/310 | PASS (E1-E3) | not run (setup error) |
 
 Rounds 1 and 2 failed mostly because CARD names one gene in different ways
 (CLAUDE.md D12, D15). Round 3's misses are real: reads from a bacterium's
@@ -158,6 +188,13 @@ eptB) are called detected (D17).
   to about 2x). About 1 in 8 genes RGI finds by protein similarity has DNA
   too far from CARD's reference for any read to map (vanG, rsmA, leuO in
   Enterobacterales, for example): read-based counting cannot see them.
+- CARD's own reference sequences only. CARD's variants collection
+  (WildCARD), which might seem to help genes that differ from CARD's one
+  reference, made every validation mark worse in development and is not
+  used (CLAUDE.md D20; evidence in
+  [validation/V1/outcomes_dev_round3_variants](validation/V1/outcomes_dev_round3_variants/README.md)).
+  Genes only 80-90% identical to CARD's reference are therefore still partly
+  counted.
 - No statistics yet: v0.1 counts and normalises. Comparisons between groups
   and times come in v0.2.
 

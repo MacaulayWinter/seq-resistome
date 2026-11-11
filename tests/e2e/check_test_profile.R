@@ -63,9 +63,25 @@ check(all(is.na(long$copies_per_16s[long$sample %in% no16])), "arg_long.tsv: cop
 near <- function(a, b) all(abs(a - b) <= 1e-4 * pmax(1, abs(b)), na.rm = TRUE)
 check(near(long$rpm, long$reads / long$reads_analysed * 1e6), "rpm does not match reads / reads analysed x 1e6")
 check(near(long$rpkm, long$reads / (long$reference_length_bp / 1e3) / (long$reads_analysed / 1e6)), "rpkm does not match its definition")
-check(near(long$copies_per_16s, (long$reads * long$mean_read_length / long$reference_length_bp) / (long$bases_16s / 1542)),
-      "copies_per_16s does not match its definition (D13: 16S copies from aligned bases)")
-check(near(den$copies_16s, den$bases_16s / 1542), "copies_16s is not 16S aligned bases / 1542")
+check(near(long$copies_per_16s, ((long$aligned_bases + long$merged_aligned_bases) / long$reference_length_bp) / long$copies_16s),
+      "copies_per_16s does not match its definition (D13, D19: copies from aligned bases; D22: plus merged alleles)")
+# Merged alleles (D22): only into detected genes, never from them.
+check(all(long$merged_reads[!long$detected] == 0) && all((long$merged_reads > 0) == nzchar(ifelse(is.na(long$merged_from), "", long$merged_from))),
+      "merged_reads on an undetected gene, or merged_reads and merged_from disagree")
+kept <- long$reads > 0   # a gene whose reads all fell below the identity has none (D23)
+check(all(!is.na(long$read_identity[kept]) & long$read_identity[kept] > 0 & long$read_identity[kept] <= 1) &&
+      all(is.na(long$read_identity[!kept])), "read_identity missing or out of range")
+# 16S copies are summed per SILVA reference length (D20), so they sit near,
+# not at, bases / 1,542; short hits are dropped and counted.
+d16 <- den[!is.na(den$reads_16s) & den$reads_16s > 0, ]
+check(nrow(d16) > 0 && all(d16$copies_16s > 0.7 * d16$bases_16s / 1542 & d16$copies_16s < 1.3 * d16$bases_16s / 1542), "copies_16s far from 16S aligned bases / 1542")
+check(all(!is.na(d16$short_16s) & d16$short_16s >= 0), "short_16s missing")
+# D23: 16S hits below the identity floor and ARG reads below the read
+# identity are dropped and counted, never negative or missing.
+check(all(!is.na(d16$low_identity_16s) & d16$low_identity_16s >= 0), "low_identity_16s missing")
+check(all(!is.na(long$reads_below_identity) & long$reads_below_identity >= 0), "reads_below_identity missing or negative")
+w16 <- long[!is.na(long$copies_per_16s), ]
+check(nrow(w16) > 0 && all(w16$copies_per_16s_low95 <= w16$copies_per_16s & w16$copies_per_16s <= w16$copies_per_16s_high95), "95% interval does not contain the estimate")
 check(near(den$reads_analysed, den$reads_after_qc - den$host_reads_removed), "reads analysed != reads after QC - host reads removed")
 for (m in c("reads", "rpm", "rpkm")) {
   x <- rd(sprintf("arg_%s.tsv", m))

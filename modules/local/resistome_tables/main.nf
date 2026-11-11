@@ -12,7 +12,7 @@ process RESISTOME_TABLES {
     container 'docker.io/rocker/r-ver:4.5.2@sha256:fd4ccdd3a4a6f7ef805e2daeee2a0fe3bf126bc231f36351223baecf5a595a4c'
 
     input:
-    path rgi, stageAs: 'rgi/*'      // <sample>.gene_mapping_data.txt per analysed sample
+    path rgi, stageAs: 'rgi/*'      // <sample>.gene_mapping_data.txt and <sample>.read_stats.tsv per analysed sample
     path rrna, stageAs: 'rrna/*'    // <sample>.16s.tsv per analysed sample
     path read_flow, stageAs: 'input/read_flow.tsv'   // every sample, analysed or emptied
     path left_out, stageAs: 'input/samples_left_out.tsv'
@@ -22,6 +22,10 @@ process RESISTOME_TABLES {
     val length_16s
     val min_arg_reads
     val min_breadth_ratio
+    val min_read_identity
+    path alleles, stageAs: 'input/card_alleles.tsv'   // RGI_DB's allele pairs (D22)
+    val min_allele_identity
+    val min_identity_share
 
     output:
     path 'arg_long.tsv',            emit: long
@@ -34,6 +38,7 @@ process RESISTOME_TABLES {
     script:
     """
     resistome_tables.R rgi rrna input/read_flow.tsv input/samples_left_out.tsv input/samplesheet.csv \\
-        ${card_version} ${card_validated} ${length_16s} ${min_arg_reads} ${min_breadth_ratio} ${workflow.manifest.version}
+        '${card_version}' ${card_validated} ${length_16s} ${min_arg_reads} ${min_breadth_ratio} ${workflow.manifest.version} ${min_read_identity} \\
+        input/card_alleles.tsv ${min_allele_identity} ${min_identity_share}
     """
 }
