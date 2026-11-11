@@ -157,13 +157,15 @@ mixed into real human gut and wastewater metagenomes, plus edge cases and the
 CARD cache. Every round's marks were committed before its data was chosen
 ([round 1](validation/V1/PREREGISTRATION.md),
 [round 2](validation/V1/PREREGISTRATION_round2.md),
-[round 3](validation/V1/PREREGISTRATION_round3.md)). **V1 has not passed.**
+[round 3](validation/V1/PREREGISTRATION_round3.md),
+[round 4](validation/V1/PREREGISTRATION_round4.md)). **V1 has not passed.**
 
 | Round | Detection (100% needed) | Specificity (0 unexplained) | Accuracy (all within 1.5x / 2x) | Edge cases | CARD cache |
 |---|---|---|---|---|---|
 | 1 | FAIL 526/544 | FAIL 23 families | FAIL 120/166 | PASS | PASS |
 | 2 (16S fix) | FAIL 348/352 | FAIL 9 families | FAIL 70/89 | PASS | PASS |
 | 3 (scored by location) | FAIL 543/544 | FAIL 22 of 2,337 genes | FAIL 354/358 | PASS | PASS |
+| 4 (fixes D20-D24; truth from simulated depth) | FAIL 461/474 | FAIL 3 of 1,582 genes | FAIL 280/310 | PASS (E1-E3) | not run (setup error) |
 
 Rounds 1 and 2 failed mostly because CARD names one gene in different ways
 (CLAUDE.md D12, D15). Round 3's misses are real: reads from a bacterium's
