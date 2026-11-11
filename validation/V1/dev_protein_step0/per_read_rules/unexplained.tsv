@@ -1,0 +1,317 @@
+round	sample	rule	aro	name	reads	breadth	breadth_ratio	mean_identity	mean_share	cutoff_share	rgi_loose_identity	family
+r3	pure_GCF_051559745.1	cutoff	3002909	vanG	19	0.699	0.76	46.4	0.519	0.362	37.95	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051559745.1	cutoff	3002911	vanM	3	0.166	0.51	50.8	0.6	0.51	NA	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051559745.1	cutoff	3002913	vanO	7	0.332	0.57	51.1	0.594	0.506	NA	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051559745.1	cutoff	3002943	vanH_in_vanB_cl	4	0.263	0.69	46.9	0.482	0.313	34.25	vanH; glycopeptide resistance gene cluster
+r3	pure_GCF_051559745.1	cutoff	3002944	vanH_in_vanD_cl	7	0.424	0.65	43.8	0.464	0.314	32.39	vanH; glycopeptide resistance gene cluster
+r3	pure_GCF_051559745.1	cutoff	3003048	rosA	17	0.49	0.56	89.7	0.913	0.883	77.98	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051559745.1	cutoff	3003049	rosB	7	0.234	0.54	94.6	0.967	0.937	80.11	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051559745.1	cutoff	3004107	Paer_soxR	19	0.904	0.91	67.4	0.709	0.636	NA	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r3	pure_GCF_051559745.1	cutoff	3004122	Kpne_OmpK37	4	0.254	0.67	91	0.928	0.91	75.98	General Bacterial Porin with reduced permeability to beta-lactams
+r3	pure_GCF_051559745.1	cutoff	3004142	OprZ	2	0.054	0.53	68	0.75	0.673	NA	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r3	pure_GCF_051559745.1	cutoff	3004580	Kpne_KpnE	22	0.983	0.98	84.9	0.822	0.661	82.2	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051559745.1	cutoff	3004583	Kpne_KpnF	26	1	1	84.8	0.888	0.698	84.4	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051559745.1	cutoff	3005047	eptB	42	0.69	0.71	87.6	0.904	0.848	81.56	pmr phosphoethanolamine transferase
+r3	pure_GCF_051559745.1	cutoff	3005053	ArnT	87	0.967	0.97	67.9	0.71	0.355	63.7	pmr phosphoethanolamine transferase
+r3	pure_GCF_051559745.1	cutoff	3005069	rsmA	8	0.934	0.94	92.4	0.93	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r3	pure_GCF_051559745.1	cutoff	3007028	salD	4	0.143	0.6	50	0.537	0.371	NA	sal-type ABC-F protein
+r3	pure_GCF_051559745.1	cutoff	3007043	msr(I)	2	0.064	0.53	51.6	0.644	0.632	NA	msr-type ABC-F protein
+r3	pure_GCF_051559745.1	cutoff	3007209	Sven_rox	2	0.063	0.55	67.3	0.661	0.633	26.43	rifampin monooxygenase
+r3	pure_GCF_051559745.1	id90	3003048	rosA	8	0.354	0.57	92.9	0.906	0.883	77.98	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051559745.1	id90	3003049	rosB	17	0.384	0.51	93.7	0.933	0.937	80.11	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051559745.1	id90	3004122	Kpne_OmpK37	3	0.254	0.88	91.4	0.932	0.91	75.98	General Bacterial Porin with reduced permeability to beta-lactams
+r3	pure_GCF_051559745.1	id90	3004480	Bado_rpoB_RIF	2	0.041	0.53	91.8	0.944	0.844	NA	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)
+r3	pure_GCF_051559745.1	id90	3004580	Kpne_KpnE	5	0.6	0.69	92.7	0.878	0.661	82.2	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051559745.1	id90	3004583	Kpne_KpnF	9	0.624	0.63	92.1	0.905	0.698	84.4	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051559745.1	id90	3005047	eptB	13	0.453	0.69	91.9	0.931	0.848	81.56	pmr phosphoethanolamine transferase
+r3	pure_GCF_051559745.1	id90	3005053	ArnT	3	0.147	0.7	92.6	0.949	0.355	63.7	pmr phosphoethanolamine transferase
+r3	pure_GCF_051559745.1	id90	3005069	rsmA	7	0.902	0.91	92.7	0.937	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r3	pure_GCF_051559745.1	id80	3000378	MexB	4	0.103	0.61	84.5	0.807	0.961	NA	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r3	pure_GCF_051559745.1	id80	3000501	rpoB2	5	0.13	0.7	81.5	0.858	0.954	NA	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)
+r3	pure_GCF_051559745.1	id80	3001327	MdtK	59	0.846	0.85	86.6	0.866	0.96	82.13	multidrug and toxic compound extrusion (MATE) transporter
+r3	pure_GCF_051559745.1	id80	3002985	arnA	29	0.464	0.53	85.1	0.89	0.892	70	pmr phosphoethanolamine transferase
+r3	pure_GCF_051559745.1	id80	3003048	rosA	35	0.741	0.75	87.2	0.869	0.883	77.98	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051559745.1	id80	3003049	rosB	58	0.734	0.74	88.1	0.866	0.937	80.11	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051559745.1	id80	3004122	Kpne_OmpK37	56	0.874	0.88	84.4	0.85	0.91	75.98	General Bacterial Porin with reduced permeability to beta-lactams
+r3	pure_GCF_051559745.1	id80	3004580	Kpne_KpnE	17	0.875	0.88	87.3	0.842	0.661	82.2	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051559745.1	id80	3004583	Kpne_KpnF	20	0.963	0.96	88.1	0.896	0.698	84.4	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051559745.1	id80	3005047	eptB	60	0.779	0.78	86.1	0.877	0.848	81.56	pmr phosphoethanolamine transferase
+r3	pure_GCF_051559745.1	id80	3005059	LptD	103	0.894	0.9	87.4	0.89	0.928	82.06	ATP-binding cassette (ABC) antibiotic efflux pump
+r3	pure_GCF_051559745.1	id80	3005069	rsmA	8	0.934	0.94	92.4	0.93	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r3	pure_GCF_051559745.1	f70g90	3005069	rsmA	9	1	1	90.9	0.911	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r3	pure_GCF_051563765.1	cutoff	3000010	vanA	2	0.149	0.6	47	0.542	0.511	22.49	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051563765.1	cutoff	3002909	vanG	20	0.564	0.61	43.7	0.508	0.362	38.23	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051563765.1	cutoff	3002910	vanL	26	0.533	0.55	53	0.565	0.391	NA	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051563765.1	cutoff	3002913	vanO	10	0.517	0.76	48.3	0.595	0.506	NA	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051563765.1	cutoff	3002970	vanT_in_vanC_cl	2	0.119	1.06	47	0.467	0.144	30.64	glycopeptide resistance gene cluster; vanT
+r3	pure_GCF_051563765.1	cutoff	3003048	rosA	24	0.578	0.62	89.7	0.908	0.883	77.98	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051563765.1	cutoff	3003049	rosB	4	0.201	0.68	93.9	0.952	0.937	80.11	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051563765.1	cutoff	3003723	vanI	2	0.101	0.55	51.4	0.551	0.505	NA	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051563765.1	cutoff	3004107	Paer_soxR	19	0.904	0.91	67.3	0.711	0.636	NA	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r3	pure_GCF_051563765.1	cutoff	3004122	Kpne_OmpK37	6	0.265	0.52	90	0.926	0.91	76.24	General Bacterial Porin with reduced permeability to beta-lactams
+r3	pure_GCF_051563765.1	cutoff	3004580	Kpne_KpnE	28	0.983	0.98	85	0.819	0.661	81.36	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051563765.1	cutoff	3004583	Kpne_KpnF	22	1	1	84.7	0.898	0.698	85.32	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051563765.1	cutoff	3005047	eptB	57	0.742	0.75	89.4	0.919	0.848	81.56	pmr phosphoethanolamine transferase
+r3	pure_GCF_051563765.1	cutoff	3005053	ArnT	106	1	1	67.7	0.712	0.355	63.7	pmr phosphoethanolamine transferase
+r3	pure_GCF_051563765.1	cutoff	3005069	rsmA	6	0.951	0.98	91.2	0.921	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r3	pure_GCF_051563765.1	cutoff	3007028	salD	2	0.083	0.58	42.8	0.486	0.371	NA	sal-type ABC-F protein
+r3	pure_GCF_051563765.1	cutoff	3007043	msr(I)	2	0.064	0.53	51.6	0.656	0.632	NA	msr-type ABC-F protein
+r3	pure_GCF_051563765.1	cutoff	3007127	otr(A)S.liv	2	0.038	0.52	70.8	0.759	0.359	NA	tetracycline-resistant ribosomal protection protein
+r3	pure_GCF_051563765.1	cutoff	3007189	vanP	4	0.222	0.66	48	0.582	0.515	NA	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051563765.1	id90	3001327	MdtK	14	0.43	0.56	94.8	0.943	0.96	82.34	multidrug and toxic compound extrusion (MATE) transporter
+r3	pure_GCF_051563765.1	id90	3003049	rosB	15	0.437	0.62	92.7	0.908	0.937	80.11	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051563765.1	id90	3004122	Kpne_OmpK37	2	0.12	0.56	93.3	0.95	0.91	76.24	General Bacterial Porin with reduced permeability to beta-lactams
+r3	pure_GCF_051563765.1	id90	3004580	Kpne_KpnE	11	0.633	0.64	92.8	0.874	0.661	81.36	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051563765.1	id90	3004583	Kpne_KpnF	6	0.853	0.92	92.7	0.917	0.698	85.32	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051563765.1	id90	3005047	eptB	23	0.46	0.57	94.5	0.954	0.848	81.56	pmr phosphoethanolamine transferase
+r3	pure_GCF_051563765.1	id90	3005069	rsmA	4	0.623	0.73	92.9	0.95	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r3	pure_GCF_051563765.1	id80	3000501	rpoB2	4	0.094	0.6	81.4	0.844	0.954	NA	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)
+r3	pure_GCF_051563765.1	id80	3000535	macB	2	0.087	0.62	82.7	0.832	1.031	51.32	ATP-binding cassette (ABC) antibiotic efflux pump
+r3	pure_GCF_051563765.1	id80	3001327	MdtK	52	0.844	0.85	87.9	0.878	0.96	82.34	multidrug and toxic compound extrusion (MATE) transporter
+r3	pure_GCF_051563765.1	id80	3003048	rosA	51	0.8	0.8	87.8	0.87	0.883	77.98	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051563765.1	id80	3003049	rosB	48	0.762	0.78	87.9	0.864	0.937	80.11	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051563765.1	id80	3003052	smeB	3	0.068	0.52	87.7	0.815	1.029	NA	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r3	pure_GCF_051563765.1	id80	3004122	Kpne_OmpK37	59	0.885	0.89	84.5	0.86	0.91	76.24	General Bacterial Porin with reduced permeability to beta-lactams
+r3	pure_GCF_051563765.1	id80	3004580	Kpne_KpnE	20	0.875	0.88	89.3	0.85	0.661	81.36	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051563765.1	id80	3004583	Kpne_KpnF	15	0.853	0.85	90.3	0.906	0.698	85.32	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051563765.1	id80	3004588	Kpne_KpnG	3	0.192	0.67	87.5	0.825	0.929	NA	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051563765.1	id80	3005047	eptB	81	0.793	0.79	87.4	0.888	0.848	81.56	pmr phosphoethanolamine transferase
+r3	pure_GCF_051563765.1	id80	3005059	LptD	97	0.857	0.86	87.3	0.892	0.928	82.06	ATP-binding cassette (ABC) antibiotic efflux pump
+r3	pure_GCF_051563765.1	id80	3005069	rsmA	7	1	1.01	90.2	0.904	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r3	pure_GCF_051618695.1	cutoff	3000024	patA	3	0.119	0.74	59.2	0.702	0.696	27.35	ATP-binding cassette (ABC) antibiotic efflux pump
+r3	pure_GCF_051618695.1	cutoff	3000191	tet(Q)	3	0.111	0.54	42.7	0.443	0.229	NA	tetracycline-resistant ribosomal protection protein
+r3	pure_GCF_051618695.1	cutoff	3002909	vanG	29	0.719	0.74	45.2	0.512	0.362	38.23	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051618695.1	cutoff	3002910	vanL	21	0.562	0.61	55	0.584	0.391	NA	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051618695.1	cutoff	3002912	vanN	2	0.108	0.56	51.4	0.535	0.405	NA	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051618695.1	cutoff	3002943	vanH_in_vanB_cl	2	0.269	1.14	49.5	0.47	0.313	34.25	vanH; glycopeptide resistance gene cluster
+r3	pure_GCF_051618695.1	cutoff	3002944	vanH_in_vanD_cl	14	0.461	0.53	45.6	0.514	0.314	32.39	vanH; glycopeptide resistance gene cluster
+r3	pure_GCF_051618695.1	cutoff	3002947	vanH_in_vanM_cl	4	0.285	0.67	42.6	0.481	0.31	NA	vanH; glycopeptide resistance gene cluster
+r3	pure_GCF_051618695.1	cutoff	3002952	vanX_in_vanF_cl	2	0.161	0.59	63.9	0.573	0.424	NA	vanX; glycopeptide resistance gene cluster
+r3	pure_GCF_051618695.1	cutoff	3003048	rosA	20	0.483	0.53	88.6	0.903	0.883	77.98	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051618695.1	cutoff	3004107	Paer_soxR	21	0.904	0.91	66.8	0.72	0.636	NA	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r3	pure_GCF_051618695.1	cutoff	3004122	Kpne_OmpK37	5	0.385	0.96	87.9	0.929	0.91	78.33	General Bacterial Porin with reduced permeability to beta-lactams
+r3	pure_GCF_051618695.1	cutoff	3004580	Kpne_KpnE	22	0.983	0.98	82.2	0.796	0.661	82.2	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051618695.1	cutoff	3004583	Kpne_KpnF	19	1	1	86.7	0.909	0.698	84.4	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051618695.1	cutoff	3005047	eptB	57	0.728	0.74	87.9	0.906	0.848	81.56	pmr phosphoethanolamine transferase
+r3	pure_GCF_051618695.1	cutoff	3005053	ArnT	109	0.998	1	66.3	0.695	0.355	63.7	pmr phosphoethanolamine transferase
+r3	pure_GCF_051618695.1	cutoff	3005069	rsmA	12	1	1	90.8	0.925	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r3	pure_GCF_051618695.1	cutoff	3007011	mdeA	2	0.106	0.56	42.2	0.403	0.228	NA	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051618695.1	cutoff	3007188	vanH_in_vanP_cl	21	0.503	0.53	43.8	0.497	0.325	NA	vanH; glycopeptide resistance gene cluster
+r3	pure_GCF_051618695.1	cutoff	3007189	vanP	4	0.26	0.66	50.6	0.582	0.515	NA	glycopeptide resistance gene cluster; Van ligase
+r3	pure_GCF_051618695.1	id90	3003048	rosA	6	0.334	0.65	91.6	0.892	0.883	77.98	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051618695.1	id90	3004122	Kpne_OmpK37	2	0.174	1.09	92.3	0.945	0.91	78.33	General Bacterial Porin with reduced permeability to beta-lactams
+r3	pure_GCF_051618695.1	id90	3004480	Bado_rpoB_RIF	2	0.042	0.53	91.9	0.944	0.844	NA	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)
+r3	pure_GCF_051618695.1	id90	3004580	Kpne_KpnE	3	0.533	0.76	92.5	0.88	0.661	82.2	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051618695.1	id90	3004583	Kpne_KpnF	5	0.706	0.79	92.3	0.901	0.698	84.4	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051618695.1	id90	3005047	eptB	18	0.423	0.57	93.1	0.935	0.848	81.56	pmr phosphoethanolamine transferase
+r3	pure_GCF_051618695.1	id90	3005069	rsmA	8	0.738	0.75	92.9	0.944	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r3	pure_GCF_051618695.1	id80	3000501	rpoB2	8	0.15	0.55	82.8	0.864	0.954	NA	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)
+r3	pure_GCF_051618695.1	id80	3000535	macB	4	0.144	0.57	83.4	0.833	1.031	51.39	ATP-binding cassette (ABC) antibiotic efflux pump
+r3	pure_GCF_051618695.1	id80	3001327	MdtK	69	0.914	0.91	87	0.87	0.96	82.77	multidrug and toxic compound extrusion (MATE) transporter
+r3	pure_GCF_051618695.1	id80	3002827	tlrC	2	0.042	0.52	82.6	0.833	0.956	NA	Miscellaneous ABC-F subfamily ATP-binding cassette ribosomal protection proteins
+r3	pure_GCF_051618695.1	id80	3003048	rosA	39	0.795	0.8	87.1	0.874	0.883	77.98	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051618695.1	id80	3003049	rosB	54	0.766	0.77	89	0.873	0.937	80.47	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051618695.1	id80	3004122	Kpne_OmpK37	62	0.952	0.95	83.8	0.847	0.91	78.33	General Bacterial Porin with reduced permeability to beta-lactams
+r3	pure_GCF_051618695.1	id80	3004580	Kpne_KpnE	14	0.867	0.87	86.2	0.832	0.661	82.2	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051618695.1	id80	3004583	Kpne_KpnF	16	0.936	0.94	88.8	0.916	0.698	84.4	small multidrug resistance (SMR) antibiotic efflux pump
+r3	pure_GCF_051618695.1	id80	3004588	Kpne_KpnG	3	0.195	0.67	86.8	0.818	0.929	NA	major facilitator superfamily (MFS) antibiotic efflux pump
+r3	pure_GCF_051618695.1	id80	3005047	eptB	82	0.833	0.83	86.2	0.876	0.848	81.56	pmr phosphoethanolamine transferase
+r3	pure_GCF_051618695.1	id80	3005059	LptD	107	0.868	0.87	88.1	0.898	0.928	82.32	ATP-binding cassette (ABC) antibiotic efflux pump
+r3	pure_GCF_051618695.1	id80	3005069	rsmA	16	1	1	88.7	0.893	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051561185.1	cutoff	3000237	TolC	4	0.267	0.93	93.4	0.957	0.943	83.03	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3000502	AcrF	2	0.048	0.52	94	0.952	0.951	84.4	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3001216	mdtH	20	0.45	0.51	91.6	0.952	0.939	85.32	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3001328	Ecol_mdfA	61	0.883	0.88	91.3	0.913	0.874	87.47	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3001329	mdtG	42	0.875	0.88	91.9	0.931	0.881	87.62	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3002909	vanG	16	0.605	0.69	45.2	0.527	0.362	38.92	glycopeptide resistance gene cluster; Van ligase
+r4	pure_GCF_051561185.1	cutoff	3003048	rosA	15	0.532	0.65	87.5	0.907	0.883	76.86	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3003049	rosB	6	0.229	0.67	93.7	0.961	0.937	80.44	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3003577	ugd	37	0.686	0.7	92.3	0.955	0.921	82.73	pmr phosphoethanolamine transferase
+r4	pure_GCF_051561185.1	cutoff	3003578	PmrF	51	0.898	0.9	91.5	0.919	0.862	86.67	pmr phosphoethanolamine transferase
+r4	pure_GCF_051561185.1	cutoff	3003841	kdpE	22	0.884	0.9	90.1	0.929	0.902	84	kdpDE; antibiotic efflux regulatory protein
+r4	pure_GCF_051561185.1	cutoff	3003843	leuO	54	0.92	0.92	86.4	0.893	0.793	82.17	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051561185.1	cutoff	3003952	YojI	7	0.303	0.65	98.5	0.984	0.977	90.13	ATP-binding cassette (ABC) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3004107	Paer_soxR	24	0.904	0.91	68.8	0.733	0.636	NA	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051561185.1	cutoff	3004122	Kpne_OmpK37	19	0.62	0.69	90.6	0.934	0.91	78.92	General Bacterial Porin with reduced permeability to beta-lactams
+r4	pure_GCF_051561185.1	cutoff	3004142	OprZ	2	0.151	1.08	59.9	0.677	0.673	NA	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3004577	Abau_AmvA	38	0.685	0.7	67	0.714	0.634	54.18	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3004580	Kpne_KpnE	15	1	1	83.4	0.816	0.661	84.17	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3004583	Kpne_KpnF	11	1	1.01	88.5	0.926	0.698	88.07	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3005047	eptB	31	0.5	0.54	87.3	0.892	0.848	74.05	pmr phosphoethanolamine transferase
+r4	pure_GCF_051561185.1	cutoff	3005053	ArnT	112	1	1	71.5	0.744	0.355	72.78	pmr phosphoethanolamine transferase
+r4	pure_GCF_051561185.1	cutoff	3005069	rsmA	6	0.852	0.87	93.4	0.947	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051561185.1	cutoff	3005098	qacL	5	0.7	0.81	83.4	0.851	0.829	38.61	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3007010	norC	16	0.403	0.5	62.1	0.675	0.59	NA	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	cutoff	3007026	salB	2	0.085	0.57	42.1	0.464	0.373	NA	sal-type ABC-F protein
+r4	pure_GCF_051561185.1	cutoff	3007027	salC	2	0.085	0.55	41	0.468	0.373	NA	sal-type ABC-F protein
+r4	pure_GCF_051561185.1	cutoff	3007029	salE	2	0.077	0.55	50	0.512	0.372	NA	sal-type ABC-F protein
+r4	pure_GCF_051561185.1	id90	3000027	emrA	10	0.495	0.69	92	0.903	0.897	NA	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id90	3000237	TolC	25	0.527	0.58	93.2	0.916	0.943	83.03	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id90	3000499	AcrE	3	0.182	0.58	92.5	0.947	0.906	76.3	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id90	3001216	mdtH	28	0.724	0.76	92.4	0.931	0.939	85.32	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id90	3001327	MdtK	35	0.764	0.78	93.2	0.934	0.96	87.26	multidrug and toxic compound extrusion (MATE) transporter
+r4	pure_GCF_051561185.1	id90	3001328	Ecol_mdfA	43	0.851	0.86	92.4	0.92	0.874	87.47	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id90	3001329	mdtG	34	0.779	0.79	93.1	0.934	0.881	87.62	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id90	3002598	ANT3II_ANT6II	2	0.106	0.56	98	0.972	0.978	NA	aminoglycoside bifunctional resistance protein
+r4	pure_GCF_051561185.1	id90	3002985	arnA	3	0.148	0.74	91.8	0.949	0.892	68.77	pmr phosphoethanolamine transferase
+r4	pure_GCF_051561185.1	id90	3003048	rosA	2	0.12	0.56	91.8	0.904	0.883	76.86	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id90	3003049	rosB	13	0.369	0.59	94.2	0.94	0.937	80.44	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id90	3003577	ugd	27	0.549	0.58	94.3	0.961	0.921	82.73	pmr phosphoethanolamine transferase
+r4	pure_GCF_051561185.1	id90	3003578	PmrF	34	0.683	0.69	93.5	0.929	0.862	86.67	pmr phosphoethanolamine transferase
+r4	pure_GCF_051561185.1	id90	3003699	mexQ	2	0.047	0.53	94	0.929	0.941	NA	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id90	3003841	kdpE	11	0.462	0.52	92.5	0.935	0.902	84	kdpDE; antibiotic efflux regulatory protein
+r4	pure_GCF_051561185.1	id90	3003843	leuO	13	0.446	0.51	95.6	0.967	0.793	82.17	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051561185.1	id90	3003952	YojI	68	0.777	0.78	94.3	0.935	0.977	90.13	ATP-binding cassette (ABC) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id90	3004122	Kpne_OmpK37	9	0.42	0.65	93.4	0.952	0.91	78.92	General Bacterial Porin with reduced permeability to beta-lactams
+r4	pure_GCF_051561185.1	id90	3004580	Kpne_KpnE	4	0.633	0.88	92.5	0.907	0.661	84.17	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id90	3004583	Kpne_KpnF	7	0.67	0.71	93.5	0.937	0.698	88.07	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id90	3005047	eptB	6	0.209	0.6	91	0.923	0.848	74.05	pmr phosphoethanolamine transferase
+r4	pure_GCF_051561185.1	id90	3005069	rsmA	6	0.852	0.87	93.4	0.947	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051561185.1	id80	3000027	emrA	26	0.69	0.72	89.5	0.881	0.897	NA	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3000237	TolC	77	0.903	0.9	88.5	0.885	0.943	83.03	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3000499	AcrE	25	0.678	0.71	85.6	0.884	0.906	76.3	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3000501	rpoB2	2	0.083	1.04	82.3	0.855	0.954	NA	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)
+r4	pure_GCF_051561185.1	id80	3000502	AcrF	97	0.755	0.76	89.4	0.881	0.951	84.4	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3000535	macB	4	0.163	0.63	82	0.839	1.031	58.74	ATP-binding cassette (ABC) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3000790	mdsB	135	0.773	0.77	85.3	0.846	1.03	NA	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3000796	mdtF	3	0.072	0.66	82.8	0.83	0.928	NA	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3000826	sdiA	11	0.479	0.56	93.9	0.939	0.957	72.08	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051561185.1	id80	3001216	mdtH	71	0.933	0.93	88.8	0.898	0.939	85.32	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3001327	MdtK	92	0.985	0.99	89.5	0.913	0.96	87.26	multidrug and toxic compound extrusion (MATE) transporter
+r4	pure_GCF_051561185.1	id80	3001328	Ecol_mdfA	81	0.951	0.95	89.9	0.895	0.874	87.47	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3001329	mdtG	78	0.968	0.97	89.5	0.889	0.881	87.62	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3002598	ANT3II_ANT6II	2	0.106	0.56	98	0.972	0.978	NA	aminoglycoside bifunctional resistance protein
+r4	pure_GCF_051561185.1	id80	3003048	rosA	34	0.763	0.78	85.2	0.868	0.883	76.86	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3003049	rosB	53	0.696	0.71	86.7	0.868	0.937	80.44	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3003577	ugd	55	0.899	0.9	89.9	0.925	0.921	82.73	pmr phosphoethanolamine transferase
+r4	pure_GCF_051561185.1	id80	3003578	PmrF	73	0.969	0.97	89	0.894	0.862	86.67	pmr phosphoethanolamine transferase
+r4	pure_GCF_051561185.1	id80	3003699	mexQ	7	0.152	0.55	85.8	0.871	0.941	NA	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3003841	kdpE	34	0.991	0.99	88.3	0.911	0.902	84	kdpDE; antibiotic efflux regulatory protein
+r4	pure_GCF_051561185.1	id80	3003843	leuO	51	0.889	0.89	87	0.897	0.793	82.17	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051561185.1	id80	3003952	YojI	118	1	1	91.1	0.906	0.977	90.13	ATP-binding cassette (ABC) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3004122	Kpne_OmpK37	83	0.856	0.86	85.1	0.871	0.91	78.92	General Bacterial Porin with reduced permeability to beta-lactams
+r4	pure_GCF_051561185.1	id80	3004580	Kpne_KpnE	9	0.892	0.93	90	0.873	0.661	84.17	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3004583	Kpne_KpnF	8	0.89	0.93	92.6	0.934	0.698	88.07	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3005047	eptB	43	0.587	0.6	85.9	0.876	0.848	74.05	pmr phosphoethanolamine transferase
+r4	pure_GCF_051561185.1	id80	3005053	ArnT	19	0.494	0.62	89.4	0.917	0.355	72.78	pmr phosphoethanolamine transferase
+r4	pure_GCF_051561185.1	id80	3005059	LptD	73	0.757	0.77	87.5	0.889	0.928	80.25	ATP-binding cassette (ABC) antibiotic efflux pump
+r4	pure_GCF_051561185.1	id80	3005069	rsmA	8	1	1.01	90.2	0.904	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051561185.1	id80	3005098	qacL	6	0.591	0.63	85.1	0.835	0.829	38.61	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051561185.1	f70g90	3002598	ANT3II_ANT6II	2	0.106	0.56	98	0.972	0.978	NA	aminoglycoside bifunctional resistance protein
+r4	pure_GCF_051562295.1	cutoff	3002909	vanG	27	0.797	0.82	44.4	0.507	0.362	37.95	glycopeptide resistance gene cluster; Van ligase
+r4	pure_GCF_051562295.1	cutoff	3002910	vanL	16	0.55	0.63	53.1	0.564	0.391	NA	glycopeptide resistance gene cluster; Van ligase
+r4	pure_GCF_051562295.1	cutoff	3002911	vanM	2	0.166	0.83	50.8	0.612	0.51	NA	glycopeptide resistance gene cluster; Van ligase
+r4	pure_GCF_051562295.1	cutoff	3002913	vanO	13	0.436	0.55	48.9	0.59	0.506	NA	glycopeptide resistance gene cluster; Van ligase
+r4	pure_GCF_051562295.1	cutoff	3002942	vanH_in_vanA_cl	2	0.214	0.83	49	0.513	0.313	27.84	vanH; glycopeptide resistance gene cluster
+r4	pure_GCF_051562295.1	cutoff	3002944	vanH_in_vanD_cl	13	0.467	0.55	44	0.47	0.314	32.39	vanH; glycopeptide resistance gene cluster
+r4	pure_GCF_051562295.1	cutoff	3002945	vanH_in_vanF_cl	3	0.196	0.55	36.6	0.397	0.315	NA	vanH; glycopeptide resistance gene cluster
+r4	pure_GCF_051562295.1	cutoff	3003048	rosA	19	0.568	0.64	88.7	0.908	0.883	77.98	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051562295.1	cutoff	3003049	rosB	5	0.224	0.8	92.5	0.959	0.937	80.11	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051562295.1	cutoff	3003723	vanI	2	0.106	0.56	51.4	0.541	0.505	NA	glycopeptide resistance gene cluster; Van ligase
+r4	pure_GCF_051562295.1	cutoff	3004107	Paer_soxR	22	0.872	0.87	69	0.738	0.636	NA	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051562295.1	cutoff	3004122	Kpne_OmpK37	9	0.34	0.58	91.1	0.929	0.91	76.24	General Bacterial Porin with reduced permeability to beta-lactams
+r4	pure_GCF_051562295.1	cutoff	3004580	Kpne_KpnE	20	0.983	0.98	85.6	0.828	0.661	82.2	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051562295.1	cutoff	3004583	Kpne_KpnF	23	1	1	85	0.899	0.698	84.4	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051562295.1	cutoff	3005047	eptB	60	0.728	0.73	88.5	0.915	0.848	81.56	pmr phosphoethanolamine transferase
+r4	pure_GCF_051562295.1	cutoff	3005053	ArnT	101	1	1	64.7	0.679	0.355	63.7	pmr phosphoethanolamine transferase
+r4	pure_GCF_051562295.1	cutoff	3005069	rsmA	9	0.902	0.91	91.6	0.94	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051562295.1	cutoff	3007026	salB	2	0.148	1.03	44	0.471	0.373	NA	sal-type ABC-F protein
+r4	pure_GCF_051562295.1	cutoff	3007028	salD	2	0.097	0.63	43.8	0.468	0.371	NA	sal-type ABC-F protein
+r4	pure_GCF_051562295.1	cutoff	3007188	vanH_in_vanP_cl	16	0.475	0.53	46.2	0.529	0.325	NA	vanH; glycopeptide resistance gene cluster
+r4	pure_GCF_051562295.1	cutoff	3007189	vanP	2	0.111	0.62	52.2	0.576	0.515	NA	glycopeptide resistance gene cluster; Van ligase
+r4	pure_GCF_051562295.1	cutoff	3007682	MdtQ	2	0.104	0.56	100	1.001	0.96	68.87	Outer Membrane Porin (Opr)
+r4	pure_GCF_051562295.1	id90	3001327	MdtK	9	0.31	0.51	94.8	0.951	0.96	82.13	multidrug and toxic compound extrusion (MATE) transporter
+r4	pure_GCF_051562295.1	id90	3003048	rosA	10	0.456	0.72	92.2	0.895	0.883	77.98	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051562295.1	id90	3003049	rosB	21	0.41	0.51	92.6	0.903	0.937	80.11	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051562295.1	id90	3004122	Kpne_OmpK37	7	0.34	0.68	92	0.934	0.91	76.24	General Bacterial Porin with reduced permeability to beta-lactams
+r4	pure_GCF_051562295.1	id90	3004580	Kpne_KpnE	6	0.575	0.63	92.5	0.874	0.661	82.2	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051562295.1	id90	3004583	Kpne_KpnF	8	0.661	0.68	92.4	0.904	0.698	84.4	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051562295.1	id90	3005047	eptB	18	0.465	0.65	93.6	0.946	0.848	81.56	pmr phosphoethanolamine transferase
+r4	pure_GCF_051562295.1	id90	3005053	ArnT	2	0.091	0.55	91.9	0.94	0.355	63.7	pmr phosphoethanolamine transferase
+r4	pure_GCF_051562295.1	id90	3005069	rsmA	8	0.902	0.91	92.5	0.947	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051562295.1	id80	3000501	rpoB2	2	0.077	1.04	82.3	0.861	0.954	NA	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)
+r4	pure_GCF_051562295.1	id80	3001327	MdtK	39	0.888	0.9	87.7	0.875	0.96	82.13	multidrug and toxic compound extrusion (MATE) transporter
+r4	pure_GCF_051562295.1	id80	3002985	arnA	20	0.402	0.53	86	0.905	0.892	70	pmr phosphoethanolamine transferase
+r4	pure_GCF_051562295.1	id80	3003048	rosA	49	0.795	0.8	87.2	0.872	0.883	77.98	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051562295.1	id80	3003049	rosB	60	0.769	0.77	88.4	0.865	0.937	80.11	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051562295.1	id80	3003057	smeF	2	0.099	0.58	82.9	0.806	1	42.73	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051562295.1	id80	3004122	Kpne_OmpK37	39	0.888	0.9	84.8	0.852	0.91	76.24	General Bacterial Porin with reduced permeability to beta-lactams
+r4	pure_GCF_051562295.1	id80	3004580	Kpne_KpnE	16	0.817	0.82	88.8	0.852	0.661	82.2	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051562295.1	id80	3004583	Kpne_KpnF	19	0.899	0.9	89.1	0.91	0.698	84.4	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051562295.1	id80	3004588	Kpne_KpnG	4	0.179	0.57	82.4	0.759	0.929	NA	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051562295.1	id80	3005047	eptB	81	0.805	0.81	87.1	0.888	0.848	81.56	pmr phosphoethanolamine transferase
+r4	pure_GCF_051562295.1	id80	3005059	LptD	97	0.864	0.87	87.2	0.887	0.928	82.06	ATP-binding cassette (ABC) antibiotic efflux pump
+r4	pure_GCF_051562295.1	id80	3005069	rsmA	12	1	1	89.2	0.903	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051617105.1	cutoff	3000191	tet(Q)	4	0.123	0.51	50.8	0.593	0.229	NA	tetracycline-resistant ribosomal protection protein
+r4	pure_GCF_051617105.1	cutoff	3000194	tet(W)	4	0.196	0.75	43.1	0.45	0.239	NA	tetracycline-resistant ribosomal protection protein
+r4	pure_GCF_051617105.1	cutoff	3000237	TolC	6	0.228	0.51	92.8	0.964	0.943	81.5	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	cutoff	3000368	vanC	2	0.099	0.61	65.7	0.634	0.4	NA	glycopeptide resistance gene cluster; Van ligase
+r4	pure_GCF_051617105.1	cutoff	3000502	AcrF	3	0.091	0.75	96.1	0.965	0.951	86.53	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	cutoff	3000777	adeF	3	0.107	0.83	48	0.488	0.369	59.81	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	cutoff	3000792	mdtA	17	0.614	0.71	90.7	0.929	0.908	78.55	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	cutoff	3001216	mdtH	7	0.381	0.69	90.8	0.952	0.939	85.46	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	cutoff	3001327	MdtK	6	0.251	0.54	96.6	0.978	0.96	83.05	multidrug and toxic compound extrusion (MATE) transporter
+r4	pure_GCF_051617105.1	cutoff	3001328	Ecol_mdfA	52	0.895	0.9	89	0.899	0.874	85.37	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	cutoff	3001329	mdtG	42	0.826	0.83	91.5	0.932	0.881	86.8	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	cutoff	3002910	vanL	25	0.544	0.57	52.5	0.553	0.391	NA	glycopeptide resistance gene cluster; Van ligase
+r4	pure_GCF_051617105.1	cutoff	3002912	vanN	2	0.108	0.56	54.1	0.532	0.405	NA	glycopeptide resistance gene cluster; Van ligase
+r4	pure_GCF_051617105.1	cutoff	3002913	vanO	10	0.431	0.6	47.4	0.605	0.506	NA	glycopeptide resistance gene cluster; Van ligase
+r4	pure_GCF_051617105.1	cutoff	3002943	vanH_in_vanB_cl	35	0.502	0.51	50.1	0.512	0.313	36.16	vanH; glycopeptide resistance gene cluster
+r4	pure_GCF_051617105.1	cutoff	3002971	vanT_in_vanE_cl	2	0.064	0.54	54.5	0.512	0.145	32.12	glycopeptide resistance gene cluster; vanT
+r4	pure_GCF_051617105.1	cutoff	3002986	bacA	15	0.535	0.59	95.8	0.966	0.931	89.38	undecaprenyl pyrophosphate related proteins
+r4	pure_GCF_051617105.1	cutoff	3003048	rosA	29	0.573	0.6	88.7	0.913	0.883	77.46	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	cutoff	3003049	rosB	6	0.226	0.66	93.4	0.959	0.937	79.93	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	cutoff	3003577	ugd	29	0.552	0.57	91.3	0.953	0.921	83.25	pmr phosphoethanolamine transferase
+r4	pure_GCF_051617105.1	cutoff	3003578	PmrF	25	0.807	0.83	92.1	0.927	0.862	84.23	pmr phosphoethanolamine transferase
+r4	pure_GCF_051617105.1	cutoff	3003841	kdpE	26	0.827	0.84	89.7	0.925	0.902	84.82	kdpDE; antibiotic efflux regulatory protein
+r4	pure_GCF_051617105.1	cutoff	3003843	leuO	51	0.914	0.91	87.3	0.902	0.793	83.44	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051617105.1	cutoff	3004107	Paer_soxR	27	0.891	0.89	70.5	0.74	0.636	NA	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051617105.1	cutoff	3004577	Abau_AmvA	17	0.478	0.59	67.8	0.721	0.634	52.87	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	cutoff	3005069	rsmA	11	0.902	0.9	92.1	0.933	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051617105.1	cutoff	3005098	qacL	3	0.527	0.71	87.2	0.832	0.829	NA	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051617105.1	cutoff	3007010	norC	8	0.284	0.5	61.3	0.688	0.59	NA	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	cutoff	3007027	salC	2	0.07	0.56	48	0.54	0.373	NA	sal-type ABC-F protein
+r4	pure_GCF_051617105.1	id90	3000237	TolC	37	0.731	0.75	93.6	0.916	0.943	81.5	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id90	3000502	AcrF	41	0.498	0.58	93.4	0.901	0.951	86.53	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id90	3000792	mdtA	22	0.557	0.6	91.8	0.91	0.908	78.55	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id90	3001214	mdtM	3	0.185	0.62	91.2	0.889	0.875	75.86	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id90	3001216	mdtH	18	0.537	0.61	92.8	0.916	0.939	85.46	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id90	3001327	MdtK	18	0.462	0.55	94.6	0.942	0.96	83.05	multidrug and toxic compound extrusion (MATE) transporter
+r4	pure_GCF_051617105.1	id90	3001328	Ecol_mdfA	24	0.595	0.63	92.5	0.896	0.874	85.37	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id90	3001329	mdtG	35	0.801	0.82	92.6	0.931	0.881	86.8	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id90	3002985	arnA	2	0.147	1.06	91.8	0.947	0.892	69.69	pmr phosphoethanolamine transferase
+r4	pure_GCF_051617105.1	id90	3002986	bacA	25	0.744	0.76	95.4	0.937	0.931	89.38	undecaprenyl pyrophosphate related proteins
+r4	pure_GCF_051617105.1	id90	3003048	rosA	14	0.417	0.55	91.9	0.903	0.883	77.46	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id90	3003049	rosB	14	0.496	0.74	92.8	0.909	0.937	79.93	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id90	3003052	smeB	2	0.051	0.58	90.8	0.853	1.029	NA	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id90	3003576	eptA	3	0.166	0.78	90.1	0.903	0.906	71	pmr phosphoethanolamine transferase
+r4	pure_GCF_051617105.1	id90	3003577	ugd	21	0.51	0.56	93.1	0.96	0.921	83.25	pmr phosphoethanolamine transferase
+r4	pure_GCF_051617105.1	id90	3003578	PmrF	17	0.745	0.81	94.2	0.939	0.862	84.23	pmr phosphoethanolamine transferase
+r4	pure_GCF_051617105.1	id90	3003841	kdpE	12	0.782	0.88	91	0.933	0.902	84.82	kdpDE; antibiotic efflux regulatory protein
+r4	pure_GCF_051617105.1	id90	3005069	rsmA	9	0.902	0.9	93	0.935	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051617105.1	id80	3000237	TolC	86	0.863	0.86	89.4	0.888	0.943	81.5	ATP-binding cassette (ABC) antibiotic efflux pump; major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3000499	AcrE	26	0.631	0.66	85.8	0.86	0.906	75.86	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3000501	rpoB2	2	0.042	0.52	82.7	0.829	0.954	NA	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)
+r4	pure_GCF_051617105.1	id80	3000502	AcrF	112	0.786	0.79	88.7	0.883	0.951	86.53	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3000792	mdtA	64	0.812	0.81	87.9	0.88	0.908	78.55	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3000832	evgA	2	0.221	0.63	81.8	0.817	0.974	66.67	major facilitator superfamily (MFS) antibiotic efflux pump; resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051617105.1	id80	3001214	mdtM	26	0.683	0.71	85.3	0.885	0.875	75.86	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3001216	mdtH	60	0.93	0.93	87.7	0.893	0.939	85.46	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3001327	MdtK	58	0.926	0.93	88.2	0.883	0.96	83.05	multidrug and toxic compound extrusion (MATE) transporter
+r4	pure_GCF_051617105.1	id80	3001328	Ecol_mdfA	83	0.963	0.96	88	0.88	0.874	85.37	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3001329	mdtG	70	0.926	0.93	90	0.899	0.881	86.8	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3002985	arnA	21	0.379	0.5	85.2	0.897	0.892	69.69	pmr phosphoethanolamine transferase
+r4	pure_GCF_051617105.1	id80	3002986	bacA	53	1	1	89.8	0.893	0.931	89.38	undecaprenyl pyrophosphate related proteins
+r4	pure_GCF_051617105.1	id80	3003048	rosA	55	0.795	0.8	86.8	0.881	0.883	77.46	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3003049	rosB	51	0.705	0.72	88	0.86	0.937	79.93	major facilitator superfamily (MFS) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3003066	smeR	2	0.275	0.9	82.3	0.871	0.917	28.21	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051617105.1	id80	3003576	eptA	46	0.505	0.51	84.5	0.86	0.906	71	pmr phosphoethanolamine transferase
+r4	pure_GCF_051617105.1	id80	3003577	ugd	65	0.92	0.92	88.8	0.914	0.921	83.25	pmr phosphoethanolamine transferase
+r4	pure_GCF_051617105.1	id80	3003578	PmrF	35	0.953	0.96	89.1	0.902	0.862	84.23	pmr phosphoethanolamine transferase
+r4	pure_GCF_051617105.1	id80	3003841	kdpE	32	0.951	0.95	88.9	0.916	0.902	84.82	kdpDE; antibiotic efflux regulatory protein
+r4	pure_GCF_051617105.1	id80	3003843	leuO	38	0.803	0.81	90.6	0.931	0.793	83.44	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051617105.1	id80	3003952	YojI	105	0.952	0.95	87.8	0.88	0.977	84.1	ATP-binding cassette (ABC) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3004043	Ecol_acrA	2	0.126	0.58	83.7	0.868	0.877	NA	resistance-nodulation-cell division (RND) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3005069	rsmA	14	1	1	89.5	0.898	0.811	85.25	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein
+r4	pure_GCF_051617105.1	id80	3005098	qacL	8	0.664	0.68	85.1	0.821	0.829	NA	small multidrug resistance (SMR) antibiotic efflux pump
+r4	pure_GCF_051617105.1	id80	3007210	Nfar_rox	2	0.047	0.52	81.8	0.777	0.578	33.16	rifampin monooxygenase

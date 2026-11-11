@@ -35,7 +35,7 @@ validation (V2) can test it.
 ## Results
 
 The first attempt applied each rule to the mean over all of a gene's reads
-(`results_mean_rule/`). It failed:
+(`mean_rule/`). It failed:
 
 - Round 3: 99-126 of 136 groups found.
 - Even *E. coli* marA, which is 100% identical to CARD, was missed.
@@ -44,7 +44,7 @@ The reason is that reads from paralogs land on the closest CARD protein. For
 example, soxS and rob reads land on marA at about 50% identity and pull the
 mean down.
 
-Rules judged read by read (`results/`):
+Rules judged read by read (`per_read_rules/`):
 
 | Rule | Round 3 found | Round 3 within 1.5x | Round 3 unexplained | Round 4 found | Round 4 within 1.5x | Round 4 unexplained |
 |---|---|---|---|---|---|---|
@@ -97,3 +97,7 @@ Rules judged read by read (`results/`):
   - **ANT3II_ANT6II**, 2 reads covering 11% of the protein, in round 4. It's
     a fused protein whose AAC(6')-Ib part draws reads from the real
     AAC(6')-Ib gene.
+
+The raw DIAMOND hits (2.5 MB, over the repo's 1 MB file limit) are kept
+outside the repo at `~/seqresistome-scratch/step0_diamond_hits.tar.gz`, so the
+scores can be redone with `score_step0.R` without rerunning DIAMOND.
