@@ -27,3 +27,26 @@ development round except the current one on round 3. No value passes mark 2 on a
 The V2 misses of genes at 92-95% identity are a real limit of a 95% core cut, but the cost
 of removing it is specificity (the old scorer does not count RGI Loose orthologs as explained, so
 part of that cost may be orthologs; not yet checked on rounds 3-4).
+
+## Follow-up (option D): are the extra unexplained calls RGI Loose orthologs? (2026-11-14)
+
+Offline, from the RGI Loose tables in the round 3, round 4 and V2 truth directories. A detected gene
+is counted as explained under V3's mark 2 when RGI main lists it as a Loose protein homolog hit of 85%
+identity or more in the spike genome. Unexplained detections under that rule:
+
+| Core cut / ratio | Round 3 | Round 4 | V2 |
+|---|---|---|---|
+| 0.95 / 0.8 (current) | 0 (old rule 0) | 1 (old rule 5) | 4 (old rule 14) |
+| 0.94 / 0.8 | 2 (2) | 5 (9) | 4 |
+| 0.94 / 0.7 | 3 (3) | 7 (16) | 5 |
+
+The calls that lowering the cut adds (beyond the current setting) split like this at 0.94 / 0.7:
+round 3: 3 added, 0 are Loose orthologs of 85% or more (all MdtK, 2 reads each, Loose under 85%);
+round 4: 12 added, 6 are Loose orthologs of 85% or more (bacA x3, YojI x2, PmrF x1) and 6 are not
+(ugd x2, LptD, MdtK, PmrF x2, all under 85%).
+
+Reading: about half the extra cost on round 4 and none on round 3 is real orthologs. Under V3's
+own mark 2, 0.94 / 0.7 still adds 3 (round 3), 6 (round 4) and 1 (V2) unexplained calls, each a
+gene present at under 85% identity to CARD that is called from a few reads, for 3 to 4 more loci found
+per round. Even the current setting does not reach 0 unexplained under V3's mark 2 on round 4 (1) or V2 (4).
+Genes under 85% identity detected from 2-17 reads at 90% or more are the weak spot of the core route.
