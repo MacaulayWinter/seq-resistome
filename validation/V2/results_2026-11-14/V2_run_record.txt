@@ -1,0 +1,5 @@
+date: 2026-11-14 18:02:02
+pipeline commit under test: f20ef13 (HEAD d09f5c2)
+pre-registration commit: 4b1f3a5c724f374faa7da9a7b1d34fe487ba4b33
+PREREGISTRATION.md sha256: cac29a3fcbb8f3ee76a5609b004f60358f5b258f6e5650e0b34d71e1c5b6b9b3
+score_V2.R sha256: 84b6b3e8ef8bd845a6461acdbdbe2bd29a490814033df4eb842b8674e4cdbb62
