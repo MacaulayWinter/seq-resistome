@@ -152,7 +152,8 @@ pandas).
      (`--min_protein_core_gene_identity`) and spread at least 0.8 times as
      widely as random reads (`--min_protein_core_breadth_ratio`); then only
      those reads are counted for the gene. `detected_by` says which rule
-     called each gene (`f70g90`, `high_identity`, or `dna`). Set
+     called each gene (`f70g90`, `high_identity`, or `dna`). The route needs at least 4 such reads (`--min_protein_core_reads`).
+     Set
      `--min_protein_core_gene_identity 0` to switch this off. A gene that fails
      only on gene identity, at 85% or more (`--min_protein_probable_gene_identity`,
      0 to switch off), is reported as `call = probable_homolog`: a related

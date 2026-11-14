@@ -174,6 +174,12 @@
                     "default": 0.8,
                     "minimum": 0
                 },
+                "min_protein_core_reads": {
+                    "type": "integer",
+                    "description": "Protein mode: the high-identity route (--min_protein_core_gene_identity) needs at least this many reads at --min_protein_core_read_identity or more, and never fewer than --min_arg_reads. A gene with 2-3 such reads is often a chance hit. 4 was set by an offline sweep on development data (V1 rounds 3-4 and V2).",
+                    "default": 4,
+                    "minimum": 0
+                },
                 "min_protein_probable_gene_identity": {
                     "type": "number",
                     "description": "Protein mode: a gene that fails --min_protein_gene_identity only on identity, at this identity or more, with --min_arg_reads reads and the breadth rules met, is reported as call = probable_homolog. It is never counted as detected and has no copies per 16S copy. 0 switches it off.",

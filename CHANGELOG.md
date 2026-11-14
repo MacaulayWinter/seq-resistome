@@ -34,6 +34,13 @@
   never counted as detected and has no copies per 16S copy. New `arg_long.tsv`
   column `call`: `detected`, `probable_homolog`, or empty. Detection itself is
   unchanged. Validated by V3 (`validation/V3/PREREGISTRATION.md`), not yet run.
+- **Protein mode, minimum reads for the high-identity route** (V3 design, D2,
+  user 2026-11-14): the "or" rule now needs at least `--min_protein_core_reads`
+  (default 4) reads at 90% or more, never fewer than `--min_arg_reads`; 0
+  keeps `--min_arg_reads` only. V2's unexplained calls IreK and acrA came from
+  2-3 such reads. An offline sweep on V1 rounds 3-4 and V2
+  (`validation/V3/SWEEP_CORE_CUT.md`) found no loci lost and 3 of V2's 4
+  unexplained calls removed.
 - New column `detected_by` in `arg_long.tsv`: `f70g90`, `high_identity`
   or `dna` for a detected gene, empty otherwise.
 - DNA mode (RGI bwt) stays as `--count_mode dna`, unchanged.

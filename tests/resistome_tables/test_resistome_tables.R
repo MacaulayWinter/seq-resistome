@@ -29,7 +29,7 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
                      dispersion = NULL, copies16 = NULL, old16 = FALSE, extra_stats = NULL,
                      alleles = NULL, min_allele = 0, low = NULL, min_share = 0,
                      count_mode = NULL, read_filter = NULL, stray = NULL,
-                     core = NULL, core_read = 0.9, core_gene = 0.95, core_ratio = 0.8, core_dir = "core", probable = NULL) {
+                     core = NULL, core_read = 0.9, core_gene = 0.95, core_ratio = 0.8, core_dir = "core", probable = NULL, core_min = NULL) {
   d <- tempfile("case"); dir.create(d); dir.create(file.path(d, "rgi")); dir.create(file.path(d, "rrna"))
   write.table(flow, file.path(d, "read_flow.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
   writeLines(c("sample\treason", left), file.path(d, "left.tsv"))
@@ -89,8 +89,8 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
   old <- setwd(d); on.exit(setwd(old))
   res <- suppressWarnings(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", card_ok, "1542", "2", "0.5", "test", min_identity,
                                                af, min_allele, min_share, count_mode, read_filter,
-                                               if (!is.null(core)) c(core_dir, core_read, core_gene, core_ratio) else if (!is.null(probable)) c("none", 0, 0, 0),
-                                               if (!is.null(probable)) probable),
+                                               if (!is.null(core)) c(core_dir, core_read, core_gene, core_ratio) else if (!is.null(probable) || !is.null(core_min)) c("none", 0, 0, 0),
+                                               if (!is.null(probable) || !is.null(core_min)) c(if (!is.null(probable)) probable else 0, if (!is.null(core_min)) core_min)),
                                   stdout = TRUE, stderr = TRUE))
   status <- attr(res, "status"); if (is.null(status)) status <- 0
   if (expect_fail) return(list(status = status, msg = paste(res, collapse = "\n")))
@@ -417,6 +417,22 @@ r18o <- run_case(flow_row("A", 1e6), rgi18, c(A = 1542), c("sample,fastq_1", "A,
 ok(all(r18o$long$call[r18o$long$aro_term %in% c("V", "W")] == "") && !any(grepl("probable_homolog", r18o$md)),
    "case 18: probable identity 0 switches the class off")
 ok(all(r14$long$call == ifelse(r14$long$detected, "detected", "")), "case 18: DNA mode: call is detected or empty")
+
+# --- Case 19: protein mode, the minimum reads of the high-identity route (V3, D2) ----------
+# Same genes as case 17: P has 4 core reads at 97% (detected), R-style genes with 3 reads at 99%.
+#   Q3: 3 core reads at 99% over 250 bp: detected with core_min 0, not with 4.
+rgi19 <- list(A = list(gene("P", "3000401", 6, 33, 1000), gene("Q3", "3000411", 6, 33, 1000)))
+core19 <- list(A = c(cl("3000401", 4, 400, 12, 330), cl("3000411", 3, 300, 3, 250)))
+id19 <- c("3000401" = 0.85, "3000411" = 0.85)
+r19a <- run_case(flow_row("A", 1e6), rgi19, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9, identity = id19,
+                 count_mode = "protein", read_filter = 0.7, core = core19, probable = 0.85, core_min = 0)
+r19b <- run_case(flow_row("A", 1e6), rgi19, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9, identity = id19,
+                 count_mode = "protein", read_filter = 0.7, core = core19, probable = 0.85, core_min = 4)
+g19a <- function(t) r19a$long[r19a$long$aro_term == t, ]; g19b <- function(t) r19b$long[r19b$long$aro_term == t, ]
+ok(g19a("Q3")$detected && g19a("P")$detected, "case 19: with no extra minimum, 3 core reads are enough")
+ok(!g19b("Q3")$detected && g19b("P")$detected && g19b("P")$detected_by == "high_identity",
+   "case 19: with a minimum of 4 core reads, 3 are not enough and 4 are")
+ok(g19b("Q3")$call == "probable_homolog" || g19b("Q3")$call == "", "case 19: the 3-read gene is never detected by the core route")
 
 if (length(fails)) {
   cat(sprintf("test_resistome_tables.R: %d passed, %d FAILED\n", n_pass, length(fails)), paste0("  - ", fails, collapse = "\n"), "\n", sep = "")

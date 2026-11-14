@@ -115,6 +115,10 @@ core_ratio   <- if (length(args) >= 21) as.numeric(args[21]) else 0
 # only on gene identity, at probable_gene or more (below min_identity), with the read and breadth
 # conditions met. Never counted as detected. probable_gene 0 = off.
 probable_gene <- if (length(args) >= 22) as.numeric(args[22]) else 0
+# V3 (D2, user 2026-11-14): the high-identity route needs at least core_min_reads reads at core_read
+# or more (never fewer than min_reads). A gene with 2-3 such reads is too often a chance hit
+# (V2: IreK, acrA). 0 = min_reads only.
+core_min_reads <- if (length(args) >= 23) as.numeric(args[23]) else 0
 if (!count_mode %in% c("dna", "protein")) stop("count_mode must be dna or protein, not '", count_mode, "'; nothing was written.")
 core_on      <- count_mode == "protein" && core_gene > 0 && core_dir != "none"
 gene_suffix  <- if (count_mode == "dna") "\\.gene_mapping_data\\.txt$" else "\\.protein_genes\\.tsv$"
@@ -321,7 +325,7 @@ long$detected_by <- ifelse(long$detected, if (count_mode == "protein") "f70g90" 
 if (core_on && nrow(cstats)) {
   ci  <- match(paste(long$sample, long$aro_accession), paste(cstats$sample, cstats$aro_accession))
   cid <- 1 - cstats$mismatches[ci] / cstats$aligned_bases[ci]
-  take <- which(!long$detected & !is.na(ci) & cstats$stat_reads[ci] >= min_reads & is.finite(cid) & cid >= core_gene &
+  take <- which(!long$detected & !is.na(ci) & cstats$stat_reads[ci] >= max(min_reads, core_min_reads) & is.finite(cid) & cid >= core_gene &
                 cstats$ratio[ci] >= core_ratio)
   for (k in take) {
     j <- ci[k]
@@ -480,7 +484,7 @@ md <- c(md, "## How to read these numbers", "",
                 min_reads, min_ratio, if (min_identity > 0) sprintf(", matching the CARD reference at %.0f%% %sidentity or more on average", 100 * min_identity,
                                                                        if (count_mode == "protein") "amino-acid " else "") else ""),
         if (core_on) sprintf(paste("- **detected_by**: f70g90 = the gene's kept reads average %.0f%% or more together; high_identity = they do not, but its reads at %.0f%% identity or more alone (at least %g, averaging %.0f%% or more, spread %g times as widely as random reads) are enough, as when other organisms' related genes dilute a real gene in a mixture. Such a gene's reads, copies and identity count only those reads."),
-                             100 * min_identity, 100 * core_read, min_reads, 100 * core_gene, core_ratio),
+                             100 * min_identity, 100 * core_read, max(min_reads, core_min_reads), 100 * core_gene, core_ratio),
         if (count_mode == "protein" && probable_gene > 0) sprintf("- **call**: detected, or probable_homolog = the gene fails detection only because its reads average %.0f%% to under %.0f%% amino-acid identity to the CARD protein (with at least %g reads, spread %g times as widely as random reads). A probable homolog is a related gene that may be the real one with a distant sequence; it is reported, never counted as detected, and has no copies per 16S copy.", 100 * probable_gene, 100 * min_identity, min_reads, min_ratio),
         "- Only CARD's protein homolog models are searched: genes whose presence alone confers resistance. Resistance by point mutation (e.g. in gyrA) cannot be called from reads mapped this way and is not reported.",
         if (count_mode == "protein") "- Gene lengths, aligned bases and coverage are protein lengths times 3 (the coding sequence), so rpkm and copies are on the same scale as in DNA mode. rgi_percent_coverage, completely_mapped_reads and average_mapq are RGI's and are missing (NA) in protein mode.",
