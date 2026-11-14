@@ -153,7 +153,11 @@ pandas).
      widely as random reads (`--min_protein_core_breadth_ratio`); then only
      those reads are counted for the gene. `detected_by` says which rule
      called each gene (`f70g90`, `high_identity`, or `dna`). Set
-     `--min_protein_core_gene_identity 0` to switch this off. Lengths and coverage
+     `--min_protein_core_gene_identity 0` to switch this off. A gene that fails
+     only on gene identity, at 85% or more (`--min_protein_probable_gene_identity`,
+     0 to switch off), is reported as `call = probable_homolog`: a related
+     gene that may be the real one with a distant sequence; it is never counted
+     as detected. Lengths and coverage
      are protein lengths times 3, so rpkm and copies are on the DNA scale.
      In DNA mode, only reads matching
      CARD's sequence at 85% identity or more count, each judged on its own

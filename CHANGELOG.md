@@ -25,6 +25,15 @@
   those rounds; V2 tests them. DIAMOND_BLASTX makes the read statistics a
   second time over the reads at 90% or more (`core/`), and RESISTOME_TABLES
   applies the rule.
+- **Protein mode, probable homologs** (V3 design, D32-D34, user
+  2026-11-14): V2 failed marks 1-3 because real genes of a genus far from
+  CARD's references lay at 86-92% identity, on the 0.90 cut. A gene that
+  fails detection only on gene identity, at 85% or more
+  (`--min_protein_probable_gene_identity 0.85`; 0 = off), with the read and
+  breadth rules met, is now reported with `call = probable_homolog`. It is
+  never counted as detected and has no copies per 16S copy. New `arg_long.tsv`
+  column `call`: `detected`, `probable_homolog`, or empty. Detection itself is
+  unchanged. Validated by V3 (`validation/V3/PREREGISTRATION.md`), not yet run.
 - New column `detected_by` in `arg_long.tsv`: `f70g90`, `high_identity`
   or `dna` for a detected gene, empty otherwise.
 - DNA mode (RGI bwt) stays as `--count_mode dna`, unchanged.

@@ -118,6 +118,9 @@ check(all(long$count_mode == mode[1]), "count_mode in arg_long.tsv differs from 
 # How each detection was made (D31): a detected gene says which rule called it, an undetected one says none.
 check(all(long$detected_by[long$detected] %in% (if (mode[1] == "dna") "dna" else c("f70g90", "high_identity"))) && all(long$detected_by[!long$detected] == ""),
       "detected_by is missing, wrong for the count mode, or set on an undetected gene")
+# The call (V3, D33): detected exactly when detected; a probable homolog only in protein mode, never detected.
+check(all(long$call[long$detected] == "detected") && all(long$call[!long$detected] %in% c("", if (mode[1] == "protein") "probable_homolog")),
+      "call is missing, or wrong for the count mode, or marks a detected gene as anything but detected")
 v <- read.delim(file.path(out, "pipeline_info", "software_versions.tsv"), stringsAsFactors = FALSE)
 engine <- if (identical(mode[1], "dna")) c("rgi", "kma", "rgi-database") else c("diamond", "card-database")
 for (t in c("fastp", "hostile", "sortmerna", "R", engine))

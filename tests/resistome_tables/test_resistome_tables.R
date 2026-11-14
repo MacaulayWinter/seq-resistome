@@ -29,7 +29,7 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
                      dispersion = NULL, copies16 = NULL, old16 = FALSE, extra_stats = NULL,
                      alleles = NULL, min_allele = 0, low = NULL, min_share = 0,
                      count_mode = NULL, read_filter = NULL, stray = NULL,
-                     core = NULL, core_read = 0.9, core_gene = 0.95, core_ratio = 0.8, core_dir = "core") {
+                     core = NULL, core_read = 0.9, core_gene = 0.95, core_ratio = 0.8, core_dir = "core", probable = NULL) {
   d <- tempfile("case"); dir.create(d); dir.create(file.path(d, "rgi")); dir.create(file.path(d, "rrna"))
   write.table(flow, file.path(d, "read_flow.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
   writeLines(c("sample\treason", left), file.path(d, "left.tsv"))
@@ -89,7 +89,8 @@ run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, c
   old <- setwd(d); on.exit(setwd(old))
   res <- suppressWarnings(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", card_ok, "1542", "2", "0.5", "test", min_identity,
                                                af, min_allele, min_share, count_mode, read_filter,
-                                               if (!is.null(core)) c(core_dir, core_read, core_gene, core_ratio)),
+                                               if (!is.null(core)) c(core_dir, core_read, core_gene, core_ratio) else if (!is.null(probable)) c("none", 0, 0, 0),
+                                               if (!is.null(probable)) probable),
                                   stdout = TRUE, stderr = TRUE))
   status <- attr(res, "status"); if (is.null(status)) status <- 0
   if (expect_fail) return(list(status = status, msg = paste(res, collapse = "\n")))
@@ -392,6 +393,30 @@ f <- run_case(flow_row("A", 1e6), rgi17, c(A = 1542), c("sample,fastq_1", "A,a.f
               count_mode = "protein", read_filter = 0.7, core = list(B = core17$A), expect_fail = TRUE)
 ok(f$status != 0 && grepl("no high-identity read statistics for A", f$msg), "case 17: a sample without core statistics stops the run")
 ok(all(r14$long$detected_by[r14$long$detected] == "dna"), "case 17: DNA mode records detected_by dna")
+
+# --- Case 18: protein mode, the probable homolog (V3, D33) -----------------------------
+# Every gene: 1,000 bp, 6 kept reads over 33% of the gene (ratio 0.73), unless noted.
+#   V: kept reads at 88%: probable_homolog.      W: 86%: probable_homolog.
+#   X: 84%: below the band: no call.             Y: 1 kept read at 88%: no call.
+#   Z: 88% but 3% covered (ratio 0.07): no call. D: 95%: detected.   E: 90%: detected.
+rgi18 <- list(A = list(gene("V", "3000501", 6, 33, 1000), gene("W", "3000502", 6, 33, 1000), gene("X", "3000503", 6, 33, 1000),
+                       gene("Y", "3000504", 1, 10, 1000), gene("Z", "3000505", 6, 3, 1000), gene("D", "3000506", 6, 33, 1000),
+                       gene("E", "3000507", 6, 33, 1000)))
+id18 <- c("3000501" = 0.88, "3000502" = 0.86, "3000503" = 0.84, "3000504" = 0.88, "3000505" = 0.88, "3000506" = 0.95, "3000507" = 0.90)
+r18 <- run_case(flow_row("A", 1e6), rgi18, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9, identity = id18,
+                count_mode = "protein", read_filter = 0.7, probable = 0.85)
+g18 <- function(t) r18$long[r18$long$aro_term == t, ]
+ok(g18("V")$call == "probable_homolog" && g18("W")$call == "probable_homolog" && !g18("V")$detected && !g18("W")$detected,
+   "case 18: a gene at 85% to under 90% identity is a probable homolog, not detected")
+ok(g18("X")$call == "" && g18("Y")$call == "" && g18("Z")$call == "", "case 18: below 85%, one read, or low breadth: no call")
+ok(g18("D")$call == "detected" && g18("E")$call == "detected" && g18("D")$detected && g18("E")$detected, "case 18: 90% and above: detected")
+ok(!any(c("V", "W") %in% r18$cp$aro_term) && all(c("D", "E") %in% r18$cp$aro_term), "case 18: probable homologs are not in the copies matrix")
+ok(any(grepl("probable_homolog", r18$md)), "case 18: the summary explains call")
+r18o <- run_case(flow_row("A", 1e6), rgi18, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9, identity = id18,
+                 count_mode = "protein", read_filter = 0.7, probable = 0)
+ok(all(r18o$long$call[r18o$long$aro_term %in% c("V", "W")] == "") && !any(grepl("probable_homolog", r18o$md)),
+   "case 18: probable identity 0 switches the class off")
+ok(all(r14$long$call == ifelse(r14$long$detected, "detected", "")), "case 18: DNA mode: call is detected or empty")
 
 if (length(fails)) {
   cat(sprintf("test_resistome_tables.R: %d passed, %d FAILED\n", n_pass, length(fails)), paste0("  - ", fails, collapse = "\n"), "\n", sep = "")

@@ -180,7 +180,8 @@ workflow SEQ_RESISTOME {
         ch_core,
         core_on ? params.min_protein_core_read_identity : 0,
         core_on ? params.min_protein_core_gene_identity : 0,
-        params.min_protein_core_breadth_ratio
+        params.min_protein_core_breadth_ratio,
+        params.count_mode == 'protein' ? params.min_protein_probable_gene_identity : 0
     )
 
     // Every tool's version, from the nf-core 'versions' topic.

@@ -111,6 +111,10 @@ core_dir     <- if (length(args) >= 18) args[18] else "none"
 core_read    <- if (length(args) >= 19) as.numeric(args[19]) else 0
 core_gene    <- if (length(args) >= 20) as.numeric(args[20]) else 0
 core_ratio   <- if (length(args) >= 21) as.numeric(args[21]) else 0
+# V3 (D33): protein mode reports, apart from "detected", a "probable_homolog": a gene that fails
+# only on gene identity, at probable_gene or more (below min_identity), with the read and breadth
+# conditions met. Never counted as detected. probable_gene 0 = off.
+probable_gene <- if (length(args) >= 22) as.numeric(args[22]) else 0
 if (!count_mode %in% c("dna", "protein")) stop("count_mode must be dna or protein, not '", count_mode, "'; nothing was written.")
 core_on      <- count_mode == "protein" && core_gene > 0 && core_dir != "none"
 gene_suffix  <- if (count_mode == "dna") "\\.gene_mapping_data\\.txt$" else "\\.protein_genes\\.tsv$"
@@ -248,7 +252,7 @@ sheet <- read.csv(sheet_file, check.names = FALSE, stringsAsFactors = FALSE, col
 meta_cols <- setdiff(names(sheet), PIPELINE_COLUMNS)
 OUTPUT_COLS <- c("sample", "aro_accession", "aro_term", "amr_gene_family", "drug_class", "resistance_mechanism",
                  "model_type", "reference_length_bp", "n_references", "reads", "reads_below_identity", "merged_reads", "merged_from", "completely_mapped_reads", "average_percent_coverage", "rgi_percent_coverage",
-                 "expected_percent_coverage", "breadth_ratio", "average_mapq", "aligned_bases", "merged_aligned_bases", "read_identity", "detected", "detected_by", "detection_note", "rpm",
+                 "expected_percent_coverage", "breadth_ratio", "average_mapq", "aligned_bases", "merged_aligned_bases", "read_identity", "detected", "detected_by", "call", "detection_note", "rpm",
                  "rpkm", "arg_copies", "copies_per_16s", "copies_per_16s_low95", "copies_per_16s_high95", "dispersion", "reads_analysed", "mean_read_length", "reads_16s",
                  "bases_16s", "copies_16s", "card_version", "card_validated", "count_mode", "layout", "n_files", "reads_raw", "reads_after_qc",
                  "host_removal", "host_reads_removed", "status", "note")
@@ -335,6 +339,12 @@ if (core_on && nrow(cstats)) {
     long$detection_note[k]           <- ""
     long$detected_by[k]              <- "high_identity"
   }
+}
+long$call <- ifelse(long$detected, "detected", "")
+if (count_mode == "protein" && probable_gene > 0) {
+  prob <- !long$detected & has & long$reads >= min_reads & long$breadth_ratio >= min_ratio &
+          !is.na(long$read_identity) & long$read_identity >= probable_gene & long$read_identity < min_identity
+  long$call[prob] <- "probable_homolog"
 }
 long$rpm  <- long$reads / long$reads_analysed * 1e6
 long$rpkm <- long$reads / (L / 1e3) / (long$reads_analysed / 1e6)
@@ -471,6 +481,7 @@ md <- c(md, "## How to read these numbers", "",
                                                                        if (count_mode == "protein") "amino-acid " else "") else ""),
         if (core_on) sprintf(paste("- **detected_by**: f70g90 = the gene's kept reads average %.0f%% or more together; high_identity = they do not, but its reads at %.0f%% identity or more alone (at least %g, averaging %.0f%% or more, spread %g times as widely as random reads) are enough, as when other organisms' related genes dilute a real gene in a mixture. Such a gene's reads, copies and identity count only those reads."),
                              100 * min_identity, 100 * core_read, min_reads, 100 * core_gene, core_ratio),
+        if (count_mode == "protein" && probable_gene > 0) sprintf("- **call**: detected, or probable_homolog = the gene fails detection only because its reads average %.0f%% to under %.0f%% amino-acid identity to the CARD protein (with at least %g reads, spread %g times as widely as random reads). A probable homolog is a related gene that may be the real one with a distant sequence; it is reported, never counted as detected, and has no copies per 16S copy.", 100 * probable_gene, 100 * min_identity, min_reads, min_ratio),
         "- Only CARD's protein homolog models are searched: genes whose presence alone confers resistance. Resistance by point mutation (e.g. in gyrA) cannot be called from reads mapped this way and is not reported.",
         if (count_mode == "protein") "- Gene lengths, aligned bases and coverage are protein lengths times 3 (the coding sequence), so rpkm and copies are on the same scale as in DNA mode. rgi_percent_coverage, completely_mapped_reads and average_mapq are RGI's and are missing (NA) in protein mode.",
         "- Counts are of reads, not organisms: which organisms carry these genes, and whether on plasmids, is for later versions.")
