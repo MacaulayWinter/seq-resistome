@@ -50,3 +50,11 @@ own mark 2, 0.94 / 0.7 still adds 3 (round 3), 6 (round 4) and 1 (V2) unexplaine
 gene present at under 85% identity to CARD that is called from a few reads, for 3 to 4 more loci found
 per round. Even the current setting does not reach 0 unexplained under V3's mark 2 on round 4 (1) or V2 (4).
 Genes under 85% identity detected from 2-17 reads at 90% or more are the weak spot of the core route.
+
+## D2 sweep: a minimum read count or coverage for the high-identity route (2026-11-14)
+
+`sweep_min_reads.tsv`; core cut fixed at 0.95 / 0.8; scored with `score_V3.R` (V3 marks, 4a). Offline.
+No setting loses a found locus on rounds 3, 4 or V2. Unexplained calls on V2: 4 (min 2), 3 (min 3),
+1 (min 4), 1 (min 5), 2 (coverage 15%), 1 (coverage 25%); rounds 3 and 4 are unchanged (0 and 1).
+Min 4 removes IreK (x2) and acrA; the one left is KpnG (probably an RGI naming issue). Chosen: 4 reads
+(`--min_protein_core_reads`, 93eb4e8). Mark 1 still misses 3 loci in each round (515/518, 443/446, 373/376).

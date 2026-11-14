@@ -33,7 +33,8 @@ Pipeline commit: **fixed by Addendum A**, which Claude commits before any V3 dat
 touched and which names the commit and its `-profile test` results (both modes). The
 rule text is frozen now, so the addendum may name a commit and nothing else.
 
-- Everything in V2 section 1 is unchanged: rule "or", 0.70, 0.90, 0.95, 0.8, 0.90 (gene),
+- **Amendment 1 (see the end):** the "or" route needs at least `--min_protein_core_reads 4`
+  reads at 0.90 or more (V2 required 2). Everything else of V2 section 1 is unchanged: rule "or", 0.70, 0.90, 0.95, 0.8, 0.90 (gene),
   allele identity 0.95, `--min_16s_identity 0.90`, `--min_arg_reads 2`, `--min_breadth_ratio 0.5`.
 - New: `--min_protein_probable_gene_identity 0.85`, and a new `arg_long.tsv` column `call`
   with values `detected`, `probable_homolog` or empty. A probable homolog has the read
@@ -56,9 +57,11 @@ rule text is frozen now, so the addendum may name a commit and nothing else.
   spike genome at 85% identity or more (*ortholog in the spike genome*; reported apart
   from the other two). Probable homologs are not detected and are not marked in mark 2;
   they are reported with whether an RGI hit lies in the genome.
-- **Mark 3, accuracy:** copies per 16S copy against the simulated depth, per
-  location group: pure within 1.5x, 8x mixtures within 2x, on class `detected` only,
-  with one change: a locus is **excluded from mark 3 when the genome holds another copy
+- **Mark 3, accuracy (as amended, Amendment 1):** copies per 16S copy against the simulated depth, per
+  location group: pure within 1.5x, 8x mixtures within 2x, on class `detected` only, and **only for
+  groups that mark 1 marks**: every locus of the group has truth identity 0.92 or more and no
+  other copy in the genome. Groups with a locus under 0.92 are reported (observed against truth), not marked.
+  Original text: a locus is **excluded from mark 3 when the genome holds another copy
   of its gene** (blastn of the locus against the genome: another hit of 95% identity or
   more over at least 500 bp, or at least half the locus length if shorter). V2's
   AAC(6')-Ie-APH(2'')-Ia is the reason (section 5). Excluded loci are listed with their copy
@@ -76,7 +79,8 @@ Under these marks V2's data would have given: mark 1 still **fail**, 3 misses of
 marked); mark 2 still **fail**, 3 unexplained (KpnG and acrA with no RGI hit, IreK at 59%;
 the other 10 were RGI Loose hits at 86.5-91%); mark 3's AAC(6')-Ie case excluded.
 The band design fixes the divergent orthologs and the repeat. It does not fix every V2
-failure, and V3 may fail again. That is a stated risk, not a hidden one.
+failure, and V3 may fail again. That is a stated risk, not a hidden one. (Amendment 1 changes
+this check: see the end.)
 
 ## 3. Fresh data, by rules written now (frozen)
 
@@ -116,3 +120,30 @@ show the same effect (depths 0.2 to 25). Against the nominal depth the observed 
 (about 1.77 gene copies) is counted; a repeated locus therefore has an unreliable truth
 depth, not a pipeline overcount. V2's truth table is **not edited** and V2's mark 3 stays failed;
 V3 excludes such loci and lists them (section 2).
+
+## Amendment 1 (2026-11-14, before any V3 data were listed, fetched or simulated)
+
+Two changes, both decided by the user on 2026-11-14 (relayed by the coordinator session:
+"go with your recommendations, D2 and 4a"). The text above is edited in place; the version
+committed as 04f9b40 stays in git history.
+
+1. **D2: the "or" route needs 4 reads.** `--min_protein_core_reads 4` (code in 93eb4e8). Core cut stays
+   0.95 and breadth ratio 0.8. Why: V2's noise calls IreK and acrA came from 2-3 reads at 90% or more.
+   An offline sweep on V1 rounds 3-4 and V2, scored with `score_V3.R` (`SWEEP_CORE_CUT.md`,
+   `sweep_min_reads.tsv`): 2 reads (V2's rule), 3, 4, 5, and a minimum coverage of 15% or 25%.
+
+   | Round | min 2 | min 3 | min 4 | min 5 | cov 15% | cov 25% |
+   |---|---|---|---|---|---|---|
+   | 3: found / unexplained | 515/518; 0 | 515; 0 | 515; 0 | 515; 0 | 515; 0 | 515; 0 |
+   | 4: found / unexplained | 443/446; 1 | 443; 1 | 443; 1 | 443; 1 | 443; 1 | 443; 1 |
+   | V2: found / unexplained | 373/376; 4 | 373; 3 | 373; 1 | 373; 1 | 373; 2 | 373; 1 |
+
+   No setting loses a found locus; 4 is the smallest read count that removes 3 of V2's 4
+   unexplained calls (IreK twice, acrA), and it is simpler than a coverage rule.
+2. **4a: mark 3 scores only what mark 1 marks** (as written in section 2 above).
+
+**Stated risk, not hidden:** on the seen rounds, under these marks, mark 1 still misses 3 loci in each of
+round 3 (515 of 518), round 4 (443 of 446) and V2 (373 of 376): genes of 92-95% identity at low read
+counts in wastewater (V2: mdtB x2, msbA). The amendment does not fix them. V3 may fail mark 1 again.
+Mark 2 on V2 would leave 1 unexplained (KpnG, probably an RGI naming issue); mark 3 on V2 would have
+1 group outside the limit, mdtB, which is the same missed locus.
