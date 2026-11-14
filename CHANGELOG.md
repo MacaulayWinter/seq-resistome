@@ -1,6 +1,39 @@
 # Changelog
 
-## Unreleased (branch `read-identity`; development, not validated)
+## Unreleased (branch `protein-mode`; development, not validated)
+
+- **Protein mode, the new default** (`--count_mode protein`; D26, D27):
+  reads are translated and searched against CARD's protein homolog
+  proteins with DIAMOND 2.2.8 blastx. Rule f70g90: a read counts at 70%
+  amino-acid identity or more (`--min_protein_read_identity`), and a gene is
+  called when its kept reads together reach 90%
+  (`--min_protein_gene_identity`), plus the read-count and breadth rules.
+  Allele merging at protein identity (`--min_protein_allele_identity`).
+  The settings come from development on V1 rounds 3-4; V2 tests them.
+- **Protein mode, high-identity detection** (the "or" rule; V2 decision 1,
+  user 2026-11-14; to be recorded as D31): a gene that fails f70g90 is also
+  detected when its reads at 90% or more identity alone number at least
+  `--min_arg_reads`, average 95% or more, and spread at least 0.8 times as
+  widely as random reads (`--min_protein_core_read_identity 0.90`,
+  `--min_protein_core_gene_identity 0.95`,
+  `--min_protein_core_breadth_ratio 0.8`; `--min_protein_core_gene_identity 0`
+  switches it off). Why: in mixtures other organisms' related genes
+  (70-89%) pull a real gene's pooled identity below 90%
+  (`validation/V1/dev_protein/results_2026-11-13/DIAGNOSIS.md`). On
+  development data (V1 rounds 3-4) it found 519 of 522 and 469 of 474 truth
+  loci, against 490 and 459 for f70g90 alone. The three values were chosen on
+  those rounds; V2 tests them. DIAMOND_BLASTX makes the read statistics a
+  second time over the reads at 90% or more (`core/`), and RESISTOME_TABLES
+  applies the rule.
+- New column `detected_by` in `arg_long.tsv`: `f70g90`, `high_identity`
+  or `dna` for a detected gene, empty otherwise.
+- DNA mode (RGI bwt) stays as `--count_mode dna`, unchanged.
+- New column `count_mode` in `arg_long.tsv` and `denominators.tsv`; the
+  summary names the engine. Protein mode publishes `diamond/` instead of
+  `rgi/`; RGI's own columns (`rgi_percent_coverage`,
+  `completely_mapped_reads`, `average_mapq`) are NA there.
+
+## Branch `read-identity` (PR #3; development, not validated)
 
 - Per-gene read identity to CARD (`read_identity`) and a detection
   threshold, `--min_read_identity`, default 0.85 (D19, D21).

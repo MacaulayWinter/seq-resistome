@@ -110,7 +110,8 @@ workflow SEQ_RESISTOME {
     //      protein homolog proteins with DIAMOND blastx. A read is kept at
     //      min_protein_read_identity amino-acid identity or more; a gene is
     //      called when its kept reads together reach min_protein_gene_identity
-    //      (rule f70g90; D26). Genes that differ from CARD's reference by
+    //      (rule f70g90; D26), or when its reads at min_protein_core_read_identity
+    //      or more alone are enough (D31). Genes that differ from CARD's reference by
     //      synonymous changes, as in species other than the one CARD's
     //      reference came from, are counted in full (D25).
     //    dna: RGI bwt (kma) against CARD's DNA sequences of the same models
@@ -122,6 +123,8 @@ workflow SEQ_RESISTOME {
     def read_identity
     def identity_share
     def allele_identity
+    def ch_core = channel.value([])
+    def core_on = params.count_mode == 'protein' && params.min_protein_core_gene_identity > 0
     if (params.count_mode == 'dna') {
         RGI_CARDANNOTATION(UNTAR_CARD.out.untar.map { _meta, dir -> dir })
         RGI_DB(RGI_CARDANNOTATION.out.db, card.version)
@@ -135,7 +138,9 @@ workflow SEQ_RESISTOME {
         allele_identity = params.min_allele_identity
     } else {
         DIAMOND_DB(UNTAR_CARD.out.untar.map { _meta, dir -> dir }, card.version)
-        DIAMOND_BLASTX(ch_to_count, DIAMOND_DB.out.db.first(), DIAMOND_DB.out.annotation.first(), params.min_protein_read_identity)
+        DIAMOND_BLASTX(ch_to_count, DIAMOND_DB.out.db.first(), DIAMOND_DB.out.annotation.first(), params.min_protein_read_identity,
+                       core_on ? params.min_protein_core_read_identity : 0)
+        if (core_on) ch_core = DIAMOND_BLASTX.out.core_stats.map { _meta, f -> f }.collect().ifEmpty([])
         ch_arg_files = DIAMOND_BLASTX.out.genes.map { _meta, f -> f }
             .mix(DIAMOND_BLASTX.out.read_stats.map { _meta, f -> f })
         ch_alleles      = DIAMOND_DB.out.alleles.first()
@@ -171,7 +176,11 @@ workflow SEQ_RESISTOME {
         allele_identity,
         identity_share,
         params.count_mode,
-        read_identity
+        read_identity,
+        ch_core,
+        core_on ? params.min_protein_core_read_identity : 0,
+        core_on ? params.min_protein_core_gene_identity : 0,
+        params.min_protein_core_breadth_ratio
     )
 
     // Every tool's version, from the nf-core 'versions' topic.

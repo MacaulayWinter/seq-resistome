@@ -80,8 +80,15 @@ check(all(!is.na(d16$short_16s) & d16$short_16s >= 0), "short_16s missing")
 # identity are dropped and counted, never negative or missing.
 check(all(!is.na(d16$low_identity_16s) & d16$low_identity_16s >= 0), "low_identity_16s missing")
 check(all(!is.na(long$reads_below_identity) & long$reads_below_identity >= 0), "reads_below_identity missing or negative")
-w16 <- long[!is.na(long$copies_per_16s), ]
+# The interval is Poisson on the kept reads (D20). A gene whose reads all fall
+# below the read identity has none, so its interval is NA by design; protein
+# mode lists many such genes (every CARD protein any read touched; D27).
+kept <- long$reads + ifelse(is.na(long$merged_reads), 0, long$merged_reads)
+w16 <- long[!is.na(long$copies_per_16s) & kept > 0, ]
 check(nrow(w16) > 0 && all(w16$copies_per_16s_low95 <= w16$copies_per_16s & w16$copies_per_16s <= w16$copies_per_16s_high95), "95% interval does not contain the estimate")
+z16 <- long[!is.na(long$copies_per_16s) & kept == 0, ]
+check(all(z16$copies_per_16s == 0 & is.na(z16$copies_per_16s_low95) & is.na(z16$copies_per_16s_high95) & !z16$detected),
+      "a gene with no kept reads has copies, an interval or a detection")
 check(near(den$reads_analysed, den$reads_after_qc - den$host_reads_removed), "reads analysed != reads after QC - host reads removed")
 for (m in c("reads", "rpm", "rpkm")) {
   x <- rd(sprintf("arg_%s.tsv", m))
@@ -108,6 +115,9 @@ check(length(reads_like) == 0, paste("reads published:", paste(reads_like, colla
 mode <- unique(den$count_mode)
 check(length(mode) == 1 && mode %in% c("protein", "dna"), "count_mode missing or mixed in denominators.tsv")
 check(all(long$count_mode == mode[1]), "count_mode in arg_long.tsv differs from denominators.tsv")
+# How each detection was made (D31): a detected gene says which rule called it, an undetected one says none.
+check(all(long$detected_by[long$detected] %in% (if (mode[1] == "dna") "dna" else c("f70g90", "high_identity"))) && all(long$detected_by[!long$detected] == ""),
+      "detected_by is missing, wrong for the count mode, or set on an undetected gene")
 v <- read.delim(file.path(out, "pipeline_info", "software_versions.tsv"), stringsAsFactors = FALSE)
 engine <- if (identical(mode[1], "dna")) c("rgi", "kma", "rgi-database") else c("diamond", "card-database")
 for (t in c("fastp", "hostile", "sortmerna", "R", engine))

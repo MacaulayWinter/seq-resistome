@@ -78,6 +78,7 @@
 #             <min_breadth_ratio> [pipeline_version] [min_read_identity]
 #             [allele_table|none] [min_allele_identity] [min_identity_share]
 #             [count_mode dna|protein] [read_filter_identity]
+#             [core_dir|none] [core_read_identity] [core_gene_identity] [core_breadth_ratio]
 #*******************************************************************************
 
 args <- commandArgs(trailingOnly = TRUE)
@@ -99,7 +100,19 @@ min_allele   <- if (length(args) >= 14) as.numeric(args[14]) else 0
 min_share    <- if (length(args) >= 15) as.numeric(args[15]) else 0   # D24; 0 = off
 count_mode   <- if (length(args) >= 16) args[16] else "dna"               # D27
 read_filter  <- if (length(args) >= 17) as.numeric(args[17]) else min_identity
+# Protein mode's second way to detect a gene (D31, "or" rule): the gene's reads at
+# core_read_identity or more, counted on their own (core_dir holds their read
+# statistics, made by protein_read_stats.sh at that identity), are enough when there
+# are min_arg_reads of them, they average core_gene_identity or more, and they spread
+# along the gene at least core_breadth_ratio times as widely as random reads would.
+# core_gene_identity 0 switches it off. Background organisms' homologs (70-89%) pull a
+# real gene's pooled identity below the f70g90 line in mixtures; they cannot pull this one.
+core_dir     <- if (length(args) >= 18) args[18] else "none"
+core_read    <- if (length(args) >= 19) as.numeric(args[19]) else 0
+core_gene    <- if (length(args) >= 20) as.numeric(args[20]) else 0
+core_ratio   <- if (length(args) >= 21) as.numeric(args[21]) else 0
 if (!count_mode %in% c("dna", "protein")) stop("count_mode must be dna or protein, not '", count_mode, "'; nothing was written.")
+core_on      <- count_mode == "protein" && core_gene > 0 && core_dir != "none"
 gene_suffix  <- if (count_mode == "dna") "\\.gene_mapping_data\\.txt$" else "\\.protein_genes\\.tsv$"
 engine_name  <- if (count_mode == "dna") "RGI" else "DIAMOND"
 if (min_allele > 0 && (allele_file == "none" || !file.exists(allele_file)))
@@ -169,7 +182,7 @@ stat_files <- list.files(rgi_dir, pattern = "\\.read_stats\\.tsv$", full.names =
 # (canonical_length). CARD 4.0.2 has one reference per ARO, so this equals
 # the per-gene rule of D8; it stays right if a reference set ever gives a
 # gene several (as CARD's variants collection did in development, D20).
-stats <- do.call(rbind, c(list(data.frame(sample = character(0), aro_accession = character(0), stat_reads = numeric(0),
+stats_from <- function(stat_files) do.call(rbind, c(list(data.frame(sample = character(0), aro_accession = character(0), stat_reads = numeric(0),
                                           canonical_length = numeric(0), aligned_bases = numeric(0), mismatches = numeric(0),
                                           pct_covered = numeric(0), pct_expected = numeric(0), ratio = numeric(0),
                                           n_references = numeric(0), dispersion = numeric(0), reads_below_identity = numeric(0))),
@@ -205,6 +218,9 @@ stats <- do.call(rbind, c(list(data.frame(sample = character(0), aro_accession =
     a$canonical_length[!is.finite(a$canonical_length)] <- NA
     cbind(sample = rep(smp, nrow(a)), a, stringsAsFactors = FALSE)
   })))
+stats <- stats_from(stat_files)
+core_files <- if (core_on) list.files(core_dir, pattern = "\\.read_stats\\.tsv$", full.names = TRUE) else character(0)
+cstats <- stats_from(core_files)
 
 # 4. Bookkeeping checks: every analysed sample has its outputs, and nothing
 #    else does; SortMeRNA saw exactly the reads the read flow says. A broken
@@ -214,6 +230,7 @@ rgi_samples <- sub(gene_suffix, "", basename(rgi_files))
 stat_samples <- sub("\\.read_stats\\.tsv$", "", basename(stat_files))
 problems <- c(
   if (length(setdiff(rgi_samples, stat_samples))) paste("no", engine_name, "read statistics for", paste(setdiff(rgi_samples, stat_samples), collapse = ", ")),
+  if (core_on && length(setdiff(stat_samples, sub("\\.read_stats\\.tsv$", "", basename(core_files))))) paste("no high-identity read statistics for", paste(setdiff(stat_samples, sub("\\.read_stats\\.tsv$", "", basename(core_files))), collapse = ", ")),
   if (length(setdiff(analysed, rgi_samples))) paste("no", engine_name, "output for", paste(setdiff(analysed, rgi_samples), collapse = ", ")),
   if (length(setdiff(rgi_samples, analysed))) paste(engine_name, "output for samples with no reads analysed:", paste(setdiff(rgi_samples, analysed), collapse = ", ")),
   if (length(setdiff(analysed, rrna$sample))) paste("no 16S count for", paste(setdiff(analysed, rrna$sample), collapse = ", ")),
@@ -231,7 +248,7 @@ sheet <- read.csv(sheet_file, check.names = FALSE, stringsAsFactors = FALSE, col
 meta_cols <- setdiff(names(sheet), PIPELINE_COLUMNS)
 OUTPUT_COLS <- c("sample", "aro_accession", "aro_term", "amr_gene_family", "drug_class", "resistance_mechanism",
                  "model_type", "reference_length_bp", "n_references", "reads", "reads_below_identity", "merged_reads", "merged_from", "completely_mapped_reads", "average_percent_coverage", "rgi_percent_coverage",
-                 "expected_percent_coverage", "breadth_ratio", "average_mapq", "aligned_bases", "merged_aligned_bases", "read_identity", "detected", "detection_note", "rpm",
+                 "expected_percent_coverage", "breadth_ratio", "average_mapq", "aligned_bases", "merged_aligned_bases", "read_identity", "detected", "detected_by", "detection_note", "rpm",
                  "rpkm", "arg_copies", "copies_per_16s", "copies_per_16s_low95", "copies_per_16s_high95", "dispersion", "reads_analysed", "mean_read_length", "reads_16s",
                  "bases_16s", "copies_16s", "card_version", "card_validated", "count_mode", "layout", "n_files", "reads_raw", "reads_after_qc",
                  "host_removal", "host_reads_removed", "status", "note")
@@ -296,6 +313,29 @@ long$detection_note <- ifelse(long$detected, "",
                  long$average_percent_coverage, long$expected_percent_coverage, long$breadth_ratio, min_ratio),
          sprintf("reads match the CARD reference at %.1f%% identity (< %.1f%%): likely a related gene that only resembles it",
                  100 * long$read_identity, 100 * min_identity))))))
+long$detected_by <- ifelse(long$detected, if (count_mode == "protein") "f70g90" else "dna", "")
+if (core_on && nrow(cstats)) {
+  ci  <- match(paste(long$sample, long$aro_accession), paste(cstats$sample, cstats$aro_accession))
+  cid <- 1 - cstats$mismatches[ci] / cstats$aligned_bases[ci]
+  take <- which(!long$detected & !is.na(ci) & cstats$stat_reads[ci] >= min_reads & is.finite(cid) & cid >= core_gene &
+                cstats$ratio[ci] >= core_ratio)
+  for (k in take) {
+    j <- ci[k]
+    matched <- long$reads[k] + long$reads_below_identity[k]
+    long$reads[k]                    <- cstats$stat_reads[j]
+    long$reads_below_identity[k]     <- matched - cstats$stat_reads[j]
+    long$aligned_bases[k]            <- cstats$aligned_bases[j]
+    long$mismatches[k]               <- cstats$mismatches[j]
+    long$average_percent_coverage[k] <- cstats$pct_covered[j]
+    long$expected_percent_coverage[k] <- cstats$pct_expected[j]
+    long$breadth_ratio[k]            <- cstats$ratio[j]
+    long$dispersion[k]               <- cstats$dispersion[j]
+    long$read_identity[k]            <- cid[k]
+    long$detected[k]                 <- TRUE
+    long$detection_note[k]           <- ""
+    long$detected_by[k]              <- "high_identity"
+  }
+}
 long$rpm  <- long$reads / long$reads_analysed * 1e6
 long$rpkm <- long$reads / (L / 1e3) / (long$reads_analysed / 1e6)
 
@@ -429,6 +469,8 @@ md <- c(md, "## How to read these numbers", "",
                       "at random would be%s. Hits that fail are kept in arg_long.tsv with the reason, and left out of the matrices."),
                 min_reads, min_ratio, if (min_identity > 0) sprintf(", matching the CARD reference at %.0f%% %sidentity or more on average", 100 * min_identity,
                                                                        if (count_mode == "protein") "amino-acid " else "") else ""),
+        if (core_on) sprintf(paste("- **detected_by**: f70g90 = the gene's kept reads average %.0f%% or more together; high_identity = they do not, but its reads at %.0f%% identity or more alone (at least %g, averaging %.0f%% or more, spread %g times as widely as random reads) are enough, as when other organisms' related genes dilute a real gene in a mixture. Such a gene's reads, copies and identity count only those reads."),
+                             100 * min_identity, 100 * core_read, min_reads, 100 * core_gene, core_ratio),
         "- Only CARD's protein homolog models are searched: genes whose presence alone confers resistance. Resistance by point mutation (e.g. in gyrA) cannot be called from reads mapped this way and is not reported.",
         if (count_mode == "protein") "- Gene lengths, aligned bases and coverage are protein lengths times 3 (the coding sequence), so rpkm and copies are on the same scale as in DNA mode. rgi_percent_coverage, completely_mapped_reads and average_mapq are RGI's and are missing (NA) in protein mode.",
         "- Counts are of reads, not organisms: which organisms carry these genes, and whether on plasmids, is for later versions.")

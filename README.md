@@ -89,7 +89,7 @@ metagenomes, or are not short reads given as FASTQ are listed in
 | `arg_reads.tsv`, `arg_rpm.tsv`, `arg_rpkm.tsv`, `arg_copies_per_16s.tsv` | Gene x sample matrices of detected genes (a sample with none is a column of zeros) |
 | `denominators.tsv` | Per sample: raw reads, reads after QC, host reads removed, reads analysed, mean read length, 16S reads, 16S bases and 16S copies |
 | `samples_left_out.tsv` | Samples not analysed, and why |
-| `fastp/`, `host_removal/`, `rgi/`, `16s/` | Each tool's own reports (no reads are ever published) |
+| `fastp/`, `host_removal/`, `diamond/` (or `rgi/` with `--count_mode dna`), `16s/` | Each tool's own reports and per-gene read statistics (no reads are ever published) |
 | `pipeline_info/` | Tool versions actually used (including the CARD release), run timeline and resource report |
 
 Every table starts with two `#` lines naming the CARD release and the 16S
@@ -100,16 +100,25 @@ pandas).
 
 1. **fastp** trims adapters and low-quality bases (its defaults).
 2. **hostile** removes host reads (human by default).
-3. **RGI bwt** (with kma) maps reads to CARD's *protein homolog models*:
-   genes whose presence alone confers resistance. Resistance by point
-   mutation (e.g. in *gyrA*) cannot be called from reads this way and is not
-   reported.
+3. **DIAMOND blastx** translates each read and searches it against the
+   proteins of CARD's *protein homolog models*: genes whose presence alone
+   confers resistance (`--count_mode protein`, the default). Comparing
+   proteins, not DNA, means a gene from a species other than the one CARD's
+   reference came from is still recognised: most of the DNA difference
+   between species is synonymous and disappears on translation. Each read
+   goes to its best-matching CARD protein, and counts only at 70% amino-acid
+   identity or more (`--min_protein_read_identity`). With
+   `--count_mode dna`, **RGI bwt** (with kma) maps reads to the DNA
+   sequences of the same models instead, as in the first builds (rules in
+   CLAUDE.md D19-D24). Resistance by point mutation (e.g. in *gyrA*) cannot
+   be called from reads this way and is not reported.
 4. **SortMeRNA** counts reads from 16S rRNA genes (SILVA bacteria and
    archaea).
 5. The tables:
-   - **reads**: reads mapped to the gene (each mate of a pair counts once)
-     that match its CARD sequence at 85% identity or more, judged read by
-     read (`--min_read_identity`); `reads_below_identity` counts the rest;
+   - **reads**: reads assigned to the gene (each mate of a pair counts
+     once) that pass the per-read identity, judged read by read (70%
+     amino-acid identity in protein mode; 85% DNA identity in DNA mode,
+     `--min_read_identity`); `reads_below_identity` counts the rest;
    - **RPM**: reads per million reads analysed (after QC and host removal);
    - **RPKM**: reads per kilobase of the CARD reference gene per million
      reads analysed;
@@ -129,7 +138,24 @@ pandas).
      A sample with no 16S reads gets NA, never zero or infinity.
    - **detected**: at least 2 reads, spread along the gene at least half as
      widely as reads landing at random would be. Reads piled on one stretch a
-     gene shares with an unrelated gene do not count. Only reads matching
+     gene shares with an unrelated gene do not count. In protein mode, the
+     gene's kept reads together, weighted by alignment length, must match
+     the CARD protein at 90% amino-acid identity or more
+     (`--min_protein_gene_identity`; `read_identity`): a real gene from
+     another species is typically 92-95% identical, a bacterium's own
+     related gene 75-90%. Single reads cannot tell these apart (a related
+     gene has conserved stretches), the whole gene can. In a mixture, other
+     organisms' related genes put reads at 70-89% onto the same CARD protein
+     and drag a real gene's pooled identity under 90%. So a gene that fails
+     is still detected if its reads at 90% or more alone (at least 2, in
+     `--min_protein_core_read_identity`) average 95% or more
+     (`--min_protein_core_gene_identity`) and spread at least 0.8 times as
+     widely as random reads (`--min_protein_core_breadth_ratio`); then only
+     those reads are counted for the gene. `detected_by` says which rule
+     called each gene (`f70g90`, `high_identity`, or `dna`). Set
+     `--min_protein_core_gene_identity 0` to switch this off. Lengths and coverage
+     are protein lengths times 3, so rpkm and copies are on the DNA scale.
+     In DNA mode, only reads matching
      CARD's sequence at 85% identity or more count, each judged on its own
      (`--min_read_identity`, 0 to switch off): reads from a different gene
      that only resembles a CARD gene match it less well, and a few of them
@@ -137,14 +163,15 @@ pandas).
      (`--min_identity_share`): a look-alike gene's reads that happen to match
      in a shared stretch are a minority. `read_identity` is the mean over the
      reads kept. Genes whose DNA is far (under ~85%) from CARD's sequence, as
-     some porins are, are therefore not called even when present.
+     some porins are, are therefore not called in DNA mode even when present.
      Every hit is kept in `arg_long.tsv` with the reason it was or was not
      called.
    - **alleles**: one gene's reads can split between near-identical CARD
      sequences (alleles), leaving the minor ones too thin to be called and
      their reads uncounted. An undetected allele whose reads match it well
      has them counted under the detected gene of the same sample whose CARD
-     sequence is at least 95% identical (`--min_allele_identity`, 0 to
+     sequence is at least 95% identical (`--min_protein_allele_identity` in
+     protein mode, amino acids; `--min_allele_identity` in DNA mode; 0 to
      switch off). `merged_reads`, `merged_aligned_bases` and `merged_from`
      show what was added; `reads`, `rpm` and `rpkm` stay each gene's own,
      and no detection call changes.
@@ -170,7 +197,12 @@ CARD cache. Every round's marks were committed before its data was chosen
 Rounds 1 and 2 failed mostly because CARD names one gene in different ways
 (CLAUDE.md D12, D15). Round 3's misses are real: reads from a bacterium's
 own genes that only partly resemble a CARD gene (*E. coli* LptD, MdtK,
-eptB) are called detected (D17).
+eptB) are called detected (D17). Round 4, on fresh genomes, missed
+intrinsic genes of *Klebsiella* and *Enterobacter* that are 81-85%
+DNA-identical to CARD's *E. coli* reference but 92-95% identical as
+proteins (D25). That is why protein mode was built (D26, D27). **Protein
+mode has not been validated:** its settings come from development on rounds
+3 and 4, and a new pre-registered round (V2, on genera not yet seen) tests it.
 
 ## Known limitations (v0.1)
 
@@ -185,16 +217,21 @@ eptB) are called detected (D17).
   only resembles a resistance gene (for example *E. coli* reads on a
   *Bifidobacterium* rpoB); ABC transporter genes are undercounted (about
   0.4x); chloramphenicol acetyltransferases and porins are overcounted (up
-  to about 2x). About 1 in 8 genes RGI finds by protein similarity has DNA
-  too far from CARD's reference for any read to map (vanG, rsmA, leuO in
-  Enterobacterales, for example): read-based counting cannot see them.
+  to about 2x). These were found in DNA mode. About 1 in 8 genes RGI finds
+  by protein similarity has DNA too far from CARD's reference for any read
+  to map (vanG, rsmA, leuO in Enterobacterales, for example): DNA mode
+  cannot see them, and protein mode may.
 - CARD's own reference sequences only. CARD's variants collection
   (WildCARD), which might seem to help genes that differ from CARD's one
   reference, made every validation mark worse in development and is not
   used (CLAUDE.md D20; evidence in
   [validation/V1/outcomes_dev_round3_variants](validation/V1/outcomes_dev_round3_variants/README.md)).
-  Genes only 80-90% identical to CARD's reference are therefore still partly
-  counted.
+  In DNA mode, genes only 80-90% identical to CARD's reference are
+  therefore still partly counted; protein mode is meant to fix this.
+- Protein mode (development, D26): porins with hypervariable loops (for
+  example *Klebsiella* OmpK37) can fall below the 90% gene identity and be
+  missed; a read on one part of a fused protein (for example
+  ANT(3'')-II-AAC(6')-IId) can be counted to the fusion.
 - No statistics yet: v0.1 counts and normalises. Comparisons between groups
   and times come in v0.2.
 

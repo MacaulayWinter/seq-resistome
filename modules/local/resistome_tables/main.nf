@@ -28,6 +28,10 @@ process RESISTOME_TABLES {
     val min_identity_share
     val count_mode                  // protein or dna (D27)
     val read_filter_identity        // the identity each read must reach (protein: min_protein_read_identity)
+    path core, stageAs: 'core/*'    // protein mode: <sample>.read_stats.tsv over the reads at core_read_identity or more (D31); none in DNA mode
+    val core_read_identity
+    val core_gene_identity          // 0 = the high-identity way to detect a gene is off
+    val core_breadth_ratio
 
     output:
     path 'arg_long.tsv',            emit: long
@@ -41,6 +45,7 @@ process RESISTOME_TABLES {
     """
     resistome_tables.R rgi rrna input/read_flow.tsv input/samples_left_out.tsv input/samplesheet.csv \\
         '${card_version}' ${card_validated} ${length_16s} ${min_arg_reads} ${min_breadth_ratio} ${workflow.manifest.version} ${min_read_identity} \\
-        input/card_alleles.tsv ${min_allele_identity} ${min_identity_share} ${count_mode} ${read_filter_identity}
+        input/card_alleles.tsv ${min_allele_identity} ${min_identity_share} ${count_mode} ${read_filter_identity} \\
+        ${(core_gene_identity as float) > 0 ? 'core' : 'none'} ${core_read_identity} ${core_gene_identity} ${core_breadth_ratio}
     """
 }

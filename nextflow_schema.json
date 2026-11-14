@@ -154,6 +154,26 @@
                     "minimum": 0,
                     "maximum": 1
                 },
+                "min_protein_core_read_identity": {
+                    "type": "number",
+                    "description": "Protein mode, high-identity detection (rule \"or\"): the reads at this amino-acid identity or more are also counted on their own. 0.90 was set on development data (V1 rounds 3-4).",
+                    "default": 0.9,
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "min_protein_core_gene_identity": {
+                    "type": "number",
+                    "description": "Protein mode: a gene that fails --min_protein_gene_identity is still detected if its reads at --min_protein_core_read_identity or more, at least --min_arg_reads of them, average this identity or more and meet --min_protein_core_breadth_ratio. It lets a real gene stand out when other organisms' related genes (70-89%) dilute its pooled identity in a mixture. 0 switches it off. 0.95 was set on development data (V1 rounds 3-4).",
+                    "default": 0.95,
+                    "minimum": 0,
+                    "maximum": 1
+                },
+                "min_protein_core_breadth_ratio": {
+                    "type": "number",
+                    "description": "Protein mode: for high-identity detection, how many times as widely as reads landing at random those reads must spread along the gene. 0.8 was set on development data (V1 rounds 3-4).",
+                    "default": 0.8,
+                    "minimum": 0
+                },
                 "min_arg_reads": {
                     "type": "integer",
                     "description": "Fewest reads for an ARG to count as detected.",

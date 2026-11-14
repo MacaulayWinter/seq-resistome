@@ -97,7 +97,7 @@ jobs:
     needs: [changes, unit]
     if: needs.changes.outputs.code == 'true'
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 60
     defaults:
       run:
         shell: bash -el {0}   # login shell, so the conda env is active
@@ -130,6 +130,16 @@ jobs:
           docker run --rm -v "$PWD":/w -w /w "$R_IMAGE" \
             Rscript tests/e2e/check_test_profile.R results tests/e2e/expected.tsv
 
+      # DNA mode (RGI bwt, `--count_mode dna`) stays supported: the same test
+      # samples and expectations, through the other engine.
+      - name: Run pipeline on the test profile, DNA mode
+        run: nextflow run main.nf -profile test,docker --count_mode dna --outdir results_dna
+
+      - name: Check DNA-mode results
+        run: |
+          docker run --rm -v "$PWD":/w -w /w "$R_IMAGE" \
+            Rscript tests/e2e/check_test_profile.R results_dna tests/e2e/expected.tsv
+
       # The same samples handed over from seq-triage's results (D9): four
       # more are left out, each with seq-triage's reason. This second run
       # must use the CARD cache the first one filled.
@@ -156,6 +166,7 @@ jobs:
           path: |
             results/*.tsv
             results/*.md
+            results_dna/*.tsv
             results/pipeline_info/
             results_triage/*.tsv
             .nextflow.log
