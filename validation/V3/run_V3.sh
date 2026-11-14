@@ -72,7 +72,7 @@ def back(d, k):
 def fetch(start, end):
     rows, tok = [], ""
     while True:
-        u = ("https://api.ncbi.nlm.nih.gov/datasets/v3/genome/taxon/%s/dataset_report?filters.assembly_source=refseq"
+        u = ("https://api.ncbi.nlm.nih.gov/datasets/v2/genome/taxon/%s/dataset_report?filters.assembly_source=refseq"
              "&filters.assembly_level=complete_genome&filters.first_release_date=%sT00:00:00.000Z&filters.last_release_date=%sT23:59:59.000Z&page_size=1000%s"
              % (taxid, start, end, ("&page_token=" + tok) if tok else ""))
         d = json.load(urllib.request.urlopen(u, timeout=120))
@@ -106,7 +106,7 @@ log "1. spikes: $spikes"; cat "$v3/genomes_V3.tsv"
 fetch_genome() {   # fetch_genome <accession>
     local g=$1 d; [ -s "$v3/genomes/$g.fna" ] && return
     d=$(mktemp -d)
-    curl -sSfL -o "$d/g.zip" "https://api.ncbi.nlm.nih.gov/datasets/v3/genome/accession/$g/download?include_annotation_type=GENOME_FASTA"
+    curl -sSfL -o "$d/g.zip" "https://api.ncbi.nlm.nih.gov/datasets/v2/genome/accession/$g/download?include_annotation_type=GENOME_FASTA"
     unzip -q -o "$d/g.zip" -d "$d"; cat "$d"/ncbi_dataset/data/"$g"/*.fna > "$v3/genomes/$g.fna"; rm -rf "$d"
     [ "$(grep -c '^>' "$v3/genomes/$g.fna")" -ge 1 ] || { echo "run_V3.sh: $g downloaded no sequence" >&2; exit 1; }
 }
