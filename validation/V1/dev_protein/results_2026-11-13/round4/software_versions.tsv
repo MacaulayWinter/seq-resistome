@@ -1,0 +1,10 @@
+process	tool	version
+COUNT_16S	sortmerna	4.3.7
+DIAMOND_BLASTX	diamond	2.2.8
+DIAMOND_DB	card-database	4.0.2
+DIAMOND_DB	diamond	2.2.8
+FASTP	fastp	1.3.6
+HOSTILE_CLEAN	hostile	2.0.2
+RESISTOME_TABLES	R	4.5.2
+SORTMERNA_INDEX	sortmerna	4.3.7
+UNTAR_CARD	untar	1.34

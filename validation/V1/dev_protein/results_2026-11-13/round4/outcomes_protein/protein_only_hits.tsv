@@ -1,0 +1,16 @@
+genome	orf	aro_accession	aro_term	family	contig	start	stop	findable	protein_identity	best_dna_identity
+GCF_051561185.1	NZ_CP196253.1_231	3000777	adeF	resistance-nodulation-cell division (RND) antibiotic efflux pump	NZ_CP196253.1	243396	246563	FALSE	59.73	68.932
+GCF_051561185.1	NZ_CP196253.1_976	3005053	ArnT	pmr phosphoethanolamine transferase	NZ_CP196253.1	1070601	1072244	FALSE	72.78	73.803
+GCF_051561185.1	NZ_CP196253.1_1763	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	NZ_CP196253.1	1889422	1889607	FALSE	85.25	78.205
+GCF_051561185.1	NZ_CP196253.1_3084	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CP196253.1	3318918	3319247	FALSE	88.07	79.697
+GCF_051561185.1	NZ_CP196253.1_3085	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CP196253.1	3319234	3319596	FALSE	84.17	77.596
+GCF_051561185.1	NZ_CP196253.1_4062	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	NZ_CP196253.1	4367586	4368683	FALSE	38.92	NA
+GCF_051561185.1	NZ_CP196253.1_4258	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	NZ_CP196253.1	4590652	4591596	FALSE	82.17	75.342
+GCF_051562295.1	NZ_CP196259.1_1203	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	NZ_CP196259.1	1240987	1242081	FALSE	37.95	NA
+GCF_051562295.1	NZ_CP196259.1_3567	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	NZ_CP196259.1	3809797	3809982	FALSE	85.25	79.487
+GCF_051562295.1	NZ_CP196259.1_3945	3005053	ArnT	pmr phosphoethanolamine transferase	NZ_CP196259.1	4227837	4229489	FALSE	63.7	68.138
+GCF_051562295.1	NZ_CP196259.1_4762	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CP196259.1	5081415	5081780	FALSE	82.2	75.833
+GCF_051562295.1	NZ_CP196259.1_4763	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CP196259.1	5081767	5082096	FALSE	84.4	75.385
+GCF_051617105.1	NZ_CP196294.1_342	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	NZ_CP196294.1	340051	341148	FALSE	38.66	79.592
+GCF_051617105.1	NZ_CP196294.1_570	3003843	leuO	major facilitator superfamily (MFS) antibiotic efflux pump; antibiotic efflux regulatory protein	NZ_CP196294.1	596649	597617	FALSE	83.44	75.528
+GCF_051617105.1	NZ_CP196294.1_2423	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	NZ_CP196294.1	2612888	2613073	FALSE	85.25	77.564
