@@ -167,6 +167,9 @@ sim_of <- function(s) {
 sim <- setNames(lapply(den$sample[den$kind %in% c("pure", "mixture")], sim_of), den$sample[den$kind %in% c("pure", "mixture")])
 locus_depth <- function(s, keys) {
   x <- sim[[s]]; x <- x[x$type == "locus", ]
+  # Addendum B: a sample with a spike depth below 1x and an empty simulated-depth file has no depth (NA), reported as such;
+  # the depth is read only for reported items there, never for a mark. Any other missing depth still stops.
+  if (!nrow(x) && den$spike_depth[match(s, den$sample)] < 1) return(rep(NA_real_, length(keys)))
   k <- sprintf("%s:%s:%d-%d", x$genome, x$contig, x$start, x$end)
   d <- x$mean_depth[match(keys, k)]
   if (anyNA(d)) stop("score_V1_round4.R: ", s, " has no simulated depth for ", paste(keys[is.na(d)], collapse = ", "))
