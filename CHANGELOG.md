@@ -2,6 +2,7 @@
 
 ## Unreleased (branch `protein-mode`; development, not validated)
 
+- **Fix: `--min_protein_core_reads` and `--min_protein_probable_gene_identity` reached the script swapped** (V3 ran without either; see validation/V3/RESULT_2026-11-15.md). The module's input order now matches the workflow call, and `tests/e2e/check_test_profile.R` reads both settings back from the run's summary.
 - **Protein mode, the new default** (`--count_mode protein`; D26, D27):
   reads are translated and searched against CARD's protein homolog
   proteins with DIAMOND 2.2.8 blastx. Rule f70g90: a read counts at 70%

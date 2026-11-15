@@ -121,6 +121,18 @@ check(all(long$detected_by[long$detected] %in% (if (mode[1] == "dna") "dna" else
 # The call (V3, D33): detected exactly when detected; a probable homolog only in protein mode, never detected.
 check(all(long$call[long$detected] == "detected") && all(long$call[!long$detected] %in% c("", if (mode[1] == "protein") "probable_homolog")),
       "call is missing, or wrong for the count mode, or marks a detected gene as anything but detected")
+# The settings reach the script, in order (V3 ran with two of them swapped, unseen by the script tests): the summary prints
+# what the script was given, so read the pipeline defaults back from it.
+summ <- paste(readLines(file.path(out, "resistome_summary.md")), collapse = "\n")
+if (identical(mode[1], "protein")) {
+  check(grepl("(at least 4, averaging 95% or more, spread 0.8 times", summ, fixed = TRUE),
+        "summary: the high-identity route does not show min_protein_core_reads 4, core gene identity 95%, breadth ratio 0.8")
+  check(grepl("average 85% to under 90% amino-acid identity", summ, fixed = TRUE) && grepl("(with at least 2 reads, spread 0.5 times", summ, fixed = TRUE),
+        "summary: the probable_homolog rule does not show min_protein_probable_gene_identity 85%")
+} else {
+  check(!grepl("detected_by**: f70g90", summ, fixed = TRUE) && !grepl("probable_homolog", summ, fixed = TRUE),
+        "summary: DNA mode shows protein-mode rules")
+}
 v <- read.delim(file.path(out, "pipeline_info", "software_versions.tsv"), stringsAsFactors = FALSE)
 engine <- if (identical(mode[1], "dna")) c("rgi", "kma", "rgi-database") else c("diamond", "card-database")
 for (t in c("fastp", "hostile", "sortmerna", "R", engine))

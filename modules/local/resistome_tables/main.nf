@@ -32,8 +32,8 @@ process RESISTOME_TABLES {
     val core_read_identity
     val core_gene_identity          // 0 = the high-identity way to detect a gene is off
     val core_breadth_ratio
-    val core_min_reads              // protein mode: reads at core_read_identity or more the high-identity route needs (V3); 0 = min_arg_reads
     val probable_gene_identity      // protein mode: a gene from this identity up to min_read_identity is a probable_homolog (V3); 0 = off
+    val core_min_reads              // protein mode: reads at core_read_identity or more the high-identity route needs (V3); 0 = min_arg_reads
 
     output:
     path 'arg_long.tsv',            emit: long
