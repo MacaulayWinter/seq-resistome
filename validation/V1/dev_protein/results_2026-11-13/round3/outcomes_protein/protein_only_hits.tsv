@@ -1,0 +1,16 @@
+genome	orf	aro_accession	aro_term	family	contig	start	stop	findable	protein_identity	best_dna_identity
+GCF_051559745.1	NZ_CP196276.1_677	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CP196276.1	709278	709643	FALSE	82.2	75.833
+GCF_051559745.1	NZ_CP196276.1_678	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CP196276.1	709630	709959	FALSE	84.4	75.385
+GCF_051559745.1	NZ_CP196276.1_1921	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	NZ_CP196276.1	1988251	1989345	FALSE	37.95	NA
+GCF_051559745.1	NZ_CP196276.1_4276	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	NZ_CP196276.1	4540849	4541034	FALSE	85.25	79.487
+GCF_051559745.1	NZ_CP196276.1_4643	3005053	ArnT	pmr phosphoethanolamine transferase	NZ_CP196276.1	4946937	4948589	FALSE	63.7	68.138
+GCF_051563765.1	NZ_CP196265.1_1216	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	NZ_CP196265.1	1339657	1340751	FALSE	38.23	NA
+GCF_051563765.1	NZ_CP196265.1_2516	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CP196265.1	2681027	2681356	FALSE	85.32	75.692
+GCF_051563765.1	NZ_CP196265.1_2517	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CP196265.1	2681343	2681708	FALSE	81.36	76.667
+GCF_051563765.1	NZ_CP196265.1_3267	3005053	ArnT	pmr phosphoethanolamine transferase	NZ_CP196265.1	3515064	3516716	FALSE	63.7	68
+GCF_051563765.1	NZ_CP196265.1_3617	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	NZ_CP196265.1	3910302	3910487	FALSE	85.25	79.487
+GCF_051618695.1	NZ_CP196308.1_358	3005053	ArnT	pmr phosphoethanolamine transferase	NZ_CP196308.1	380778	382430	FALSE	63.7	68.457
+GCF_051618695.1	NZ_CP196308.1_1071	3004580	Klebsiella pneumoniae KpnE	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CP196308.1	1141520	1141885	FALSE	82.2	75.833
+GCF_051618695.1	NZ_CP196308.1_1072	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CP196308.1	1141872	1142201	FALSE	84.4	75.385
+GCF_051618695.1	NZ_CP196308.1_2377	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	NZ_CP196308.1	2526674	2527768	FALSE	38.23	NA
+GCF_051618695.1	NZ_CP196308.1_4475	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	NZ_CP196308.1	4804442	4804627	FALSE	85.25	79.487

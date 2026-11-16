@@ -1,0 +1,12 @@
+pure_GCF_051561185.1 mate 1 seconds 16
+pure_GCF_051561185.1 mate 2 seconds 17
+pure_GCF_051562295.1 mate 1 seconds 15
+pure_GCF_051562295.1 mate 2 seconds 15
+pure_GCF_051617105.1 mate 1 seconds 19
+pure_GCF_051617105.1 mate 2 seconds 19
+pure_GCF_051559745.1 mate 1 seconds 15
+pure_GCF_051559745.1 mate 2 seconds 16
+pure_GCF_051563765.1 mate 1 seconds 15
+pure_GCF_051563765.1 mate 2 seconds 15
+pure_GCF_051618695.1 mate 1 seconds 21
+pure_GCF_051618695.1 mate 2 seconds 15

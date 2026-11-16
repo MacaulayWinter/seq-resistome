@@ -1,0 +1,3 @@
+# seq-resistome 0.1.0dev | CARD 4.0.2 (the release this pipeline version was validated with) | samples not analysed, and why
+# copies_per_16s counts ARG copies per 16S rRNA gene copy. Bacterial genomes carry 1 to about 15 16S copies (most 1 to 7), so this is not ARGs per cell or per genome, and communities whose members carry more 16S copies look poorer in ARGs.
+sample	reason

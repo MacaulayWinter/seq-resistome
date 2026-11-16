@@ -77,13 +77,27 @@ jobs:
         run: |
           docker run --rm -v "$PWD":/w -w /w "$R_IMAGE" \
             Rscript tests/resistome_tables/test_resistome_tables.R
+      # RGI's read statistics, in the pipeline's own RGI image (it has samtools; D23).
+      - name: RGI read statistics (per-read identity)
+        run: |
+          docker run --rm -u "$(id -u):$(id -g)" -v "$PWD":/w -w /w \
+            community.wave.seqera.io/library/rgi_kma:e905ecb8305e2609 \
+            bash tests/read_stats/test_rgi_read_stats.sh
+
+      # DIAMOND's read statistics (protein mode, D27), in the pipeline's own
+      # DIAMOND image, so its awk is the one the pipeline uses.
+      - name: DIAMOND read statistics (ties, identity filter, mates)
+        run: |
+          docker run --rm -u "$(id -u):$(id -g)" -v "$PWD":/w -w /w \
+            community.wave.seqera.io/library/diamond:2.2.8--eed209e94c781649 \
+            bash tests/read_stats/test_protein_read_stats.sh
 
   e2e:
     name: End-to-end (-profile test), CARD cache, input checks
     needs: [changes, unit]
     if: needs.changes.outputs.code == 'true'
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 60
     defaults:
       run:
         shell: bash -el {0}   # login shell, so the conda env is active
@@ -116,6 +130,16 @@ jobs:
           docker run --rm -v "$PWD":/w -w /w "$R_IMAGE" \
             Rscript tests/e2e/check_test_profile.R results tests/e2e/expected.tsv
 
+      # DNA mode (RGI bwt, `--count_mode dna`) stays supported: the same test
+      # samples and expectations, through the other engine.
+      - name: Run pipeline on the test profile, DNA mode
+        run: nextflow run main.nf -profile test,docker --count_mode dna --outdir results_dna
+
+      - name: Check DNA-mode results
+        run: |
+          docker run --rm -v "$PWD":/w -w /w "$R_IMAGE" \
+            Rscript tests/e2e/check_test_profile.R results_dna tests/e2e/expected.tsv
+
       # The same samples handed over from seq-triage's results (D9): four
       # more are left out, each with seq-triage's reason. This second run
       # must use the CARD cache the first one filled.
@@ -142,6 +166,7 @@ jobs:
           path: |
             results/*.tsv
             results/*.md
+            results_dna/*.tsv
             results/pipeline_info/
             results_triage/*.tsv
             .nextflow.log

@@ -14,9 +14,13 @@
  * internet when compute nodes may not).
  */
 
+// Streamed, so the archive never has to fit in memory.
 def sha256(path) {
     def md = java.security.MessageDigest.getInstance('SHA-256')
-    return md.digest(java.nio.file.Files.readAllBytes(path)).encodeHex().toString()
+    new java.security.DigestInputStream(java.nio.file.Files.newInputStream(path), md).withCloseable { s ->
+        s.transferTo(java.io.OutputStream.nullOutputStream())
+    }
+    return md.digest().encodeHex().toString()
 }
 
 // The newest CARD release named on CARD's download page.

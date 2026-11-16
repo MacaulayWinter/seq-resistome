@@ -10,6 +10,17 @@
  * counted from bases, not reads: a read overlapping a gene end, or a short
  * local hit, covers only part of a gene, and counting it as a whole read
  * overestimated 16S copies 1.25-1.34x (validation V1 round 1, D12, D13).
+ * Two further corrections (D20): alignments covering fewer than
+ * min_16s_bases reference bases are not counted (short local hits, often
+ * from other genes, were ~3% of bases), and each alignment counts as its
+ * covered bases divided by the length of the SILVA reference it hit, not a
+ * fixed 1,542 bp (SILVA references run from ~1,200 to over 1,800 bp, which
+ * biased copies by ~3%). copies_16s is that sum.
+ * D23: alignments matching their SILVA reference below min_16s_identity
+ * (1 - NM / covered bases) are not counted either (low_identity_16s): in V1
+ * round 3, reads from 23S genes, from just past a 16S copy and short local
+ * hits elsewhere were 8.8% of 16S bases (median identity 0.88), while reads
+ * from inside 16S copies matched at >= 0.98.
  * Reads are never written.
  */
 process COUNT_16S {
@@ -23,6 +34,8 @@ process COUNT_16S {
     tuple val(meta), path(reads)
     path refs
     path index
+    val min_16s_bases
+    val min_16s_identity
 
     output:
     tuple val(meta), path("${meta.id}.16s.tsv"), emit: counts
@@ -40,11 +53,25 @@ process COUNT_16S {
         --aligned ${prefix}.16s \\
         --sam --num_alignments 1 \\
         --threads ${task.cpus}
-    read n16 b16 < <(gzip -cdf ${prefix}.16s.sam* | awk '!/^@/ { n++; c = \$6
-        while (match(c, /[0-9]+[MDX=]/)) { b += substr(c, RSTART, RLENGTH - 1); c = substr(c, RSTART + RLENGTH) } }
-        END { print n + 0, b + 0 }')
+    # SortMeRNA's SAM has no @SQ lines: reference lengths come from the
+    # SILVA FASTA files (first word of each header, as in the SAM).
+    awk '/^>/ { if (id != "") print id "\\t" l; id = substr(\$1, 2); l = 0; next } { l += length(\$0) }
+         END { if (id != "") print id "\\t" l }' ${refs.join(' ')} > ref_lengths.tsv
+    gzip -cdf ${prefix}.16s.sam* | awk -F'\\t' -v minb=${min_16s_bases} -v minid=${min_16s_identity} '
+        BEGIN { while ((getline line < "ref_lengths.tsv") > 0) { split(line, f, "\\t"); len[f[1]] = f[2] } }
+        /^@/ { next }
+        { c = \$6; al = 0
+          while (match(c, /[0-9]+[MDX=]/)) { al += substr(c, RSTART, RLENGTH - 1); c = substr(c, RSTART + RLENGTH) }
+          if (al < minb || al == 0) { s++; next }
+          nm = -1; for (i = 12; i <= NF; i++) if (\$i ~ /^NM:i:/) nm = substr(\$i, 6)
+          if (nm < 0) { print "COUNT_16S: SortMeRNA alignment without an NM tag (read " \$1 ")" > "/dev/stderr"; exit 1 }
+          if (1 - nm / al < minid) { lo++; next }
+          if (!(\$3 in len)) { print "COUNT_16S: reference " \$3 " is not in the 16S reference FASTA" > "/dev/stderr"; exit 1 }
+          n++; b += al; cp += al / len[\$3] }
+        END { printf "%d %d %.6f %d %d\\n", n, b, cp, s, lo }' > counts.txt
+    read n16 b16 c16 short16 lowid16 < counts.txt
     seen=\$(sed -n 's/.*Total reads = \\([0-9]*\\).*/\\1/p' ${prefix}.16s.log | head -1)
-    printf 'sample\\treads_16s\\tbases_16s\\treads_seen\\n%s\\t%s\\t%s\\t%s\\n' ${prefix} "\$n16" "\$b16" "\$seen" > ${prefix}.16s.tsv
-    rm -f ${prefix}.16s.sam*
+    printf 'sample\\treads_16s\\tbases_16s\\tcopies_16s\\tshort_16s\\tlow_identity_16s\\treads_seen\\n%s\\t%s\\t%s\\t%s\\t%s\\t%s\\t%s\\n' ${prefix} "\$n16" "\$b16" "\$c16" "\$short16" "\$lowid16" "\$seen" > ${prefix}.16s.tsv
+    rm -rf ${prefix}.16s.sam* ref_lengths.tsv counts.txt smr   # smr/: SortMeRNA scratch copy of the reads (~0.1-0.2 GB)
     """
 }

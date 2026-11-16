@@ -1,0 +1,778 @@
+sample	aro_accession	aro_term	reads	average_percent_coverage	family	explained_by	explained_by_dna_only
+mix_gut_GCF_062052633.1_0.5x	3004480	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin	910	100	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3003730	Bifidobacterium bifidum ileS conferring resistance to mupirocin	645	100	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000191	tet(Q)	204	98.3257	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000190	tet(O)	155	100	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3009654	MrmA	90	100	Cfr-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3003002	CfxA2	89	100	CfxA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000596	ErmX	26	91.1972	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000194	tet(W)	22	66.1972	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000205	tet(X)	22	94.5876	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3004454	Campylobacter coli chloramphenicol acetyltransferase	16	90.3382	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000567	tet(40)	15	74.8768	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000793	mdtB	13	32.0192	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3004659	Mef(En2)	13	89.5262	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000498	ErmF	10	84.2105	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3002686	catP	9	96.6184	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000796	mdtF	9	28.7367	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000502	AcrF	8	33.0754	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3002867	dfrF	8	98.7805	trimethoprim resistant dihydrofolate reductase dfr	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000195	tetB(P)	8	27.3006	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3003548	mdtN	6	40.5248	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000177	tet(J)	6	53.5176	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_0.5x	3004657	catA4	5	55.2995	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_0.5x	3000518	CRP	5	50.4762	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_0.5x	3000833	evgS	4	14.7034	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000491	acrD	3	12.729	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3003550	mdtP	3	30.3279	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000656	AcrS	2	45	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3002626	ANT(6)-Ia	2	19.8606	ANT(6)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3002999	CblA-1	2	32.4324	CblA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3006874	EC-13	2	18.0371	EC beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3004043	Escherichia coli acrA	2	24.937	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000832	evgA	2	39.2157	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000508	gadX	2	36.1314	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3000795	mdtE	2	25.974	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3003549	mdtO	2	13.6164	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_0.5x	3002895	SAT-2	2	40.8046	streptothricin acetyltransferase (SAT)	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_0.5x	3000180	tetA(P)	2	11.9048	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3004480	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin	913	100	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3003730	Bifidobacterium bifidum ileS conferring resistance to mupirocin	645	100	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000191	tet(Q)	204	98.3257	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000190	tet(O)	155	100	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3009654	MrmA	90	100	Cfr-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3003002	CfxA2	89	100	CfxA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000596	ErmX	26	91.1972	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3004657	catA4	24	100	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_2x	3000177	tet(J)	24	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_2x	3000194	tet(W)	22	66.1972	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000205	tet(X)	22	94.5876	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000518	CRP	19	100	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_2x	3004454	Campylobacter coli chloramphenicol acetyltransferase	16	90.3382	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000567	tet(40)	15	74.8768	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000502	AcrF	14	52.8046	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3004659	Mef(En2)	13	89.5262	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000498	ErmF	10	84.2105	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000794	mdtC	10	31.9024	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3002686	catP	9	96.6184	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3002218	IMP-27	9	91.4634	IMP beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_2x	3002601	aadA	8	95.057	ANT(3'')	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_2x	3002867	dfrF	8	98.7805	trimethoprim resistant dihydrofolate reductase dfr	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000195	tetB(P)	8	27.3006	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3003548	mdtN	6	40.5248	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3002895	SAT-2	6	93.1034	streptothricin acetyltransferase (SAT)	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_2x	3000491	acrD	4	13.0183	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000833	evgS	4	14.7034	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000656	AcrS	3	45	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3003550	mdtP	3	30.3279	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3002626	ANT(6)-Ia	2	19.8606	ANT(6)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3002999	CblA-1	2	32.4324	CblA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3006874	EC-13	2	18.0371	EC beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3004043	Escherichia coli acrA	2	24.937	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000832	evgA	2	39.2157	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000508	gadX	2	36.1314	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000795	mdtE	2	25.974	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3003549	mdtO	2	13.6164	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_2x	3000180	tetA(P)	2	11.9048	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3004480	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin	935	100	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3003730	Bifidobacterium bifidum ileS conferring resistance to mupirocin	645	100	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3000191	tet(Q)	204	98.3257	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3000190	tet(O)	149	100	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3009654	MrmA	90	100	Cfr-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3003002	CfxA2	89	100	CfxA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3000177	tet(J)	71	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_8x	3004657	catA4	46	100	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_8x	3002895	SAT-2	46	100	streptothricin acetyltransferase (SAT)	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_8x	3000518	CRP	45	100	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_8x	3002601	aadA	40	100	ANT(3'')	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_8x	3002218	IMP-27	39	100	IMP beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062052633.1_8x	3000596	ErmX	26	91.1972	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3000194	tet(W)	22	66.1972	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3000205	tet(X)	22	94.5876	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3004454	Campylobacter coli chloramphenicol acetyltransferase	16	90.3382	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3000567	tet(40)	15	74.8768	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3004659	Mef(En2)	13	89.5262	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3005069	rsmA	11	100	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome (RGI main, protein)	shares a family term with the background alone
+mix_gut_GCF_062052633.1_8x	3000498	ErmF	10	84.2105	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3002686	catP	9	96.6184	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3002867	dfrF	8	98.7805	trimethoprim resistant dihydrofolate reductase dfr	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3000195	tetB(P)	8	27.3006	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3003548	mdtN	6	40.5248	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3000833	evgS	4	14.7034	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3004597	Klebsiella pneumoniae KpnH	4	31.4453	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome (RGI main, protein)	shares a family term with the background alone
+mix_gut_GCF_062052633.1_8x	3003550	mdtP	3	30.3279	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3002626	ANT(6)-Ia	2	19.8606	ANT(6)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3002999	CblA-1	2	32.4324	CblA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3006874	EC-13	2	18.0371	EC beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3000832	evgA	2	39.2157	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3000508	gadX	2	36.1314	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3000795	mdtE	2	25.974	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3003549	mdtO	2	13.6164	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062052633.1_8x	3000180	tetA(P)	2	11.9048	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3004480	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin	909	100	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3003730	Bifidobacterium bifidum ileS conferring resistance to mupirocin	645	100	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000191	tet(Q)	204	98.3257	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000190	tet(O)	149	100	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3009654	MrmA	90	100	Cfr-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3003002	CfxA2	89	100	CfxA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000596	ErmX	26	91.1972	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000194	tet(W)	22	66.1972	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000205	tet(X)	22	94.5876	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3004454	Campylobacter coli chloramphenicol acetyltransferase	16	90.3382	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000567	tet(40)	15	74.8768	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3004659	Mef(En2)	13	89.5262	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000498	ErmF	10	84.2105	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000793	mdtB	10	22.2115	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3002686	catP	9	96.6184	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3002867	dfrF	8	98.7805	trimethoprim resistant dihydrofolate reductase dfr	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000794	mdtC	8	22.439	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000796	mdtF	8	24.2044	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000195	tetB(P)	8	27.3006	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000502	AcrF	7	28.3366	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3003548	mdtN	6	40.5248	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3004364	almG	5	47.2527	lipid A acyltransferase;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_0.5x	3000518	CRP	4	46.6667	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_0.5x	3000833	evgS	4	14.7034	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3003550	mdtP	3	30.3279	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000491	acrD	2	8.00386	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000656	AcrS	2	45	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3002626	ANT(6)-Ia	2	19.8606	ANT(6)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3002999	CblA-1	2	32.4324	CblA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3006874	EC-13	2	18.0371	EC beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000074	emrB	2	19.3359	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3004043	Escherichia coli acrA	2	24.937	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000832	evgA	2	39.2157	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000508	gadX	2	36.1314	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3003843	leuO	2	31.2102	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump	shares a family term with the background alone	shares a family term with the background alone
+mix_gut_GCF_062058145.1_0.5x	3000795	mdtE	2	25.974	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3003549	mdtO	2	13.6164	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3000180	tetA(P)	2	11.9048	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_0.5x	3004289	Vibrio cholerae varG	2	25.3846	Subclass B1 Vibrio cholerae varG beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_2x	3004480	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin	910	100	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3003730	Bifidobacterium bifidum ileS conferring resistance to mupirocin	645	100	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000191	tet(Q)	204	98.3257	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000190	tet(O)	149	100	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3009654	MrmA	90	100	Cfr-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3003002	CfxA2	89	100	CfxA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000596	ErmX	26	91.1972	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000194	tet(W)	22	66.1972	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000205	tet(X)	22	94.5876	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3007433	almE	17	67.2662	alm glycyltransferase;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_2x	3004454	Campylobacter coli chloramphenicol acetyltransferase	16	90.3382	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3004364	almG	15	98.9011	lipid A acyltransferase;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_2x	3000518	CRP	15	97.1429	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_2x	3000567	tet(40)	15	74.8768	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3004659	Mef(En2)	13	89.5262	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3004289	Vibrio cholerae varG	13	76.6667	Subclass B1 Vibrio cholerae varG beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_2x	3000498	ErmF	10	84.2105	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000793	mdtB	10	22.2115	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3002686	catP	9	96.6184	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3002867	dfrF	8	98.7805	trimethoprim resistant dihydrofolate reductase dfr	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000794	mdtC	8	22.439	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000796	mdtF	8	24.2044	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000195	tetB(P)	8	27.3006	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000502	AcrF	7	28.3366	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3003843	leuO	7	40.4459	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump	shares a family term with the background alone	shares a family term with the background alone
+mix_gut_GCF_062058145.1_2x	3007431	almF	6	100	alm glycyl carrier protein;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_2x	3003548	mdtN	6	40.5248	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000833	evgS	4	14.7034	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3003550	mdtP	3	30.3279	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000491	acrD	2	8.00386	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000656	AcrS	2	45	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3002626	ANT(6)-Ia	2	19.8606	ANT(6)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3002999	CblA-1	2	32.4324	CblA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3006874	EC-13	2	18.0371	EC beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000074	emrB	2	19.3359	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3004043	Escherichia coli acrA	2	24.937	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000832	evgA	2	39.2157	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000508	gadX	2	36.1314	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000795	mdtE	2	25.974	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3003549	mdtO	2	13.6164	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_2x	3000180	tetA(P)	2	11.9048	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3004480	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin	943	100	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3003730	Bifidobacterium bifidum ileS conferring resistance to mupirocin	645	100	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000191	tet(Q)	204	98.3257	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000190	tet(O)	149	100	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3007433	almE	92	100	alm glycyltransferase;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_8x	3009654	MrmA	90	100	Cfr-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3003002	CfxA2	89	100	CfxA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3004289	Vibrio cholerae varG	68	100	Subclass B1 Vibrio cholerae varG beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_8x	3004364	almG	47	100	lipid A acyltransferase;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_8x	3000518	CRP	39	100	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_8x	3000596	ErmX	26	91.1972	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000194	tet(W)	22	66.1972	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000205	tet(X)	22	94.5876	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3004454	Campylobacter coli chloramphenicol acetyltransferase	16	90.3382	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3007431	almF	15	100	alm glycyl carrier protein;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_gut_GCF_062058145.1_8x	3000567	tet(40)	15	74.8768	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3004659	Mef(En2)	13	89.5262	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000498	ErmF	10	84.2105	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000793	mdtB	10	22.2115	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3002686	catP	9	96.6184	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3002867	dfrF	8	98.7805	trimethoprim resistant dihydrofolate reductase dfr	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000794	mdtC	8	22.439	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000796	mdtF	8	24.2044	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000195	tetB(P)	8	27.3006	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000502	AcrF	7	28.3366	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3003548	mdtN	6	40.5248	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000833	evgS	4	14.7034	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000074	emrB	3	28.5156	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3003550	mdtP	3	30.3279	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000491	acrD	2	8.00386	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000656	AcrS	2	45	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3002626	ANT(6)-Ia	2	19.8606	ANT(6)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3002999	CblA-1	2	32.4324	CblA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3006874	EC-13	2	18.0371	EC beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3004043	Escherichia coli acrA	2	24.937	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000832	evgA	2	39.2157	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000508	gadX	2	36.1314	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000795	mdtE	2	25.974	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3003549	mdtO	2	13.6164	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062058145.1_8x	3000180	tetA(P)	2	11.9048	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3004480	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin	911	100	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3003730	Bifidobacterium bifidum ileS conferring resistance to mupirocin	645	100	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000191	tet(Q)	204	98.3257	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000190	tet(O)	155	100	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3009654	MrmA	90	100	Cfr-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3003002	CfxA2	89	100	CfxA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000596	ErmX	26	91.1972	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000194	tet(W)	22	66.1972	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000205	tet(X)	22	94.5876	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3004454	Campylobacter coli chloramphenicol acetyltransferase	16	90.3382	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000567	tet(40)	15	74.8768	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3004659	Mef(En2)	13	89.5262	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000498	ErmF	10	84.2105	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000793	mdtB	10	22.2115	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3002686	catP	9	96.6184	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3002867	dfrF	8	98.7805	trimethoprim resistant dihydrofolate reductase dfr	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000794	mdtC	8	22.439	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000796	mdtF	8	24.2044	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000024	patA	8	50	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062075038.1_0.5x	3000195	tetB(P)	8	27.3006	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000502	AcrF	7	28.3366	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3003548	mdtN	6	40.5248	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000833	evgS	4	14.7034	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000822	pmrA	4	38.8471	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062075038.1_0.5x	3000518	CRP	3	46.6667	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3003550	mdtP	3	30.3279	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3001301	RlmA(II)	3	34.7518	TlrA-like 23S rRNA methyltransferase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062075038.1_0.5x	3000491	acrD	2	8.00386	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000656	AcrS	2	45	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3002626	ANT(6)-Ia	2	19.8606	ANT(6)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3002999	CblA-1	2	32.4324	CblA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3006874	EC-13	2	18.0371	EC beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000074	emrB	2	19.3359	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3004043	Escherichia coli acrA	2	24.937	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000832	evgA	2	39.2157	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000508	gadX	2	36.1314	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000795	mdtE	2	25.974	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3003549	mdtO	2	13.6164	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_0.5x	3000180	tetA(P)	2	11.9048	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3004480	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin	913	100	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3003730	Bifidobacterium bifidum ileS conferring resistance to mupirocin	645	100	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000191	tet(Q)	204	98.3257	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000190	tet(O)	155	100	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3009654	MrmA	90	100	Cfr-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3003002	CfxA2	89	100	CfxA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000024	patA	28	93.9716	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062075038.1_2x	3000596	ErmX	26	91.1972	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000194	tet(W)	22	66.1972	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000205	tet(X)	22	94.5876	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000025	patB	20	85.7143	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062075038.1_2x	3004454	Campylobacter coli chloramphenicol acetyltransferase	16	90.3382	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000567	tet(40)	15	74.8768	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3004659	Mef(En2)	13	89.5262	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000822	pmrA	12	76.6917	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062075038.1_2x	3000498	ErmF	10	84.2105	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000793	mdtB	10	22.2115	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3002686	catP	9	96.6184	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3001301	RlmA(II)	9	90.0709	TlrA-like 23S rRNA methyltransferase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062075038.1_2x	3002867	dfrF	8	98.7805	trimethoprim resistant dihydrofolate reductase dfr	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000794	mdtC	8	22.439	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000796	mdtF	8	24.2044	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000195	tetB(P)	8	27.3006	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000502	AcrF	7	28.3366	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3003548	mdtN	6	40.5248	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000833	evgS	4	14.7034	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000518	CRP	3	46.6667	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3003550	mdtP	3	30.3279	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000491	acrD	2	8.00386	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000656	AcrS	2	45	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3002626	ANT(6)-Ia	2	19.8606	ANT(6)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3002999	CblA-1	2	32.4324	CblA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3006874	EC-13	2	18.0371	EC beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000074	emrB	2	19.3359	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3004043	Escherichia coli acrA	2	24.937	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000832	evgA	2	39.2157	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000508	gadX	2	36.1314	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000795	mdtE	2	25.974	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3003549	mdtO	2	13.6164	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_2x	3000180	tetA(P)	2	11.9048	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3004480	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin	940	100	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3003730	Bifidobacterium bifidum ileS conferring resistance to mupirocin	645	100	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000191	tet(Q)	204	98.3257	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000190	tet(O)	155	100	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000024	patA	116	100	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062075038.1_8x	3000025	patB	95	100	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062075038.1_8x	3009654	MrmA	90	100	Cfr-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3003002	CfxA2	89	100	CfxA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3001301	RlmA(II)	62	100	TlrA-like 23S rRNA methyltransferase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062075038.1_8x	3000822	pmrA	53	93.2331	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062075038.1_8x	3000596	ErmX	26	91.1972	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000194	tet(W)	22	66.1972	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000205	tet(X)	22	94.5876	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3004454	Campylobacter coli chloramphenicol acetyltransferase	16	90.3382	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000567	tet(40)	15	74.8768	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3004659	Mef(En2)	13	89.5262	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000498	ErmF	10	84.2105	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000793	mdtB	10	22.2115	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3002686	catP	9	96.6184	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3002867	dfrF	8	98.7805	trimethoprim resistant dihydrofolate reductase dfr	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000794	mdtC	8	22.439	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000796	mdtF	8	24.2044	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000502	AcrF	7	28.3366	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3003548	mdtN	6	40.5248	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000833	evgS	4	14.7034	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000195	tetB(P)	4	27.3006	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000518	CRP	3	46.6667	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3003550	mdtP	3	30.3279	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000491	acrD	2	8.00386	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000656	AcrS	2	45	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3002626	ANT(6)-Ia	2	19.8606	ANT(6)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3002999	CblA-1	2	32.4324	CblA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3006874	EC-13	2	18.0371	EC beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000074	emrB	2	19.3359	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3004043	Escherichia coli acrA	2	24.937	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000832	evgA	2	39.2157	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000508	gadX	2	36.1314	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000795	mdtE	2	25.974	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3003549	mdtO	2	13.6164	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062075038.1_8x	3000180	tetA(P)	2	11.9048	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3004480	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin	908	100	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3003730	Bifidobacterium bifidum ileS conferring resistance to mupirocin	645	100	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000191	tet(Q)	204	98.3257	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000190	tet(O)	155	100	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3009654	MrmA	90	100	Cfr-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3003002	CfxA2	89	100	CfxA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000596	ErmX	26	91.1972	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000194	tet(W)	22	66.1972	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000205	tet(X)	22	94.5876	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3004454	Campylobacter coli chloramphenicol acetyltransferase	16	90.3382	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000567	tet(40)	15	74.8768	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000793	mdtB	14	36.7308	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3004659	Mef(En2)	13	89.5262	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000498	ErmF	10	84.2105	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3002686	catP	9	96.6184	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000796	mdtF	9	28.351	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000502	AcrF	8	30.0774	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3002867	dfrF	8	98.7805	trimethoprim resistant dihydrofolate reductase dfr	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000195	tetB(P)	8	27.3006	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3003548	mdtN	6	40.5248	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000168	tet(D)	6	53.8071	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_0.5x	3000518	CRP	5	46.6667	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_0.5x	3002143	DHA-12	5	41.4248	DHA beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_0.5x	3002860	dfrA17	4	49.6815	trimethoprim resistant dihydrofolate reductase dfr	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_0.5x	3006469	DHA-28	4	41.1609	DHA beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_0.5x	3000833	evgS	4	14.7034	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000491	acrD	3	12.8255	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3003843	leuO	3	32.1656	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump	shares a family term with the background alone	shares a family term with the background alone
+mix_gut_GCF_062083255.1_0.5x	3003550	mdtP	3	30.3279	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3001396	OXA-1	3	36.2319	OXA-1-like beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_0.5x	3000656	AcrS	2	45	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3002626	ANT(6)-Ia	2	19.8606	ANT(6)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3002676	catB3	2	35.7143	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_0.5x	3002999	CblA-1	2	32.4324	CblA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3006874	EC-13	2	18.0371	EC beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3004043	Escherichia coli acrA	2	24.937	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000832	evgA	2	39.2157	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000508	gadX	2	36.1314	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000795	mdtE	2	25.974	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3003549	mdtO	2	13.6164	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_0.5x	3000180	tetA(P)	2	11.9048	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3004480	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin	910	100	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3003730	Bifidobacterium bifidum ileS conferring resistance to mupirocin	645	100	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000191	tet(Q)	204	98.3257	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000190	tet(O)	155	100	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3009654	MrmA	90	100	Cfr-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3003002	CfxA2	89	100	CfxA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000168	tet(D)	28	98.4772	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_2x	3000596	ErmX	26	91.1972	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000194	tet(W)	22	66.1972	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000205	tet(X)	22	94.5876	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3004454	Campylobacter coli chloramphenicol acetyltransferase	16	90.3382	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000567	tet(40)	15	74.8768	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3002143	DHA-12	13	79.4195	DHA beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_2x	3004659	Mef(En2)	13	89.5262	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3002605	aadA5	12	98.0916	ANT(3'')	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_2x	3000518	CRP	10	88.0952	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_2x	3000498	ErmF	10	84.2105	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000796	mdtF	10	33.0762	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3002686	catP	9	96.6184	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3002867	dfrF	8	98.7805	trimethoprim resistant dihydrofolate reductase dfr	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000794	mdtC	8	27.0244	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3001396	OXA-1	8	88.0435	OXA-1-like beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_2x	3000195	tetB(P)	8	27.3006	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3005010	qacEdelta1	7	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_2x	3000502	AcrF	6	27.7563	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3006469	DHA-28	6	48.8127	DHA beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_2x	3003548	mdtN	6	40.5248	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000410	sul1	6	75.6272	sulfonamide resistant sul	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_2x	3000491	acrD	5	13.3076	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3002676	catB3	5	74.7619	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_2x	3002578	AAC(6')-Ib7	4	53.2567	AAC(6')	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_2x	3002860	dfrA17	4	49.6815	trimethoprim resistant dihydrofolate reductase dfr	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_2x	3000833	evgS	4	14.7034	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3004043	Escherichia coli acrA	3	37.2796	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3003550	mdtP	3	30.3279	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000656	AcrS	2	45	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3002626	ANT(6)-Ia	2	19.8606	ANT(6)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3002847	arr-2	2	52.6667	rifampin ADP-ribosyltransferase (Arr)	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_2x	3002999	CblA-1	2	32.4324	CblA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3006874	EC-13	2	18.0371	EC beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000832	evgA	2	39.2157	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000508	gadX	2	36.1314	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000795	mdtE	2	25.974	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3003549	mdtO	2	13.6164	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_2x	3000180	tetA(P)	2	11.9048	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3004480	Bifidobacterium adolescentis rpoB mutants conferring resistance to rifampicin	930	100	rifamycin-resistant beta-subunit of RNA polymerase (rpoB)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3003730	Bifidobacterium bifidum ileS conferring resistance to mupirocin	645	100	antibiotic-resistant isoleucyl-tRNA synthetase (ileS)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3000191	tet(Q)	204	98.3257	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3000190	tet(O)	155	100	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3000168	tet(D)	124	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3009654	MrmA	90	100	Cfr-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3003002	CfxA2	89	100	CfxA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3002143	DHA-12	57	93.1398	DHA beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3002605	aadA5	46	100	ANT(3'')	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3001396	OXA-1	38	100	OXA-1-like beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3000410	sul1	36	100	sulfonamide resistant sul	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3000518	CRP	34	100	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3002578	AAC(6')-Ib7	28	83.1418	AAC(6')	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3000596	ErmX	26	91.1972	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3005010	qacEdelta1	24	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3002676	catB3	23	100	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3002860	dfrA17	23	100	trimethoprim resistant dihydrofolate reductase dfr	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3000194	tet(W)	22	66.1972	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3000205	tet(X)	22	94.5876	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3006469	DHA-28	17	51.4512	DHA beta-lactamase	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3004454	Campylobacter coli chloramphenicol acetyltransferase	16	90.3382	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3007771	aac(6')-Ib-cr11	15	79.8913	AAC(6');AAC(6')-Ib-cr	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3000567	tet(40)	15	74.8768	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3002847	arr-2	13	54.6667	rifampin ADP-ribosyltransferase (Arr)	present in the spike genome	present in the spike genome
+mix_gut_GCF_062083255.1_8x	3004659	Mef(En2)	13	89.5262	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3000498	ErmF	10	84.2105	Erm-like 23S rRNA methyltransferase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3002686	catP	9	96.6184	chloramphenicol acetyltransferase (CAT)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3000502	AcrF	8	32.5919	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3002867	dfrF	8	98.7805	trimethoprim resistant dihydrofolate reductase dfr	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3000195	tetB(P)	8	27.3006	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3003548	mdtN	6	40.5248	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3000833	evgS	4	14.7034	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3003550	mdtP	3	30.3279	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3002626	ANT(6)-Ia	2	19.8606	ANT(6)	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3002999	CblA-1	2	32.4324	CblA beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3006874	EC-13	2	18.0371	EC beta-lactamase	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3000832	evgA	2	39.2157	antibiotic efflux regulatory protein;major facilitator superfamily (MFS) antibiotic efflux pump;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3000508	gadX	2	36.1314	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3000795	mdtE	2	25.974	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3003549	mdtO	2	13.6164	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_gut_GCF_062083255.1_8x	3000180	tetA(P)	2	11.9048	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3002703	cmx	56	100	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3000412	sul2	32	100	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3002602	aadA2	18	88.417	ANT(3'')	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_0.5x	3000410	sul1	14	74.552	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3002660	APH(6)-Id	9	76.9784	APH(6)	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3005043	cmlA9	6	27.9703	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3003052	smeB	6	12.6787	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3000165	tet(A)	6	45.0472	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3000177	tet(J)	6	53.5176	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_0.5x	3002639	APH(3'')-Ib	5	47.191	APH(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3004657	catA4	5	55.2995	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_0.5x	3005010	qacEdelta1	5	97.3913	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3000167	tet(C)	5	49.7475	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3002705	floR	4	24.505	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3000205	tet(X)	4	37.8866	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3000174	tet(G)	3	34.2711	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3000194	tet(W)	3	23.1612	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3005098	qacL	2	74.5455	small multidrug resistance (SMR) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_0.5x	3002895	SAT-2	2	40.8046	streptothricin acetyltransferase (SAT)	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_0.5x	3004719	tet(X3)	2	17.268	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3002703	cmx	56	100	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3000412	sul2	32	100	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3004657	catA4	24	100	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_2x	3000177	tet(J)	24	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_2x	3002602	aadA2	18	88.417	ANT(3'')	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_2x	3000518	CRP	17	100	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_2x	3000410	sul1	14	74.552	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3002660	APH(6)-Id	9	76.9784	APH(6)	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3002218	IMP-27	9	91.4634	IMP beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_2x	3002601	aadA	8	95.057	ANT(3'')	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_2x	3005043	cmlA9	6	27.9703	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3002895	SAT-2	6	93.1034	streptothricin acetyltransferase (SAT)	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_2x	3003052	smeB	6	12.6787	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3000165	tet(A)	6	45.0472	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3002639	APH(3'')-Ib	5	47.191	APH(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3005010	qacEdelta1	5	97.3913	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3000167	tet(C)	5	49.7475	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3002705	floR	4	24.505	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3000205	tet(X)	4	37.8866	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3000174	tet(G)	3	34.2711	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3000194	tet(W)	3	23.1612	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3005098	qacL	2	74.5455	small multidrug resistance (SMR) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_2x	3004719	tet(X3)	2	17.268	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3000177	tet(J)	71	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_8x	3002703	cmx	56	100	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3004657	catA4	46	100	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_8x	3002895	SAT-2	46	100	streptothricin acetyltransferase (SAT)	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_8x	3000518	CRP	43	100	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_8x	3002601	aadA	40	100	ANT(3'')	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_8x	3002218	IMP-27	39	100	IMP beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_8x	3000412	sul2	32	100	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3002602	aadA2	18	88.417	ANT(3'')	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062052633.1_8x	3000410	sul1	14	74.552	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3002660	APH(6)-Id	9	76.9784	APH(6)	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3005043	cmlA9	6	27.9703	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3003052	smeB	6	12.6787	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3000165	tet(A)	6	45.0472	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3002639	APH(3'')-Ib	5	47.191	APH(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3000167	tet(C)	5	49.7475	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3002705	floR	4	24.505	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3000205	tet(X)	4	37.8866	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3005009	qacE	3	42.7273	major facilitator superfamily (MFS) antibiotic efflux pump	shares a family term with the background alone	shares a family term with the background alone
+mix_wastewater_GCF_062052633.1_8x	3000174	tet(G)	3	34.2711	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3000194	tet(W)	3	23.1612	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3005010	qacEdelta1	2	66.9565	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3005098	qacL	2	74.5455	small multidrug resistance (SMR) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062052633.1_8x	3004719	tet(X3)	2	17.268	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3002703	cmx	56	100	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3000412	sul2	32	100	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3002602	aadA2	18	88.417	ANT(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3000410	sul1	14	74.552	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3002660	APH(6)-Id	9	76.9784	APH(6)	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3005043	cmlA9	6	27.9703	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3003052	smeB	6	12.6787	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3000165	tet(A)	6	45.0472	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3004364	almG	5	47.2527	lipid A acyltransferase;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062058145.1_0.5x	3002639	APH(3'')-Ib	5	47.191	APH(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3005010	qacEdelta1	5	97.3913	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3000167	tet(C)	5	49.7475	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3002705	floR	4	24.505	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3000205	tet(X)	4	37.8866	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3000174	tet(G)	3	34.2711	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3000194	tet(W)	3	23.1612	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3005098	qacL	2	74.5455	small multidrug resistance (SMR) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3004719	tet(X3)	2	17.268	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_0.5x	3004289	Vibrio cholerae varG	2	25.3846	Subclass B1 Vibrio cholerae varG beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062058145.1_2x	3002703	cmx	56	100	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3000412	sul2	32	100	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3002602	aadA2	18	88.417	ANT(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3007433	almE	17	67.2662	alm glycyltransferase;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062058145.1_2x	3004364	almG	15	98.9011	lipid A acyltransferase;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062058145.1_2x	3000410	sul1	14	74.552	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3000518	CRP	13	97.1429	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062058145.1_2x	3004289	Vibrio cholerae varG	13	76.6667	Subclass B1 Vibrio cholerae varG beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062058145.1_2x	3002660	APH(6)-Id	9	76.9784	APH(6)	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3007431	almF	6	100	alm glycyl carrier protein;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062058145.1_2x	3005043	cmlA9	6	27.9703	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3003052	smeB	6	12.6787	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3000165	tet(A)	6	45.0472	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3002639	APH(3'')-Ib	5	47.191	APH(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3005010	qacEdelta1	5	97.3913	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3000167	tet(C)	5	49.7475	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3002705	floR	4	24.505	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3000205	tet(X)	4	37.8866	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3000174	tet(G)	3	34.2711	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3000194	tet(W)	3	23.1612	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3005098	qacL	2	74.5455	small multidrug resistance (SMR) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_2x	3004719	tet(X3)	2	17.268	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3007433	almE	92	100	alm glycyltransferase;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062058145.1_8x	3004289	Vibrio cholerae varG	68	100	Subclass B1 Vibrio cholerae varG beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062058145.1_8x	3002703	cmx	56	100	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3004364	almG	47	100	lipid A acyltransferase;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062058145.1_8x	3000518	CRP	37	100	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062058145.1_8x	3000412	sul2	32	100	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3002602	aadA2	18	88.417	ANT(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3007431	almF	15	100	alm glycyl carrier protein;polymyxin resistance operon	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062058145.1_8x	3000410	sul1	14	74.552	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3002660	APH(6)-Id	9	76.9784	APH(6)	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3005043	cmlA9	6	27.9703	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3003052	smeB	6	12.6787	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3000165	tet(A)	6	45.0472	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3002639	APH(3'')-Ib	5	47.191	APH(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3005010	qacEdelta1	5	97.3913	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3000167	tet(C)	5	49.7475	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3002705	floR	4	24.505	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3004719	tet(X3)	4	29.8969	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3000174	tet(G)	3	34.2711	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3000194	tet(W)	3	23.1612	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3005098	qacL	2	74.5455	small multidrug resistance (SMR) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062058145.1_8x	3000205	tet(X)	2	25.2577	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3002703	cmx	56	100	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3000412	sul2	32	100	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3002602	aadA2	18	88.417	ANT(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3000410	sul1	14	74.552	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3002660	APH(6)-Id	9	76.9784	APH(6)	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3000024	patA	8	50	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062075038.1_0.5x	3005043	cmlA9	6	27.9703	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3003052	smeB	6	12.6787	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3000165	tet(A)	6	45.0472	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3002639	APH(3'')-Ib	5	47.191	APH(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3005010	qacEdelta1	5	97.3913	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3000167	tet(C)	5	49.7475	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3002705	floR	4	24.505	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3000205	tet(X)	4	37.8866	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3000822	pmrA	3	30.8271	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062075038.1_0.5x	3001301	RlmA(II)	3	34.7518	TlrA-like 23S rRNA methyltransferase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062075038.1_0.5x	3000174	tet(G)	3	34.2711	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3000194	tet(W)	3	23.1612	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3000025	patB	2	13.7755	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062075038.1_0.5x	3005098	qacL	2	74.5455	small multidrug resistance (SMR) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_0.5x	3004719	tet(X3)	2	17.268	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3002703	cmx	56	100	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3000412	sul2	32	100	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3000024	patA	28	93.9716	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062075038.1_2x	3002602	aadA2	18	88.417	ANT(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3000025	patB	16	85.7143	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062075038.1_2x	3000410	sul1	14	74.552	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3000822	pmrA	11	75.6892	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062075038.1_2x	3002660	APH(6)-Id	9	76.9784	APH(6)	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3001301	RlmA(II)	9	90.0709	TlrA-like 23S rRNA methyltransferase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062075038.1_2x	3005043	cmlA9	6	27.9703	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3003052	smeB	6	12.6787	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3000165	tet(A)	6	45.0472	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3002639	APH(3'')-Ib	5	47.191	APH(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3005010	qacEdelta1	5	97.3913	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3000167	tet(C)	5	49.7475	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3002705	floR	4	24.505	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3000205	tet(X)	4	37.8866	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3000174	tet(G)	3	34.2711	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3000194	tet(W)	3	23.1612	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3005098	qacL	2	74.5455	small multidrug resistance (SMR) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_2x	3004719	tet(X3)	2	17.268	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3000024	patA	116	100	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062075038.1_8x	3000025	patB	91	100	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062075038.1_8x	3001301	RlmA(II)	62	100	TlrA-like 23S rRNA methyltransferase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062075038.1_8x	3002703	cmx	56	100	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3000822	pmrA	52	93.2331	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062075038.1_8x	3000412	sul2	32	100	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3002602	aadA2	18	88.417	ANT(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3000410	sul1	14	74.552	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3002660	APH(6)-Id	9	76.9784	APH(6)	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3005043	cmlA9	6	27.9703	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3003052	smeB	6	12.6787	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3000165	tet(A)	6	45.0472	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3002639	APH(3'')-Ib	5	47.191	APH(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3005010	qacEdelta1	5	97.3913	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3000167	tet(C)	5	49.7475	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3002705	floR	4	24.505	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3000205	tet(X)	4	37.8866	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3000174	tet(G)	3	34.2711	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3000194	tet(W)	3	23.1612	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3005098	qacL	2	74.5455	small multidrug resistance (SMR) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062075038.1_8x	3004719	tet(X3)	2	17.268	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3002703	cmx	56	100	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3000412	sul2	32	100	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3002602	aadA2	18	88.417	ANT(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3000410	sul1	14	74.552	sulfonamide resistant sul	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_0.5x	3002660	APH(6)-Id	9	76.9784	APH(6)	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3005043	cmlA9	6	27.9703	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3005010	qacEdelta1	6	97.3913	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_0.5x	3003052	smeB	6	12.6787	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3000165	tet(A)	6	45.0472	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3000168	tet(D)	6	53.8071	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_0.5x	3002639	APH(3'')-Ib	5	47.191	APH(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3002143	DHA-12	5	41.4248	DHA beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_0.5x	3000167	tet(C)	5	49.7475	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3002860	dfrA17	4	49.6815	trimethoprim resistant dihydrofolate reductase dfr	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_0.5x	3006469	DHA-28	4	41.1609	DHA beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_0.5x	3002705	floR	4	24.505	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3000205	tet(X)	4	37.8866	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3001396	OXA-1	3	36.2319	OXA-1-like beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_0.5x	3000174	tet(G)	3	34.2711	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3000194	tet(W)	3	23.1612	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3002676	catB3	2	35.7143	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_0.5x	3005098	qacL	2	74.5455	small multidrug resistance (SMR) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_0.5x	3004719	tet(X3)	2	17.268	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3002703	cmx	56	100	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3000412	sul2	32	100	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3000168	tet(D)	28	98.4772	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_2x	3000410	sul1	20	96.7742	sulfonamide resistant sul	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_2x	3002602	aadA2	18	88.417	ANT(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3002143	DHA-12	13	79.4195	DHA beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_2x	3002605	aadA5	12	98.0916	ANT(3'')	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_2x	3005010	qacEdelta1	12	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_2x	3002660	APH(6)-Id	9	76.9784	APH(6)	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3000518	CRP	8	88.0952	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_2x	3001396	OXA-1	8	88.0435	OXA-1-like beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_2x	3002578	AAC(6')-Ib7	7	54.023	AAC(6')	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_2x	3005043	cmlA9	6	27.9703	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3006469	DHA-28	6	48.8127	DHA beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_2x	3003052	smeB	6	12.6787	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3000165	tet(A)	6	45.0472	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3002639	APH(3'')-Ib	5	47.191	APH(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3002676	catB3	5	74.7619	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_2x	3000167	tet(C)	5	49.7475	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3002860	dfrA17	4	49.6815	trimethoprim resistant dihydrofolate reductase dfr	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_2x	3002705	floR	4	24.505	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3000205	tet(X)	4	37.8866	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3000174	tet(G)	3	34.2711	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3000194	tet(W)	3	23.1612	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3002847	arr-2	2	52.6667	rifampin ADP-ribosyltransferase (Arr)	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_2x	3005098	qacL	2	74.5455	small multidrug resistance (SMR) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_2x	3004719	tet(X3)	2	17.268	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3000168	tet(D)	124	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3002143	DHA-12	57	93.1398	DHA beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3002703	cmx	56	100	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3000410	sul1	50	100	sulfonamide resistant sul	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3002605	aadA5	46	100	ANT(3'')	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3001396	OXA-1	38	100	OXA-1-like beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3000518	CRP	32	100	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3000412	sul2	32	100	sulfonamide resistant sul	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3002578	AAC(6')-Ib7	31	83.1418	AAC(6')	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3005010	qacEdelta1	29	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3002676	catB3	23	100	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3002860	dfrA17	23	100	trimethoprim resistant dihydrofolate reductase dfr	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3002602	aadA2	18	88.417	ANT(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3006469	DHA-28	17	51.4512	DHA beta-lactamase	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3007771	aac(6')-Ib-cr11	15	79.8913	AAC(6');AAC(6')-Ib-cr	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3002847	arr-2	13	54.6667	rifampin ADP-ribosyltransferase (Arr)	present in the spike genome	present in the spike genome
+mix_wastewater_GCF_062083255.1_8x	3002660	APH(6)-Id	9	76.9784	APH(6)	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3005043	cmlA9	6	27.9703	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3003052	smeB	6	12.6787	resistance-nodulation-cell division (RND) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3000165	tet(A)	6	45.0472	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3002639	APH(3'')-Ib	5	47.191	APH(3'')	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3000167	tet(C)	5	49.7475	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3002705	floR	4	24.505	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3000205	tet(X)	4	37.8866	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3000174	tet(G)	3	34.2711	major facilitator superfamily (MFS) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3000194	tet(W)	3	23.1612	tetracycline-resistant ribosomal protection protein	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3005098	qacL	2	74.5455	small multidrug resistance (SMR) antibiotic efflux pump	detected in the background alone	detected in the background alone
+mix_wastewater_GCF_062083255.1_8x	3004719	tet(X3)	2	17.268	tetracycline inactivation enzyme	detected in the background alone	detected in the background alone
+pure_GCF_062052633.1	3000177	tet(J)	93	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+pure_GCF_062052633.1	3000518	CRP	62	100	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+pure_GCF_062052633.1	3004657	catA4	60	100	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+pure_GCF_062052633.1	3002218	IMP-27	52	100	IMP beta-lactamase	present in the spike genome	present in the spike genome
+pure_GCF_062052633.1	3002895	SAT-2	49	100	streptothricin acetyltransferase (SAT)	present in the spike genome	present in the spike genome
+pure_GCF_062052633.1	3002601	aadA	44	100	ANT(3'')	present in the spike genome	present in the spike genome
+pure_GCF_062052633.1	3005069	rsmA	13	93.4426	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome (RGI main, protein)	UNEXPLAINED
+pure_GCF_062058145.1	3007433	almE	111	100	alm glycyltransferase;polymyxin resistance operon	present in the spike genome	present in the spike genome
+pure_GCF_062058145.1	3004289	Vibrio cholerae varG	90	100	Subclass B1 Vibrio cholerae varG beta-lactamase	present in the spike genome	present in the spike genome
+pure_GCF_062058145.1	3004364	almG	62	100	lipid A acyltransferase;polymyxin resistance operon	present in the spike genome	present in the spike genome
+pure_GCF_062058145.1	3000518	CRP	50	100	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+pure_GCF_062058145.1	3007431	almF	16	100	alm glycyl carrier protein;polymyxin resistance operon	present in the spike genome	present in the spike genome
+pure_GCF_062058145.1	3005069	rsmA	16	90.1639	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	ortholog in the spike genome (RGI main, Loose, 85% or more)	UNEXPLAINED
+pure_GCF_062075038.1	3000024	patA	142	100	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+pure_GCF_062075038.1	3000025	patB	123	100	ATP-binding cassette (ABC) antibiotic efflux pump	present in the spike genome	present in the spike genome
+pure_GCF_062075038.1	3001301	RlmA(II)	74	100	TlrA-like 23S rRNA methyltransferase	present in the spike genome	present in the spike genome
+pure_GCF_062075038.1	3000822	pmrA	63	93.2331	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3000168	tet(D)	142	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3002143	DHA-12	71	93.1398	DHA beta-lactamase	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3002605	aadA5	54	100	ANT(3'')	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3001396	OXA-1	52	100	OXA-1-like beta-lactamase	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3000410	sul1	49	100	sulfonamide resistant sul	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3000518	CRP	40	100	antibiotic efflux regulatory protein;resistance-nodulation-cell division (RND) antibiotic efflux pump	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3002578	AAC(6')-Ib7	34	83.1418	AAC(6')	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3005010	qacEdelta1	30	100	major facilitator superfamily (MFS) antibiotic efflux pump	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3002676	catB3	27	100	chloramphenicol acetyltransferase (CAT)	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3002860	dfrA17	27	100	trimethoprim resistant dihydrofolate reductase dfr	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3006469	DHA-28	25	52.2427	DHA beta-lactamase	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3007771	aac(6')-Ib-cr11	21	79.8913	AAC(6');AAC(6')-Ib-cr	present in the spike genome	present in the spike genome
+pure_GCF_062083255.1	3002847	arr-2	18	54.6667	rifampin ADP-ribosyltransferase (Arr)	present in the spike genome	present in the spike genome

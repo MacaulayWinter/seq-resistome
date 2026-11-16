@@ -12,7 +12,7 @@ process RESISTOME_TABLES {
     container 'docker.io/rocker/r-ver:4.5.2@sha256:fd4ccdd3a4a6f7ef805e2daeee2a0fe3bf126bc231f36351223baecf5a595a4c'
 
     input:
-    path rgi, stageAs: 'rgi/*'      // <sample>.gene_mapping_data.txt per analysed sample
+    path rgi, stageAs: 'rgi/*'      // per analysed sample: <sample>.read_stats.tsv and the gene table (<sample>.gene_mapping_data.txt from RGI, or <sample>.protein_genes.tsv from DIAMOND)
     path rrna, stageAs: 'rrna/*'    // <sample>.16s.tsv per analysed sample
     path read_flow, stageAs: 'input/read_flow.tsv'   // every sample, analysed or emptied
     path left_out, stageAs: 'input/samples_left_out.tsv'
@@ -22,6 +22,18 @@ process RESISTOME_TABLES {
     val length_16s
     val min_arg_reads
     val min_breadth_ratio
+    val min_read_identity           // the gene-level identity a gene must reach
+    path alleles, stageAs: 'input/card_alleles.tsv'   // allele pairs (D22), from RGI_DB or DIAMOND_DB
+    val min_allele_identity
+    val min_identity_share
+    val count_mode                  // protein or dna (D27)
+    val read_filter_identity        // the identity each read must reach (protein: min_protein_read_identity)
+    path core, stageAs: 'core/*'    // protein mode: <sample>.read_stats.tsv over the reads at core_read_identity or more (D31); none in DNA mode
+    val core_read_identity
+    val core_gene_identity          // 0 = the high-identity way to detect a gene is off
+    val core_breadth_ratio
+    val probable_gene_identity      // protein mode: a gene from this identity up to min_read_identity is a probable_homolog (V3); 0 = off
+    val core_min_reads              // protein mode: reads at core_read_identity or more the high-identity route needs (V3); 0 = min_arg_reads
 
     output:
     path 'arg_long.tsv',            emit: long
@@ -34,6 +46,8 @@ process RESISTOME_TABLES {
     script:
     """
     resistome_tables.R rgi rrna input/read_flow.tsv input/samples_left_out.tsv input/samplesheet.csv \\
-        ${card_version} ${card_validated} ${length_16s} ${min_arg_reads} ${min_breadth_ratio} ${workflow.manifest.version}
+        '${card_version}' ${card_validated} ${length_16s} ${min_arg_reads} ${min_breadth_ratio} ${workflow.manifest.version} ${min_read_identity} \\
+        input/card_alleles.tsv ${min_allele_identity} ${min_identity_share} ${count_mode} ${read_filter_identity} \\
+        ${(core_gene_identity as float) > 0 ? 'core' : 'none'} ${core_read_identity} ${core_gene_identity} ${core_breadth_ratio} ${probable_gene_identity} ${core_min_reads}
     """
 }

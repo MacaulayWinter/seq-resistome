@@ -1,0 +1,5 @@
+species	taxid	accession	organism	release_date	window_start	window_months_back	n_candidates	draw
+Serratia_marcescens	615	GCF_062066596.1	Serratia marcescens	2026-10-28	2026-10-14	1	5	1
+Staphylococcus_aureus	1280	GCF_062064952.1	Staphylococcus aureus	2026-10-28	2026-10-14	1	27	1
+Stenotrophomonas_maltophilia	40324	GCF_062045445.1	Stenotrophomonas maltophilia	2026-10-17	2026-10-14	1	2	1
+Salmonella_enterica	28901	GCF_062074957.1	Salmonella enterica	2026-11-03	2026-10-14	1	31	1

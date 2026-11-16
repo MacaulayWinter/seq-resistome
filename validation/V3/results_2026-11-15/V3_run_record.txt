@@ -1,0 +1,49 @@
+date: 2026-11-14 22:39:54
+pipeline commit under test: 93eb4e8 (HEAD 86ec12a)
+pre-registration commit: 1d9a1fd2f019a81f2073a32162058ac14377add9
+PREREGISTRATION.md sha256: 7fddd039c188443958e6e8bcaa84fc4307d2e8932356cbd5106da568d4c9cd67
+ADDENDUM_A.md sha256: d4764d163a8f8e1d503852c8b2f0bd1cda56ea942716a188582c775dc56ad28f
+score_V3.R sha256: d82ae60595b156256a6735fa054b54c0b3c804485bbd934caa6ddea149b14ccd
+date: 2026-11-14 22:41:55
+pipeline commit under test: 93eb4e8 (HEAD 86ec12a)
+pre-registration commit: 1d9a1fd2f019a81f2073a32162058ac14377add9
+PREREGISTRATION.md sha256: 7fddd039c188443958e6e8bcaa84fc4307d2e8932356cbd5106da568d4c9cd67
+ADDENDUM_A.md sha256: d4764d163a8f8e1d503852c8b2f0bd1cda56ea942716a188582c775dc56ad28f
+score_V3.R sha256: d82ae60595b156256a6735fa054b54c0b3c804485bbd934caa6ddea149b14ccd
+date: 2026-11-14 22:43:48
+pipeline commit under test: 93eb4e8 (HEAD 86ec12a)
+pre-registration commit: 1d9a1fd2f019a81f2073a32162058ac14377add9
+PREREGISTRATION.md sha256: 7fddd039c188443958e6e8bcaa84fc4307d2e8932356cbd5106da568d4c9cd67
+ADDENDUM_A.md sha256: d4764d163a8f8e1d503852c8b2f0bd1cda56ea942716a188582c775dc56ad28f
+score_V3.R sha256: d82ae60595b156256a6735fa054b54c0b3c804485bbd934caa6ddea149b14ccd
+date: 2026-11-14 22:45:59
+pipeline commit under test: 93eb4e8 (HEAD 86ec12a)
+pre-registration commit: 1d9a1fd2f019a81f2073a32162058ac14377add9
+PREREGISTRATION.md sha256: 7fddd039c188443958e6e8bcaa84fc4307d2e8932356cbd5106da568d4c9cd67
+ADDENDUM_A.md sha256: d4764d163a8f8e1d503852c8b2f0bd1cda56ea942716a188582c775dc56ad28f
+score_V3.R sha256: d82ae60595b156256a6735fa054b54c0b3c804485bbd934caa6ddea149b14ccd
+date: 2026-11-14 22:47:00
+pipeline commit under test: 93eb4e8 (HEAD 86ec12a)
+pre-registration commit: 1d9a1fd2f019a81f2073a32162058ac14377add9
+PREREGISTRATION.md sha256: 7fddd039c188443958e6e8bcaa84fc4307d2e8932356cbd5106da568d4c9cd67
+ADDENDUM_A.md sha256: d4764d163a8f8e1d503852c8b2f0bd1cda56ea942716a188582c775dc56ad28f
+score_V3.R sha256: d82ae60595b156256a6735fa054b54c0b3c804485bbd934caa6ddea149b14ccd
+date: 2026-11-14 22:48:01
+pipeline commit under test: 93eb4e8 (HEAD 86ec12a)
+pre-registration commit: 1d9a1fd2f019a81f2073a32162058ac14377add9
+PREREGISTRATION.md sha256: 7fddd039c188443958e6e8bcaa84fc4307d2e8932356cbd5106da568d4c9cd67
+ADDENDUM_A.md sha256: d4764d163a8f8e1d503852c8b2f0bd1cda56ea942716a188582c775dc56ad28f
+score_V3.R sha256: d82ae60595b156256a6735fa054b54c0b3c804485bbd934caa6ddea149b14ccd
+note 2026-11-14: wastewater background SRR15524250 (candidates draw 6, first after V2's SRR11809761) was fetched by run_V3.sh just before an unrelated stop (API URL bug, fixed in 9278419); its line was added to backgrounds_V3.tsv by hand.
+date: 2026-11-14 22:48:43
+pipeline commit under test: 93eb4e8 (HEAD 9278419)
+pre-registration commit: 1d9a1fd2f019a81f2073a32162058ac14377add9
+PREREGISTRATION.md sha256: 7fddd039c188443958e6e8bcaa84fc4307d2e8932356cbd5106da568d4c9cd67
+ADDENDUM_A.md sha256: d4764d163a8f8e1d503852c8b2f0bd1cda56ea942716a188582c775dc56ad28f
+score_V3.R sha256: d82ae60595b156256a6735fa054b54c0b3c804485bbd934caa6ddea149b14ccd
+date: 2026-11-15 09:24:39
+pipeline commit under test: 93eb4e8 (HEAD 9278419)
+pre-registration commit: 1d9a1fd2f019a81f2073a32162058ac14377add9
+PREREGISTRATION.md sha256: 7fddd039c188443958e6e8bcaa84fc4307d2e8932356cbd5106da568d4c9cd67
+ADDENDUM_A.md sha256: d4764d163a8f8e1d503852c8b2f0bd1cda56ea942716a188582c775dc56ad28f
+score_V3.R sha256: d82ae60595b156256a6735fa054b54c0b3c804485bbd934caa6ddea149b14ccd

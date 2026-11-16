@@ -15,6 +15,8 @@ RGI_HEADER <- c("ARO Term", "ARO Accession", "Reference Model Type", "Reference 
                 "Mapped Reads with Flanking Sequence", "All Mapped Reads", "Average Percent Coverage",
                 "Average Length Coverage (bp)", "Average MAPQ (Completely Mapped Reads)", "Reference Length",
                 "AMR Gene Family", "Drug Class", "Resistance Mechanism")
+PROTEIN_HEADER <- c("aro_term", "aro_accession", "model_type", "reads", "completely_mapped_reads", "average_percent_coverage",
+                    "average_mapq", "reference_length_bp", "amr_gene_family", "drug_class", "resistance_mechanism")
 gene <- function(term, acc, reads, cov, len, fam = "fam", cls = "cls")
   c(term, acc, "protein homolog model", "CARD", reads, 0, reads, cov, round(len * cov / 100), 60, len, fam, cls, "mech")
 
@@ -23,24 +25,72 @@ gene <- function(term, acc, reads, cov, len, fam = "fam", cls = "cls")
 # rrna: named vector sample -> 16S reads (and reads_seen = reads_analysed
 # unless seen is given); sheet: lines of the samplesheet.
 run_case <- function(flow, rgi, rrna, sheet, left = character(0), seen = NULL, card_ok = "true", expect_fail = FALSE,
-                     rgi_header = RGI_HEADER, bases = NULL) {
+                     rgi_header = RGI_HEADER, bases = NULL, identity = NULL, min_identity = 0, stats = TRUE,
+                     dispersion = NULL, copies16 = NULL, old16 = FALSE, extra_stats = NULL,
+                     alleles = NULL, min_allele = 0, low = NULL, min_share = 0,
+                     count_mode = NULL, read_filter = NULL, stray = NULL,
+                     core = NULL, core_read = 0.9, core_gene = 0.95, core_ratio = 0.8, core_dir = "core", probable = NULL, core_min = NULL) {
   d <- tempfile("case"); dir.create(d); dir.create(file.path(d, "rgi")); dir.create(file.path(d, "rrna"))
   write.table(flow, file.path(d, "read_flow.tsv"), sep = "\t", quote = FALSE, row.names = FALSE)
   writeLines(c("sample\treason", left), file.path(d, "left.tsv"))
   writeLines(sheet, file.path(d, "sheet.csv"))
   for (s in names(rgi)) {
     rows <- vapply(rgi[[s]], paste, "", collapse = "\t")
-    writeLines(c(paste(rgi_header, collapse = "\t"), rows), file.path(d, "rgi", paste0(s, ".gene_mapping_data.txt")))
+    # Protein mode (D27): DIAMOND's gene table, the same columns under the
+    # pipeline's own names (bin/protein_read_stats.sh).
+    if (identical(count_mode, "protein"))
+      writeLines(c(paste(PROTEIN_HEADER, collapse = "\t"), vapply(rgi[[s]], function(g) paste(c(g[c(1, 2, 3, 7)], "NA", g[8], "NA", g[11:14]), collapse = "\t"), "")),
+                 file.path(d, "rgi", paste0(s, ".protein_genes.tsv")))
+    else writeLines(c(paste(rgi_header, collapse = "\t"), rows), file.path(d, "rgi", paste0(s, ".gene_mapping_data.txt")))
+    # Read statistics (D19): every read aligned over its whole 100 bp unless
+    # a test says otherwise; mismatches from the identity given per ARO.
+    if (stats) {
+      st <- vapply(rgi[[s]], function(g) {
+        b <- 100 * as.numeric(g[5]); id <- if (!is.null(identity) && g[2] %in% names(identity)) identity[[g[2]]] else 1
+        # Window counts (D20): mean 1 and variance = dispersion given per
+        # ARO; NA (no interval widening) unless a test gives one.
+        ph <- if (!is.null(dispersion) && g[2] %in% names(dispersion)) dispersion[[g[2]]] else NA
+        win <- if (is.na(ph)) "NA\tNA\tNA" else sprintf("10\t1\t%s", ph)
+        # One reference per gene (CARD's own): its length, and the bases RGI
+        # says are covered (D20).
+        len <- suppressWarnings(as.numeric(g[11])); cb <- round(len * as.numeric(g[8]) / 100)
+        # Reads below the identity threshold (D23): left out of every number
+        # above by rgi_read_stats.sh and counted here; 0 unless a test gives some.
+        lo <- if (!is.null(low) && g[2] %in% names(low)) low[[g[2]]] else 0
+        sprintf("ARO:%s|ID:1|Name:%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s", g[2], g[1], g[2], len, len, g[5], b, round(b * (1 - id)), cb, win, lo)
+      }, "")
+      if (!is.null(extra_stats) && s %in% names(extra_stats)) st <- extra_stats[[s]]
+      writeLines(c("reference\taro_accession\treference_length\tcanonical_length\treads\taligned_bases\tmismatches\tcovered_bases\twindows\twindow_mean\twindow_var\treads_low_identity", st), file.path(d, "rgi", paste0(s, ".read_stats.tsv")))
+    }
   }
   for (s in names(rrna)) {
     sn <- if (!is.null(seen) && s %in% names(seen)) seen[[s]] else flow$reads_analysed[flow$sample == s]
-    # 16S aligned bases: every 16S read aligned over its whole 100 bp, so the
-    # hand-worked copies below are 16S reads x 100 / 1,542 (D13).
-    writeLines(c("sample\treads_16s\tbases_16s\treads_seen", sprintf("%s\t%s\t%s\t%s", s, rrna[[s]], if (!is.null(bases)) bases[[s]] else 100 * as.numeric(rrna[[s]]), sn)),
-               file.path(d, "rrna", paste0(s, ".16s.tsv")))
+    # 16S aligned bases: every 16S read aligned over its whole 100 bp; 16S
+    # copies (D20: summed per SILVA reference length) = bases / 1,542 unless
+    # a test gives them, so the hand-worked copies below are reads x 100 / 1,542.
+    b16 <- if (!is.null(bases)) as.numeric(bases[[s]]) else 100 * as.numeric(rrna[[s]])
+    c16 <- if (!is.null(copies16)) copies16[[s]] else b16 / 1542
+    if (old16) writeLines(c("sample\treads_16s\tbases_16s\treads_seen", sprintf("%s\t%s\t%s\t%s", s, rrna[[s]], b16, sn)),
+                          file.path(d, "rrna", paste0(s, ".16s.tsv")))
+    else writeLines(c("sample\treads_16s\tbases_16s\tcopies_16s\tshort_16s\tlow_identity_16s\treads_seen",
+                      sprintf("%s\t%s\t%s\t%s\t0\t0\t%s", s, rrna[[s]], b16, c16, sn)), file.path(d, "rrna", paste0(s, ".16s.tsv")))
   }
+  # Allele pairs (D22): a data frame aro_a, aro_b, identity, or NULL for none.
+  af <- "none"
+  if (!is.null(alleles)) { af <- "alleles.tsv"; write.table(alleles, file.path(d, af), sep = "\t", quote = FALSE, row.names = FALSE) }
+  # High-identity read statistics (D31): a named list sample -> lines of <sample>.read_stats.tsv.
+  if (!is.null(core)) {
+    dir.create(file.path(d, "core"))
+    for (s in names(core)) writeLines(c("reference\taro_accession\treference_length\tcanonical_length\treads\taligned_bases\tmismatches\tcovered_bases\twindows\twindow_mean\twindow_var\treads_low_identity", core[[s]]),
+                                      file.path(d, "core", paste0(s, ".read_stats.tsv")))
+  }
+  # A gene table of the other engine, to test that mixing them stops the run.
+  if (!is.null(stray)) writeLines("x", file.path(d, "rgi", stray))
   old <- setwd(d); on.exit(setwd(old))
-  res <- suppressWarnings(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", card_ok, "1542", "2", "0.5", "test"),
+  res <- suppressWarnings(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", card_ok, "1542", "2", "0.5", "test", min_identity,
+                                               af, min_allele, min_share, count_mode, read_filter,
+                                               if (!is.null(core)) c(core_dir, core_read, core_gene, core_ratio) else if (!is.null(probable) || !is.null(core_min)) c("none", 0, 0, 0),
+                                               if (!is.null(probable) || !is.null(core_min)) c(if (!is.null(probable)) probable else 0, if (!is.null(core_min)) core_min)),
                                   stdout = TRUE, stderr = TRUE))
   status <- attr(res, "status"); if (is.null(status)) status <- 0
   if (expect_fail) return(list(status = status, msg = paste(res, collapse = "\n")))
@@ -128,6 +178,261 @@ r6 <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 10
                c("sample,fastq_1", "A,a.fq.gz"), bases = c(A = 77100))
 ok(near(r6$den$copies_16s, 50) && near(r6$long$copies_per_16s, 0.1) && r6$den$bases_16s == 77100,
    "case 6: partial 16S alignments count only their aligned bases")
+
+# --- Case 7: read identity (D19) ---------------------------------------------
+# X: 50 reads at 99% identity, detected; Y: 50 reads, 95% covered (looks like
+# a real gene by breadth) but only 82% identity: not detected at 0.9, with
+# the reason; at 0 (off) both are detected.
+g7 <- list(A = list(gene("X", "3000001", 50, 99, 1000), gene("Y", "3000002", 50, 99, 1000)))
+r7 <- run_case(flow_row("A", 1e6), g7, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), identity = c("3000001" = 0.99, "3000002" = 0.82), min_identity = 0.9)
+ok(r7$long$detected[r7$long$aro_term == "X"] && !r7$long$detected[r7$long$aro_term == "Y"] &&
+   grepl("82.0% identity", r7$long$detection_note[r7$long$aro_term == "Y"]), "case 7: low read identity is not detected, with the reason")
+ok(near(r7$long$read_identity[r7$long$aro_term == "X"], 0.99), "case 7: read identity reported")
+r7b <- run_case(flow_row("A", 1e6), g7, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), identity = c("3000001" = 0.99, "3000002" = 0.82), min_identity = 0)
+ok(all(r7b$long$detected), "case 7: identity check off when min_read_identity is 0")
+
+# --- Case 8: ARG copies from aligned bases (D19) -------------------------------
+# 50 reads but only 2,500 aligned bases (half each) on a 1,000 bp gene: 2.5
+# copies, not 5; per 16S copy (100 copies) 0.025.
+d8 <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 1000))), c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"))
+st <- file.path(d8$dir, "rgi", "A.read_stats.tsv"); x <- readLines(st); x[2] <- sub("\t50\t5000\t", "\t50\t2500\t", x[2]); writeLines(x, st)
+old <- setwd(d8$dir); invisible(system2("Rscript", c(script, "rgi", "rrna", "read_flow.tsv", "left.tsv", "sheet.csv", "4.0.2", "true", "1542", "2", "0.5", "test", "0"), stdout = TRUE, stderr = TRUE)); setwd(old)
+l8 <- read.delim(file.path(d8$dir, "arg_long.tsv"), comment.char = "#", stringsAsFactors = FALSE)
+ok(near(l8$arg_copies, 2.5) && near(l8$copies_per_16s, 0.025), "case 8: ARG copies follow aligned bases")
+
+# --- Case 9: a sample with RGI output but no read statistics stops ---------------
+f <- run_case(flow_row("A", 1000), list(A = list()), c(A = 10), c("sample,fastq_1", "A,a.fq.gz"), stats = FALSE, expect_fail = TRUE)
+ok(f$status != 0 && grepl("no RGI read statistics for A", f$msg), "case 9: missing read statistics stop the run")
+
+# --- Case 10: per-gene 95% interval (D20) ---------------------------------------
+# X: 50 reads, 0.05 copies per 16S copy. Window counts as Poisson (NA: no
+# widening): limits 0.05 x qgamma(0.025, 50)/50 and 0.05 x qgamma(0.975, 51)/50.
+# Read starts clumped at dispersion 2: effective reads 25. Dispersion below 1
+# never narrows the interval.
+g10 <- list(A = list(gene("X", "3000001", 50, 99, 1000), gene("Y", "3000002", 50, 99, 1000), gene("Z", "3000003", 50, 99, 1000)))
+r10 <- run_case(flow_row("A", 1e6), g10, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), dispersion = c("3000002" = 2, "3000003" = 0.5))
+lx <- r10$long[r10$long$aro_term == "X", ]; ly <- r10$long[r10$long$aro_term == "Y", ]; lz <- r10$long[r10$long$aro_term == "Z", ]
+ok(near(lx$copies_per_16s_low95, 0.05 * qgamma(0.025, 50) / 50) && near(lx$copies_per_16s_high95, 0.05 * qgamma(0.975, 51) / 50),
+   "case 10: Poisson interval")
+ok(near(ly$dispersion, 2) && near(ly$copies_per_16s_low95, 0.05 * qgamma(0.025, 25) / 25) &&
+   near(ly$copies_per_16s_high95, 0.05 * qgamma(0.975, 26) / 25), "case 10: interval widened by clumping")
+ok(near(lz$copies_per_16s_low95, lx$copies_per_16s_low95), "case 10: dispersion below 1 does not narrow it")
+r10b <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 1000))), c(A = 0), c("sample,fastq_1", "A,a.fq.gz"))
+ok(is.na(r10b$long$copies_per_16s_low95) && is.na(r10b$long$copies_per_16s_high95), "case 10: no 16S reads, interval missing")
+
+# --- Case 11: 16S copies come from COUNT_16S's per-reference sum (D20) -----------
+# 1,542 16S reads (154,200 bases) but copies_16s given as 80 (references
+# longer than 1,542 bp): X's 5 copies -> 0.0625 per 16S copy, not 0.05.
+r11 <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 1000))), c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"),
+                copies16 = c(A = 80))
+ok(near(r11$den$copies_16s, 80) && near(r11$long$copies_per_16s, 0.0625) && r11$den$short_16s == 0, "case 11: 16S copies as counted")
+f <- run_case(flow_row("A", 1e6), list(A = list(gene("X", "3000001", 50, 99, 1000))), c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"),
+              old16 = TRUE, expect_fail = TRUE)
+ok(f$status != 0 && grepl("16S counts lack column", f$msg), "case 11: 16S counts without copies_16s stop the run")
+
+# --- Case 12: reads spread over several references of one gene (D20) ------------
+# Not possible with CARD 4.0.2 alone (one reference per ARO) but kept so the
+# tables stay right if a reference set ever has several (as CARD's variants
+# collection did in development).
+# X (CARD reference 1,000 bp) has 50 reads in RGI's table, but they sit on
+# three references: CARD's own (30 reads, 990 of 1,000 bp covered), a full
+# variant (15 reads, 1,000 bp, 780 covered) and a 400 bp fragment (5 reads,
+# 380 covered). RGI's averaged coverage (40%) would fail the breadth check;
+# judged per reference: ratios 0.99/(1-e^-3) = 1.0396, 0.78/(1-e^-1.5) =
+# 1.0051, 0.95/(1-e^-1.25) = 1.3256; weighted by reads 1.0909 -> detected.
+# Length 1,000 (CARD's), not RGI's list; copies 5,000 bases / 1,000 = 5.
+# Y: 40 reads piled on one 100 bp stretch of each of two 1,000 bp alleles
+# (20 reads, 100 covered each): ratio 0.1/(1-e^-2) = 0.1157 -> not detected.
+rgi12 <- list(A = list(c("X", "3000001", "protein homolog model", "CARD; Resistomes & Variants", 50, 0, 50, 40, 400, 60, "1000; 1000; 400", "fam", "cls", "mech"),
+                       c("Y", "3000002", "protein homolog model", "CARD; Resistomes & Variants", 40, 0, 40, 10, 100, 60, "1000; 1000", "fam", "cls", "mech")))
+st12 <- c(sprintf("ARO:3000001|ID:1|Name:X\t3000001\t1000\t1000\t30\t3000\t0\t990\tNA\tNA\tNA\t0"),
+          sprintf("Prevalence_Sequence_ID:1|ID:1|Name:X|ARO:3000001\t3000001\t1000\t1000\t15\t1500\t0\t780\tNA\tNA\tNA\t0"),
+          sprintf("Prevalence_Sequence_ID:2|ID:1|Name:X|ARO:3000001\t3000001\t400\t1000\t5\t500\t0\t380\tNA\tNA\tNA\t0"),
+          sprintf("Prevalence_Sequence_ID:3|ID:2|Name:Y|ARO:3000002\t3000002\t1000\t1000\t20\t2000\t0\t100\tNA\tNA\tNA\t0"),
+          sprintf("Prevalence_Sequence_ID:4|ID:2|Name:Y|ARO:3000002\t3000002\t1000\t1000\t20\t2000\t0\t100\tNA\tNA\tNA\t0"))
+r12 <- run_case(flow_row("A", 1e6), rgi12, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), extra_stats = list(A = st12))
+x12 <- r12$long[r12$long$aro_term == "X", ]; y12 <- r12$long[r12$long$aro_term == "Y", ]
+want <- (30 * 0.99 / (1 - exp(-3)) + 15 * 0.78 / (1 - exp(-1.5)) + 5 * 0.95 / (1 - exp(-1.25))) / 50
+ok(near(x12$breadth_ratio, want) && x12$detected && x12$n_references == 3 && near(x12$rgi_percent_coverage, 40),
+   "case 12: breadth judged per reference across a gene's references")
+ok(near(x12$reference_length_bp, 1000) && near(x12$arg_copies, 5) && near(x12$copies_per_16s, 0.05), "case 12: gene length is CARD's reference")
+ok(!y12$detected && near(y12$breadth_ratio, 0.1 / (1 - exp(-2))), "case 12: a pile-up split over alleles is still not detected")
+
+# --- Case 13: reads split between near-identical alleles (D22) -------------------
+# A: 100 16S copies. E18 (1,000 bp) 60 reads, 99% covered -> detected, 6 copies.
+# Undetected, each 10 reads covering 25-30% of 1,000 bp (random breadth 63.2%):
+#   E15: reference 99.1% identical to E18 -> its reads counted under E18.
+#   E8:  96.9% identical                   -> counted under E18 at 0.95.
+#   W:   90.0% identical                   -> below 0.95, not merged.
+#   Q:   99.0% identical but its reads match Q at 80% (< 0.85) -> a different
+#        gene, not merged.
+# E18: copies (6,000 + 2,000) / 1,000 = 8 -> 0.08 per 16S copy; its reads,
+# rpm and detection unchanged; merged_reads 20 from E15 and E8.
+rgi13 <- list(A = list(gene("E18", "3006878", 60, 99, 1000), gene("E15", "3006876", 10, 30, 1000),
+                       gene("E8", "3006881", 10, 25, 1000), gene("W", "3000500", 10, 25, 1000),
+                       gene("Q", "3000600", 10, 25, 1000)))
+al13 <- data.frame(aro_a = c("3006876", "3006878", "3006881", "3006878", "3000500", "3006878", "3000600", "3006878"),
+                   aro_b = c("3006878", "3006876", "3006878", "3006881", "3006878", "3000500", "3006878", "3000600"),
+                   identity = c(0.991, 0.991, 0.969, 0.969, 0.90, 0.90, 0.99, 0.99))
+r13 <- run_case(flow_row("A", 1e6), rgi13, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), identity = c("3000600" = 0.80),
+                min_identity = 0.85, alleles = al13, min_allele = 0.95)
+g13 <- function(t) r13$long[r13$long$aro_term == t, ]
+e18 <- g13("E18")
+ok(e18$detected && e18$reads == 60 && near(e18$rpm, 60) && e18$merged_reads == 20 && near(e18$merged_aligned_bases, 2000),
+   "case 13: minor alleles' reads added to the detected gene, its own reads unchanged")
+ok(near(e18$arg_copies, 8) && near(e18$copies_per_16s, 0.08) && setequal(strsplit(e18$merged_from, ";")[[1]], c("E15", "E8")),
+   "case 13: copies include the merged reads, and merged_from names them")
+ok(!g13("E15")$detected && grepl("counted under E18", g13("E15")$detection_note) && grepl("counted under E18", g13("E8")$detection_note),
+   "case 13: merged alleles stay undetected, with a note saying where their reads went")
+ok(!grepl("counted under", g13("W")$detection_note) && !grepl("counted under", g13("Q")$detection_note) &&
+   g13("W")$merged_reads == 0 && near(r13$cp[r13$cp$aro_term == "E18", "A"], 0.08) && !any(c("E15", "E8") %in% r13$cp$aro_term),
+   "case 13: not merged below the identity, nor when the reads match poorly; matrices hold detected genes only")
+r13o <- run_case(flow_row("A", 1e6), rgi13, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), alleles = al13, min_allele = 0)
+ok(all(r13o$long$merged_reads == 0) && near(r13o$long$arg_copies[r13o$long$aro_term == "E18"], 6), "case 13: min_allele_identity 0 switches merging off")
+f13 <- run_case(flow_row("A", 1e6), rgi13, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_allele = 0.95, expect_fail = TRUE)
+ok(f13$status != 0 && grepl("no allele table", f13$msg), "case 13: merging asked for without an allele table stops the run")
+
+# --- Case 14: read identity judged read by read (D23) -------------------------------
+# rgi_read_stats.sh leaves reads below min_read_identity out and counts them.
+# A: 1,000,000 reads, 100 16S copies; min_read_identity 0.85.
+#   R (1,000 bp): RGI saw 4 reads; 2 matched below 0.85 and are left out.
+#      The 2 kept cover 19% (random 100(1 - e^-0.2) = 18.1%, ratio 1.05)
+#      -> detected on its 2 good reads; rpm 2.
+#   S (1,000 bp): RGI saw 4 reads, only 1 matched well -> fewer than 2 reads
+#      match: not detected, and the note says why.
+#   T: RGI saw 3 reads, none matched well -> 0 kept, not detected.
+rgi14 <- list(A = list(gene("R", "3000101", 2, 19, 1000), gene("S", "3000102", 1, 10, 1000), gene("T", "3000103", 0, 0, 1000)))
+r14 <- run_case(flow_row("A", 1e6), rgi14, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.85,
+                low = c("3000101" = 2, "3000102" = 3, "3000103" = 3))
+g14 <- function(t) r14$long[r14$long$aro_term == t, ]
+ok(g14("R")$detected && g14("R")$reads == 2 && g14("R")$reads_below_identity == 2 && near(g14("R")$rpm, 2),
+   "case 14: a gene is called on its good reads although others fell below the identity")
+ok(!g14("S")$detected && g14("S")$reads == 1 && g14("S")$reads_below_identity == 3 && grepl("fewer than 2 reads match the CARD reference at 85%", g14("S")$detection_note),
+   "case 14: too few good reads: not called, the note says how many fell below")
+ok(!g14("T")$detected && g14("T")$reads == 0 && g14("T")$reads_below_identity == 3 && is.na(g14("T")$read_identity),
+   "case 14: no good reads at all: not called, identity missing")
+ok(all(r14$den$low_identity_16s == 0) && "low_identity_16s" %in% names(r14$den), "case 14: denominators report 16S hits dropped for low identity")
+
+# --- Case 15: most of a gene's reads must pass the identity (D24) ---------------------
+# min_read_identity 0.85, min_identity_share 0.5. Each gene's kept reads cover
+# 19% of 1,000 bp (2 reads, breadth ratio 1.05), so only the share decides:
+#   H: 2 kept, 2 below -> 50%: detected (a real gene with one junk pair).
+#   L: 2 kept, 6 below -> 25%: not detected (a look-alike), with the reason.
+# With min_identity_share 0 (off), L is detected.
+rgi15 <- list(A = list(gene("H", "3000201", 2, 19, 1000), gene("L", "3000202", 2, 19, 1000)))
+r15 <- run_case(flow_row("A", 1e6), rgi15, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.85,
+                low = c("3000201" = 2, "3000202" = 6), min_share = 0.5)
+g15 <- function(t) r15$long[r15$long$aro_term == t, ]
+ok(g15("H")$detected, "case 15: half the reads passing is enough")
+ok(!g15("L")$detected && grepl("only 2 of 8 reads \\(25%; < 50%\\)", g15("L")$detection_note),
+   "case 15: a quarter passing is a look-alike, with the reason")
+r15o <- run_case(flow_row("A", 1e6), rgi15, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.85,
+                 low = c("3000201" = 2, "3000202" = 6), min_share = 0)
+ok(r15o$long$detected[r15o$long$aro_term == "L"], "case 15: min_identity_share 0 switches the rule off")
+
+# --- Case 16: protein mode (D26, D27) ----------------------------------------------
+# DIAMOND's gene tables (<sample>.protein_genes.tsv) with the same read
+# statistics; rule f70g90: reads below 70% were already left out by
+# protein_read_stats.sh (counted as below), and a gene needs its kept reads
+# at 90% amino-acid identity together. The share rule is off (0), as the
+# workflow sets it in protein mode. Each gene: 1,000 bp, 4 kept reads over
+# 33% (random 100(1 - e^-0.4) = 33.0%, ratio 1.0).
+#   P: kept reads at 93% (a real gene of another species), 6 below: detected.
+#   O: kept reads at 85% (the host's own related gene): not detected.
+#   Q: 1 kept read, 5 below: the note names the per-read 70%, not the 90%.
+rgi16 <- list(A = list(gene("P", "3000301", 4, 33, 1000), gene("O", "3000302", 4, 33, 1000), gene("Q", "3000303", 1, 10, 1000)))
+r16 <- run_case(flow_row("A", 1e6), rgi16, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9,
+                identity = c("3000301" = 0.93, "3000302" = 0.85, "3000303" = 0.95), low = c("3000301" = 6, "3000303" = 5),
+                count_mode = "protein", read_filter = 0.7)
+g16 <- function(t) r16$long[r16$long$aro_term == t, ]
+ok(g16("P")$detected && g16("P")$reads == 4 && g16("P")$reads_below_identity == 6 && near(g16("P")$read_identity, 0.93),
+   "case 16: protein mode calls a gene whose kept reads reach the gene identity, however many fell below")
+ok(!g16("O")$detected && grepl("85.0% identity \\(< 90.0%\\)", g16("O")$detection_note),
+   "case 16: protein mode: kept reads below the gene identity are a related gene, with the reason")
+ok(!g16("Q")$detected && grepl("at 70% identity or more", g16("Q")$detection_note),
+   "case 16: protein mode: too few kept reads, the note gives the per-read identity")
+ok(all(r16$long$count_mode == "protein") && all(r16$den$count_mode == "protein") && any(grepl("DIAMOND blastx", r16$md)) &&
+   is.na(g16("P")$average_mapq), "case 16: protein mode is recorded in the tables and the summary; RGI-only columns are NA")
+ok(all(r14$long$count_mode == "dna") && any(grepl("RGI bwt", r14$md)), "case 16: DNA mode is recorded as dna")
+f <- run_case(flow_row("A", 1e6), rgi16, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9,
+              count_mode = "protein", read_filter = 0.7, stray = "A.gene_mapping_data.txt", expect_fail = TRUE)
+ok(f$status != 0 && grepl("other engine's gene tables", f$msg), "case 16: gene tables of both engines in one run stop it")
+f <- run_case(flow_row("A", 1e6), rgi16, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), count_mode = "rna", read_filter = 0.7, expect_fail = TRUE)
+ok(f$status != 0 && grepl("count_mode must be dna or protein", f$msg), "case 16: an unknown count_mode stops the run")
+
+# --- Case 17: protein mode, the high-identity way to detect a gene (D31) -----------
+# Every gene: 1,000 bp, 6 kept reads at 70% or more over 33% of the gene (random
+# 100(1 - e^-0.6) = 45%, ratio 0.73), kept reads at 85%: f70g90 fails them (< 90%).
+# The same genes' reads at 90% or more alone (core statistics):
+#   P: 4 reads at 97%, 330 bp covered (random 100(1 - e^-0.4) = 33%, ratio 1.0): detected, high_identity.
+#   R: 1 read only: not detected.
+#   S: 4 reads at 92%: below 95%: not detected.
+#   T: 4 reads at 99%, 50 bp covered (ratio 0.15 < 0.8): not detected.
+#   U: kept reads at 95% (f70g90 passes): detected, f70g90, the core row is ignored.
+rgi17 <- list(A = list(gene("P", "3000401", 6, 33, 1000), gene("R", "3000402", 6, 33, 1000), gene("S", "3000403", 6, 33, 1000),
+                       gene("T", "3000404", 6, 33, 1000), gene("U", "3000405", 6, 33, 1000)))
+cl <- function(acc, reads, aligned, mm, covered) sprintf("ARO:%s\t%s\t1000\t1000\t%s\t%s\t%s\t%s\tNA\tNA\tNA\t0", acc, acc, reads, aligned, mm, covered)
+core17 <- list(A = c(cl("3000401", 4, 400, 12, 330), cl("3000402", 1, 100, 3, 100), cl("3000403", 4, 400, 32, 330),
+                     cl("3000404", 4, 400, 4, 50), cl("3000405", 6, 600, 30, 330)))
+id17 <- c("3000401" = 0.85, "3000402" = 0.85, "3000403" = 0.85, "3000404" = 0.85, "3000405" = 0.95)
+r17 <- run_case(flow_row("A", 1e6), rgi17, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9, identity = id17,
+                count_mode = "protein", read_filter = 0.7, core = core17)
+g17 <- function(t) r17$long[r17$long$aro_term == t, ]
+ok(g17("P")$detected && g17("P")$detected_by == "high_identity" && g17("P")$reads == 4 && near(g17("P")$read_identity, 0.97) &&
+   near(g17("P")$arg_copies, 0.4) && g17("P")$reads_below_identity == 2,
+   "case 17: a gene diluted below the gene identity is detected by its reads at 90% or more, which are the ones counted")
+ok(!g17("R")$detected && !g17("S")$detected && !g17("T")$detected && all(g17("R")$detected_by == "", g17("S")$detected_by == "", g17("T")$detected_by == ""),
+   "case 17: one core read, core identity below 95%, or core breadth below 0.8: not detected")
+ok(g17("U")$detected && g17("U")$detected_by == "f70g90" && g17("U")$reads == 6 && near(g17("U")$read_identity, 0.95),
+   "case 17: a gene that passes f70g90 keeps its own numbers, detected_by f70g90")
+ok(any(grepl("detected_by", r17$md)), "case 17: the summary explains detected_by when the rule is on")
+r17o <- run_case(flow_row("A", 1e6), rgi17, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9, identity = id17,
+                 count_mode = "protein", read_filter = 0.7, core = core17, core_gene = 0)
+ok(!r17o$long$detected[r17o$long$aro_term == "P"] && !any(grepl("detected_by", r17o$md)), "case 17: core_gene_identity 0 switches the rule off")
+f <- run_case(flow_row("A", 1e6), rgi17, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9, identity = id17,
+              count_mode = "protein", read_filter = 0.7, core = list(B = core17$A), expect_fail = TRUE)
+ok(f$status != 0 && grepl("no high-identity read statistics for A", f$msg), "case 17: a sample without core statistics stops the run")
+ok(all(r14$long$detected_by[r14$long$detected] == "dna"), "case 17: DNA mode records detected_by dna")
+
+# --- Case 18: protein mode, the probable homolog (V3, D33) -----------------------------
+# Every gene: 1,000 bp, 6 kept reads over 33% of the gene (ratio 0.73), unless noted.
+#   V: kept reads at 88%: probable_homolog.      W: 86%: probable_homolog.
+#   X: 84%: below the band: no call.             Y: 1 kept read at 88%: no call.
+#   Z: 88% but 3% covered (ratio 0.07): no call. D: 95%: detected.   E: 90%: detected.
+rgi18 <- list(A = list(gene("V", "3000501", 6, 33, 1000), gene("W", "3000502", 6, 33, 1000), gene("X", "3000503", 6, 33, 1000),
+                       gene("Y", "3000504", 1, 10, 1000), gene("Z", "3000505", 6, 3, 1000), gene("D", "3000506", 6, 33, 1000),
+                       gene("E", "3000507", 6, 33, 1000)))
+id18 <- c("3000501" = 0.88, "3000502" = 0.86, "3000503" = 0.84, "3000504" = 0.88, "3000505" = 0.88, "3000506" = 0.95, "3000507" = 0.90)
+r18 <- run_case(flow_row("A", 1e6), rgi18, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9, identity = id18,
+                count_mode = "protein", read_filter = 0.7, probable = 0.85)
+g18 <- function(t) r18$long[r18$long$aro_term == t, ]
+ok(g18("V")$call == "probable_homolog" && g18("W")$call == "probable_homolog" && !g18("V")$detected && !g18("W")$detected,
+   "case 18: a gene at 85% to under 90% identity is a probable homolog, not detected")
+ok(g18("X")$call == "" && g18("Y")$call == "" && g18("Z")$call == "", "case 18: below 85%, one read, or low breadth: no call")
+ok(g18("D")$call == "detected" && g18("E")$call == "detected" && g18("D")$detected && g18("E")$detected, "case 18: 90% and above: detected")
+ok(!any(c("V", "W") %in% r18$cp$aro_term) && all(c("D", "E") %in% r18$cp$aro_term), "case 18: probable homologs are not in the copies matrix")
+ok(any(grepl("probable_homolog", r18$md)), "case 18: the summary explains call")
+r18o <- run_case(flow_row("A", 1e6), rgi18, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9, identity = id18,
+                 count_mode = "protein", read_filter = 0.7, probable = 0)
+ok(all(r18o$long$call[r18o$long$aro_term %in% c("V", "W")] == "") && !any(grepl("probable_homolog", r18o$md)),
+   "case 18: probable identity 0 switches the class off")
+ok(all(r14$long$call == ifelse(r14$long$detected, "detected", "")), "case 18: DNA mode: call is detected or empty")
+
+# --- Case 19: protein mode, the minimum reads of the high-identity route (V3, D2) ----------
+# Same genes as case 17: P has 4 core reads at 97% (detected), R-style genes with 3 reads at 99%.
+#   Q3: 3 core reads at 99% over 250 bp: detected with core_min 0, not with 4.
+rgi19 <- list(A = list(gene("P", "3000401", 6, 33, 1000), gene("Q3", "3000411", 6, 33, 1000)))
+core19 <- list(A = c(cl("3000401", 4, 400, 12, 330), cl("3000411", 3, 300, 3, 250)))
+id19 <- c("3000401" = 0.85, "3000411" = 0.85)
+r19a <- run_case(flow_row("A", 1e6), rgi19, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9, identity = id19,
+                 count_mode = "protein", read_filter = 0.7, core = core19, probable = 0.85, core_min = 0)
+r19b <- run_case(flow_row("A", 1e6), rgi19, c(A = 1542), c("sample,fastq_1", "A,a.fq.gz"), min_identity = 0.9, identity = id19,
+                 count_mode = "protein", read_filter = 0.7, core = core19, probable = 0.85, core_min = 4)
+g19a <- function(t) r19a$long[r19a$long$aro_term == t, ]; g19b <- function(t) r19b$long[r19b$long$aro_term == t, ]
+ok(g19a("Q3")$detected && g19a("P")$detected, "case 19: with no extra minimum, 3 core reads are enough")
+ok(!g19b("Q3")$detected && g19b("P")$detected && g19b("P")$detected_by == "high_identity",
+   "case 19: with a minimum of 4 core reads, 3 are not enough and 4 are")
+ok(g19b("Q3")$call == "probable_homolog" || g19b("Q3")$call == "", "case 19: the 3-read gene is never detected by the core route")
 
 if (length(fails)) {
   cat(sprintf("test_resistome_tables.R: %d passed, %d FAILED\n", n_pass, length(fails)), paste0("  - ", fails, collapse = "\n"), "\n", sep = "")

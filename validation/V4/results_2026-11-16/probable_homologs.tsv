@@ -1,0 +1,128 @@
+sample	aro_accession	aro_term	reads	read_identity	breadth_ratio	call
+bg_gut	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+bg_gut	3000616	mel	6	0.859922	0.990498	probable_homolog
+bg_gut	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+bg_gut	3000216	acrB	5	0.860104	0.541374	probable_homolog
+bg_gut	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+bg_gut	3003838	gadW	2	0.882353	0.937936	probable_homolog
+bg_gut	3004580	Klebsiella pneumoniae KpnE	2	0.897959	1.08525	probable_homolog
+bg_wastewater	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+mix_gut_GCF_062052633.1_0.5x	3000830	cpxA	9	0.855814	0.823862	probable_homolog
+mix_gut_GCF_062052633.1_0.5x	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+mix_gut_GCF_062052633.1_0.5x	3000616	mel	6	0.859922	0.990498	probable_homolog
+mix_gut_GCF_062052633.1_0.5x	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+mix_gut_GCF_062052633.1_0.5x	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+mix_gut_GCF_062052633.1_0.5x	3004597	Klebsiella pneumoniae KpnH	4	0.861702	1.14806	probable_homolog
+mix_gut_GCF_062052633.1_0.5x	3003838	gadW	2	0.882353	0.937936	probable_homolog
+mix_gut_GCF_062052633.1_0.5x	3004580	Klebsiella pneumoniae KpnE	2	0.897959	1.08525	probable_homolog
+mix_gut_GCF_062052633.1_2x	3000793	mdtB	35	0.889438	0.896349	probable_homolog
+mix_gut_GCF_062052633.1_2x	3000796	mdtF	14	0.851485	0.817065	probable_homolog
+mix_gut_GCF_062052633.1_2x	3003843	leuO	8	0.853846	0.636528	probable_homolog
+mix_gut_GCF_062052633.1_2x	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+mix_gut_GCF_062052633.1_2x	3000616	mel	6	0.859922	0.990498	probable_homolog
+mix_gut_GCF_062052633.1_2x	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+mix_gut_GCF_062052633.1_2x	3005069	rsmA	5	0.863388	0.917729	probable_homolog
+mix_gut_GCF_062052633.1_2x	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+mix_gut_GCF_062052633.1_2x	3004580	Klebsiella pneumoniae KpnE	3	0.851351	0.858403	probable_homolog
+mix_gut_GCF_062052633.1_2x	3003838	gadW	2	0.882353	0.937936	probable_homolog
+mix_gut_GCF_062052633.1_8x	3000793	mdtB	100	0.873558	0.783747	probable_homolog
+mix_gut_GCF_062052633.1_8x	3000491	acrD	10	0.894515	0.639366	probable_homolog
+mix_gut_GCF_062052633.1_8x	3000656	AcrS	6	0.878947	0.608455	probable_homolog
+mix_gut_GCF_062052633.1_8x	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+mix_gut_GCF_062052633.1_8x	3000616	mel	6	0.859922	0.990498	probable_homolog
+mix_gut_GCF_062052633.1_8x	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+mix_gut_GCF_062052633.1_8x	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+mix_gut_GCF_062052633.1_8x	3003838	gadW	2	0.882353	0.937936	probable_homolog
+mix_gut_GCF_062058145.1_0.5x	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+mix_gut_GCF_062058145.1_0.5x	3000616	mel	6	0.859922	0.990498	probable_homolog
+mix_gut_GCF_062058145.1_0.5x	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+mix_gut_GCF_062058145.1_0.5x	3000216	acrB	5	0.860104	0.541374	probable_homolog
+mix_gut_GCF_062058145.1_0.5x	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+mix_gut_GCF_062058145.1_0.5x	3003838	gadW	2	0.882353	0.937936	probable_homolog
+mix_gut_GCF_062058145.1_0.5x	3004580	Klebsiella pneumoniae KpnE	2	0.897959	1.08525	probable_homolog
+mix_gut_GCF_062058145.1_2x	3005069	rsmA	10	0.879888	1.00031	probable_homolog
+mix_gut_GCF_062058145.1_2x	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+mix_gut_GCF_062058145.1_2x	3000616	mel	6	0.859922	0.990498	probable_homolog
+mix_gut_GCF_062058145.1_2x	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+mix_gut_GCF_062058145.1_2x	3000216	acrB	5	0.860104	0.541374	probable_homolog
+mix_gut_GCF_062058145.1_2x	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+mix_gut_GCF_062058145.1_2x	3003838	gadW	2	0.882353	0.937936	probable_homolog
+mix_gut_GCF_062058145.1_2x	3004580	Klebsiella pneumoniae KpnE	2	0.897959	1.08525	probable_homolog
+mix_gut_GCF_062058145.1_8x	3005069	rsmA	18	0.893082	1	probable_homolog
+mix_gut_GCF_062058145.1_8x	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+mix_gut_GCF_062058145.1_8x	3000616	mel	6	0.859922	0.990498	probable_homolog
+mix_gut_GCF_062058145.1_8x	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+mix_gut_GCF_062058145.1_8x	3000216	acrB	5	0.860104	0.541374	probable_homolog
+mix_gut_GCF_062058145.1_8x	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+mix_gut_GCF_062058145.1_8x	3003838	gadW	2	0.882353	0.937936	probable_homolog
+mix_gut_GCF_062058145.1_8x	3004580	Klebsiella pneumoniae KpnE	2	0.897959	1.08525	probable_homolog
+mix_gut_GCF_062075038.1_0.5x	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+mix_gut_GCF_062075038.1_0.5x	3000616	mel	6	0.859922	0.990498	probable_homolog
+mix_gut_GCF_062075038.1_0.5x	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+mix_gut_GCF_062075038.1_0.5x	3000216	acrB	5	0.860104	0.541374	probable_homolog
+mix_gut_GCF_062075038.1_0.5x	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+mix_gut_GCF_062075038.1_0.5x	3003838	gadW	2	0.882353	0.937936	probable_homolog
+mix_gut_GCF_062075038.1_0.5x	3004580	Klebsiella pneumoniae KpnE	2	0.897959	1.08525	probable_homolog
+mix_gut_GCF_062075038.1_2x	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+mix_gut_GCF_062075038.1_2x	3000616	mel	6	0.859922	0.990498	probable_homolog
+mix_gut_GCF_062075038.1_2x	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+mix_gut_GCF_062075038.1_2x	3000216	acrB	5	0.860104	0.541374	probable_homolog
+mix_gut_GCF_062075038.1_2x	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+mix_gut_GCF_062075038.1_2x	3003838	gadW	2	0.882353	0.937936	probable_homolog
+mix_gut_GCF_062075038.1_2x	3004580	Klebsiella pneumoniae KpnE	2	0.897959	1.08525	probable_homolog
+mix_gut_GCF_062075038.1_8x	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+mix_gut_GCF_062075038.1_8x	3000616	mel	6	0.859922	0.990498	probable_homolog
+mix_gut_GCF_062075038.1_8x	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+mix_gut_GCF_062075038.1_8x	3000216	acrB	5	0.860104	0.541374	probable_homolog
+mix_gut_GCF_062075038.1_8x	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+mix_gut_GCF_062075038.1_8x	3003838	gadW	2	0.882353	0.937936	probable_homolog
+mix_gut_GCF_062075038.1_8x	3004580	Klebsiella pneumoniae KpnE	2	0.897959	1.08525	probable_homolog
+mix_gut_GCF_062083255.1_0.5x	3000794	mdtC	16	0.862595	0.891997	probable_homolog
+mix_gut_GCF_062083255.1_0.5x	3000074	emrB	6	0.853047	1.06764	probable_homolog
+mix_gut_GCF_062083255.1_0.5x	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+mix_gut_GCF_062083255.1_0.5x	3000616	mel	6	0.859922	0.990498	probable_homolog
+mix_gut_GCF_062083255.1_0.5x	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+mix_gut_GCF_062083255.1_0.5x	3000216	acrB	5	0.860104	0.541374	probable_homolog
+mix_gut_GCF_062083255.1_0.5x	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+mix_gut_GCF_062083255.1_0.5x	3003838	gadW	2	0.882353	0.937936	probable_homolog
+mix_gut_GCF_062083255.1_2x	3000793	mdtB	29	0.88209	0.775847	probable_homolog
+mix_gut_GCF_062083255.1_2x	3003049	rosB	17	0.862117	0.653566	probable_homolog
+mix_gut_GCF_062083255.1_2x	3003843	leuO	6	0.87415	0.751289	probable_homolog
+mix_gut_GCF_062083255.1_2x	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+mix_gut_GCF_062083255.1_2x	3000616	mel	6	0.859922	0.990498	probable_homolog
+mix_gut_GCF_062083255.1_2x	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+mix_gut_GCF_062083255.1_2x	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+mix_gut_GCF_062083255.1_2x	3003838	gadW	2	0.882353	0.937936	probable_homolog
+mix_gut_GCF_062083255.1_8x	3003049	rosB	50	0.862203	0.685304	probable_homolog
+mix_gut_GCF_062083255.1_8x	3000796	mdtF	18	0.867995	0.668833	probable_homolog
+mix_gut_GCF_062083255.1_8x	3003843	leuO	16	0.862024	0.516324	probable_homolog
+mix_gut_GCF_062083255.1_8x	3005069	rsmA	12	0.879607	1.00006	probable_homolog
+mix_gut_GCF_062083255.1_8x	3000491	acrD	10	0.885081	0.575684	probable_homolog
+mix_gut_GCF_062083255.1_8x	3001327	MdtK	6	0.882155	0.758566	probable_homolog
+mix_gut_GCF_062083255.1_8x	3000616	mel	6	0.859922	0.990498	probable_homolog
+mix_gut_GCF_062083255.1_8x	3002628	aad(6)	5	0.852381	0.631592	probable_homolog
+mix_gut_GCF_062083255.1_8x	3000656	AcrS	5	0.874286	0.667541	probable_homolog
+mix_gut_GCF_062083255.1_8x	3004035	tetA(60)	5	0.852679	0.627322	probable_homolog
+mix_gut_GCF_062083255.1_8x	3003838	gadW	2	0.882353	0.937936	probable_homolog
+mix_wastewater_GCF_062052633.1_0.5x	3000830	cpxA	9	0.855814	0.820593	probable_homolog
+mix_wastewater_GCF_062052633.1_0.5x	3000518	CRP	3	0.891156	0.94653	probable_homolog
+mix_wastewater_GCF_062052633.1_0.5x	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+mix_wastewater_GCF_062052633.1_2x	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+mix_wastewater_GCF_062052633.1_8x	3005069	rsmA	24	0.854639	1	probable_homolog
+mix_wastewater_GCF_062052633.1_8x	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+mix_wastewater_GCF_062058145.1_0.5x	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+mix_wastewater_GCF_062058145.1_2x	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+mix_wastewater_GCF_062058145.1_8x	3005069	rsmA	31	0.859736	1	probable_homolog
+mix_wastewater_GCF_062058145.1_8x	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+mix_wastewater_GCF_062075038.1_0.5x	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+mix_wastewater_GCF_062075038.1_2x	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+mix_wastewater_GCF_062075038.1_8x	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+mix_wastewater_GCF_062083255.1_0.5x	3000518	CRP	3	0.865385	0.506066	probable_homolog
+mix_wastewater_GCF_062083255.1_0.5x	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+mix_wastewater_GCF_062083255.1_0.5x	3003843	leuO	2	0.89	0.610651	probable_homolog
+mix_wastewater_GCF_062083255.1_2x	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+mix_wastewater_GCF_062083255.1_8x	3001328	Escherichia coli mdfA	2	0.888889	1.12225	probable_homolog
+pure_GCF_062052633.1	3000793	mdtB	101	0.861779	0.715367	probable_homolog
+pure_GCF_062052633.1	3000491	acrD	8	0.866667	0.508982	probable_homolog
+pure_GCF_062083255.1	3003049	rosB	52	0.87269	0.629858	probable_homolog
+pure_GCF_062083255.1	3005069	rsmA	12	0.893462	1.00006	probable_homolog

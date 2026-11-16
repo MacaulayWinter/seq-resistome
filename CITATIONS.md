@@ -6,6 +6,9 @@ Please cite the tools seq-resistome runs.
   for machine learning, and resistome prediction at the Comprehensive
   Antibiotic Resistance Database. *Nucleic Acids Research* 51:D690-D699
   (2023). doi:10.1093/nar/gkac920
+- **DIAMOND** (protein mode): Buchfink B, Reuter K, Drost HG. Sensitive
+  protein alignments at tree-of-life scale using DIAMOND. *Nat Methods*
+  2021;18:366-368. doi:10.1038/s41592-021-01101-x
 - **KMA** (RGI bwt's aligner): Clausen PTLC, Aarestrup FM, Lund O. Rapid and
   precise alignment of raw reads against redundant databases with KMA.
   *BMC Bioinformatics* 19:307 (2018). doi:10.1186/s12859-018-2336-6

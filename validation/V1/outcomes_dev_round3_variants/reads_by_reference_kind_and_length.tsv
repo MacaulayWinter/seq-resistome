@@ -1,0 +1,5 @@
+kind	length_vs_card	reads	share_of_reads	read_identity
+CARD reference	0.9-1.1x	237	0.01	0.946
+variant	0.9-1.1x	16848	0.724	0.943
+variant	over 1.1x	5835	0.251	0.888
+variant	under 0.9x	358	0.015	0.714

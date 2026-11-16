@@ -1,0 +1,5 @@
+species	taxid	accession	organism	release_date	window_start	window_months_back	n_candidates	draw
+Citrobacter_freundii	546	GCF_062075917.1	Citrobacter freundii	2026-11-04	2026-10-14	1	1	1
+Pseudomonas_aeruginosa	287	GCF_062052425.1	Pseudomonas aeruginosa	2026-10-21	2026-10-14	1	13	1
+Acinetobacter_baumannii	470	GCF_062075456.1	Acinetobacter baumannii	2026-11-04	2026-10-14	1	15	1
+Enterococcus_faecium	1352	GCF_052055575.2	Enterococcus faecium	2026-10-29	2026-10-14	1	4	1

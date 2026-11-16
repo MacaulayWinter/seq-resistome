@@ -1,0 +1,15 @@
+genome	orf	aro_accession	aro_term	family	contig	start	stop	findable	protein_identity	best_dna_identity
+GCF_062052633.1	NZ_CM203865.1_227	3007014	qacJ	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CM203865.1	245444	245776	FALSE	37.25	NA
+GCF_062052633.1	NZ_CM203865.1_787	3004597	Klebsiella pneumoniae KpnH	major facilitator superfamily (MFS) antibiotic efflux pump	NZ_CM203865.1	833429	834946	FALSE	72.71	66.756
+GCF_062052633.1	NZ_CM203865.1_814	3005069	rsmA	resistance-nodulation-cell division (RND) antibiotic efflux pump; antibiotic efflux regulatory protein	NZ_CM203865.1	870999	871187	FALSE	92.98	NA
+GCF_062052633.1	NZ_CM203865.1_2160	3007014	qacJ	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CM203865.1	2404282	2404608	FALSE	37.86	NA
+GCF_062052633.1	NZ_CM203865.1_3391	3005053	ArnT	pmr phosphoethanolamine transferase	NZ_CM203865.1	3781187	3782848	FALSE	47.48	73.077
+GCF_062052633.1	NZ_CM203865.1_3460	3004583	Klebsiella pneumoniae KpnF	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CM203865.1	3856199	3856531	FALSE	70.09	NA
+GCF_062052633.1	NZ_CM203865.1_3552	3002909	vanG	glycopeptide resistance gene cluster; Van ligase	NZ_CM203865.1	3964481	3965581	FALSE	39.09	NA
+GCF_062075038.1	NZ_CM206275.1_547	3002961	vanY gene in vanM cluster	vanY; glycopeptide resistance gene cluster	NZ_CM206275.1	541042	541758	FALSE	32.53	NA
+GCF_062083255.1	NZ_CM206970.1_928	3002860	dfrA17	trimethoprim resistant dihydrofolate reductase dfr	NZ_CM206970.1	1057601	1058200	FALSE	99.36	100
+GCF_062083255.1	NZ_CM206970.1_1589	3005053	ArnT	pmr phosphoethanolamine transferase	NZ_CM206970.1	1716901	1718562	FALSE	45.9	65.288
+GCF_062083255.1	NZ_CM206970.1_1592	3005053	ArnT	pmr phosphoethanolamine transferase	NZ_CM206970.1	1719506	1721203	FALSE	45.28	77.273
+GCF_062083255.1	NZ_CM206970.1_1674	3007015	qacG	small multidrug resistance (SMR) antibiotic efflux pump	NZ_CM206970.1	1799034	1799366	FALSE	31.07	NA
+GCF_062083255.1	NZ_CM206970.1_2513	3007371	FosA8	fosfomycin thiol transferase	NZ_CM206970.1	2652329	2652760	FALSE	52.94	77.119
+GCF_062083255.1	NZ_CM206970.1_2829	3004597	Klebsiella pneumoniae KpnH	major facilitator superfamily (MFS) antibiotic efflux pump	NZ_CM206970.1	2986363	2987895	FALSE	77.6	75.517

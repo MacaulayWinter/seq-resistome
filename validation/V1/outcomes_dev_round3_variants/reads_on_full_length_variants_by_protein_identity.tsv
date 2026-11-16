@@ -1,0 +1,5 @@
+protein_identity_band	reads	share_of_reads	read_identity
+90-95%	724	0.043	0.787
+95-98%	2314	0.137	0.923
+98-100%	12265	0.728	0.963
+under 90%	1545	0.092	0.872
