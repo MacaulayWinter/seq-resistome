@@ -1,0 +1,5 @@
+species	taxid	accession	organism	release_date	window_start	window_months_back	n_candidates	draw
+Proteus_mirabilis	584	GCF_062052633.1	Proteus mirabilis	2026-10-21	2026-10-15	1	9	1
+Vibrio_cholerae	666	GCF_062058145.1	Vibrio cholerae	2026-10-26	2026-10-15	1	3	1
+Streptococcus_pneumoniae	1313	GCF_062075038.1	Streptococcus pneumoniae	2026-11-03	2026-10-15	1	2	1
+Morganella_morganii	582	GCF_062083255.1	Morganella morganii	2026-11-11	2026-10-15	1	2	1

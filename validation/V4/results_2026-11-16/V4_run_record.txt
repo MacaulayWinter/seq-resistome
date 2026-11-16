@@ -1,0 +1,18 @@
+date: 2026-11-15 15:25:47
+pipeline commit under test: ba34ac5 (HEAD 8f6f701)
+pre-registration commit: 8b66add543d1d822200dd3ef658fc9ff22fd8bfb
+PREREGISTRATION.md sha256: 94d5cd71496ca17e08b52d2498d1e989e7d8cb3c662f635b9d2c6e0ba0fcc3f5
+ADDENDUM_A.md sha256: 0b2313c180e6a266c5e9206dcb43bf4705c29f9e8762d389f4b9be8500ceb589
+score_V4.R sha256: 46f906e3ee210474f64e84f02fa76491b11df7b5db7714de8830ae2b04d5247a
+date: 2026-11-15 18:41:59
+pipeline commit under test: ba34ac5 (HEAD 8f6f701)
+pre-registration commit: 8b66add543d1d822200dd3ef658fc9ff22fd8bfb
+PREREGISTRATION.md sha256: 94d5cd71496ca17e08b52d2498d1e989e7d8cb3c662f635b9d2c6e0ba0fcc3f5
+ADDENDUM_A.md sha256: 0b2313c180e6a266c5e9206dcb43bf4705c29f9e8762d389f4b9be8500ceb589
+score_V4.R sha256: 46f906e3ee210474f64e84f02fa76491b11df7b5db7714de8830ae2b04d5247a
+date: 2026-11-15 22:30:43
+pipeline commit under test: ba34ac5 (HEAD 053ff77)
+pre-registration commit: 8b66add543d1d822200dd3ef658fc9ff22fd8bfb
+PREREGISTRATION.md sha256: 94d5cd71496ca17e08b52d2498d1e989e7d8cb3c662f635b9d2c6e0ba0fcc3f5
+ADDENDUM_A.md sha256: 0b2313c180e6a266c5e9206dcb43bf4705c29f9e8762d389f4b9be8500ceb589
+score_V4.R sha256: aba9a34e73e6e213ab30ee27aa11608247e13e9d011794011cae49c197638023
